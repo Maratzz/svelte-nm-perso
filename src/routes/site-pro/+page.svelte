@@ -1,0 +1,2 @@
+<h1>Envie de travailler avec moi ?</h1>
+<p>Rendez-vous sur <a href="https://nicolasmoisson.pro">nicolasmoisson.pro</a> pour parler rédaction web et webdev, mais genre en vrai, avec des sous et tout.</p>
