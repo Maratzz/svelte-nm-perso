@@ -1,38 +1,29 @@
-# create-svelte
+# Refonte d'un site personnel
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## Objectifs
 
-## Creating a project
+- Créer un nouveau site perso en apprenant et en utilisant [SvelteKit](https://kit.svelte.dev/), [Svelte](https://svelte.dev/) et tous les outils des *cool kids* de 20XX.
+- Documenter tout ça précieusement et méticuleusement, pour mon futur moi et pour toi qui lis ces lignes. La documentation obsolète, inutilisable ou tout simplement inexistante n'est pas une fatalité, c'est un choix.
+- Expérimenter dans mon coin d'Internet bricolé de mes mains, héberger tout ce qui passe par ma tête et mes doigts, bricoler des bouts de code, déposer des textes, des idées, du *shitpost*, bref faire un site heureux, curieux, plaisant pour mes yeux, accessible aux jeunes comme aux aïeux.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## C'est cool, je veux le même en local
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+1. Clone ce repositoire avec [la méthode de ton choix](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+2. Vérifie que tu as *npm* et *NodeJS* installés
+3. Installe les dépendances avec `npm install`
+4. Lance le serveur de développement avec `npm  run  dev  --  --open`
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+## C'est cool, je veux le même mais pour le mettre sur Internet
 
-## Developing
+SvelteKit c'est bien parce que [c'est documenté](https://kit.svelte.dev/docs/building-your-app).
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Licence
 
-```bash
-npm run dev
+Le code est disponible sans conditions.
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+Si tu diffuses sur Internet les textes, billets de blog, et autres *shitposts* qui ne sont pas des bouts de code, sois sympa et: 
+- essaie de me mentionner et d'inclure un lien vers mon site perso ou pro
+- ne gagne pas des sous avec (comme dit l'autre, si je l'apprends ça va barder)
 
-## Building
 
-To create a production version of your app:
 
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
