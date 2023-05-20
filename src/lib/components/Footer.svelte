@@ -1,4 +1,4 @@
-<div>
+<div class="footer">
   <ul>
     <li><a href="/mentions">Mentions légales</a></li>
     <li><a href="/credits">Crédits</a></li>
