@@ -6,8 +6,6 @@ categories:
 - "sveltekit"
 ---
 
-# Apprendre SvelteKit en créant un blog Markdown statique (traduction)
-
 En démarrant la refonte de mon site perso j'avais plusieurs objectifs en tête:
 - me familiariser avec Svelte et SvelteKit à travers un projet qui me tient à coeur
 - documenter ma progression, ainsi que les difficultés rencontrées, les solutions, et les améliorations au fil du temps, jusqu'à obtenir le site et les fonctionnalités que je voulais
@@ -17,7 +15,7 @@ En faisant des recherches préliminaires je suis tombé sur [l'excellent billet 
 
 Sa concision et sa pédagogie sont un modèle pour la transmission d'informations, aussi ai-je demandé à Josh si je pouvais adapter son billet et le traduire pour en faire profiter les personnes francophones désireuses de se lancer à leur tour dans l'apprentissage de ces nouveaux outils.
 
-Merci encore à Josh pour son aide ! À noter que son site, https://joshcollinsworth.com/ , est lui aussi entièrement fait avec Svelte et SvelteKit, et qu'il contient de nombreux articles tout aussi passionnants et informatifs que celui que j'ai choisi de traduire, n'hésitez pas à y faire un tour.
+Merci encore à Josh pour son aide ! À noter que son site, https://joshcollinsworth.com/ , est lui aussi entièrement fait avec Svelte et SvelteKit, et qu'il contient de nombreux articles tout aussi passionnants et informatifs que celui que j'ai choisi de traduire aujourd'hui, n'hésitez pas à y faire un tour.
 
 ---
 
@@ -28,11 +26,12 @@ Cet article est un tutoriel pour créer un blog statique pré-rendu avec l'aide 
 C'est aussi une introduction à SvelteKit en soi, avec une bonne vue d'ensemble des fondamentaux qui devraient être utilisables pour n'importe quel projet.
 
 C'est en dernier lieu *fun*!*
+
 **mon avis perso*
 
 ## Vous bénéficierez le plus de ce tuto si vous:
 
-- connaissez les bases du développement front-end et de JavaScript;
+- connaissez déjà les bases du développement front-end et de JavaScript;
 - avez au préalable une connaissance basique de Svelte (vous pouvez certainement suivre l'article sans ça, mais je recommande de lire le [tutoriel de Svelte](https://svelte.dev/tutorial/basics) d'abord si vous êtes complètement novices)
 - connaissez les bases de Markdown et de Sass;
 - connaissez les bases de récupérer des données en JSON depuis une API
@@ -56,7 +55,7 @@ image pour la commande
 
 Nous allons choisir l'option **"Skeleton project"** (*attention, pas Library skeleton project, car nous simplement faisons un site, pas une librairie*)
 
->  **Note**: Si c'est la première fois que vous utilisez SvelteKit, n'hésitez pas à choisir "SvelteKit demo app", explorer un peu le projet pour se faire une idée de comment ça marche, et revenir après. C'est une bonne introduction, mais c'est fourni avec plusieurs fichiers et styles qui prendraient du temps à effacer pour commencer
+> Si c'est la première fois que vous utilisez SvelteKit, n'hésitez pas à choisir "SvelteKit demo app", explorer un peu le projet pour se faire une idée de comment ça marche, et revenir après. C'est une bonne introduction, mais c'est fourni avec plusieurs fichiers et styles qui prendraient du temps à effacer pour commencer
 
 L'outil de préparation va également demander vos préférences au sujet de TypeScript, ESlint et Prettier. Je n'utiliserai pas TypeScript pour rester simple dans ce tutoriel, mais vous pouvez l'utiliser si vous le souhaitez (Svelte marche plutôt bien avec.)
 
@@ -92,7 +91,7 @@ Du coup, à l'intérieur de `src/route`:
 -  `blog/+page.svelte` serait la page `/blog`
 -  `blog/un-post/+page.svelte` deviendrait `/blog/un-post`
 
-> Note La convention de `+page.svelte` peut prêter à confusion ou sembler inutilement complexe, surtout si vous étiez habitué·e·s à l'ancienne convention `index.svelte`. Mais comme nous le verrons prochainement, le préfixe `+` permet de faire la différence entre les pages et les composants. Il y a d'autres choses également que l'ont peut rajouter aux routes en plus des pages, comme des chemins dynamiques de serveur; nous verrons cela plus tard.
+> La convention de `+page.svelte` peut prêter à confusion ou sembler inutilement complexe, surtout si vous étiez habitué·e·s à l'ancienne convention `index.svelte`. Mais comme nous le verrons prochainement, le préfixe `+` permet de faire la différence entre les pages et les composants. Il y a d'autres choses également que l'ont peut rajouter aux routes en plus des pages, comme des chemins dynamiques de serveur; nous verrons cela plus tard.
 
 ### Ajouter des pages
 
@@ -100,7 +99,7 @@ Histoire de démarrer avec quelques pages sur notre site, créons les dossiers `
 Dans chacun de ces dossiers nous ajouterons un fichier `+page.svelte`, pour générer le contenu de la page, ce que les personnes verront lorsqu'elles navigueront vers cette route du site.
 Dans chacun de ces fichiers insérons un petit *header* et un peu de texte, juste pour avoir un peu de contenu
 
-> Note: les fichiers Svelte peuvent être du HTML pur.
+> Les fichiers Svelte peuvent être du HTML pur.
 
 dans `a-propos/+page.svelte`
 
@@ -190,7 +189,7 @@ A l'intérieur de `src/lib`, on va créer un dossier appelé `components`, juste
     ┗ 📜 Header.svelte
 ```
 
-> **Note** Ce n'est pas obligatoire de nommer les composants avec une majuscule, ou de les garder dans leur propre dossier, mais c'est en général encouragé.
+> Ce n'est pas obligatoire de nommer les composants avec une majuscule, ou de les garder dans leur propre dossier, mais c'est en général encouragé.
 
 Dans notre nouveau composant `Header` on va insérer une navigation basique mais efficace
 
@@ -291,7 +290,7 @@ Créons un nouveau dossier `styles` dans `src/lib` et ajoutons un fichier `style
     ┗ 📜 style.css 
 ```
 
-> Note: Il n'y a pas règles sur comment organiser les choses à l'intérieur de `src/lib`. Vous n'êtes même pas obligé·e·s d'utiliser `lib`. Faites selon votre propre logique et/ou vos préférences.
+> Il n'y a pas règles sur comment organiser les choses à l'intérieur de `src/lib`. Vous n'êtes même pas obligé·e·s d'utiliser `lib`. Faites selon votre propre logique et/ou vos préférences.
 
 Vous pouvez ajouter le CSS que vous voulez, mais si vous avez besoin d'un début, voici une série de règles qui devraient rendre l'ensemble un peu plus joli:
 
@@ -327,7 +326,7 @@ img rendu css
 
 Etant donné que SvelteKit est compilé et généré sur le serveur (*server-side rendering*, ou SSR), on peut inspecter la page et voir que notre CSS a été directement rajouté au HTML au lieu d'être construite côté client (*client-side rendering* ou CSR). Chouette !
 
-> **Note:** Importer des feuilles de style dans des fichiers JavaScript n'est pas un standard du web; c'est simplement pris en charge par quelques *bundlers* et outils de compilation
+> Importer des feuilles de style dans des fichiers JavaScript n'est pas un standard du web; c'est simplement pris en charge par quelques *bundlers* et outils de compilation.
 
 ### Ajouter Sass à SvelteKit
 
@@ -341,7 +340,7 @@ La prochaine étape consiste à installer à la fois `svelte-preprocess` et `sas
 npm i -D svelte-preprocess sass
 ```
 
-> Note annexe: Depuis la version 1.0 SvelteKit est installé avec `vitePreprocess` en tant qu'alternative embarquée de `svelte-preprocess`. Bien que `vitePreprocess` soit fourni avec SvelteKit, ce qui le rend plus simple à utiliser hors de la boîte, ce n'est toutefois pas à l'heure actuelle aussi versatile que `svelte-preprocess`. Il manque des fonctionnalités qui sont indispensables pour moi, comme le modificateur `global` pour les styles des composants. C'est pour cela que j'ai préféré garder `svelte-preprocess` dans ce tutoriel. [Vous pouvez en lire plus sur les deux préprocesseurs dans la documentation](npm%20i%20-D%20svelte-preprocess%20sass).
+> Depuis la version 1.0 SvelteKit est installé avec `vitePreprocess` en tant qu'alternative embarquée de `svelte-preprocess`. Bien que `vitePreprocess` soit fourni avec SvelteKit, ce qui le rend plus simple à utiliser hors de la boîte, ce n'est toutefois pas à l'heure actuelle aussi versatile que `svelte-preprocess`. Il manque des fonctionnalités qui sont indispensables pour moi, comme le modificateur `global` pour les styles des composants. C'est pour cela que j'ai préféré garder `svelte-preprocess` dans ce tutoriel. [Vous pouvez en lire plus sur les deux préprocesseurs dans la documentation](npm%20i%20-D%20svelte-preprocess%20sass).
 
 #### Modifier la configuration Svelte
 
@@ -367,7 +366,7 @@ Veuillez notez qu'il faudra créer l'option `preprocess`, elle n'est pas là par
 
 Veuillez également noter que vous *pouvez* passer un objet avec plus d'options à l'intérieur de la fonction `sveltePreprocess()`, mais nous ne ferons pas ça pour l'instant. La fonction sait déjà quoi faire avec Sass par défaut, du coup pas besoin de personnalisation supplémentaire.
 
-> Note: Ça vaut le coup de mentionner l'option `scss.prependData`, qui permet d'injecter automatiquement du code au début de n'importe quel traitement Sass (tel que des variables Sass ou un `@import`). Vous pouvez en lire plus dans [la documentation autour de `svelte-preprocess`](https://github.com/sveltejs/svelte-preprocess/blob/main/docs/getting-started.md#31-prepending-content); je voulais simplement le mentionner vu que c'est assez pratique.
+> Ça vaut le coup de mentionner l'option `scss.prependData`, qui permet d'injecter automatiquement du code au début de n'importe quel traitement Sass (tel que des variables Sass ou un `@import`). Vous pouvez en lire plus dans [la documentation autour de `svelte-preprocess`](https://github.com/sveltejs/svelte-preprocess/blob/main/docs/getting-started.md#31-prepending-content); je voulais simplement le mentionner vu que c'est assez pratique.
 
 Une dernière chose importante à savoir: chaque changement de configuration demande de redémarrer le serveur de développement pour appliquer les nouveaux changements.
 
@@ -506,7 +505,7 @@ import SomeComponent from '$lib/components/SomeComponent.svelte'
 More markdown _here_!
 ```
 
-> **Note annexe:** Comme vous pouvez vous en douter peut-être: oui, vous pouvez importer des fichiers Markdown *à l'intérieur* d'autres fichiers Markdown !
+> Comme vous pouvez vous en douter peut-être: oui, vous pouvez importer des fichiers Markdown *à l'intérieur* d'autres fichiers Markdown !
 
 ## Mettre en place le blog
 
@@ -544,7 +543,7 @@ Bonjour, ceci est un _billet de blog._
 
 Pour le moment `/blog/1` et `/blog/2` ne s'afficheront pas. C'est parce que chaque route sur notre site doit avoir un `+page.svelte` (ou un fichier valide commençant par `+`) à afficher.
 
-> Note: Vous pouvez créer un sous-dossier pour mettre tous les billets dedans, ou même les mettre complètement ailleurs, comme bon vous semble. J'ai juste utilisé le chemin le plus facile. Si vous changez l'endroit où sont les fichiers, veillez à corriger le chemin dans le code.
+> Vous pouvez créer un sous-dossier pour mettre tous les billets dedans, ou même les mettre complètement ailleurs, comme bon vous semble. J'ai juste utilisé le chemin le plus facile. Si vous changez l'endroit où sont les fichiers, veillez à corriger le chemin dans le code.
 
 Du coup comment peut-on charger le contenu d'un billet ? C'est là qu'interviennent les routes dynamiques !
 
@@ -588,7 +587,7 @@ Voici une illustration:
     ┗ 📜 +page.svelte -- Génère la page
 ```
 
-> Note: Si vous préférez TypeScript, vous pouvez utiliser `.ts` au lieu de `.js`
+> Si vous préférez TypeScript, vous pouvez utiliser `.ts` au lieu de `.js`
 
 Vu qu'on fait les choses de manière dynamique, nous allons nous reposer sur les capacités de préchargement de `+page.js`. Créons donc ce fichier:
 
@@ -656,7 +655,7 @@ En chargeant un billet de blog nous devrions maintenant voir tout son contenu
 
 img result
 
-> Note annexe: Au cas où vous ne le sauriez pas, `<svelte: component />` est ce qu'on appelle un composant dynamique; il génère un composant Svelte arbitraire (fourni en tant que valeur de la prop `this`), quand le composant final est inconnu à ce moment-là. C'est parfait dans cette situation parce que nous ne sommes pas certain·e·s du billet et du contenu qui sera généré. Aussi: tout ça fonctionne parce que nous avons préalablement déclaré les fichiers .md comme utilisables en tant que composant dans notre `svelte.config.js`
+> Au cas où vous ne le sauriez pas, `<svelte: component />` est ce qu'on appelle un composant dynamique; il génère un composant Svelte arbitraire (fourni en tant que valeur de la prop `this`), quand le composant final est inconnu à ce moment-là. C'est parfait dans cette situation parce que nous ne sommes pas certain·e·s du billet et du contenu qui sera généré. Aussi: tout ça fonctionne parce que nous avons préalablement déclaré les fichiers .md comme utilisables en tant que composant dans notre `svelte.config.js`
 
 Autre syntaxe possible: on pourrait déconstruire tous les props de `data`, et les utiliser individuellement. Cela nécessite un peu plus de préparation, mais ça a l'avantage de nous laisser utiliser `Content` en tant que composant à part.
 
@@ -678,7 +677,7 @@ Ceci est équivalent à l'exemple ci-dessus:
 
 C'est comme vous voulez. Personnellement j'aime la practicité de la déconstruction, mais ça peut tendre vers plus de squelettage. Les deux syntaxes fonctionnent de la même façon.
 
-> Note annexe: Si vous choisissez la deuxième option, veillez à mettre une majuscule pour le nom du contenu/composant (`Content`, dans ce cas-là), afin de l'identifier en composant - à la fois dans le modèle et dans les données retournées depuis la fonction `load`.
+> Si vous choisissez la deuxième option, veillez à mettre une majuscule pour le nom du contenu/composant (`Content`, dans ce cas-là), afin de l'identifier en composant - à la fois dans le modèle et dans les données retournées depuis la fonction `load`.
 
 Bien, nous avons à présent une bonne gestion des billets individuels. Maintenant nous allons construire la page d'index du blog, sur laquelle nous allons lister tous nos billets. Pour ce faire, et parce que nous allons sans doute lister les billets de plusieurs manières et à différents endroits, nous allons construire nos endpoints d'API.
 
@@ -726,7 +725,7 @@ Avec ça en place nous pouvons visiter `/api/posts` et voir le texte suivant (pe
 
 Pas mal non? Notre route API ne renvoie rien d'utile pour l'instant, à l'évidence, mais c'est quand même excitant de faire tourner ça aussi rapidement et facilement!
 
-> **Note:** Bien que nous n'allons pas aborder ça ici, il existe des paramètres qu'on peut rajouter à l'intérieur de la fonction `GET` qui exposent les headers, les paramètres de recherche et d'autres informations sur la requête.
+> Bien que nous n'allons pas aborder ça ici, il existe des paramètres qu'on peut rajouter à l'intérieur de la fonction `GET` qui exposent les headers, les paramètres de recherche et d'autres informations sur la requête.
 
 ### Créer un utilitaire pour récupérer les billets
 
@@ -767,4 +766,153 @@ export const fetchMarkdownPosts = async () => {
 Il se passe beaucoup de choses dans cette fonction. Explicitons:
 
 - `import.meta.glob` est une fonction Vite. Elle importe tous les fichiers qui correspondent au `glob` indiqué - dans ce cas présent, tous les fichiers `.md` dans `src/routes/blog`.
-  - cette fonction renvoie un objet dans lequel chaque chemin relatif de
+  - cette fonction renvoie un objet qui a pour clés chaque chemin relatif des fichiers, et pour valeurs une fonction "resolver" (ma dénomination, pas officielle) qui charge le contenu du fichier en tant que promesse JavaScript.
+- La méthode `map` est juste là pour mettre en forme les données, pour les traiter plus facilement.
+- Etant donné que chaque élément attend la résolution d'une promesse, on entoure le tout d'un `await Promise.all`
+
+Une dernière chose à noter: le chemin d'un fichier est différent de la route en place. Par exemple:
+- ce fichier: `/src/routes/blog/post-title.md`
+- charge à: `/blog/post-title`
+
+Il nous faut donc découper un peu la route pour extraire le chemin. Puisqu'on sait de manière sûre que la route commencera toujours par `/src/routes`et finira toujours par `.md`, on peut sereinement utiliser `.slice(11, -3)` pour retirer ces caractères, soit les 11 premiers et les 3 derniers, afin d'avoir le bon chemin relatif. (On pourrait aussi utiliser `.replace` ou du regex pour être un tout petit peu plus explicite, mais vu qu'on connaît déjà le chemin avec lequel on travaille, je ne vois pas l'intérêt. `.slice`marche très bien.)
+
+### Récupérer les posts à partir d'un endpoint de la route serveur
+
+Maintenant que nous avons notre fonction d'aide pour attraper nos données Markdown, la prochaine étape consiste à récupérer ces données sur le endpoint de l'API.
+
+Dans `+server.js` nous allons mettre le code suivant:
+
+```js
+// src/routes/api/posts/+server.js
+import { fetchMarkdownPosts } from '$lib/utils'
+import { json } from '@sveltejs/kit'
+
+export const GET = async () => {
+  const allPosts = await fetchMarkdownPosts()
+
+  const sortedPosts = allPosts.sort((a, b) => {
+    return new Date(b.meta.date) - new Date(a.meta.date)
+  })
+
+  return json(sortedPosts)
+}
+```
+
+Ça l'air beaucoup vu comme ça mais quand on se rend compte que c'est *tout* ce qu'il nous faut pour créer un endpoint à partir duquel on récupère tous nos billets, triés par date, c'est en fait *incroyable* !
+
+Explicitons:
+
+- D'abord on import et on utilise la fonction `fetchMarkdownPosts` créée ci-dessus pour récupérer les données.
+- On importe également l'outil pratique json. Il gère la conversion des données au format JSON pour nous et paramètres automatiquement les bonnes options pour les headers.
+- Ensuite on trie les billets par date, du plus récent au plus ancien. (On pourrait trier les posts dans la fonction d'aide, mais pour moi la logique devrait rester côté endpoint.)
+- Pour finir on `return` le produit final à l'intérieur d'une fonction `json()`
+
+Faisons un test ! Actualisez votre `/api/posts` et vous devriez voir de vraies données.
+
+img result api
+
+Encore mieux: cet endpoint se mettra automatiquement à jour dès qu'on ajoutera un billet Markdown au reste.
+
+> Dans l'idéal il faudrait entourer tout ça de blocs `try`/`catch` pour gérer les imprévus.
+
+## Terminer la page d'index du blog
+
+Avec notre *endpoint* en place c'est très facile de construire la page d'index du blog.
+
+On *pourrait* faire la démarche côté client, avec un `fetch` inséré dans une fonction `onMount`, et ça serait okay, mais on se retrouverait alors avec un chargement qui n'affiche rien le temps que ça s'exécute, ce qui n'est pas terrible pour l'expérience utilisateur·rice. Au lieu de ça, exploitons la génération côté serveur de SvelteKit.
+
+### Récupérer les billets côté serveur
+
+Vous vous rappelez que nous pouvons ajouter un `+page.js` à notre `+page.svelte` afin de précharger une fonction `load` ? Eh bien, c'est tout à fait indiqué pour récupérer des données d'API telles que nos billets de blog !
+
+Quelques éléments supplémentaires à connaître sur `load`: 
+- Il a un accès contextuel à certains arguments spécifiques, notamment:
+  - `url` et `params` qui contiennent des informations sur la requête
+  - `fetch` qui est une aide permettant de normaliser l'implémentation `fetch` (qui n'est pas la même entre le navigateur et Node)
+- `load` doit renvoyer un objet. Peu importe ce qu'il y a dedans, mais tout son contenu sera disponible pour nous dans `data`.
+- `+page.js` s'exécute à la fois côté serveur et côté client. Ce n'est pas très important quand il s'agit de précharger des fichiers statiques, mais il ne faudrait pas faire référence à des choses propres à l'environnement comme `window` ou `process`. (Si vous voulez que `load` s'exécute uniquement sur le serveur, utilisez plutôt `+page.server.js`. À noter que `fetch` est disponible de manière native)
+
+```js
+// src/routes/blog/+page.js
+export const load = async ({ fetch }) => {
+  const response = await fetch(`/api/posts`)
+  const posts = await response.json()
+
+  return {
+    posts
+  }
+}
+```
+
+Ce morceau de pré-chargement gère tout ce dont on a besoin ! Nous avons des `posts` qui sont transmis au composant (en tant que `data`), et on peut l'utiliser pour itérer parmi nos billets et les générer dans le fichier `+page.svelte` correspondant
+
+```svelte
+<!-- src/routes/blog/+page.svelte -->
+<script>
+export let data
+</script>
+
+<h1>Blog</h1>
+  
+<ul>
+  {#each data.posts as post}
+    <li>
+      <h2>
+        <a href={post.path}>
+          {post.meta.title}
+        </a>
+      </h2>
+      Publié le {post.meta.date}
+    </li>
+  {/each}
+</ul>
+```
+
+Dans l'exemple ci-dessus le HTML est simplifié (et ne prend pas bien en compte le scénario où il n'y aurait pas de billets à afficher), mais vous voyez le genre. Vous pouvez augmenter le code en fonction du frontmatter de vos propres billets, en ajoutant une image/lien d'accroche, un extrait, etc.
+
+img result index
+
+## Précharger avec l'adaptateur statique
+
+SvelteKit est généré côté serveur par défaut, ce qui est bien car le SSR est en général meilleur pour les performances, l'accessibilité et le SEO. Ça veut aussi dire que le préchargement statique des fichiers (qui est ce que nous voulons) est opt-in.
+
+On pourrait précharger manuellement n'importe quelle page, ce qui est pratique pour des sections telles qu'un "à propos" ou une "FAQ" qui n'ont pas de contenu dynamique. On peut aussi précharger au niveau du layout, pour gérer des dossiers entiers d'un coup. Peu importe l'option, elle est activée en exporant une constante appelée `prerender` avec pour valeur `true` [voir la documentation](https://kit.svelte.dev/docs/page-options#prerender).
+
+Maintenant si on veut que le site entier soit préchargé de manière statique c'est préférable d'utiliser directement [l'adaptateur statique](https://github.com/sveltejs/kit/tree/master/packages/adapter-static) de SvelteKit, comme ça pas besoin de retenir quelle route est statique ou non en fonction du code. Elles le seront toutes.
+
+SvelteKit a de nombreux [adaptateurs], et vient clé en main avec un qui détecte automatiquement et compile en conséquence pour Netlify, Vercel ou Cloudfare, ce qui est pratique et aussi impressionnant ! Mais pour le statique, il nous faudra l'`adapter-static`
+
+```bash
+npm i -D @sveltejs/adapter-static
+```
+
+Une fois installé il faut faire quelques changements pour précharger toutes nos pages. D'abord, changez `adapter-auto` en `adapter-static` dans le fichier `svelte.config.js` (tout en haut, dans les `import`)
+
+```js
+// Replace the original `adapter-auto` line with this in svelte.config.js
+import adapter from '@sveltejs/adapter-static'
+```
+
+Ensuite nous devons activer l'option en exportant une prop `prerender` avec une valeur `true`.
+On *pourrait* faire ça manuellement pour chaque page, mais ce serait pénible. La meilleure façon de faire est de créer un `+layout.js` dans `src.routes` et d'y ajouter le *prop*. (Attention: c'est un fichier `.js`, pas notre fichier existant `+layout.svelte`; le nouveau fichier gère le préchargement, et non pas la génération.)
+
+```js
+// src/routes/+layout.js
+export const prerender = true
+```
+
+Tout comme `+layout.svelte` gère le layout sur chaque page, `+layout.js` gère les scripts côté serveur sur chaque page. En mettant notre prop `prerender` à l'intérieur de ce fichier JS, il va se *diffuser* sur chaque page, ce qui nous évite de devoir le répéter dans chaque page enfant.
+
+Pour en savoir plus sur l'adaptateur statique, vous pouvez lire [la documentation](https://github.com/sveltejs/kit/tree/master/packages/adapter-static).
+
+---
+
+Avec notre adaptateur installé et activé dans notre fichier de configuration, toutes les pages du site seront préchargées en HTML statique au moment de la compilation !
+
+> Un avantage de l'option statique de SvelteKit est que ça transforme toutes les pages en HTML statique, mais ça charge également un peu de JavaScript côté client pour aider à la navigation et au pré-chargement en fond. Ainsi, le site fonctionne très bien sans JavaScript, mais reste ouvert à l'amélioration progressive. Si vous voulez désactiver ce comportement pour empaqueter moins de JS, contre une navigation potentiellement moins fluide, ajoutez `export const csr = false` à votre `+layout.js`.
+
+Un dernier point à ce sujet: vous n'êtes pas *obligé·e·s* d'utiliser l'adaptateur statique. Vous pouvez sauter cette étape et faire avec l'adaptateur par défaut livré avec SvelteKit. Il vous permetta de déployer le site sur Netlify, Vercel ou Cloudfare, et le site serait généré côté serveur avec des fonctions serverless, au lieu d'être construit de manière statique.
+
+Les deux options marchent bien, et cela dépendra surtout de votre usage et de vos préférences. Je reviens dessus simplement pour signaler à quel point c'est chouette que SvelteKit puisse passer d'une chose à l'autre simplement en échangeant d'adaptateur.
+
+*[ Le billet de Josh continue ensuite avec des améliorations optionnelles et des détails qui paufinent la base qu'on vient de faire, mais je pense qu'avec tout ce qu'on a fait c'est déjà un bon morceau. Si vous êtes intéressé·e·s n'hésitez pas à reprendre la lecture en anglais sur [le site de Josh](https://joshcollinsworth.com/blog/build-static-sveltekit-markdown-blog#optional-finishing-touches-and-extra-features), et si besoin je traduirai la deuxième partie optionnelle plus tard. ]*
