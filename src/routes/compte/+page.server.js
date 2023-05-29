@@ -16,6 +16,7 @@ export const load = (async ({ locals: { supabase, getSession } }) => {
   return { session, profile }
 })
 
+// form actions
 export const actions = {
   update: async ({ request, locals: { supabase, getSession } }) => {
     const formData = await request.formData()

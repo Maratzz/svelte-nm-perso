@@ -5,6 +5,7 @@ import { createSupabaseLoadClient } from '@supabase/auth-helpers-sveltekit'
 export async function load({ fetch, data, depends, url }) {
   depends('supabase:auth')
 
+  // create a supabase client to use supabase in shared load functions (passed down in children layout.svelte and page.svelte)
   const supabase = createSupabaseLoadClient({
     supabaseUrl: PUBLIC_SUPABASE_URL,
     supabaseKey: PUBLIC_SUPABASE_ANON_KEY,

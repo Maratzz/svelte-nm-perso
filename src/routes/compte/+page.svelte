@@ -30,9 +30,8 @@
 	}
 </script>
 
-<div class="form-widget">
+<div>
 	<form
-		class="form-widget"
 		method="post"
 		action="?/update"
 		use:enhance={handleSubmit}
@@ -44,12 +43,12 @@
 		</div>
 
 		<div>
-			<label for="fullName">Full Name</label>
+			<label for="fullName">Nom complet</label>
 			<input id="fullName" name="fullName" type="text" value={form?.fullName ?? fullName} />
 		</div>
 
 		<div>
-			<label for="username">Username</label>
+			<label for="username">Pseudo</label>
 			<input id="username" name="username" type="text" value={form?.username ?? username} />
 		</div>
 
@@ -61,8 +60,7 @@
 		<div>
 			<input
 				type="submit"
-				class="button block primary"
-				value={loading ? 'Loading...' : 'Update'}
+				value={loading ? 'Chargement...' : 'Mettre à jour'}
 				disabled={loading}
 			/>
 		</div>
@@ -70,7 +68,7 @@
 
 	<form method="post" action="?/signout" use:enhance={handleSignOut}>
 		<div>
-			<button class="button block" disabled={loading}>Sign Out</button>
+			<button disabled={loading}>Déconnexion</button>
 		</div>
 	</form>
 </div>
