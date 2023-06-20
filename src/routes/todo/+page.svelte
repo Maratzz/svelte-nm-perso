@@ -70,3 +70,9 @@
     <Todo {todo} onDelete={() => deleteTodo(todo)} onUpdate={() => updateTodo(todo)}/>
   {/each}
 </ul>
+
+<style>
+  ul {
+    padding-left: 0;
+  }
+</style>

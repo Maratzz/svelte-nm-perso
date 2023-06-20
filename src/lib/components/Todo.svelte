@@ -5,8 +5,9 @@
 </script>
 
 <li>
-  - <input 
+  <input 
     type="text"
+    size="60"
     bind:value={todo.task}
     on:input={(e) => {
       todo.task = e.currentTarget.value
@@ -23,5 +24,6 @@
 <style>
   li {
     list-style: none;
+    display: flex;
   }
 </style>
