@@ -2,7 +2,8 @@
 // --- switch the adapter you want, static for static pages and auto for platforms like Vercel, Netlify, etc.
 
 //import adapter from '@sveltejs/adapter-auto'
-import adapter from '@sveltejs/adapter-static'
+// import adapter from '@sveltejs/adapter-static'
+import adapter from '@sveltejs/adapter-vercel';
 
 import sveltePreprocess from 'svelte-preprocess'
 import { mdsvex } from 'mdsvex'
