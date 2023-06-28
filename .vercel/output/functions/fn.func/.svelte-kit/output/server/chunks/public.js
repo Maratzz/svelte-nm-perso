@@ -1,6 +1,0 @@
-const PUBLIC_SUPABASE_URL = "https://vdgsjzhqjsfphiqjsaus.supabase.co";
-const PUBLIC_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZkZ3NqemhxanNmcGhpcWpzYXVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODUzNzkwOTYsImV4cCI6MjAwMDk1NTA5Nn0.UFQdzFS2GI0Og0g3wnre7ublYREF39wO8YXnEMosVs4";
-export {
-  PUBLIC_SUPABASE_URL as P,
-  PUBLIC_SUPABASE_ANON_KEY as a
-};
