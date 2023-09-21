@@ -8,6 +8,7 @@
 
 {#each games as game}
   <p>{game.name}</p>
+  <p>{game.summary}</p>
    
 {/each}
 
