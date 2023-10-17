@@ -5,13 +5,14 @@
 	export let data;
 </script>
 
+<h1>Connexion</h1>
+<p>Vous n'êtes pas connecté·e</p>
 <div>
 	<div>
-		<Auth
-			supabaseClient={data.supabase}
-			view="magic_link"
-			redirectTo={`${data.url}/logging-in?redirect=/`}
-			showLinks={false}
-		/>
+    <Auth
+      supabaseClient={data.supabase}
+      providers={['github']}
+      onlyThirdPartyProviders
+    />
 	</div>
 </div>

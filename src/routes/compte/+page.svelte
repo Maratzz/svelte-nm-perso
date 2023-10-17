@@ -1,31 +1,31 @@
 <!-- src/routes/account/+page.svelte -->
 <script>
-	import { enhance } from '$app/forms';
+	import { enhance } from '$app/forms'
 
 	export let data;
 	export let form;
 
-	let { session, supabase, profile } = data;
+	let { session, supabase, profile } = data
 
   let profileForm;
 	let loading = false;
-	let fullName = profile?.full_name ?? '';
-	let username = profile?.username ?? '';
-	let website = profile?.website ?? '';
-	let avatarUrl = profile?.avatar_url ?? '';
+	let fullName = profile?.full_name ?? ''
+	let username = profile?.username ?? ''
+	let website = profile?.website ?? ''
+	let avatarUrl = profile?.avatar_url ?? ''
 
 	function handleSubmit() {
-		loading = true;
+		loading = true
 		return async () => {
-			loading = false;
+			loading = false
 		}
 	}
 
 	function handleSignOut() {
-		loading = true;
+		loading = true
 		return async ({ update }) => {
-			loading = false;
-			update();
+			loading = false
+			update()
 		}
 	}
 </script>
@@ -53,7 +53,7 @@
 		</div>
 
 		<div>
-			<label for="website">Website</label>
+			<label for="website">Site web</label>
 			<input id="website" name="website" type="url" value={form?.website ?? website} />
 		</div>
 
