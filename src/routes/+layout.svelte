@@ -9,7 +9,7 @@
 
   export let data
 
-  $: ({ supabase, session } = data);
+  $: ({ supabase, session } = data)
   
   // create an event listener which monitors supabase functions triggered in children pages
   onMount(() => {
