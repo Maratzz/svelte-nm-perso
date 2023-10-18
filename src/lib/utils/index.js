@@ -16,3 +16,12 @@ export const fetchMarkdownEverything = async () => {
 
   return allPosts
 }
+
+// we take all the items and clean through Set to remove duplicates
+export const removeDuplicates = async (items) => {
+  let newArray = {}
+  const jsonObject = items.map(JSON.stringify)
+  const uniqueSet = new Set(jsonObject)
+  newArray = Array.from(uniqueSet).map(JSON.parse)
+  return newArray
+}

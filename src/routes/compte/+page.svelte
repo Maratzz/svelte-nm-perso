@@ -30,6 +30,11 @@
 	}
 </script>
 
+<svelte:head>
+  <title>Mon compte - Nico Moisson</title>
+  <meta name="description" content="Votre propre espace sur le site de Nico Moisson, sans publicités">
+</svelte:head>
+
 <div>
 	<form
 		method="post"

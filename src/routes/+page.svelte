@@ -2,6 +2,11 @@
   export let data
 </script>
 
+<svelte:head>
+  <title>Accueil - Nico Moisson</title>
+  <meta name="description" content="Site personnel de Nico, aka Maratz">
+</svelte:head>
+
 <h1>Bienvenue</h1>
 
 <p>Un site en construction, pour découvrir Svelte, SvelteKit et toutes les nouvelles technologies <i>des cool kids</i>.</p>

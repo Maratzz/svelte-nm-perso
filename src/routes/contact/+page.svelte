@@ -1,2 +1,4 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<svelte:head>
+  <title>Contact - Nico Moisson</title>
+  <meta name="description" content="Comment contacter Nico Moisson à travers les Internet ?">
+</svelte:head>

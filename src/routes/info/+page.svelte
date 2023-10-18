@@ -1,2 +1,7 @@
+<svelte:head>
+  <title>A propos - Nico Moisson</title>
+  <meta name="description" content="Qui est Nico ?">
+</svelte:head>
+
 <h1>À propos </h1>
 <p>Ceci est la refonte du site personnel de Nico 'Maratz' Moisson</p>

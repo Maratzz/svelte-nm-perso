@@ -43,3 +43,8 @@ article img {
   max-width: 80%;
   height: auto;
 }
+
+.hide {
+  display: none;
+  transition: all .3s;
+}
