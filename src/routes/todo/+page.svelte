@@ -4,11 +4,11 @@
   import { removeDuplicates } from '$lib/utils'
   export let data
   export let newTaskText = ''
+  export let todoCategory = ''
 
-  $: ({ todos, user, supabase } = data)
+  $: ({ todos, user, categories, supabase } = data)
 
   onMount(async () => {
-    const { data: categories, error } = await supabase.from('todos').select('category')
     const selectWrap = document.querySelector('#todo-category')
     let uniqueItems = await removeDuplicates(categories)
 
@@ -17,8 +17,16 @@
         selectWrap.insertAdjacentHTML('beforeend', `<option value='${category[key]}'>${category[key]}</option>`)
       }
     })
-    
   })
+
+  //TODO: implement remove category if orphan, in the same function, using perhaps a second argument that specifies whether we ad or remove a category
+  $: updateCategory = async (input) => {
+    const selectWrap = document.querySelector('#todo-category')
+    let existingCategory = await removeDuplicates(categories)
+    if (!existingCategory.includes(input)) {
+      selectWrap.insertAdjacentHTML('beforeend', `<option value='${input}' id='category-${input}'>${input}</option>`)
+    }
+  }
 
   async function fetchTodos() {
     const { data } = await supabase
@@ -30,10 +38,11 @@
 
   const addTodo = async () => {
     let task = newTaskText.trim()
+    let category = todoCategory.trim()
     if (task.length) {
       let { data: todo, error } = await supabase
         .from('todos')
-        .insert({task, user_id: user.id})
+        .insert({task, user_id: user.id, category: category})
         .select()
         .single()
 
@@ -41,7 +50,9 @@
         console.log(error.message)
       } else {
         todos = [...todos, todo]
+        updateCategory(category)
         newTaskText = ''
+        todoCategory = ''
       }
     }
   }
@@ -119,25 +130,37 @@
 <h1>Liste de tâches</h1>
 
 <div id="form-todo">
+
   <h2>Que voulez-vous faire ?</h2>
+
   <form action="" on:submit|preventDefault={() => addTodo(newTaskText)}>
+
     <label for="todo-input">Tâche</label>
     <input 
       type="text"
-      name=""
+      name="todo-input"
       id="todo-input"
       bind:value={newTaskText}>
+
+    <label for="todo-category-selection">Catégorie :</label>
+    <input
+      name="todo-category-selection"
+      id="todo-category-selection"
+      bind:value={todoCategory}>
+
     <button type="submit">Ajouter</button>
+
   </form>
 
   <button type="button" on:click={deleteCompletedTodos} id="button-delete-all-todos">Supprimer toutes les tâches complétées</button>
+
 </div>
 
 <label for="todo-category">Afficher</label>
 <select
   name="todo-category" 
   id="todo-category" >
-  <option value="everything">Toutes les tâches</option>
+  <option value="everything" selected>Toutes les catégories</option>
 </select>
 
 <ul>
