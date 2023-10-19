@@ -2,7 +2,6 @@
   import Todo from '$lib/components/Todo.svelte';
   import { onMount } from 'svelte';
   import { removeDuplicates } from '$lib/utils'
-  onMount
   export let data
   export let newTaskText = ''
 
@@ -25,11 +24,11 @@
     const { data } = await supabase
       .from('todos')
       .select()
-      .order('id', { ascending: true })
+      .order('inserted_at', { ascending: true })
     todos = data
   }
 
-  async function addTodo() {
+  const addTodo = async () => {
     let task = newTaskText.trim()
     if (task.length) {
       let { data: todo, error } = await supabase
@@ -47,7 +46,7 @@
     }
   }
 
-   async function deleteTodo(todo) {
+  async function deleteTodo(todo) {
     const { data, error } = await supabase
       .from('todos')
       .delete()
@@ -56,7 +55,7 @@
     if (error) {
       console.log(error.message)
     } else {
-      fetchTodos()
+      todos = todos.filter(t => t.id !== todo.id)
     }
   }
 
@@ -122,7 +121,12 @@
 <div id="form-todo">
   <h2>Que voulez-vous faire ?</h2>
   <form action="" on:submit|preventDefault={() => addTodo(newTaskText)}>
-    <input type="text" name="" id="" bind:value={newTaskText}>
+    <label for="todo-input">Tâche</label>
+    <input 
+      type="text"
+      name=""
+      id="todo-input"
+      bind:value={newTaskText}>
     <button type="submit">Ajouter</button>
   </form>
 
@@ -136,10 +140,11 @@
   <option value="everything">Toutes les tâches</option>
 </select>
 
-
 <ul>
   {#each todos as todo (todo.task)}
     <Todo {todo} onDelete={() => deleteTodo(todo)} onUpdate={() => updateTodo(todo)} onCompletion={() => onCompletion(todo)}/>
+  {:else}
+    <li>Rien à faire ! Pourquoi ne pas faire un tour du côté du backlog pour vider cette pile-là aussi ?</li>
   {/each}
 </ul>
 

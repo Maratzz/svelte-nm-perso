@@ -6,7 +6,10 @@ export async function load({ parent }) {
     throw redirect(303, '/')
   }
   
-  const { data } = await supabase.from('todos').select()
+  const { data } = await supabase
+      .from('todos')
+      .select()
+      .order('inserted_at', { ascending: true })
 
   return {
     user: session.user,

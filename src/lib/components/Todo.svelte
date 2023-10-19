@@ -5,7 +5,7 @@
   export let onCompletion = () => {}
 </script>
 
-<div id="todo-element" class="todo {todo.category}">
+<div id="todo-{todo.id}" class="todo {todo.category}">
   <li>
     <input type="checkbox" id="todo-is-complete" bind:checked={todo.is_complete} on:click={onCompletion}>
     <input 
@@ -37,7 +37,7 @@
     display: flex;
   }
 
-  #todo-element {
+  .todo {
     display: flex;
     flex-direction: row;
     margin-bottom: 10px;
