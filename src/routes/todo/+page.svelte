@@ -19,13 +19,22 @@
     })
   })
 
-  //TODO: implement remove category if orphan, in the same function, using perhaps a second argument that specifies whether we ad or remove a category
-  $: updateCategory = async (input) => {
+  //TODO: implement on delete
+
+  $: updateCategory = async (input, btnClicked) => {
+
     const selectWrap = document.querySelector('#todo-category')
-    let existingCategory = await removeDuplicates(categories)
-    if (!existingCategory.includes(input)) {
-      selectWrap.insertAdjacentHTML('beforeend', `<option value='${input}' id='category-${input}'>${input}</option>`)
-    }
+    const inputCategory = new Option(input, input)
+    let uniqueItems = await removeDuplicates(categories)
+    let existingCategory = uniqueItems.map(({category}) => category)
+
+    if (btnClicked === 'Ajouter' && !existingCategory.includes(input)) {
+        selectWrap.add(inputCategory, undefined)
+        console.log('new category added')
+        return existingCategory = [...existingCategory, input]
+    } else if (btnClicked === 'Ajouter' && existingCategory.includes(input)) {
+        console.log('category already exists, nothing to do here')
+    } 
   }
 
   async function fetchTodos() {
@@ -37,8 +46,9 @@
   }
 
   const addTodo = async () => {
+    const btn = 'Ajouter'
     let task = newTaskText.trim()
-    let category = todoCategory.trim()
+    const category = todoCategory.trim()
     if (task.length) {
       let { data: todo, error } = await supabase
         .from('todos')
@@ -50,7 +60,7 @@
         console.log(error.message)
       } else {
         todos = [...todos, todo]
-        updateCategory(category)
+        updateCategory(category, btn)
         newTaskText = ''
         todoCategory = ''
       }
@@ -62,7 +72,7 @@
       .from('todos')
       .delete()
       .eq('id', todo.id)
-    
+    const btn = 'Supprimer'
     if (error) {
       console.log(error.message)
     } else {
@@ -148,7 +158,7 @@
       id="todo-category-selection"
       bind:value={todoCategory}>
 
-    <button type="submit">Ajouter</button>
+    <button type="submit" id="button-add-todo">Ajouter</button>
 
   </form>
 

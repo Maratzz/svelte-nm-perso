@@ -20,7 +20,7 @@
   </li>
   <button 
     type="button"
-    id="button-delete-todo"
+    class="button-delete-todo"
     on:click={onDelete}>Supprimer</button>
   <button
     type="button"
