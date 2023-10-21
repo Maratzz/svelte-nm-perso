@@ -1,41 +1,17 @@
 <script>
   import Todo from '$lib/components/Todo.svelte';
-  import { onMount } from 'svelte';
   import { removeDuplicates } from '$lib/utils'
   export let data
   export let newTaskText = ''
   export let todoCategory = ''
 
+  let selected = 'everything'
+
   $: ({ todos, user, categories, supabase } = data)
-
-  onMount(async () => {
-    const selectWrap = document.querySelector('#todo-category')
-    let uniqueItems = await removeDuplicates(categories)
-
-    uniqueItems.forEach(category => {
-      for (let key in category) {
-        selectWrap.insertAdjacentHTML('beforeend', `<option value='${category[key]}'>${category[key]}</option>`)
-      }
-    })
-  })
-
-  //TODO: implement on delete
-
-  $: updateCategory = async (input, btnClicked) => {
-
-    const selectWrap = document.querySelector('#todo-category')
-    const inputCategory = new Option(input, input)
-    let uniqueItems = await removeDuplicates(categories)
-    let existingCategory = uniqueItems.map(({category}) => category)
-
-    if (btnClicked === 'Ajouter' && !existingCategory.includes(input)) {
-        selectWrap.add(inputCategory, undefined)
-        console.log('new category added')
-        return existingCategory = [...existingCategory, input]
-    } else if (btnClicked === 'Ajouter' && existingCategory.includes(input)) {
-        console.log('category already exists, nothing to do here')
-    } 
-  }
+  $: uniqueCategories = []
+  $: removeDuplicates(categories).then(res => uniqueCategories = res.map(({category}) => category))
+  $: console.log(uniqueCategories)
+  $: filteredTodos = todos.filter(todo => todo.category === selected)
 
   async function fetchTodos() {
     const { data } = await supabase
@@ -60,7 +36,12 @@
         console.log(error.message)
       } else {
         todos = [...todos, todo]
-        updateCategory(category, btn)
+        if (!uniqueCategories.includes(category)) {
+          uniqueCategories = [...uniqueCategories, category]
+          console.log(`Added a new category to the list: '${category}'`)
+        } else {
+          console.log(`The category '${category}' already exists, not adding it to the select list`)
+        }
         newTaskText = ''
         todoCategory = ''
       }
@@ -68,15 +49,14 @@
   }
 
   async function deleteTodo(todo) {
+    const todoCategory = todo.category
     const { data, error } = await supabase
       .from('todos')
       .delete()
       .eq('id', todo.id)
-    const btn = 'Supprimer'
+    todos = todos.filter(t => t.id !== todo.id)
     if (error) {
-      console.log(error.message)
-    } else {
-      todos = todos.filter(t => t.id !== todo.id)
+      console.error(error || error.message)
     }
   }
 
@@ -114,23 +94,6 @@
       fetchTodos()
     }
   }
-
-  /*const displayCategoryTodo = async (event) => {
-    let value = event.currentTarget.value
-    let todos = document.querySelectorAll('.todo')
-    let allTodos = [...todos]
-
-    if (value === 'everything') {
-      allTodos.forEach(e => 
-          e.classList.remove('hide'))
-    } else if (value !== 'everything') {
-      let selectedTodos = allTodos.filter(todo => todo.classList.contains(value))
-      let hiddenTodos = allTodos.filter(todo => !todo.classList.contains(value))
-      selectedTodos.forEach(e => e.classList.remove('hide'))
-      hiddenTodos.forEach(e => e.classList.add('hide'))
-
-    }
-  }*/
 </script>
 
 <svelte:head>
@@ -167,18 +130,26 @@
 </div>
 
 <label for="todo-category">Afficher</label>
-<select
-  name="todo-category" 
-  id="todo-category" >
-  <option value="everything" selected>Toutes les catégories</option>
+<select name="todo-category" id="" bind:value={selected}>
+  <option value='everything'>Toutes les catégories</option>
+  {#each uniqueCategories as category}
+    <option value={category} selected={category}>{category}</option>
+  {/each}
 </select>
 
+<p>selected is {selected}</p>
+
 <ul>
-  {#each todos as todo (todo.task)}
-    <Todo {todo} onDelete={() => deleteTodo(todo)} onUpdate={() => updateTodo(todo)} onCompletion={() => onCompletion(todo)}/>
+  {#if selected === 'everything'}
+    {#each todos as todo (todo.task)}
+      <Todo {todo} onDelete={() => deleteTodo(todo)} onUpdate={() => updateTodo(todo)} onCompletion={() => onCompletion(todo)}/>
+    {/each}
   {:else}
-    <li>Rien à faire ! Pourquoi ne pas faire un tour du côté du backlog pour vider cette pile-là aussi ?</li>
-  {/each}
+    {#each filteredTodos as todo (todo.task)}
+      <Todo {todo} onDelete={() => deleteTodo(todo)} onUpdate={() => updateTodo(todo)} onCompletion={() => onCompletion(todo)}/>
+    {/each}
+  {/if}
+  
 </ul>
 
 <style>
