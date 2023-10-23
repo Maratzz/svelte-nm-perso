@@ -1,18 +1,19 @@
 <script>
   import Todo from '$lib/components/Todo.svelte';
   import { removeDuplicates } from '$lib/utils'
+  import { fade } from 'svelte/transition'
   export let data
   export let newTaskText = ''
   export let todoCategory = ''
 
-  let selected = 'everything'
-
+  $: selected = 'everything'
   $: ({ todos, user, categories, supabase } = data)
+  $: filteredTodos = []
   $: uniqueCategories = []
-  $: removeDuplicates(categories).then(res => uniqueCategories = res.map(({category}) => category))
+  $: { removeDuplicates(categories)
+      .then(res => uniqueCategories = res.map(({category}) => category))} 
   $: console.log(uniqueCategories)
-  $: filteredTodos = todos.filter(todo => todo.category === selected)
-
+  
   async function fetchTodos() {
     const { data } = await supabase
       .from('todos')
@@ -21,8 +22,14 @@
     todos = data
   }
 
+  const filterTodos = async (event) => {
+    const value = event.currentTarget.value
+    selected = value
+    console.log(value)
+    filteredTodos = await todos.filter(todo => todo.category === selected)
+  }
+
   const addTodo = async () => {
-    const btn = 'Ajouter'
     let task = newTaskText.trim()
     const category = todoCategory.trim()
     if (task.length) {
@@ -130,27 +137,26 @@
 </div>
 
 <label for="todo-category">Afficher</label>
-<select name="todo-category" id="" bind:value={selected}>
+<select name="todo-category" id="" bind:value={selected} on:change={filterTodos}>
   <option value='everything'>Toutes les catégories</option>
   {#each uniqueCategories as category}
     <option value={category} selected={category}>{category}</option>
   {/each}
 </select>
 
-<p>selected is {selected}</p>
-
-<ul>
-  {#if selected === 'everything'}
-    {#each todos as todo (todo.task)}
-      <Todo {todo} onDelete={() => deleteTodo(todo)} onUpdate={() => updateTodo(todo)} onCompletion={() => onCompletion(todo)}/>
-    {/each}
-  {:else}
-    {#each filteredTodos as todo (todo.task)}
-      <Todo {todo} onDelete={() => deleteTodo(todo)} onUpdate={() => updateTodo(todo)} onCompletion={() => onCompletion(todo)}/>
-    {/each}
-  {/if}
-  
-</ul>
+{#key selected}
+  <ul in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
+    {#if selected === 'everything'}
+      {#each todos as todo (todo.task)}
+        <Todo {todo} onDelete={() => deleteTodo(todo)} onUpdate={() => updateTodo(todo)} onCompletion={() => onCompletion(todo)}/>
+      {/each}
+    {:else}
+      {#each filteredTodos as todo (todo.task)}
+        <Todo {todo} onDelete={() => deleteTodo(todo)} onUpdate={() => updateTodo(todo)} onCompletion={() => onCompletion(todo)}/>
+      {/each}
+    {/if}
+  </ul>
+{/key}
 
 <style>
   ul {
