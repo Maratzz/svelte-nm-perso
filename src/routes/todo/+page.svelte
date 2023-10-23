@@ -6,14 +6,14 @@
   export let newTaskText = ''
   export let todoCategory = ''
 
-  $: selected = 'everything'
   $: ({ todos, user, categories, supabase } = data)
-  $: filteredTodos = []
-  $: uniqueCategories = []
   $: { removeDuplicates(categories)
-      .then(res => uniqueCategories = res.map(({category}) => category))} 
-  $: console.log(uniqueCategories)
-  
+      .then(res => uniqueCategories = res.map(({category}) => category))}
+
+  let selected = 'everything'
+  let filteredTodos = []
+  let uniqueCategories = []
+
   async function fetchTodos() {
     const { data } = await supabase
       .from('todos')
@@ -22,11 +22,13 @@
     todos = data
   }
 
-  const filterTodos = async (event) => {
+ const filterTodos = async (event) => {
     const value = event.currentTarget.value
     selected = value
-    console.log(value)
+    console.log(`switching to category ${value}`)
     filteredTodos = await todos.filter(todo => todo.category === selected)
+    console.log(filteredTodos)
+    console.log(`existing categories: ${uniqueCategories}`)
   }
 
   const addTodo = async () => {
@@ -62,6 +64,7 @@
       .delete()
       .eq('id', todo.id)
     todos = todos.filter(t => t.id !== todo.id)
+    console.log(`deleted todo: ${todo.task}`)
     if (error) {
       console.error(error || error.message)
     }
