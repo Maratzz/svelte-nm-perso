@@ -25,3 +25,25 @@ export const removeDuplicates = async (items) => {
   newArray = Array.from(uniqueSet).map(JSON.parse)
   return newArray
 }
+
+export const getTwitchToken = async (twitchClientId, twitchClientSecret) => {
+  const twitchToken = await fetch(`https://id.twitch.tv/oauth2/token?client_id=${twitchClientId}&client_secret=${twitchClientSecret}&grant_type=client_credentials`,
+  { 
+    method: 'POST',
+  })
+  const token = twitchToken.json()
+  return token
+}
+
+export const getGames = async (clientID, twitchToken) => {
+  const gameResult = await fetch('https://api.igdb.com/v4/games/', {
+    method: 'POST',
+    headers: {
+      'Client-ID': clientID,
+      Authorization: `Bearer ${twitchToken}`,
+    },
+    body: 'fields *; limit 10;'
+  })
+  const res = await gameResult.json()
+  return res
+}

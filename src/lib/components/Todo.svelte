@@ -27,7 +27,6 @@
     id="button-update-todo"
     on:click={onUpdate}>Mettre à jour
   </button>
-  <p>{todo.category}</p>
 </div>
 
 

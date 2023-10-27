@@ -1,16 +1,12 @@
+import { PUBLIC_TWITCH_CLIENT } from '$env/static/public'
+import { PRIVATE_TWITCH_SECRET } from '$env/static/private'
+import { getTwitchToken } from '$lib/utils';
+import { getGames } from '$lib/utils';
+
 export const load = async () => {
-  const options = {
-    method: 'POST',
-    headers: {
-      cookie: '__cf_bm=shzJ7CtzTrTl9IHefIk35hXBZXYKSoadRwNB0_dpLzw-1685699992-0-Ae8%2FK3n8S%2FGSmDv%2FAnfy4idQSDwS213X2Mw3Y3wpAgvD3nZ98klPfy8tFVz3UM830Ne5t75%2FPq2wSvhX9KjKhe0%3D',
-      'Content-Type': 'application/json',
-      'Client-ID': 'wpby8vnv85n44vc14asegvshmwwgi0',
-      Authorization: 'Bearer xl2jvvwk44aijo4dg23i803gyyeqsm'
-    },
-    body: 'fields *;'
-  };
-  const twitchRes = await fetch('https://api.igdb.com/v4/games', options).catch(err => console.error(err))
-  const games = await twitchRes.json()
+  const token = await getTwitchToken(PUBLIC_TWITCH_CLIENT, PRIVATE_TWITCH_SECRET)
+  const access_token = token.access_token
+  const games = await getGames(PUBLIC_TWITCH_CLIENT, access_token)
 
   return {
     games

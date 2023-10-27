@@ -1,5 +1,5 @@
 <script>
-  import Todo from '$lib/components/Todo.svelte';
+  import Todo from '$lib/components/Todo.svelte'
   import { removeDuplicates } from '$lib/utils'
   import { fade } from 'svelte/transition'
   export let data
@@ -20,6 +20,7 @@
       .select()
       .order('inserted_at', { ascending: true })
     todos = data
+    filteredTodos = await todos.filter(todo => todo.category === selected)
   }
 
  const filterTodos = async (event) => {
@@ -146,15 +147,20 @@
 
 </div>
 
-<label for="todo-category">Afficher</label>
-<select name="todo-category" id="" bind:value={selected} on:change={filterTodos}>
-  <option value='everything'>Toutes les catégories</option>
-  {#key uniqueCategories}
-    {#each uniqueCategories as category}
-      <option value={category} selected={category}>{category}</option>
-    {/each}
-  {/key}
-</select>
+<div id="select-todo">
+
+  <label for="todo-category">Afficher</label>
+  <select name="todo-category" id="" bind:value={selected} on:change={filterTodos}>
+    <option value='everything'>Toutes les catégories</option>
+    {#key uniqueCategories}
+      {#each uniqueCategories as category}
+        <option value={category} selected={category}>{category}</option>
+      {/each}
+    {/key}
+  </select>
+
+</div>
+
 
 {#key selected}
   <ul in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
@@ -175,6 +181,10 @@
     padding-left: 0;
   }
   #button-delete-all-todos {
+    margin-top: 15px;
+  }
+
+  #select-todo {
     margin-top: 15px;
   }
 </style>
