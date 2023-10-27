@@ -24,11 +24,14 @@
 
  const filterTodos = async (event) => {
     const value = event.currentTarget.value
+    const { data } = await supabase.from('todos').select().order('inserted_at', { ascending: true})
+    const { data: categories } = await supabase
+    .from('todos')
+    .select('category')
     selected = value
-    console.log(`switching to category ${value}`)
+    todos = data
     filteredTodos = await todos.filter(todo => todo.category === selected)
-    console.log(filteredTodos)
-    console.log(`existing categories: ${uniqueCategories}`)
+    uniqueCategories = await removeDuplicates(categories).then(res => uniqueCategories = res.map(({category}) => category))
   }
 
   const addTodo = async () => {
@@ -51,6 +54,9 @@
         } else {
           console.log(`The category '${category}' already exists, not adding it to the select list`)
         }
+        if (selected === category) {
+          filteredTodos = [...filteredTodos, todo]
+        }
         newTaskText = ''
         todoCategory = ''
       }
@@ -64,6 +70,7 @@
       .delete()
       .eq('id', todo.id)
     todos = todos.filter(t => t.id !== todo.id)
+    filteredTodos = todos.filter(t => t.category === todoCategory)
     console.log(`deleted todo: ${todo.task}`)
     if (error) {
       console.error(error || error.message)
@@ -142,9 +149,11 @@
 <label for="todo-category">Afficher</label>
 <select name="todo-category" id="" bind:value={selected} on:change={filterTodos}>
   <option value='everything'>Toutes les catégories</option>
-  {#each uniqueCategories as category}
-    <option value={category} selected={category}>{category}</option>
-  {/each}
+  {#key uniqueCategories}
+    {#each uniqueCategories as category}
+      <option value={category} selected={category}>{category}</option>
+    {/each}
+  {/key}
 </select>
 
 {#key selected}
