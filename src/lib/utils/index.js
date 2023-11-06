@@ -26,6 +26,8 @@ export const removeDuplicates = async (items) => {
   return newArray
 }
 
+// generate a twitch token on the fly
+// TODO perhaps we should store it somewhere and check if there is one, if not then we generate a new one and store it, so that way there are less API calls, but does it actually matter ? search info about it schlok
 export const getTwitchToken = async (twitchClientId, twitchClientSecret) => {
   const twitchToken = await fetch(`https://id.twitch.tv/oauth2/token?client_id=${twitchClientId}&client_secret=${twitchClientSecret}&grant_type=client_credentials`,
   { 
@@ -42,7 +44,7 @@ export const getGames = async (clientID, twitchToken) => {
       'Client-ID': clientID,
       Authorization: `Bearer ${twitchToken}`,
     },
-    body: 'fields *; limit 10;'
+    body: 'fields *; limit 20;'
   })
   const res = await gameResult.json()
   return res
