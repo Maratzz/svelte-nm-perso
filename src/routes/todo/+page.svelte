@@ -89,29 +89,6 @@
       fetchTodos()
     }
   }
-  
-  async function onCompletion(todo) {
-    let BooleanValue = todo.is_complete
-    const { data, error} = await supabase
-      .from('todos')
-      .update({is_complete: !BooleanValue})
-      .eq('id', todo.id)
-    if (error) {
-      console.log(error)
-    }
-  }
-
-  const deleteCompletedTodos = async () => {
-    const { data, error } = await supabase
-      .from('todos')
-      .delete()
-      .eq('is_complete', 'TRUE')
-    if (error) {
-      console.log(error.message)
-    } else {
-      fetchTodos()
-    }
-  }
 </script>
 
 <svelte:head>
@@ -122,28 +99,26 @@
 
 <div id="form-todo">
 
-  <h2>Que voulez-vous faire ?</h2>
-
-  <form action="" on:submit|preventDefault={() => addTodo(newTaskText)}>
+  <form on:submit|preventDefault={() => addTodo(newTaskText)}>
 
     <label for="todo-input">Tâche</label>
     <input 
       type="text"
       name="todo-input"
       id="todo-input"
+      placeholder="new task"
       bind:value={newTaskText}>
 
     <label for="todo-category-selection">Catégorie :</label>
     <input
       name="todo-category-selection"
       id="todo-category-selection"
+      placeholder="new category"
       bind:value={todoCategory}>
 
     <button type="submit" id="button-add-todo">Ajouter</button>
 
   </form>
-
-  <button type="button" on:click={deleteCompletedTodos} id="button-delete-all-todos">Supprimer toutes les tâches complétées</button>
 
 </div>
 
@@ -161,30 +136,31 @@
 
 </div>
 
-
 {#key selected}
-  <ul in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
+  <ul class="removePaperLi" in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
     {#if selected === 'everything'}
       {#each todos as todo (todo.task)}
-        <Todo {todo} onDelete={() => deleteTodo(todo)} onUpdate={() => updateTodo(todo)} onCompletion={() => onCompletion(todo)}/>
+        <Todo {todo} onDelete={() => deleteTodo(todo)} onUpdate={() => updateTodo(todo)}/>
       {/each}
     {:else}
       {#each filteredTodos as todo (todo.task)}
-        <Todo {todo} onDelete={() => deleteTodo(todo)} onUpdate={() => updateTodo(todo)} onCompletion={() => onCompletion(todo)}/>
+        <Todo {todo} onDelete={() => deleteTodo(todo)} onUpdate={() => updateTodo(todo)}/>
       {/each}
     {/if}
   </ul>
 {/key}
 
 <style>
+
   ul {
     padding-left: 0;
   }
-  #button-delete-all-todos {
+
+  #button-add-todo, #select-todo {
     margin-top: 15px;
   }
 
-  #select-todo {
-    margin-top: 15px;
+  #form-todo input {
+    margin-bottom: 10px;
   }
 </style>

@@ -9,7 +9,7 @@
 
 <h1>Blog</h1>
   
-<ul>
+<ul class="removePaperLi">
   {#each data.posts as post}
     <li>
       <h2>

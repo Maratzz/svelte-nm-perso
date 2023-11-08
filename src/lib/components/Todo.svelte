@@ -2,44 +2,43 @@
   export let todo
   export let onDelete = () => {}
   export let onUpdate = () => {}
-  export let onCompletion = () => {}
 </script>
 
-<div id="todo-{todo.id}" class="todo {todo.category}">
-  <li>
-    <input type="checkbox" id="todo-is-complete" bind:checked={todo.is_complete} on:click={onCompletion}>
+<li>
+  <div id="todo-{todo.id}" class="todo {todo.category} form-group">
+    
     <input 
       type="text"
       size="50"
-      id="todo-task"
       bind:value={todo.task}
       on:input={(e) => {
         todo.task = e.currentTarget.value
       }
     } />
-  </li>
-  <button 
-    type="button"
-    class="button-delete-todo"
-    on:click={onDelete}>Supprimer</button>
-  <button
-    type="button"
-    id="button-update-todo"
-    on:click={onUpdate}>Mettre à jour
-  </button>
-</div>
+    <button 
+      type="button"
+      class="button-delete-todo btn-danger"
+      on:click={onDelete}>Supprimer
+    </button>
+    <button
+      type="button"
+      id="button-update-todo"
+      class="btn-warning"
+      on:click={onUpdate}>Mettre à jour
+    </button>
+  </div>
+</li>
+
 
 
 <style>
   li {
-    list-style: none;
-    display: flex;
+    margin-bottom: 10px;
   }
-
   .todo {
     display: flex;
     flex-direction: row;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 
     & button {
       margin-left: 10px;

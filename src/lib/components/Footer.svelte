@@ -1,5 +1,5 @@
 <div class="footer">
-  <ul>
+  <ul class="removePaperLi">
     <li><a href="/mentions">Mentions légales</a></li>
     <li><a href="/credits">Crédits</a></li>
     <li><a href="/site-pro">Site pro</a></li>

@@ -1,12 +1,19 @@
 export async function load({ parent }) {
-  const { supabase } =  await parent()
+  const { supabase, session } =  await parent()
 
-  let { data: games, error } = await supabase
-  .from('games')
-  .select('*')
+  let { data: games } = await supabase
+    .from('games')
+    .select('*')
 
+  let { data : categories } = await supabase
+    .from('platforms')
+    .select('*')
+    .order('name', { ascending: true })
+    
   return {
     games: games ?? [],
-    supabase
+    categories : categories ?? [],
+    supabase,
+    session
   }
 }
