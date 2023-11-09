@@ -1,52 +1,44 @@
 <script>
+  import { enhance } from '$app/forms'
   export let categories
-  export let newGameName
-  export let newGamePlatform
-  export let newGameStatus
-  export let gameStatus
-  export let newGameCover
+  export let status
 </script>
 
-<form method="POST">
+<form method="POST" use:enhance>
 
-  <label for="new-item">Nom</label>
-  <input 
-    type="text"
-    name="new-item"
-    id=""
-    required
-    bind:value={newGameName}>
+  <label for="new-game">Nom</label>
+  <input type="text" name="new-game" id="">
 
   <label for="platforms">Plateforme</label>
-  <input list="platforms" bind:value={newGamePlatform} required>
+  <input list="platforms" name='new-platform'>
   <datalist id="platforms">
     {#each categories as category}
-      <option value={category}></option>
+      <option value={category.name}></option>
     {/each}
   </datalist>
 
-  <label for="status">Status</label>
-  <input list="status" bind:value={newGameStatus} required>
-  <datalist id="status">
-    {#each gameStatus as status}
-      <option value={status}></option>
+  <label for="new-status">Status</label>
+  <input list="new-status" name='new-status'>
+  <datalist id="new-status">
+    {#each status as state}
+      <option value={state.name}></option>
     {/each}
   </datalist>
 
-  <label for="cover">Image</label>
-  <input type="url" name="cover" bind:value={newGameCover} required>
+  <!-- <label for="cover">Image</label>
+  <input type="url" name="cover"> -->
 
-  <label for="released_in">Date de sortie</label>
-  <input type="date" name="released_in" id="" required>
+  <!-- <label for="released_in">Date de sortie</label>
+  <input type="date" name="released_in"> -->
   <!-- TODO set up datepicker ? -->
 
-  <label for="started_at">Démarré le:</label>
-  <input type="date" name="started_at" id="" required>
+  <!-- <label for="started_at">Démarré le:</label>
+  <input type="date" name="started_at"> -->
   <!-- TODO set up datepicker ? -->
 
-  <label type='date' for="finished_at">Fini le:</label>
+  <!-- <label type='date' for="finished_at">Fini le:</label> -->
   <!-- TODO set up datepicker ? -->
 
-  <input type="submit" value="Créer la fiche">
+  <button type='submit'>Create</button>
 
 </form>

@@ -6,6 +6,7 @@
   <ul class='removePaperLi'>
     <li><a href="/">Accueil</a></li>
     <li><a href="/textes">Textes</a></li>
+    <li><a href="/collection">Collection</a></li>
     <li><a href="/blog">Blog</a></li>
     <li><a href="/info">Info</a></li>
     {#if session}

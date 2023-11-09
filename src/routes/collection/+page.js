@@ -1,5 +1,5 @@
 export async function load({ parent }) {
-  const { supabase, session } =  await parent()
+  const { supabase, session, currentRoute } =  await parent()
 
   let { data: games } = await supabase
     .from('games')
@@ -9,11 +9,18 @@ export async function load({ parent }) {
     .from('platforms')
     .select('*')
     .order('name', { ascending: true })
+
+  let { data : status } = await supabase
+    .from('game_status')
+    .select('*')
+    .order('name', { ascending: true })
     
   return {
     games: games ?? [],
     categories : categories ?? [],
+    status: status ?? [],
     supabase,
-    session
+    session,
+    currentRoute
   }
 }
