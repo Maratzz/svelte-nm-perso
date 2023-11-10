@@ -26,6 +26,7 @@
 		"@supabase/auth-ui-shared": "^0.1.6",
 		"@supabase/auth-ui-svelte": "^0.2.2",
 		"@supabase/supabase-js": "^2.23.0",
-		"papercss": "^1.9.2"
+		"papercss": "^1.9.2",
+		"svelte-french-toast": "^1.2.0"
 	}
 }
