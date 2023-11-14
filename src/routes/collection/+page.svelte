@@ -2,7 +2,7 @@
   import { fade } from 'svelte/transition'
   import Form from '$lib/components/Form.svelte'
   export let data
-  //export let form
+  export let form
   $: ({ games, categories, status, session } = data)
   $: selected = ''
   $: filteredGames = games
@@ -30,9 +30,9 @@
 
     <p>TODO: fetch twitch api with a name and return a list of names, upon clicking on one of them it should fill all the other fields so</p>
 
-    <!-- {#if form?.success}
+    {#if form?.success}
       <p>Jeu {form.newGame} sorti sur {form.newPlatform}</p>
-    {/if} -->
+    {/if}
 
     <Form {categories} {status}/>
 

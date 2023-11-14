@@ -1,10 +1,35 @@
 <script>
   import { enhance } from '$app/forms'
+  import toast, { Toaster } from 'svelte-french-toast';
   export let categories
   export let status
+  export let externalResolve
+  export let externalReject
 </script>
 
-<form method="POST" use:enhance>
+<Toaster/>
+<form method="POST" use:enhance={() => {
+
+  const formPromise = new Promise((resolve, reject) => {
+    externalResolve = resolve
+    externalReject = reject
+  })
+
+  toast.promise(formPromise, {
+        loading: 'Saving...',
+        success: 'Settings saved!',
+        error: 'Could not save.',
+    })
+
+  return async ({result, update}) => {
+    if (result.type === 'success') {
+      await externalResolve('woo')
+      update()
+    } else {
+      await externalReject(new Error('Something went wrong'))
+    }
+  }
+}}>
 
   <label for="new-game">Nom</label>
   <input type="text" name="new-game" id="">
