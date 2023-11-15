@@ -31,17 +31,17 @@
     <p>TODO: fetch twitch api with a name and return a list of names, upon clicking on one of them it should fill all the other fields so</p>
 
     {#if form?.success}
-      <p>Jeu {form.newGame} sorti sur {form.newPlatform}</p>
+      <img src={form.gameCoverLink} alt='Jaquette du jeu {form.game}'>
     {/if}
 
-    <Form {categories} {status}/>
+    <Form {form} {categories} {status}/>
 
   {/if}
 </div>
 
 <div id="filter-container">
   <select name="filter-category" id="" on:change={filterGames}>
-    <option value="everything"selected >Toutes les plateformes</option>
+    <option value="everything" selected>Toutes les plateformes</option>
     {#each categories as category}
         <option value={category.name} selected={category.name}>{category.name}</option>
     {/each}

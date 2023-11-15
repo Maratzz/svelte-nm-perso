@@ -37,15 +37,35 @@ export const getTwitchToken = async (twitchClientId, twitchClientSecret) => {
   return token
 }
 
-export const getGames = async (clientID, twitchToken) => {
-  const gameResult = await fetch('https://api.igdb.com/v4/games/', {
+export const getGames = async (clientID, twitchToken, gameName) => {
+  const data = await fetch('https://api.igdb.com/v4/games/', {
     method: 'POST',
     headers: {
       'Client-ID': clientID,
       Authorization: `Bearer ${twitchToken}`,
     },
-    body: 'fields *; limit 20;'
+    body: `fields *; where name = "${gameName}";`
   })
-  const res = await gameResult.json()
+  const res = await data.json()
   return res
+}
+
+export const getGameCover = async (clientID, twitchToken, input) => {
+  const data = await fetch('https://api.igdb.com/v4/covers', {
+    method: 'POST',
+    headers: {
+      'Client-ID': clientID,
+      Authorization: `Bearer ${twitchToken}`,
+    },
+    body: `fields *; where game = ${input};`
+  })
+  const res = await data.json()
+  const gameCoverUrl = res[0].image_id
+  return gameCoverUrl
+}
+
+export const getHumanDate = async (input) => {
+  const rawDate = new Date(input * 1000)
+  const humanDate = rawDate.toISOString().substring(0, 10)
+  return humanDate
 }

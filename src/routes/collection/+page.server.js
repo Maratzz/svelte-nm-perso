@@ -1,36 +1,49 @@
 import { fail, redirect } from '@sveltejs/kit'
-import toast, { Toaster } from 'svelte-french-toast'
+import { PUBLIC_TWITCH_CLIENT } from '$env/static/public'
+import { PRIVATE_TWITCH_SECRET } from '$env/static/private'
+import { getTwitchToken } from '$lib/utils'
+import { getGames } from '$lib/utils'
+import { getGameCover, getHumanDate } from '$lib/utils/index.js'
+//import { getHumanDate } from '$lib/utils/index.js'
 
 
 export const actions = {
-  default: async ({ request, locals: { supabase, getSession } }) => {
 
-      const session = await getSession()
-      const user = session.user.id
+  default: async ({request, locals: { supabase, getSession }}) => {
+    
+  },
 
-      const form = await request.formData()
-      const newGame = form.get('new-game')
-      const newPlatform = form.get('new-platform')
-      const newStatus = form.get('new-status')
+  search: async ({ request }) => {
 
-      if (!newGame) {
-        return fail(400, { newGame, missing: true })
-      }
-      
-      if (session) {
-        const newForm = await supabase
-        .from('games')
-        .insert([
-          {name: newGame, platform: newPlatform}
-        ])
-        .select()
+    const token = await getTwitchToken(PUBLIC_TWITCH_CLIENT, PRIVATE_TWITCH_SECRET)
+    const access_token = token.access_token
 
-        const formStatus = await newForm.status
+    const form = await request.formData()
+    const game = form.get('new-game')
+    const gameString = game.toString()
 
-        console.log(formStatus)
-  
-        return { newForm, formStatus }
-      }
+    // all the info about a game
+    const gameData = await getGames(PUBLIC_TWITCH_CLIENT, access_token, gameString)
+    //extract the ID to use for cover associated with the game
+    const gameID = gameData[0].id
+    const gameReleaseDateRaw = gameData[0].first_release_date
 
+    // extract cover data
+    const gameCoverData = await getGameCover(PUBLIC_TWITCH_CLIENT, access_token, gameID)
+
+    const gameReleaseDate = await getHumanDate(gameReleaseDateRaw)
+
+
+    const gameCoverLink = `https://images.igdb.com/igdb/image/upload/t_cover_big/${gameCoverData}.png`
+
+    console.log(gameData, gameCoverLink, gameReleaseDate)
+
+    return { 
+      success: true,
+      game,
+      gameData,
+      gameID,
+      gameCoverLink,
+      gameReleaseDate }
   }
 }

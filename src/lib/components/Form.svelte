@@ -1,46 +1,33 @@
 <script>
   import { enhance } from '$app/forms'
-  import toast, { Toaster } from 'svelte-french-toast';
+  export let form
   export let categories
   export let status
-  export let externalResolve
-  export let externalReject
 </script>
 
-<Toaster/>
-<form method="POST" use:enhance={() => {
-
-  const formPromise = new Promise((resolve, reject) => {
-    externalResolve = resolve
-    externalReject = reject
-  })
-
-  toast.promise(formPromise, {
-        loading: 'Saving...',
-        success: 'Settings saved!',
-        error: 'Could not save.',
-    })
-
-  return async ({result, update}) => {
-    if (result.type === 'success') {
-      await externalResolve('woo')
-      update()
-    } else {
-      await externalReject(new Error('Something went wrong'))
-    }
-  }
-}}>
+<form method="POST" use:enhance>
 
   <label for="new-game">Nom</label>
-  <input type="text" name="new-game" id="">
+  <input type="text" name="new-game" id="" value={form?.game ?? ''}>
+
+  <button type="submit" formaction="?/search">IGDB API</button>
 
   <label for="platforms">Plateforme</label>
   <input list="platforms" name='new-platform'>
   <datalist id="platforms">
     {#each categories as category}
-      <option value={category.name}></option>
+       <option value={category.name}></option>
     {/each}
   </datalist>
+
+  <label for="cover">Image</label>
+  <input type="url" name="cover" value={form?.gameCoverLink ?? ''}>
+
+  <label for="released_date">Date de sortie</label>
+  <input type="date" name="released_date" value={form?.gameReleaseDate ?? ''}>
+
+  <label for="game_started">Démarré le:</label>
+  <input type="date" name="game_started">
 
   <label for="new-status">Status</label>
   <input list="new-status" name='new-status'>
@@ -50,20 +37,9 @@
     {/each}
   </datalist>
 
-  <!-- <label for="cover">Image</label>
-  <input type="url" name="cover"> -->
+  <label type='date' for="game_finished">Fini le:</label>
+  <input type="date" name="game_finished">
 
-  <!-- <label for="released_in">Date de sortie</label>
-  <input type="date" name="released_in"> -->
-  <!-- TODO set up datepicker ? -->
-
-  <!-- <label for="started_at">Démarré le:</label>
-  <input type="date" name="started_at"> -->
-  <!-- TODO set up datepicker ? -->
-
-  <!-- <label type='date' for="finished_at">Fini le:</label> -->
-  <!-- TODO set up datepicker ? -->
-
-  <button type='submit'>Create</button>
+  <button type='submit'>Créer la fiche</button>
 
 </form>
