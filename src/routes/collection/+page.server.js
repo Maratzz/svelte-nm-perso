@@ -1,7 +1,13 @@
-import { fail } from '@sveltejs/kit'
+import { fail, redirect } from '@sveltejs/kit'
+import toast, { Toaster } from 'svelte-french-toast'
+
 
 export const actions = {
-  default: async ({ request }) => {
+  default: async ({ request, locals: { supabase, getSession } }) => {
+
+      const session = await getSession()
+      const user = session.user.id
+
       const form = await request.formData()
       const newGame = form.get('new-game')
       const newPlatform = form.get('new-platform')
@@ -10,9 +16,21 @@ export const actions = {
       if (!newGame) {
         return fail(400, { newGame, missing: true })
       }
-      console.log(newGame, newPlatform, newStatus)
+      
+      if (session) {
+        const newForm = await supabase
+        .from('games')
+        .insert([
+          {name: newGame, platform: newPlatform}
+        ])
+        .select()
 
-      return { success: true, newGame, newPlatform, newStatus }
-    
+        const formStatus = await newForm.status
+
+        console.log(formStatus)
+  
+        return { newForm, formStatus }
+      }
+
   }
 }
