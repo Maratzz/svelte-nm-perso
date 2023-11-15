@@ -5,33 +5,31 @@
   export let status
 </script>
 
-<form method="POST" use:enhance>
+<form method="POST" action='?/insert' use:enhance>
 
-  <label for="new-game">Nom</label>
-  <input type="text" name="new-game" id="" value={form?.game ?? ''}>
+  <label for="game_name">Nom</label>
+  <input type="text" name="game_name" id="game_name" value={form?.game ?? ''}>
 
-  <button type="submit" formaction="?/search">IGDB API</button>
-
-  <label for="platforms">Plateforme</label>
-  <input list="platforms" name='new-platform'>
-  <datalist id="platforms">
+  <label for="game_platform">Plateforme</label>
+  <input list="game_platform" name='game_platform'>
+  <datalist id="game_platform">
     {#each categories as category}
        <option value={category.name}></option>
     {/each}
   </datalist>
 
-  <label for="cover">Image</label>
-  <input type="url" name="cover" value={form?.gameCoverLink ?? ''}>
+  <label for="game_cover">Image</label>
+  <input type="url" name="game_cover" id='game_cover' value={form?.gameCoverLink ?? ''}>
 
-  <label for="released_date">Date de sortie</label>
-  <input type="date" name="released_date" value={form?.gameReleaseDate ?? ''}>
+  <label for="game_released_date">Date de sortie</label>
+  <input type="date" name="game_released_date" value={form?.gameReleaseDate ?? ''}>
 
   <label for="game_started">Démarré le:</label>
   <input type="date" name="game_started">
 
-  <label for="new-status">Status</label>
-  <input list="new-status" name='new-status'>
-  <datalist id="new-status">
+  <label for="game_status">Status</label>
+  <input list="game_status" name='game_status'>
+  <datalist id="game_status">
     {#each status as state}
       <option value={state.name}></option>
     {/each}
@@ -40,6 +38,7 @@
   <label type='date' for="game_finished">Fini le:</label>
   <input type="date" name="game_finished">
 
+  <button type="submit" formaction="?/search">IGDB API</button>
   <button type='submit'>Créer la fiche</button>
 
 </form>
