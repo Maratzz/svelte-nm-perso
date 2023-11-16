@@ -1,14 +1,44 @@
 <script>
   import { enhance } from '$app/forms'
+  import toast, { Toaster } from 'svelte-french-toast'
   export let form
   export let categories
   export let status
 </script>
 
-<form method="POST" action='?/insert' use:enhance>
+<Toaster/>
+<form method="POST" action='?/insert' use:enhance={() =>{
+  let toastResolve, toastReject
+
+  let toastPromise = new Promise((resolve, reject) => {
+    toastResolve = resolve
+    toastReject = reject
+  })
+
+  toast.promise(toastPromise, {
+        loading: 'Saving...',
+        success: (e) => `${e}`,
+        error: (e) => `${e.message}`,
+    })
+  return ({result, update}) => {
+    if (result.data === 'no game found') {
+      toastReject(new Error('Aucun jeu avec ce titre'))
+    }
+    else if (result.data.formStatus && result.data.formStatus >= 400) {
+      toastReject(new Error('Supabase error, check console'))
+      console.log(result)
+    } else {
+      toastResolve('All done!')
+      update()
+    }
+  }
+}}>
 
   <label for="game_name">Nom</label>
   <input type="text" name="game_name" id="game_name" value={form?.game ?? ''}>
+
+  <label for="game_developer">Développeuse</label>
+  <input type="text" name="game_developer" id="game_developer" value={form?.gameCompany ?? ''}>
 
   <label for="game_platform">Plateforme</label>
   <input list="game_platform" name='game_platform'>
@@ -25,7 +55,10 @@
   <input type="date" name="game_released_date" value={form?.gameReleaseDate ?? ''}>
 
   <label for="game_started">Démarré le:</label>
-  <input type="date" name="game_started">
+  <input type="date" name="game_started" id="game_started">
+
+  <label type='date' for="game_finished">Fini le:</label>
+  <input type="date" name="game_finished" id="game_finished">
 
   <label for="game_status">Status</label>
   <input list="game_status" name='game_status'>
@@ -34,9 +67,6 @@
       <option value={state.name}></option>
     {/each}
   </datalist>
-
-  <label type='date' for="game_finished">Fini le:</label>
-  <input type="date" name="game_finished">
 
   <button type="submit" formaction="?/search">IGDB API</button>
   <button type='submit'>Créer la fiche</button>

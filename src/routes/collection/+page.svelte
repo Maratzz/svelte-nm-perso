@@ -26,12 +26,13 @@
 
 <div>
   {#if session}
-    <p>TODO: create and place item form to add directly in client instead of using supabase dashboard. We need to validate the form first, stop it from submitting if fields are empty or error, then send it and trigger a page reload to refresh games in data.</p>
-
-    <p>TODO: fetch twitch api with a name and return a list of names, upon clicking on one of them it should fill all the other fields so</p>
+    <p>TODO: handle when there is more than one game returned. Ideally I should be able to cycle through the games to select the right one, fill the form with the info and submit as usual.</p>
 
     {#if form?.success}
+    <div class="img-preview">
       <img src={form.gameCoverLink} alt='Jaquette du jeu {form.game}'>
+    </div>
+      
     {/if}
 
     <Form {form} {categories} {status}/>

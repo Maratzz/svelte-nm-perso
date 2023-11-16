@@ -1,7 +1,7 @@
-import { fail, redirect } from '@sveltejs/kit'
+import { redirect } from '@sveltejs/kit'
 import { PUBLIC_TWITCH_CLIENT } from '$env/static/public'
 import { PRIVATE_TWITCH_SECRET } from '$env/static/private'
-import { getTwitchToken, getGameCover, getHumanDate, getGames } from '$lib/utils/index.js'
+import { getTwitchToken, getHumanDate, getGames } from '$lib/utils/index.js'
 
 export const actions = {
 
@@ -16,29 +16,47 @@ export const actions = {
     const newStatus = form.get('game_status')
     const newCover = form.get('game_cover')
     const newReleasedDate = form.get('game_released_date')
-    const newStarted = form.get('game_started')
-    const newFinished = form.get('game_finished')
+    let newStarted = form.get('game_started')
+    let newFinished = form.get('game_finished')
+    const newDeveloper = form.get('game_developer')
+
+    
     
     if (!session) {
       throw redirect(303, '/')
     }
     if (session) {
+      if (!newStarted) {
+        newStarted = null
+      }
+      if (!newFinished) {
+        newFinished = null
+      }
+      
       try {
         const newForm = await supabase
         .from('games')
         .insert([
-          {user_id: user, name: newGame, platform: newPlatform, released_in: newReleasedDate, cover: newCover, started_at: newStarted, finished_at: newFinished, status: newStatus}
+          {
+            user_id: user, 
+            name: newGame, 
+            platform: newPlatform, 
+            released_in: newReleasedDate, 
+            cover: newCover, 
+            started_at: newStarted, 
+            finished_at: newFinished, 
+            status: newStatus, 
+            developers: newDeveloper
+          }
         ])
         .select()
   
         const formStatus = await newForm.status
   
-        console.log(formStatus)
-  
-        return { newForm, formStatus }
+        return { newForm, formStatus, success : true }
 
       } catch(error) {
-          console.error(error)
+          return { success: false }
       } 
     }
   },
@@ -55,28 +73,24 @@ export const actions = {
     try {
       // all the info about a game
       const gameData = await getGames(PUBLIC_TWITCH_CLIENT, access_token, gameString)
-
-      //extract the ID to use for cover associated with the game
-      const gameID = gameData[0].id
-      const gameReleaseDateRaw = gameData[0].first_release_date
-  
-      // extract cover data
-      const gameCoverData = await getGameCover(PUBLIC_TWITCH_CLIENT, access_token, gameID)
-  
-      const gameReleaseDate = await getHumanDate(gameReleaseDateRaw)
-  
-  
-      const gameCoverLink = `https://images.igdb.com/igdb/image/upload/t_cover_big/${gameCoverData}.png`
-  
+      const newGame = gameData[0]
+      if (newGame === undefined) throw 'no game found'
+      const gameID = newGame.id
+      const gameCover = newGame.cover.image_id
+      const gameCoverLink = `https://images.igdb.com/igdb/image/upload/t_cover_big/${gameCover}.png`
+      const gameReleaseDate = await getHumanDate(newGame.first_release_date)
+      const gameCompany = newGame.involved_companies[0].company.name
+      
       return { 
-        success: true,
         game,
-        gameData,
+        gameCompany,
         gameID,
         gameCoverLink,
-        gameReleaseDate }
+        gameReleaseDate,
+        success: true }
+
     } catch(error) {
-      console.log(error.message)
+      return error
     }
   }
 }
