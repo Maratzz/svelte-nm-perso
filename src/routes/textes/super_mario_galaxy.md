@@ -1,7 +1,11 @@
 ---
 title: "Super Mario Galaxy"
 date: "2016-11-08"
-categories: "textes"
+headline: "Super Mario Galaxy est une ligne en pointillés qui n’arrive jamais."
+categories:
+- "textes"
+- "critique"
+- "jv"
 ---
 
 *Un jeu développé et édité par Nintendo, sorti en 2007.*

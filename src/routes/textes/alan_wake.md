@@ -1,7 +1,11 @@
 ---
 title: Alan Wake
 date: "2015-05-31"
-categories: "textes"
+headline: "Alan Wake a beaucoup de cartes en main, hélas quand vient son tour, il tire le pouilleux."
+categories: 
+- "textes"
+- "critique"
+- "jv"
 ---
 
 _Un jeu de Remedy Entertzinment, publié par Microsoft Games Studio, sorti en 2010._ 

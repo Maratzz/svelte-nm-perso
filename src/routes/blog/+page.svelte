@@ -1,5 +1,14 @@
 <script>
   export let data
+  let { posts } = data
+  let formatDate = (e) => { 
+    let options = {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    }
+    return new Date(e).toLocaleDateString('fr', options)
+  }
 </script>
 
 <svelte:head>
@@ -10,14 +19,14 @@
 <h1>Blog</h1>
   
 <ul class="removePaperLi">
-  {#each data.posts as post}
+  {#each posts as post}
     <li>
       <h2>
         <a href={post.path}>
           {post.meta.title}
         </a>
       </h2>
-      Publié le {post.meta.date}
+      Publié le {formatDate(post.meta.date)}
     </li>
   {/each}
 </ul>

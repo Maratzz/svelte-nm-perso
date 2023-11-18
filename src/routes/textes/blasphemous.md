@@ -1,7 +1,11 @@
 ---
 title: Blasphemous
 date: "2023-05-19"
-categories: "textes"
+headline: "Ceci est une headline"
+categories:
+- "textes"
+- "critique"
+- "jv"
 ---
 
 _Un jeu de The Game Kitchen, publié par Team17, sorti en septembre 2019._  
