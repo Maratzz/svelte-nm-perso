@@ -33,11 +33,10 @@
   {#each posts as post}
     <li>
       <div class="item">
-        <div class="item-img">
+        <div class="item__img">
           <img 
             src={attachCoverImage(post.meta.title, items)} 
-            alt=" Illustration du texte" 
-            class="text-img">
+            alt=" Illustration du texte">
         </div>
         <div class="item__content">
           <h2>
@@ -57,12 +56,6 @@
 </ul>
 
 <style lang="scss">
-  .text-img {
-    width: 140px;
-    height: auto;
-    object-fit: contain;
-  }
-
   .container {
     //border: 1px solid red;
     display: flex;
@@ -79,8 +72,15 @@
     background-color: rgb(255, 255, 255);
     padding: 15px 25px;
     border-radius: 5px;
+    align-items: center;
+    &__img {
+      width: 140px;
+      height: auto;
+      flex: 1 0 auto;
+    }
     &__content {
       margin-left: 25px;
+      flex: 2 0 80%;
     }
   }
 
