@@ -74,7 +74,7 @@
   .item {
     //border: 1px solid green;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     margin: 10px 15px;
     background-color: rgb(255, 255, 255);
     padding: 15px 25px;
