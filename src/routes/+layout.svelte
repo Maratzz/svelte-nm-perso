@@ -27,7 +27,6 @@
 				invalidate('supabase:auth');
 			}
 		});
-
 		return () => data.subscription.unsubscribe();
 	});
 </script>
@@ -42,8 +41,9 @@
   <meta name="msapplication-TileColor" content="#e7f7ff">
   <meta name="theme-color" content="#ffffff">
 </svelte:head>
+
 {#if currentRoute !== '/'}
-  <Header {session}/>
+  <Header {session} {currentRoute}/>
 {/if}
 
 {#key currentRoute}

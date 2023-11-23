@@ -1,8 +1,6 @@
 <script>
-  import { browser } from '$app/environment'
-  import { onMount } from 'svelte'
-
   import MediaQuery from '$lib/components/MediaQuery.svelte'
+  import Header from '$lib/components/Header.svelte'
 
   import background from '$lib/assets/homepage/background.png'
   import bag from '$lib/assets/homepage/bag.png'
@@ -29,29 +27,6 @@
   import tournesol_left from '$lib/assets/homepage/tournesol_left.png'
   import tournesol_middle from '$lib/assets/homepage/tournesol_middle.png'
   import tournesol_right from '$lib/assets/homepage/tournesol_right.png'
-
-  if (browser) {
-    window.addEventListener('DOMContentLoaded', () => {
-      const svg = document.getElementById('#svg')
-      console.log(svg)
-    })
-  }
-  
-  // const onload = (el) => {
-  //   console.log('ready')
-    
-  //   svg.addEventListener('load', () => {
-  //     const svgContent = svg.contentDocument
-  //     svgContent.forEach( content => {
-  //       content.addEventListener('mouseover', () => {
-  //         console.log(content.id)
-  //       })
-  //     });
-  //   })
-  // }
- 
-
-  
 </script>
 
 <svelte:head>
@@ -60,6 +35,10 @@
 </svelte:head>
 
 <div id="homepage">
+  <div>
+    <p>Bonjour, je suis <span class="highlight">Nico</span></p>
+    <p>Aussi appelé Maratz sur Internet</p>
+  </div>
   <div id="navigation">
     <MediaQuery query="(min-height: 800px) and (min-width: 500px)" let:matches>
       {#if matches}
@@ -95,7 +74,11 @@
       {/if}
     </MediaQuery>
   </div>
-  <!-- <img src={background_desktop} alt="blob"> -->
+  <div class="landing">
+    <Header class="landing-nav"/>
+  </div>
+  
+
   
 </div>
 
@@ -103,6 +86,7 @@
   #homepage {
     background-color: #FFF;
     box-sizing: border-box;
+    //border: 10px solid #E1DAEA;
     z-index: 50;
     width: 100vw;
     height: 100vh;
@@ -212,6 +196,56 @@
     & img {
       position: absolute;
     }
+  }
+
+  .landing :global(.landing-nav) {
+    background-color: #FFF;
+    width: 450px;
+    height: 500px;
+    //border: 1px solid red;
+    //margin-left: -200px;
+  }
+
+  .landing :global(.landing-nav ul) {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 5px 60px;
+    background-color: #FFF;
+  }
+
+  .landing :global(.landing-page) {
+    background-color: #FFF;
+  }
+
+  .landing :global(.landing-nav ul li) {
+    margin-bottom: 50px;
+  }
+
+  .landing :global(.landing-nav ul li:nth-child(1)) {
+    display: none;
+  }
+
+  .landing :global(.landing-nav ul li:nth-child(2)) {
+    margin-left: 0px;
+  }
+
+  .landing :global(.landing-nav ul li:nth-child(3)) {
+    margin-left: 30px;
+  }
+
+  .landing :global(.landing-nav ul li:nth-child(4)) {
+    margin-left: 60px;
+  }
+
+  .landing :global(.landing-nav ul li:nth-child(5)) {
+    margin-left: 30px;
+  }
+  
+  .highlight {
+    font-size: 1.5em;
+    background-color: #E1DAEA;
+    padding: 5px 15px;
+    border-radius: 15px;
   }
     
 
