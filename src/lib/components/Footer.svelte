@@ -1,4 +1,9 @@
-<div class="footer">
+<script>
+  let footerClass
+  export {footerClass as class}
+</script>
+
+<div class={footerClass}>
   <ul class="removePaperLi">
     <li><a href="/mentions">Mentions légales</a></li>
     <li><a href="/credits">Crédits</a></li>

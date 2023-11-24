@@ -1,6 +1,7 @@
 <script>
   import MediaQuery from '$lib/components/MediaQuery.svelte'
   import Header from '$lib/components/Header.svelte'
+  import Footer from '$lib/components/Header.svelte'
 
   import background from '$lib/assets/homepage/background.png'
   import bag from '$lib/assets/homepage/bag.png'
@@ -33,67 +34,76 @@
   <title>Accueil - Nico Moisson</title>
   <meta name="description" content="Site personnel de Nico, aka Maratz">
 </svelte:head>
+<div id="fullscreen-homepage">
 
-<div id="homepage">
-  <div>
-    <p>Bonjour, je suis <span class="highlight">Nico</span></p>
-    <p>Aussi appelé Maratz sur Internet</p>
-  </div>
-  <div id="navigation">
-    <MediaQuery query="(min-height: 800px) and (min-width: 500px)" let:matches>
-      {#if matches}
-        <img src={background} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-background">
-        <img src={bag} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-bag">
-        <img src={bao_out} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-bao-out">
-        <img src={baos} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-baos">
-        <img src={bourses} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-bourses">
-        <img src={chest} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-chest">
-        <img src={coin_1} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-coin-1">
-        <img src={coin_2} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-coin-2">
-        <img src={coin_3} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-coin-3">
-        <img src={couvercle_bao} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-couvercle-bao">
-        <img src={feather} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-feather">
-        <img src={flag} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-flag">
-        <img src={lanterne_left} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-lanterne-left">
-        <img src={lanterne_right} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-lanterne-right">
-        <img src={nico_body} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-nico-body">
-        <img src={nico_head} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-nico-head">
-        <img src={parchemin} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-parchemin">
-        <img src={poele} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-poele">
-        <img src={pot_tournesol} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-pot-tournesol">
-        <img src={potion} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-potion">
-        <img src={tournesol_bouture} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-tournesol-bouture">
-        <img src={tournesol_left} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-tournesol-left">
-        <img src={tournesol_middle} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-tournesol-middle">
-        <img src={tournesol_right} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-tournesol-right">
-      {/if}
-    </MediaQuery>
-    <MediaQuery query="(max-width: 900px)" let:matches>
-      {#if matches}
-        <img src={full_image} alt="Illustration d'accueil" class='no-border'>
-      {/if}
-    </MediaQuery>
-  </div>
-  <div class="landing">
-    <Header class="landing-nav"/>
-  </div>
+  <div id="homepage">
+
+    <div id="presentation">
+      <p>Bonjour, je suis <span class="highlight">Nico</span> aka <span class="highlight">Maratz</span></p>
+      <p>Écrivain, critique, développeur web, <i>shitposter</i>.</p>
+      <p>Ce site est mon espace personnel sur Internet,<br> j'y mets toutes mes affaires et le reste.</p>
+      <p>Bonne visite !</p>
+    </div>
   
-
+    <div id="navigation">
+      <MediaQuery query="(min-height: 800px) and (min-width: 500px)" let:matches>
+        {#if matches}
+          <img src={background} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-background">
+          <img src={bag} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-bag">
+          <img src={bao_out} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-bao-out">
+          <img src={baos} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-baos">
+          <img src={bourses} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-bourses">
+          <img src={chest} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-chest">
+          <img src={coin_1} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-coin-1">
+          <img src={coin_2} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-coin-2">
+          <img src={coin_3} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-coin-3">
+          <img src={couvercle_bao} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-couvercle-bao">
+          <img src={feather} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-feather">
+          <img src={flag} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-flag">
+          <img src={lanterne_left} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-lanterne-left">
+          <img src={lanterne_right} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-lanterne-right">
+          <img src={nico_body} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-nico-body">
+          <img src={nico_head} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-nico-head">
+          <img src={parchemin} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-parchemin">
+          <img src={poele} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-poele">
+          <img src={pot_tournesol} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-pot-tournesol">
+          <img src={potion} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-potion">
+          <img src={tournesol_bouture} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-tournesol-bouture">
+          <img src={tournesol_left} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-tournesol-left">
+          <img src={tournesol_middle} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-tournesol-middle">
+          <img src={tournesol_right} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-tournesol-right">
+        {/if}
+      </MediaQuery>
+      <MediaQuery query="(max-width: 900px)" let:matches>
+        {#if matches}
+          <img src={full_image} alt="Illustration d'accueil" class='no-border'>
+        {/if}
+      </MediaQuery>
+    </div>
+  
+    <div class="landing">
+      <Header class="landing-nav"/>
+    </div>
+    
+  </div>
+  <div class="footer">
+    <Footer class="footer"/>
+  </div>
   
 </div>
+
 
 <style lang='scss'>
   #homepage {
     background-color: #FFF;
     box-sizing: border-box;
-    //border: 10px solid #E1DAEA;
     z-index: 50;
     width: 100vw;
     height: 100vh;
     display: flex;
     flex-flow: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     &-bag {
       top: 26%;
       left: 18%;
@@ -113,6 +123,7 @@
     &-chest {
       top: 37%;
       left: 33%;
+      z-index: 10;
     }
     &-coin-1 {
       top: 55%;
@@ -145,6 +156,7 @@
     &-lanterne-right {
       top: 64.2%;
       left: 41.8%;
+      z-index: 10;
     }
     &-parchemin {
       top: 33%;
@@ -188,11 +200,15 @@
     }
   }
 
+  .hover {
+    cursor: pointer;
+  }
+
   #navigation {
     position: relative;
     width: 880px;
     height: 800px;
-    z-index: 15;
+    z-index: 5;
     & img {
       position: absolute;
     }
@@ -200,16 +216,13 @@
 
   .landing :global(.landing-nav) {
     background-color: #FFF;
-    width: 450px;
-    height: 500px;
-    //border: 1px solid red;
-    //margin-left: -200px;
+    width: auto;
+    height: auto;
   }
 
   .landing :global(.landing-nav ul) {
     display: flex;
     flex-flow: column nowrap;
-    padding: 5px 60px;
     background-color: #FFF;
   }
 
@@ -230,23 +243,33 @@
   }
 
   .landing :global(.landing-nav ul li:nth-child(3)) {
-    margin-left: 30px;
+    margin-left: 45px;
   }
 
   .landing :global(.landing-nav ul li:nth-child(4)) {
-    margin-left: 60px;
+    margin-left: 70px;
   }
 
   .landing :global(.landing-nav ul li:nth-child(5)) {
-    margin-left: 30px;
+    margin-left: 45px;
   }
   
   .highlight {
     font-size: 1.5em;
     background-color: #E1DAEA;
-    padding: 5px 15px;
-    border-radius: 15px;
+    padding: 5px 8px 2px 8px;
+    border-radius: 10px;
   }
-    
+
+  #presentation {
+    width: auto;
+    height: auto;
+    padding: 5px 10px;
+  }
+
+  .footer :global(.footer){
+    background-color: aqua;
+    font-size: 0.8em;
+  }
 
 </style>
