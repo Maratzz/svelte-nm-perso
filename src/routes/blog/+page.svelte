@@ -41,6 +41,11 @@
 </ul>
 
 <style lang="scss">
+  h1 {
+    display: flex;
+    place-content: center;
+  }
+
   .text-img {
     width: 140px;
     height: 190px;
@@ -51,7 +56,7 @@
     //border: 1px solid red;
     display: flex;
     flex-flow: column wrap;
-    margin: 0;
+    //margin: 0;
     padding: 0;
   }
 

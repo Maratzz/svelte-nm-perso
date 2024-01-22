@@ -84,10 +84,7 @@
     <div class="landing">
       <Header class="landing-nav"/>
     </div>
-    
-  </div>
-  <div class="footer">
-    <Footer class="footer"/>
+  
   </div>
   
 </div>
@@ -265,11 +262,6 @@
     width: auto;
     height: auto;
     padding: 5px 10px;
-  }
-
-  .footer :global(.footer){
-    background-color: aqua;
-    font-size: 0.8em;
   }
 
 </style>

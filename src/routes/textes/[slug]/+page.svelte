@@ -25,4 +25,10 @@
     background-color: aquamarine;
     padding: 4px 4px;
   }
+
+  article {
+    max-width: clamp(65%, 65%, 90%);
+    margin-right: auto;
+    margin-left: auto;
+  }
 </style>

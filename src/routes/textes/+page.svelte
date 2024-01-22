@@ -56,11 +56,17 @@
 </ul>
 
 <style lang="scss">
+
+  h1 {
+    display: flex;
+    place-content: center;
+  }
+
   .container {
     //border: 1px solid red;
     display: flex;
     flex-flow: column wrap;
-    margin: 0;
+    //margin: 0;
     padding: 0;
   }
 
