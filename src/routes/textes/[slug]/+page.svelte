@@ -27,7 +27,7 @@
   }
 
   article {
-    max-width: clamp(65%, 65%, 90%);
+    max-width: clamp(55%, 55%, 90%);
     margin-right: auto;
     margin-left: auto;
   }
