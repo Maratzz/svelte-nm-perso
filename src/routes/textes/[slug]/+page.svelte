@@ -27,8 +27,14 @@
   }
 
   article {
-    max-width: clamp(55%, 55%, 90%);
+    width: 55%;
     margin-right: auto;
     margin-left: auto;
+  }
+
+  @media (max-width: 600px) {
+    article {
+      width: 85%;
+    }
   }
 </style>
