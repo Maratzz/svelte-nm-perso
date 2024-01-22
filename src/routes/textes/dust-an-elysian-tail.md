@@ -1,5 +1,5 @@
 ---
-title: "Tail Concerto"
+title: "Dust: An Elysian Tail"
 date: "2015-05-02"
 headline: "Dust: An Elysian Tail est un monstre de Frankenstein au grand cœur."
 categories:

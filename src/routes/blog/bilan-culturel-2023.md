@@ -1,6 +1,7 @@
 ---
 title: Bilan culturel 2023
 date: "2024-01-20"
+headline: "Lister pour ne pas s'enliser"
 categories:
 - "blog"
 - "bilan"

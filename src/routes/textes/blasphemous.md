@@ -1,7 +1,7 @@
 ---
 title: Blasphemous
 date: "2023-05-19"
-headline: "Ceci est une headline"
+headline: "Cachez cette religion que je ne saurais jouer"
 categories:
 - "textes"
 - "critique"
