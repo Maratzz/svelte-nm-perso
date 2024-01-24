@@ -31,6 +31,7 @@ categories:
 - terminer la refonte de ce site, documenter tout ça, faire le site pro, toujours avec Svelte(kit), développer un plugin pour copier des fichiers d'une Dropbox à la bibliothèque de médias Wordpress. C'est une demande du client à la base, mais qui était trop compliqué et long à faire dans le temps imparti du projet à ce moment-là. En y repensant, je me dis que ça pourrait être un exercice intéressant, et potentiellement une porte d'entrée vers le développement de plugins Wordpress et des revenus passifs
 - écrire et publier plusieurs textes, notamment (liste non exhaustive et non-contractuelle): l'Inktober 2023, Breath of the Wild, Noita, NaissanceE, Thumper, The Witness, la fanfic Shadow of the Colossus
 - outrepasser ma peur du dentiste, sur laquelle j'ai travaillé cette année un peu déjà, et me faire enlever les dents de sagesse dans la foulée
+- passer le code et le permis
 - stream, encore et toujours, trouver un créneau régulier, des concepts rigolos à faire dans la foulée du dos-bûche-vapeur, de la curation Kickstarter, des intéractions avec des outils, bidouiller des bidules et des choses
 - organiser un séjour à Londres pour voir ma soeur dans le cadre de son mariage
 - profiter du concert de Tool en juin, déjà planifié
