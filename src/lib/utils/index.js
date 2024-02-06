@@ -44,7 +44,7 @@ export const getGames = async (clientID, twitchToken, gameName) => {
       'Client-ID': clientID,
       Authorization: `Bearer ${twitchToken}`,
     },
-    body: `fields id,cover.image_id,first_release_date,name,platforms,summary,involved_companies.company.name; where name = "${gameName}";sort first_release_date asc;`
+    body: `fields cover.image_id,first_release_date,name,involved_companies.company.name,involved_companies.developer; where name ~ "${gameName}";sort first_release_date asc;`
   })
   const res = await data.json()
   return res

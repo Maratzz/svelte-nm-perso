@@ -67,7 +67,7 @@ export const actions = {
     const access_token = token.access_token
 
     const form = await request.formData()
-    const game = form.get('game_name')
+    let game = form.get('game_name')
     const gameString = game.toString()
 
     try {
@@ -75,16 +75,17 @@ export const actions = {
       const gameData = await getGames(PUBLIC_TWITCH_CLIENT, access_token, gameString)
       const newGame = gameData[0]
       if (newGame === undefined) throw 'no game found'
-      const gameID = newGame.id
+      game = newGame.name
       const gameCover = newGame.cover.image_id
       const gameCoverLink = `https://images.igdb.com/igdb/image/upload/t_cover_big/${gameCover}.png`
       const gameReleaseDate = await getHumanDate(newGame.first_release_date)
-      const gameCompany = newGame.involved_companies[0].company.name
+      const gameCompanies = newGame.involved_companies
+      const gameDevCompany = gameCompanies.filter(company => company.developer === true)
+      const gameCompany = gameDevCompany[0].company.name
       
       return { 
         game,
         gameCompany,
-        gameID,
         gameCoverLink,
         gameReleaseDate,
         success: true }
