@@ -4,6 +4,7 @@ export async function load({ parent }) {
   let { data: games } = await supabase
     .from('games')
     .select('*')
+    .order('name', { ascending: true })
 
   let { data : categories } = await supabase
     .from('platforms')

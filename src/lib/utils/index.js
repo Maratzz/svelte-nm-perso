@@ -50,6 +50,7 @@ export const getGames = async (clientID, twitchToken, gameName) => {
   return res
 }
 
+// TODO check if it's still used and/or useful, and delete it not
 export const getGameCover = async (clientID, twitchToken, input) => {
   const data = await fetch('https://api.igdb.com/v4/covers', {
     method: 'POST',

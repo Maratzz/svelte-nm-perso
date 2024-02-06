@@ -25,10 +25,10 @@
       toastReject(new Error('Aucun jeu avec ce titre'))
     }
     else if (result.data.formStatus && result.data.formStatus >= 400) {
-      toastReject(new Error('Supabase error, check console'))
+      toastReject(new Error('Il manque un champ obligatoire !'))
       console.log(result)
     } else {
-      toastResolve('All done!')
+      toastResolve('OK !')
       update()
     }
   }
