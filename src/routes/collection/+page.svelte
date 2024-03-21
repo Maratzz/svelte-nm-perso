@@ -25,11 +25,21 @@
 
 <h1>Collection</h1>
 
-<div id="collection-form" class="container">
-  {#if session}
-    <Form {form} {categories} {status}/>
-  {/if}
-</div>
+{#if session}
+  <div id="collection-form" class="collapsible">
+    <input type="checkbox" name="collection-form" id="collapsible1">
+    <label for="collapsible1">Ajouter une oeuvre</label>
+    <div class="collapsible-body">
+      <Form {form} {categories} {status}/>
+      <div class="form-image">
+        {#if form?.success}
+            <img src={form?.gameCoverLink} alt="">
+        {/if}
+      </div>
+    </div>
+  </div>
+{/if}
+
 
 <div id="filter-container">
   <select name="filter-category" id="" on:change={filterGames}>
@@ -49,6 +59,15 @@
 {/key}
 
 <style>
+
+  #collection-form {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-flow: column wrap;
+  }
+
   .container {
     display: flex;
     flex-flow: row wrap;
@@ -60,7 +79,10 @@
     margin-bottom: 25px;
   }
 
-  #collection-form {
-    border: 1px solid blue;
+  .collapsible-body {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 50px;
+    align-items: top;
   }
 </style>
