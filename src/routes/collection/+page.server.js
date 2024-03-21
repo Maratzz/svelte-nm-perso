@@ -19,6 +19,7 @@ export const actions = {
     let newStarted = form.get('game_started')
     let newFinished = form.get('game_finished')
     const newDeveloper = form.get('game_developer')
+    const newNotes = form.get('game_notes')
 
     
     
@@ -36,7 +37,7 @@ export const actions = {
       try {
         const newForm = await supabase
         .from('games')
-        .insert([
+        .upsert([
           {
             user_id: user, 
             name: newGame, 
@@ -46,7 +47,8 @@ export const actions = {
             started_at: newStarted, 
             finished_at: newFinished, 
             status: newStatus, 
-            developers: newDeveloper
+            developers: newDeveloper,
+            notes: newNotes
           }
         ])
         .select()

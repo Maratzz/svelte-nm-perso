@@ -72,10 +72,7 @@
           <img src={tournesol_left} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-tournesol-left">
           <img src={tournesol_middle} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-tournesol-middle">
           <img src={tournesol_right} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-tournesol-right">
-        {/if}
-      </MediaQuery>
-      <MediaQuery query="(max-width: 900px)" let:matches>
-        {#if matches}
+        {:else}
           <img src={full_image} alt="Illustration d'accueil" class='no-border'>
         {/if}
       </MediaQuery>

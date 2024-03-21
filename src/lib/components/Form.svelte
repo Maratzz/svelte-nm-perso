@@ -68,6 +68,9 @@
     {/each}
   </datalist>
 
+  <label for="game_notes">Notes</label>
+  <textarea name="game_notes" id="game_notes" cols="50" rows="7" placeholder="Something to say?"></textarea>
+
   <button type="submit" formaction="?/search">IGDB API</button>
   <button type='submit'>Créer la fiche</button>
 

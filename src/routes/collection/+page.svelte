@@ -1,6 +1,7 @@
 <script>
   import { fade } from 'svelte/transition'
   import Form from '$lib/components/Form.svelte'
+  import ItemFile from '$lib/components/ItemFile.svelte'
   export let data
   export let form
   $: ({ games, categories, status, session } = data)
@@ -24,19 +25,9 @@
 
 <h1>Collection</h1>
 
-<div>
+<div id="collection-form" class="container">
   {#if session}
-    <p>TODO: handle when there is more than one game returned. Ideally I should be able to cycle through the games to select the right one, fill the form with the info and submit as usual.</p>
-
-    {#if form?.success}
-    <div class="img-preview">
-      <img src={form.gameCoverLink} alt='Jaquette du jeu {form.game}'>
-    </div>
-      
-    {/if}
-
     <Form {form} {categories} {status}/>
-
   {/if}
 </div>
 
@@ -52,9 +43,7 @@
 {#key selected}
   <div class="container" in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
     {#each filteredGames as game}
-        <div class="item">
-          <img src={game.cover} alt='Jaquette du jeu {game.name}'>
-        </div>
+        <ItemFile {game}/>
     {/each}
   </div>
 {/key}
@@ -69,5 +58,9 @@
 
   #filter-container {
     margin-bottom: 25px;
+  }
+
+  #collection-form {
+    border: 1px solid blue;
   }
 </style>
