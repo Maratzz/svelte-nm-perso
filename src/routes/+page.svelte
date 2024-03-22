@@ -34,6 +34,7 @@
   <title>Accueil - Nico Moisson</title>
   <meta name="description" content="Site personnel de Nico, aka Maratz">
 </svelte:head>
+
 <div id="fullscreen-homepage">
 
   <div id="homepage">
@@ -92,7 +93,6 @@
     background-color: #FFF;
     box-sizing: border-box;
     z-index: 50;
-    width: 100vw;
     height: 100vh;
     display: flex;
     flex-flow: row;

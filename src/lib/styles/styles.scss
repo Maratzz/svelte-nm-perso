@@ -1,18 +1,13 @@
 body {
   margin: 0;
-  box-sizing: content-box;
+  box-sizing: border-box;
   background: #eee;
 }
-
-// main, nav, .footer {
-//   padding: 1rem;
-//   margin: 2rem auto;
-//   max-width: 80rem;
-// }
 
 nav, .footer {
   background: #eee;
   font-size: 1.5em;
+  border: 1px solid red;
   ul {
     display: flex;
     flex-direction: row;

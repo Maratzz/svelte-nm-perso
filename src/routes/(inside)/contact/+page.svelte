@@ -2,3 +2,5 @@
   <title>Contact - Nico Moisson</title>
   <meta name="description" content="Comment contacter Nico Moisson à travers les Internet ?">
 </svelte:head>
+
+<h1>Contact</h1>
