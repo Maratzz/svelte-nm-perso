@@ -5,16 +5,17 @@
   export let data
   export let form
   $: ({ games, categories, status, session } = data)
-  $: selected = ''
+  //$: selected = ''
+  let value
   $: filteredGames = games
 
   const filterGames = async (event) => {
-    const value = event.currentTarget.value
-    selected = value
-    if (selected === 'everything') {
+    value = event.currentTarget.value
+    //selected = value
+    if (value === 'everything') {
       filteredGames = games
     } else {
-      filteredGames = games.filter(game => game.platform === selected)
+      filteredGames = games.filter(game => game.platform === value)
     }
   }
 </script>
@@ -45,12 +46,12 @@
   <select name="filter-category" id="" on:change={filterGames}>
     <option value="everything" selected>Toutes les plateformes</option>
     {#each categories as category}
-        <option value={category.name} selected={category.name}>{category.name}</option>
+        <option value={category.name}>{category.name}</option>
     {/each}
   </select>
 </div>
 
-{#key selected}
+{#key value}
   <div class="container" in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
     {#each filteredGames as game}
         <ItemFile {game}/>
