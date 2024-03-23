@@ -2,16 +2,16 @@
   import { fade } from 'svelte/transition'
   import Form from '$lib/components/Form.svelte'
   import ItemFile from '$lib/components/ItemFile.svelte'
+  import ItemCard from '$lib/components/ItemCard.svelte'
+
   export let data
   export let form
   $: ({ games, categories, status, session } = data)
-  //$: selected = ''
   let value
   $: filteredGames = games
 
   const filterGames = async (event) => {
     value = event.currentTarget.value
-    //selected = value
     if (value === 'everything') {
       filteredGames = games
     } else {
@@ -34,7 +34,7 @@
       <Form {form} {categories} {status}/>
       <div class="form-image">
         {#if form?.success}
-            <img src={form?.gameCoverLink} alt="">
+          <img src={form?.gameCoverLink} alt="">
         {/if}
       </div>
     </div>
@@ -54,7 +54,7 @@
 {#key value}
   <div class="container" in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
     {#each filteredGames as game}
-        <ItemFile {game}/>
+        <ItemCard {game} {session}/>
     {/each}
   </div>
 {/key}
@@ -62,11 +62,14 @@
 <style>
 
   #collection-form {
-    width: 50%;
+    width: 70%;
     margin-left: auto;
     margin-right: auto;
     display: flex;
     flex-flow: column wrap;
+    & img {
+      flex-shrink: 0;
+    }
   }
 
   .container {

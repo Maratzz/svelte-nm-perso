@@ -16,7 +16,6 @@
       return 'https://placehold.co/140x190'
     } else {
       let coverImage = foundRow.cover
-      console.log(coverImage)
       return coverImage
     }
   }
@@ -47,9 +46,6 @@
           <p>Publié le {formatDate(post.meta.date)}</p>
           <p>{post.meta.headline ?? 'Headline missing'}</p>
         </div>
-        
-        
-        
       </div>
     </li>
   {/each}
