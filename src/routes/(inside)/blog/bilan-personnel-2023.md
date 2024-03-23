@@ -38,5 +38,4 @@ categories:
 
 Comme toujours, les yeux sont gros et le ventre est petit, telle est l'histoire éternelle de niconino, niconini.
 
-![Une photo rigolote de Suashem, les pattes avant bien en avant](/img/blog/wtf_suashem.jpg)
-
+![Un portrait rigolo de Suashem, les pattes avant bien en avant](/img/blog/wtf_suashem.jpg)
