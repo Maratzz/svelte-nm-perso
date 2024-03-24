@@ -4,7 +4,7 @@ export async function load({ parent }) {
   let { data: games } = await supabase
     .from('games')
     .select('*')
-    .order('name', { ascending: true })
+    .order('id', { ascending: false })
 
   let { data : categories } = await supabase
     .from('platforms')
@@ -14,7 +14,7 @@ export async function load({ parent }) {
   let { data : status } = await supabase
     .from('game_status')
     .select('*')
-    .order('name', { ascending: true })
+    .order('id', { ascending: true })
     
   return {
     games: games ?? [],
