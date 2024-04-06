@@ -1,7 +1,6 @@
 <script>
   import { fade } from 'svelte/transition'
   import Form from '$lib/components/Form.svelte'
-  import ItemFile from '$lib/components/ItemFile.svelte'
   import ItemCard from '$lib/components/ItemCard.svelte'
   import { paginate, LightPaginationNav } from 'svelte-paginate'
   import { supabase } from '@supabase/auth-ui-shared';
@@ -23,13 +22,7 @@
     const searchFilter = document.querySelector('#filter-search')
     const searchValue = searchFilter.value
 
-    if (searchValue !== '') {
-      filteredGames = games.filter(game => game.name.toLowerCase().includes(searchValue))
-    } else if (platformValue === 'everything') {
-      filteredGames = games.filter(game => game.status === statusValue)
-    } else {
-      filteredGames = games.filter(game => game.platform === platformValue && game.status === statusValue)
-    }
+    filteredGames = games.filter(game => game.name.toLowerCase().includes(searchValue) && (platformValue === 'everything' ? game.platform !== null : game.platform === platformValue) && (statusValue === 'everything' ? game.status !== null : game.status === statusValue))
     currentPage = 1
     return filteredGames
   }
@@ -58,28 +51,34 @@
 {/if}
 
 <div id="filter-container">
-  <label for="filter-platform">Plateforme</label>
-  <select name="filter-platform" id="filter-platform">
+  <div id="filter-platform-wrap">
+    <label for="filter-platform">Plateforme</label>
+    <select name="filter-platform" id="filter-platform">
     <option value="everything" selected>Toutes</option>
     {#each categories as category}
       <option value={category.name}>{category.name}</option>
     {/each}
-  </select>
+    </select>
+  </div>
 
-  <label for="filter-status">Status</label>
-  <select name="filter-status" id="filter-status">
+  <div id="filter-status-wrap">
+    <label for="filter-status">Status</label>
+    <select name="filter-status" id="filter-status">
+    <option value="everything" selected>Tous</option>
     {#each status as singleStatus}
       <option value={singleStatus.name}>{singleStatus.converted}</option>
     {/each}
-  </select>
+    </select>
+  </div>
 
-  <input type="text" name="filter-search" id="filter-search" placeholder="Chercher un jeu">
-
-  <button type="button" id="filter-sort" on:click={multiFilterGames}>Filtrer</button>
+  <div id="filter-search-wrap">
+    <input type="text" name="filter-search" id="filter-search" placeholder="Chercher un jeu">
+    <button type="button" id="filter-sort" on:click={multiFilterGames}>Filtrer</button>
+  </div>
 
 </div>
 
-{#key currentPage}
+{#key currentPage, paginatedItems}
   <div class="container" id="container" in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
     {#if filteredGames.length > 0}
       {#each paginatedItems as game}
@@ -125,6 +124,9 @@
 
   #filter-container {
     margin-bottom: 25px;
+    display: flex;
+    flex-flow: column wrap;
+    gap: 10px;
   }
 
   .collapsible-body {
