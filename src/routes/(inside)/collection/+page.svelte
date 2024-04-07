@@ -11,7 +11,7 @@
   $: filteredGames = games
 
   let currentPage = 1
-  let pageSize = 4
+  let pageSize = 9
   $: paginatedItems = paginate({ items: filteredGames, pageSize, currentPage })
   
   const multiFilterGames = async () => {
@@ -118,8 +118,8 @@
   .container {
     display: flex;
     flex-flow: row wrap;
-    gap: 50px 20px;
-    justify-content: space-around;
+    gap: 50px 50px;
+    margin-bottom: 50px;
   }
 
   #filter-container {

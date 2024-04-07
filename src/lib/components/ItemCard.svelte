@@ -9,26 +9,18 @@
     }
     return new Date(e).toLocaleDateString('fr', options)
   }
+
+  let expandedItem
+
+  
 </script>
 
-<div class="item border border-2 js-item">
-
-  <div class="item__content">
-
-    <div class="item__controls">
-      {#if session}
-      <button type="button" class="js-edit">Edit</button>
-      {/if}
-      <button type="button" class="card__close js-close-button">X</button>
-    </div>
-
+<div class="item">
     <div class="item__header">
-
       <img 
         src={game.cover}
         alt="Jaquette du jeu {game.name}"
-        class="item__image js-animatable no-border">
-
+        class="item__image">
     </div>
 
     <div class="item__body">
@@ -50,48 +42,67 @@
         <p>{game.notes}</p>
       </div>
     </div>
-
-
-
-  </div>
-
+    
+    <div class="item__controls">
+      {#if session}
+      <button type="button">Edit</button>
+      {/if}
+      <button type="button" class="item__close">X</button>
+    </div>
 </div>
 
 <style>
+    .item__body, .item__controls, .item__notes {
+    display: none;
+  }
+
   .item {
-    width: 100%;
+    width: auto;
+  }
+
+  .item__image {
+    cursor: pointer;
+  }
+
+  .expanded.item {
     background-color: #ffffff;
     border: 3px solid black;
     position: relative;
     box-sizing: content-box;
-  }
-
-  .item__controls {
-      position: absolute;
-      right: 15px;
-      top: 10px;
-  }
-
-  .item__content {
+    width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-flow: row nowrap;
   }
 
-  .item__header {
+  .expanded .item__controls {
+    display: block;
+    position: absolute;
+    right: -20px;
+    top: -30px;
+  }
+
+  .expanded .item__header {
     margin: 30px 30px 0px 25px;
     padding-bottom: 45px;
     flex-shrink: 0;
   }
 
-  .item__body {
+  .expanded .item__body {
     display: flex;
     flex-flow: column;
     gap: 35px;
     margin-bottom: 10px;
+    opacity: 1;
+    height: auto;
+    width: auto;
   }
 
-  .item__notes {
+  .expanded .item__notes {
     padding-right: 30px;
     text-align: justify;
+  }
+
+  .expanded .item__body, .expanded .item__controls, .expanded .item__notes {
+    transition: all 0.5s cubic-bezier(0, 0, 0.21, 1);
   }
 </style>
