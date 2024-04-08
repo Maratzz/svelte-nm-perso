@@ -100,6 +100,7 @@
     flex-flow: column;
     gap: 35px;
     margin-bottom: 10px;
+    margin-left: 25px;
     opacity: 1;
     height: auto;
     width: auto;
@@ -108,8 +109,8 @@
   .isOpened .item__notes {
     padding-right: 30px;
     text-align: justify;
+    display: block;
   }
-
 /*   .isOpened .item__body, .isOpened .item__controls, .isOpened .item__notes {
     transition: all .3s cubic-bezier(0, 0, 0.21, 1);
   } */
