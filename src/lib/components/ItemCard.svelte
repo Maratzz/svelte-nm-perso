@@ -1,6 +1,11 @@
 <script>
   export let game
   export let session
+  let isOpened = false
+  let toggleItemPage = () => {
+    isOpened = !isOpened
+  }
+
   let formatDate = (e) => { 
     let options = {
       day: 'numeric',
@@ -9,21 +14,20 @@
     }
     return new Date(e).toLocaleDateString('fr', options)
   }
-
-  let expandedItem
-
-  
 </script>
 
-<div class="item">
+<div class:isOpened class="item" on:click={toggleItemPage} on:keypress={toggleItemPage} >
+  <div class="item__content">
+
     <div class="item__header">
       <img 
         src={game.cover}
         alt="Jaquette du jeu {game.name}"
         class="item__image">
     </div>
-
+    
     <div class="item__body">
+
       <div class="item__info js-animatable">
         <h2>{game.name} ({game.platform})</h2>
         <p>{game.developers}</p>
@@ -42,13 +46,14 @@
         <p>{game.notes}</p>
       </div>
     </div>
-    
+      
     <div class="item__controls">
       {#if session}
       <button type="button">Edit</button>
       {/if}
       <button type="button" class="item__close">X</button>
-    </div>
+    </div>  
+  </div>
 </div>
 
 <style>
@@ -58,36 +63,39 @@
 
   .item {
     width: auto;
+    z-index: 1;
+    position: relative;
   }
 
   .item__image {
     cursor: pointer;
   }
 
-  .expanded.item {
+  .isOpened.item {
+    display: flex;
     background-color: #ffffff;
     border: 3px solid black;
-    position: relative;
+    top: 0;
+    left: 0;
     box-sizing: content-box;
     width: 100%;
-    display: flex;
     flex-flow: row nowrap;
   }
 
-  .expanded .item__controls {
+  .isOpened .item__controls {
     display: block;
     position: absolute;
     right: -20px;
     top: -30px;
   }
 
-  .expanded .item__header {
+  .isOpened .item__header {
     margin: 30px 30px 0px 25px;
     padding-bottom: 45px;
     flex-shrink: 0;
   }
 
-  .expanded .item__body {
+  .isOpened .item__body {
     display: flex;
     flex-flow: column;
     gap: 35px;
@@ -97,12 +105,12 @@
     width: auto;
   }
 
-  .expanded .item__notes {
+  .isOpened .item__notes {
     padding-right: 30px;
     text-align: justify;
   }
 
-  .expanded .item__body, .expanded .item__controls, .expanded .item__notes {
-    transition: all 0.5s cubic-bezier(0, 0, 0.21, 1);
-  }
+/*   .isOpened .item__body, .isOpened .item__controls, .isOpened .item__notes {
+    transition: all .3s cubic-bezier(0, 0, 0.21, 1);
+  } */
 </style>

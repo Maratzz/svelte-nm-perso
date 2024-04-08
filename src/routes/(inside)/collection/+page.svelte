@@ -81,7 +81,7 @@
 {#key currentPage, paginatedItems}
   <div class="container" id="container" in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
     {#if filteredGames.length > 0}
-      {#each paginatedItems as game}
+      {#each paginatedItems as game (game.id)}
         <ItemCard {game} {session}/>
       {/each}
     {:else}
@@ -120,6 +120,7 @@
     flex-flow: row wrap;
     gap: 50px 50px;
     margin-bottom: 50px;
+    position: relative;
   }
 
   #filter-container {

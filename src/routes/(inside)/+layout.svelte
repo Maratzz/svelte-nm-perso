@@ -54,6 +54,6 @@
   main {
     width: 65rem;
     margin: 0 auto;
-    border: 1px solid black;
+    position: relative;
   }
 </style>
