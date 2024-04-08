@@ -10,7 +10,7 @@ categories:
 
 *Un jeu développé et édité par Nintendo, sorti en 2007.*
 
-**I.**
+**1.**
 
 Dans *The Curious Case of Benjamin Button* (David Fincher, 2009), il y a un personnage dénommé Mr Daws. Il apparaît régulièrement pour raconter à Benjamin comment la foudre l’a frappé sept fois tout au long de sa vie. A chaque fois que les deux hommes se rencontrent, le pensionnaire de la maison de retraite radote et mentionne ce fait remarquable, avant de détailler une des sept frappes. Benjamin, en réponse, ne dit rien et se contente de sourire. Durant la dernière scène de cette série de moments décalés et humoristiques, Mr Daws (qui n’aura pas décrit les sept frappes du reste) va au-delà du comique de répétition et explique que malgré son état de santé général et sa mémoire défaillante il est heureux d’être en vie. Dans le monologue final de Benjamin qui conclut le film, on peut voir une dernière fois un clip de Mr Daws en train d’être foudroyé, dans un ultime souvenir.
 
@@ -26,7 +26,7 @@ Prenez l’introduction de *Super Mario Galaxy* par exemple. Nous sommes en 2007
 
 Les implications de cette citation vont au-delà de la dimension *marketing* et promotionnelle sous-jacente. Remarquez l’enchaînement des deux adjectifs *premier* et *vrai* derrière successeur. Interrogez-vous devant l’emploi de ce mot même. Notez enfin que le jeu auquel on revient après toutes ces années est *Super Mario 64*, et non pas *Super Mario Sunshine*, sorti pourtant en 2002, soit l’entrée la plus proche lorsque *Galaxy* arrive sur le marché cette année-là.
 
-**II.**
+**2.**
 
 *Super Mario 64* était un éclair de génie. C’est incontestable, et plus les années passent, plus les discussions reviennent sur les mêmes sujets: comment le titre a permis de façonner la structure et la grammaire même de ce que devait être un *platformer* en 3D; comment sa gestion de la caméra et la non-linéarité des niveaux — mais également du centre de sélection de ceux-ci — a inspiré des centaines de développeurs; comment des séries comme *Kingdom Hearts*, *Banjo-Kazooie* ou même *Grand Theft Auto* ont toute une dette envers ce titre.
 
@@ -38,10 +38,7 @@ Cela fait quelques années désormais que je me sens en trop dans la relation av
 
 A ce titre, *Galaxy* est un testament de ce qu’aurait pu être *Galaxy* s’il n’était pas sorti sur Wii. C’est une copie abâtardie d’un jeu, d’un concept, qui souffre des limitations physiques de la console d’un côté, et de la philosophie inclusive que Nintendo s’est efforcée de coller à cette plateforme de l’autre.
 
-Capture d'écran dans la zone d'introduction du jeu
-L'aventure commence par un festival.
-
-**III.**
+**3.**
 
 *Galaxy* n’est pas *Mario 64*, n’en déplaise à Reggie Fils-Aimé. Plus surprenant encore, *Galaxy* est indubitablement plus proche de *Sunshine* que de n’importe quel autre titre dans la saga. Ça commence tout d’abord dans les crédits, où l’on s’aperçoit que les deux jeux ont été dirigés un même homme, Yoshiaki Koizumi. Puis dans la volonté de créer un scénario, famélique hélas, pour un genre de jeux qui se dispensent volontiers de cet artifice. Enfin, comment ne pas apercevoir dans l’abstraction des niveaux sans J.E.T les prémices des environnements cosmiques de *Galaxy*, avec le vide comme plancher et la dextérité comme seule arme ?
 
@@ -53,10 +50,7 @@ On peut tout à fait imaginer dans une galaxie alternative une version de ce jeu
 
 *Galaxy* est un jeu Wii, et en tant que tel il se doit d’être accessible. C’est le credo de la console, la justification de son existence, qui remonte même jusqu’à sa dénomination. Wii comme dans we, pour rassembler. Mais ce que Nintendo — et tous ceux qui cherchent à agrandir l’audience de ce médium — n’arrivent toujours pas à mettre en place, c’est la capacité de rassembler tout en dissociant les expériences. Car on ne joue pas tous de la même manières, ni à la même vitesse, et en prenant comme point de référence le nouveau public, on aliène le bagage vidéoludique des plus expérimentés. Un peu comme si on ne pouvait pas dépasser la voiture de ce jeune conducteur car c’est une ligne blanche continue. *Super Mario Galaxy*, c’est une ligne en pointillés qui n’arrive jamais, on ronge son frein et c’est terriblement frustrant.
 
-Capture d'écran dans un niveau hommage
-Les références nostalgiques sont nombreuses à travers les galaxies.
-
-**IV.**
+**4.**
 
 Il aurait été simple pourtant de corriger cela, avec par exemple la possibilité de passer toutes les phases d’apprentissage pour quiconque est déjà familier avec *Mario*, le genre de la plate-forme, la 3D ou les trois à la fois. Ou alors permettre aux joueurs et joueuses de ne plus jamais croiser ces lapins cosmiques jusqu’à la fin du jeu, et ainsi éviter leurs dialogues condescendants. C’est là la plus grande tare du jeu: il nous informe constamment sur ce qu’on sait déjà. Prenez *Super Mario 64* par exemple. Parcourir le château permettait non seulement de s’exercer au maniement de Mario, mais également de comprendre la mécanique inhérente pour débloquer les nouveaux niveaux. Il y avait sur toutes les portes une étoile avec un nombre au milieu, et après avoir obtenu la première de ce genre dans le premier niveau, il n’était pas difficile de faire le lien avec les deux éléments: les étoiles servent à ouvrir les portes, et le nombre indique le nombre d’étoiles. Génial, pas de textes à l’écran, rien de que la déduction, on continue d’avancer.
 
@@ -70,12 +64,9 @@ Chaque fin de niveau est une torture. Il y a d’abord le retour dans le dôme, 
 
 Tout ça dure entre quarante secondes et une minute, et vous allez devoir le refaire à chaque fois pour chaque étoile du jeu. Au total c’est plus d’une heure et demie de navigation dans les menus et de pressions sur le bouton A pour faire défiler tous les cartons et toutes les confirmations et toutes les bulles de dialogue d’Harmonie. Qui en veut ? Qui en a besoin ? J’ai du mal à croire que même les plus néophytes aient besoin de cet accompagnement constant, à la limite de l’irrespect. Quant aux autres, ferment-ils les yeux par habitude nostalgique, par soumission docile, ou par indulgence naïve envers le médium ? Quelle que soit la réponse, elle n’est pas recevable, sachez-le.
 
-**V.**
+**5.**
 
 *Sunshine* avait commencé cette fragmentation en un million de petites choses à faire, et à refaire, jusqu’à la redondance, tout particulièrement dans les missions proposées. Que ce soit les pièces rouges, le clone de Mario ou le niveau limité dans le temps, on retrouve tous ces concepts à nouveau dans *Galaxy* avec les comètes farceuses. Le jeu sur GameCube avait été critiqué pour sa tendance à recycler les niveaux et gonfler artificiellement la durée de vie, mais bizarrement je n’ai pas retrouvé ces mêmes remarques vis-à-vis de l’opus sur Wii. C’est pourtant bel et bien le même plat que nous ressert Nintendo, avec en surplus des décisions de *game design* discutables: pourquoi doit-on payer pour enlever une comète et accéder aux missions normales derrière ? Pourquoi apparaissent-elles de manière aléatoire, ce qui fait qu’on n’a pas le choix quant aux défis proposés à un moment donné ? Pourquoi, au moment de payer, faut-il simplement appuyer sur “Oui” alors que tous les autres Lumas qui nous ont demandés des fragments d’étoiles nécessitaient d’être visés ?
-
-Capture d'écran d'une planète en forme d'île tropicale
-L'arrivée sur les planètes met bien en valeur la topographie et le level design.
 
 D’une manière générale, j’ai la sensation que *Galaxy* s’inspire beaucoup des plus mauvais côtés de *Sunshine* (le recyclage, les tentatives forcées de créer une histoire) sans en prendre les bons (la difficulté de certaines missions). Et c’est plutôt logique si on suit la philosophie de Nintendo sur la Wii. On a là une console dont le but est de montrer que tout le monde — et l’emphase est sur cette dénomination, *tout le monde* — peut non seulement jouer à un jeu vidéo, mais aussi et surtout le *finir*. Partant de ce postulat, on comprend tout à fait l’existence des lapins cosmiques, des pingouins, des abeilles même !, ou de cette petite animation en bas à droite de l’écran qui nous montre comment agiter la télécommande Wii au moment d’utiliser une énième étoile de transport, alors que cela fait plus de quatre heures qu’on fait ce geste constamment pour maintenir Mario en l’air durant son saut.
 

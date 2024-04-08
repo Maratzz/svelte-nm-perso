@@ -8,6 +8,12 @@ categories:
 - "jv"
 ---
 
+<script>
+  import AlerteVieux from '$lib/components/AlerteVieux.svelte'
+</script>
+
+<AlerteVieux/>
+
 Plus les années passent et plus le jeu vidéo s’installe confortablement dans le fauteuil de sa nature et de ses conventions. Il prend ses aises et ménage le joueur, déroulant les conventions titre après titre. On appuie sur START pour commencer. Une scène qui aurait pu sortir d’un film s’enclenche et on pose la manette. On sait par habitude que la gâchette de droite servira pour tirer, ou que le bouton A permettra de sauter. Lorsque c’est à nous de jouer, on appuie presque sans y penser sur le stick gauche pour avancer et le stick droit pour diriger la caméra.
 
 Toutes ces habitudes ne sont pas innées (regardez donc sur Youtube [la série de vidéos de la chaîne REACT](https://www.youtube.com/watch?v=3qliiS9Od6c) avec les aînés pour voir à quel point ce qu’on prend pour acquis est en fait tout à fait de l’ordre de l’apprentissage répété). Elles demandent du temps, de la familiarité, de la répétition. Elles constituent cette fierté mal placée de ceux qui se revendiquent _gamers_, excluant ainsi les curieux de passage et le public en général. Ce n’est pas qu’ils ne veulent pas découvrir toute cette folie autour du jeu vidéo, mais quand le medium lui-même se veut aussi tyrannique dans son langage et sa grammaire, il est difficile de se sentir invités.

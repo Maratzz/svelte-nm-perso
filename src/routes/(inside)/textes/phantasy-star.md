@@ -8,6 +8,12 @@ categories:
 - "jv"
 ---
 
+<script>
+  import AlerteVieux from '$lib/components/AlerteVieux.svelte'
+</script>
+
+<AlerteVieux/>
+
 Lorsque _Phantasy Star_ est sorti en 1988, je n’étais pas né. Je n’étais peut-être même pas conçu dans l’esprit de mes parents. Il faudra attendre encore 5 ans de plus pour que je voie le jour.
 
 Aujourd’hui, en 2015, j’ai terminé _Phantasy Star_ pour la première fois, dans les conditions de l’époque. Est-ce qu’on peut encore jouer à ce jeu pour la première fois en 2015, 27 ans après, sans souvenirs, sans nostalgie, juste de la découverte pure ? J’aime penser que la réponse est oui, que tout jeu vidéo est appréciable et devrait être apprécié à n’importe quel moment dans le temps, sans bagage émotionnel tiré de l’enfance. Sinon, qu’est-ce que cela implique ? Est-ce que cela voudrait dire que les jeux sont des produits de leur époque et qu’il n’y a qu’une fenêtre de temps limité dans laquelle on peut correctement les apprécier, et qu’une fois celle-ci dépassée il n’est plus possible de redécouvrir ce qui est désormais passé ? Que les jeux sont finis et périssables ? Que sans la nostalgie qui vous rattache à l’oeuvre, telle une chaîne autour du pied, il est impossible en 2015 de finir et aimer un jeu comme _Phantasy Star_ ? Ces perspectives m’effraient, et pourtant j’ai comme l’impression que ce n’est pas très loin de la vérité. En témoigne la propension des critiques déjà existantes sur ce jeu qui sont criblées de souvenirs d’enfance.

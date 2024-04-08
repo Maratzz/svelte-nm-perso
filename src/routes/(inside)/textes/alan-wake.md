@@ -8,6 +8,12 @@ categories:
 - "jv"
 ---
 
+<script>
+  import AlerteVieux from '$lib/components/AlerteVieux.svelte'
+</script>
+
+<AlerteVieux/>
+
 _Un jeu de Remedy Entertzinment, publié par Microsoft Games Studio, sorti en 2010._ 
 
 G. Féprépa écrivait dans *6 heures de perdues: disserter et convaincre* (1962, ed. Midi):

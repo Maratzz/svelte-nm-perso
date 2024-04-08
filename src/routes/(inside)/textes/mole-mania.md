@@ -8,6 +8,12 @@ categories:
 - "jv"
 ---
 
+<script>
+  import AlerteVieux from '$lib/components/AlerteVieux.svelte'
+</script>
+
+<AlerteVieux/>
+
 En vérité il est assez difficile de parler de _Mole Mania_ comme ça, de but en blanc, sans introduction, sans prise de recul. L’exercice ne lui rendrait pas honneur, car non content d’être dénué de tout propos intéressant sur le plan sociologique, humain, politique, culturel, psychologique, sexuel même — allons-y de notre petite touche nouvelle vague vidéoludique — il s’avère être la pire sorte de jeux pour nous modernes, entrés dans l’ère post-_Gone Home_, post-_The Walking Dead_, à savoir le vieux jeu sans histoire où tout est dans les puzzles, les doigts et les mécaniques, et rien n’est dans le cœur, les non-dits et les _feels_. Horreur !
 
 _Mole Mania_ ne parle de rien, ne touche du doigt aucun problème sociétal. Il s’agit d’être une taupe et de sauver sa femme et ses enfants. Le cliché est tenace, l’histoire en filigrane, le dénouement anecdotique. Il s’agit de déplacer des boules et des tonneaux sur une grille pour résoudre des puzzles. Si cela vous donne des boutons, vous pouvez arrêter la lecture ici. Il n’y aura jamais rien d’autre dans cette oeuvre que ce que je viens d’écrire dans la phrase précédente. Pour les autres, on peut continuer et commencer à gratter la surface de ce petit titre qui en cache plus que ce qu’on pourrait croire.

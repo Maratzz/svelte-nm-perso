@@ -8,6 +8,12 @@ categories:
 - "jv"
 ---
 
+<script>
+  import AlerteVieux from '$lib/components/AlerteVieux.svelte'
+</script>
+
+<AlerteVieux/>
+
 Je n’ai à vrai dire jamais, ou très rarement, fréquenté de mon propre chef discothèques dansantes, concerts bruyants (pour ne pas dire braillards) et autres bars bondés sans qu’il n’y ait eu au préalable une incitation de la part de proches à les accompagner dans ce genre de lieux. L’expérience que j’y retire me rend invariablement et systématiquement mal à l’aise; l’impression de ne pas être dans mon élément ainsi qu’un désintérêt notoire pour les mélanges d’alcools improbables d’un côté — et l’effet recherché à travers eux — et la danse de l’autre font que je ne suis ni familier ni adepte de ces pratiques sociales. A cela se rajoute une autre raison, découverte en 2012 par le biais du fantastique jeu de Steven Lavelle: toutes les discothèques du monde paraissent fades et tristes en comparaison de celle de _Slave of God_.
 
 A travers ce dernier, les mots d’Oscar Wilde refont surface, 125 ans plus tard, notamment lorsqu’il soutient que _“la Vie imite l’Art beaucoup plus que l’Art n’imite la Vie”_ dans son essai _The Decay of Lying_ (_Le Déclin du Mensonge_, 1891):

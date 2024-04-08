@@ -7,9 +7,13 @@ categories:
 - "fiction"
 ---
 
-*Cette histoire fut écrite dans le cadre d'un concours de nouvelle organisé par le CROUS en 2016. Il y avait deux contraintes : 4 pages maximum et un thème imposé, « sauvage ».*
+<script>
+  import AlerteContexte from '$lib/components/AlerteContexte.svelte'
+</script>
 
----
+<AlerteContexte
+content="Cette histoire fut écrite dans le cadre d'un concours de nouvelles organisé par le CROUS en 2016. Il y avait deux contraintes : 4 pages maximum et un thème imposé, « sauvage »."
+/>
 
 *« Il est huit heures.*
 

@@ -8,6 +8,12 @@ categories:
 - "jv"
 ---
 
+<script>
+  import AlerteVieux from '$lib/components/AlerteVieux.svelte'
+</script>
+
+<AlerteVieux/>
+
 C’est un tout petit jeu, alors ce sera un tout petit texte.
 
 C’est un tout petit jeu, et pourtant il occupe mes pensées depuis quelques mois déjà, depuis sa sortie en mars dernier. Ce n’est pas une obsession permanente, plus une trace qui persiste et ne veut pas partir de mon cerveau. Telle la moule dont il est question dans son titre qui s’accrocherait à son rocher, luttant contre vents et marées, Mussel m’a saisi et ne me lâche plus. A hauteur d’une partie ou deux par semaine, j’y reviens pour avoir ma dose puis repars, satisfait, avant la prochaine session.

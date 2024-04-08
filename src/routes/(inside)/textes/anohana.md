@@ -8,6 +8,9 @@ categories:
 - "anime"
 ---
 
+
+## 1. 
+
 En essence, *AnoHana* est bel et bien un récit de fantômes et de passé qui resurgit, mais pas pour les bonnes raisons ou les meilleurs motifs. C'est une histoire qui a au bas mot 400 ans d'âge, et qu'on retrouve chez Racine. Et pour être tout à fait franc, il nous faudrait remonter encore plus loin, au 5ème siècle avant Jésus-Christ. L'auteur original s'appelle Euripide, et la pièce qui se déroule à nouveau sous nos yeux se nomme *Andromaque*.
 
 Arrêtez-moi si ce synopsis vous rappelle vaguement quelque chose: Oreste aime Hermione, qui aime Néoptolème, qui aime Andromaque, qui aime Hector, ce dernier ayant été tué par Achille, père de Néoptolème.
@@ -22,7 +25,7 @@ En guise de fantôme, on aurait pu avoir le spectre d'Achille, l'élément décl
 
 Ainsi durant les premières minutes de l'*anime*, et en guise d'introduction aux deux personnages principaux, Menma s’assoit au niveau de l'entrejambe du garçon qui l'héberge, provoquant chez lui une érection si forte qu'il s'évanouit. Un coup de chaleur durant l'été, diront les apologistes du genre. Une facétie de l'humour à la japonaise, diront les dévorateurs de séries devenus amorphes, sonnés K.O par l'industrie. À d'autres.
 
-On alterne entre des scènes durant l'enfance et quelques années après
+## 2.
 
 Je reviens sur le terme enfant-femme, que j'aimerais distinguer de la figure de la femme-enfant. Non pas que cette dernière soit souhaitée ou souhaitable, du reste, mais certains archétypes ont la dent dure.
 

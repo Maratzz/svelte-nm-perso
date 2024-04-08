@@ -8,6 +8,12 @@ categories:
 - "jv"
 ---
 
+<script>
+  import AlerteVieux from '$lib/components/AlerteVieux.svelte'
+</script>
+
+<AlerteVieux/>
+
 Il y en a qui n’ont de cesse de se montrer partout, et d’occuper continuellement le devant de la scène, pour des raisons plus ou moins justifiés. Certaines têtes de poisson font des crises d’adolescents et annulent des projets; d’autres, plus en poils et en tatouages sont proclamés papes de l’indé, après avoir marqué d’un fer rouge sang le genre de la plateforme; et puis il y a Droqen.
 
 De Droqen, ou Alex Martin dans la vraie vie véritable, vous ne connaissez sans doute pas grand-chose, et pour cause le bonhomme est relativement discret. Quelques petits jeux ici et là, _Probability 0_, ou zéro, et _Starseed Pilgrim_, qui reste à ce jour son plus grand “petit” succès. Le bougre ne fait pas de scandales, tient un petit blog, un twitter. Mais pas de violence, c’est les vacances. Droqen prend son temps, avance tranquillement, à l’ombre des pixels en fleur.

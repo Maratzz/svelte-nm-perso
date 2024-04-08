@@ -8,6 +8,12 @@ categories:
 - "jv"
 ---
 
+<script>
+  import AlerteVieux from '$lib/components/AlerteVieux.svelte'
+</script>
+
+<AlerteVieux/>
+
 Dès sa sortie en 1998, _Tail Concerto_ ne dépassait déjà pas la barrière du jeu agréable mais sans grande ambition, et ce malgré des critiques majoritairement positives à son égard. Les ventes ne décollèrent jamais vraiment, et l’oeuvre fut rangée dans le carton des titres pas désagréables pour un sou mais pas transcendant pour autant. En 2015, la situation n’a pas changé, et tout porte à croire qu’elle ne changera plus vraiment. Le regain d’amour pour les jeux d’antan, qui anime désormais de nombreux ludophiles nostalgiques et/ou curieux, a oublié de frapper à la porte du titre de CyberConnect pour lui donner sa part du gâteau rétro, même si on peut évoquer très rapidement une légère remontée en surface en 2010 après la sortie de sa suite spirituelle sur Nintendo DS, _Solatorobo: Red the Hunter_.
 
 Cette mise aux oubliettes s’explique facilement par des difficultés initiales au niveau de la distribution: commercialisé et promu principalement au Japon où il fera la majorité de ses ventes avec l’éditeur Bandai, celui-ci rencontrera plus de difficulté pour faire sortir _Tail Concerto_ du territoire et toucher le public occidental, alors qu’un engouement certain s’était fait sentir chez les Américains qui avaient pu goûter en avant-première au jeu, grâce à une démo disponible dans un désormais défunt magazine de l’époque. Il faudra finalement attendre de nombreuses négociations plus tard et qu’Atlus décide de s’en charger bon gré mal gré pour voir le titre paraître aux Etats-Unis. En Europe, la question fut réglée rapidement, puisque le jeu ne sortit jamais, à part en France; il en ressortira une exclusivité PAL d’autant plus précieuse que le jeu gardera les voix en japonais et la chanson d’ouverture (remplacée par une nouvelle piste instrumentale outre-Atlantique), faisant ainsi un pied de nez à la version NTSC entièrement doublée. Une France bien gâtée donc, grâce à son affinité pour la culture nippone orientée manga et anime, mais qui ne suffira pas à elle seule à contrebalancer les pauvres ventes aux Etats-Unis.

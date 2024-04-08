@@ -8,6 +8,12 @@ categories:
 - "jv"
 ---
 
+<script>
+  import AlerteVieux from '$lib/components/AlerteVieux.svelte'
+</script>
+
+<AlerteVieux/>
+
 Ça commence tout d’abord par le squelette du jeu, son ADN immuable, tiré d’un autre siècle, ces règles tacites qui le définissent et dont il ne s’écartera jamais, ô grand jamais, jusqu’au dénouement final; on invoque les grands noms à nouveau, encore et encore, telle une litanie qui n’en finit pas de résonner dans le royaume fermé du jeu vidéo, un royaume qui passe son temps à se regarder dans le miroir. On parle de Metroidvania, pour changer, et plus particulièrement de _Symphony of the Night_. On évoque les esprits des indépendants le temps de quelques cages, autant d’hommages et de clins d’oeil pour auto-alimenter le milieu et avoir la tape dans le dos, tout ça pour décrocher un sourire, celui du fidèle, celui de l’initié qui sait, lui, qui est ce cube de viande rouge, ou bien ce garçon au marteau.
 
 Ça continue ensuite avec le défilement incessant d’invités.

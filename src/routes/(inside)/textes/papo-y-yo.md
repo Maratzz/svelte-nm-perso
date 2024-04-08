@@ -8,6 +8,12 @@ categories:
 - "jv"
 ---
 
+<script>
+  import AlerteVieux from '$lib/components/AlerteVieux.svelte'
+</script>
+
+<AlerteVieux/>
+
 C’est devenu rare pour moi d’éprouver un sentiment fort face à une oeuvre vidéo-ludique moderne. Des sentiments, simples, oui, ils sont légions. Il y a de l’excitation, de l’énervement, de l’admiration, de la réflexion, oui. De la compassion, de l’incompréhension, de l’agacement, oui. Beaucoup de plaisir, parfois de la lassitude, pas assez d’émerveillement. Oui, tout ça est familier et récurrent. Mais un sentiment tel que celui que j’ai maintenant envers _Papo Y Yo_ ? Ça ne m’était pas arrivé depuis un moment.
 
 _Memento Mori_ m’avait passablement irrité, mais c’était un jeu flash anecdotique. Avec _Papo Y Yo_, on est au-delà de ça. La portée est plus grande, l’impact plus profond.

@@ -8,6 +8,12 @@ categories:
 - "jv"
 ---
 
+<script>
+  import AlerteVieux from '$lib/components/AlerteVieux.svelte'
+</script>
+
+<AlerteVieux/>
+
 Sortons dès le début le _caveat lector_: il ne sera question ni de _God of War_ ni de _Zelda_ dans ce texte. Cet appel aux gloires d’antan pour définir et consolider le titre de Vigil Games est tout juste une resucée du kit de presse fourni aux reviewers et autres journalistes vidéoludiques par le service des relations publiques de l’équipe de développement; il n’y a qu’à voir, ici ou ailleurs, combien ces deux jeux sont mentionnés l’un à côté de l’autre pour constater que la machine _marketing_ a une nouvelle fois bien fait son travail pour conditionner et orienter l’angle d’approche sur l’oeuvre.
 
 Ne nous voilons pas la face, cependant: les ombres d’autres jeux planent bel et bien sur la carcasse de _Darksiders_, qu’on les mentionne ou non. Les inspirations — ou devrais-je plutôt dire les contrefaçons — sont présentes. Ici, des combats violents, sanguinolants. Là, des donjons axés sur un objet central. Des petits puzzles, une progression par paliers. On s’amuse, tel le Petit Poucet, à retrouver nos miettes de pain sur la carte du monde, jusqu’au dénouement, enfin.
