@@ -7,7 +7,8 @@
 </script>
 
 <Toaster/>
-<form method="POST" action='?/insert' use:enhance={() =>{
+
+<form method="POST" action='?/insert' use:enhance={() => {
   let toastResolve, toastReject
   let toastPromise = new Promise((resolve, reject) => {
     toastResolve = resolve
@@ -18,7 +19,7 @@
         loading: 'Saving...',
         success: (e) => `${e}`,
         error: (e) => `${e.message}`,
-    })
+  })
 
   return ({result, update}) => {
     if (result.data === 'no game found') {
@@ -33,6 +34,7 @@
     }
   }
 }}>
+
   <div class="form-inside-name">
     <div>
       <label for="game_name">Nom</label>

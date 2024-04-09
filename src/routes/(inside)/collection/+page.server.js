@@ -20,8 +20,6 @@ export const actions = {
     let newFinished = form.get('game_finished')
     const newDeveloper = form.get('game_developer')
     const newNotes = form.get('game_notes')
-
-    
     
     if (!session) {
       throw redirect(303, '/')
@@ -81,6 +79,7 @@ export const actions = {
       const gameCover = newGame.cover.image_id
       const gameCoverLink = `https://images.igdb.com/igdb/image/upload/t_cover_big/${gameCover}.png`
       const gameReleaseDate = await getHumanDate(newGame.first_release_date)
+      // we only want the developer studio, nothing else
       const gameCompanies = newGame.involved_companies
       const gameDevCompany = gameCompanies.filter(company => company.developer === true)
       const gameCompany = gameDevCompany[0].company.name
