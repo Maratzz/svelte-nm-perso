@@ -1,9 +1,22 @@
 <script>
+  import { gsap } from "gsap";
+  import { Flip } from "gsap/dist/Flip";
+  import { tick } from "svelte";
+  gsap.registerPlugin(Flip)
+
   export let game
   export let session
   let isOpened = false
-  let toggleItemPage = () => {
+  let toggleItemPage = async () => {
+    const state = Flip.getState('.item')
     isOpened = !isOpened
+    await tick()
+      Flip.from(state, {
+      targets: '.isOpened.item',
+      duration: 0.3,
+      ease: "power1.inOut",
+      absolute: true
+    });
   }
 
   let formatDate = (e) => { 
@@ -28,7 +41,7 @@
     
     <div class="item__body">
 
-      <div class="item__info js-animatable">
+      <div class="item__info">
         <h2>{game.name} ({game.platform})</h2>
         <p>{game.developers}</p>
         <p>Sorti le {formatDate(game.released_in)}</p>
@@ -42,7 +55,7 @@
         {/if}
       </div>
   
-      <div class="item__notes js-animatable">
+      <div class="item__notes">
         <p>{game.notes}</p>
       </div>
     </div>
@@ -57,7 +70,7 @@
 </div>
 
 <style>
-    .item__body, .item__controls, .item__notes {
+  .item__body, .item__controls, .item__notes {
     display: none;
   }
 
@@ -74,12 +87,12 @@
   .isOpened.item {
     display: flex;
     background-color: #ffffff;
-    border: 3px solid black;
-    top: 0;
-    left: 0;
+    position: sticky;
+    bottom: 50px;
     box-sizing: content-box;
     width: 100%;
     flex-flow: row nowrap;
+    z-index: 15;
   }
 
   .isOpened .item__controls {
@@ -91,8 +104,9 @@
 
   .isOpened .item__header {
     margin: 30px 30px 0px 25px;
-    padding-bottom: 45px;
+    padding-bottom: 5px;
     flex-shrink: 0;
+    border: 1px solid red;
   }
 
   .isOpened .item__body {
@@ -111,7 +125,4 @@
     text-align: justify;
     display: block;
   }
-/*   .isOpened .item__body, .isOpened .item__controls, .isOpened .item__notes {
-    transition: all .3s cubic-bezier(0, 0, 0.21, 1);
-  } */
 </style>

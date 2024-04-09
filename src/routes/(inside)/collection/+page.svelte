@@ -125,7 +125,8 @@
   .container {
     display: flex;
     flex-flow: row wrap;
-    gap: 50px 50px;
+    justify-content: space-evenly;
+    gap: 50px 0px ;
     margin-bottom: 50px;
     position: relative;
   }

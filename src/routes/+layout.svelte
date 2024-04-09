@@ -43,7 +43,7 @@
 </svelte:head>
 
 {#key currentRoute}
-  <main in:fly={transitionIn} out:fly={transitionOut}>
+<div in:fly={transitionIn} out:fly={transitionOut}>
     <slot />
-  </main>
+</div>
 {/key}

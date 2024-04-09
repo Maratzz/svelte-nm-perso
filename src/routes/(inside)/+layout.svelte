@@ -43,11 +43,13 @@
 </svelte:head>
 
 <Header/>
+
 {#key currentRoute}
   <main in:fly={transitionIn} out:fly={transitionOut}>
     <slot />
   </main>
 {/key}
+
 <Footer/>
 
 <style>
