@@ -1,8 +1,8 @@
 <!-- src/routes/account/+page.svelte -->
 <script>
 	import { enhance } from '$app/forms'
-
-	export let data;
+  import HeadSEO from '$lib/components/HeadSEO.svelte'
+  export let data;
 	export let form;
 
 	let { session, supabase, profile } = data
@@ -30,10 +30,14 @@
 	}
 </script>
 
-<svelte:head>
-  <title>Mon compte - Nico Moisson</title>
-  <meta name="description" content="Votre propre espace sur le site de Nico Moisson, sans publicités">
-</svelte:head>
+<HeadSEO 
+  title="Nico Moisson | Compte"
+  description="Page de connexion pour du contenu supplémentaire"
+  author="Nico 'Maratz' Moisson"
+  siteName="Site personnel de Nico Moisson"
+  imageURL="$lib/assets/homepage/full_image.png"
+  index = false
+/>
 
 <div>
 	<form

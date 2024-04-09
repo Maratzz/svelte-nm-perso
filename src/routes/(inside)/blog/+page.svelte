@@ -1,4 +1,5 @@
 <script>
+  import HeadSEO from '$lib/components/HeadSEO.svelte'
   export let data
   let { posts } = data
   let formatDate = (e) => { 
@@ -11,10 +12,15 @@
   }
 </script>
 
-<svelte:head>
-  <title>Blog - Nico Moisson</title>
-  <meta name="description" content="Le blog, où on parle de tout, et surtout de rien, mais un peu de tout quand même">
-</svelte:head>
+<HeadSEO 
+  title="Nico Moisson | Blog"
+  description="Un blog où on parle de tout et de rien, mais surtout un peu de tout quand même"
+  author="Nico 'Maratz' Moisson"
+  siteName="Site personnel de Nico Moisson"
+  imageURL="$lib/assets/homepage/full_image.png"
+  twitter
+  openGraph
+/>
 
 <h1>Blog</h1>
   

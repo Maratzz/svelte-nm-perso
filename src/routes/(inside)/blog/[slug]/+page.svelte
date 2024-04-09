@@ -1,6 +1,7 @@
 <script>
+  import HeadSEO from '$lib/components/HeadSEO.svelte'
   export let data;
-  let { date, title, content, categories } = data
+  let { date, title, content, headline, categories } = data
   let options = {
     day: 'numeric',
     month: 'long',
@@ -9,9 +10,15 @@
   let humanDate = new Date(date).toLocaleDateString('fr', options)
 </script>
 
-<svelte:head>
-  <title>{title}</title>
-</svelte:head>
+<HeadSEO 
+  title="Nico Moisson | {title}"
+  description="{headline}"
+  author="Nico 'Maratz' Moisson"
+  siteName="Site personnel de Nico Moisson"
+  imageURL="$lib/assets/homepage/full_image.png"
+  twitter
+  openGraph
+/>
 
 <article>
   <h1>{title}</h1>

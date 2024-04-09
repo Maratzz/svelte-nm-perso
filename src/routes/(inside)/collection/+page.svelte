@@ -4,6 +4,7 @@
   import ItemCard from '$lib/components/ItemCard.svelte'
   import { paginate, LightPaginationNav } from 'svelte-paginate'
   import { supabase } from '@supabase/auth-ui-shared';
+  import HeadSEO from '$lib/components/HeadSEO.svelte'
   export let data
   export let form
   $: ({ games, categories, status, session } = data)
@@ -29,9 +30,15 @@
 
 </script>
 
-<svelte:head>
-  <title>Collection - Nicolas Moisson</title>
-</svelte:head>
+<HeadSEO 
+  title="Nico Moisson | Collection"
+  description="Des oeuvres à n'en plus finir, des listes à n'en plus vouloir"
+  author="Nico 'Maratz' Moisson"
+  siteName="Site personnel de Nico Moisson"
+  imageURL="$lib/assets/homepage/full_image.png"
+  twitter
+  openGraph
+/>
 
 <h1>Collection</h1>
 
