@@ -2,6 +2,7 @@
   import MediaQuery from '$lib/components/MediaQuery.svelte'
   import Header from '$lib/components/Header.svelte'
   import Footer from '$lib/components/Header.svelte'
+  import HeadSEO from '$lib/components/HeadSEO.svelte'
 
   import background from '$lib/assets/homepage/background.png'
   import bag from '$lib/assets/homepage/bag.png'
@@ -15,7 +16,6 @@
   import couvercle_bao from '$lib/assets/homepage/couvercle_bao.png'
   import feather from '$lib/assets/homepage/feather.png'
   import flag from '$lib/assets/homepage/flag.png'
-  import full_image from '$lib/assets/homepage/full_image.png'
   import lanterne_left from '$lib/assets/homepage/lanterne_left.png'
   import lanterne_right from '$lib/assets/homepage/lanterne_right.png'
   import nico_body from '$lib/assets/homepage/nico_body.png'
@@ -28,12 +28,19 @@
   import tournesol_left from '$lib/assets/homepage/tournesol_left.png'
   import tournesol_middle from '$lib/assets/homepage/tournesol_middle.png'
   import tournesol_right from '$lib/assets/homepage/tournesol_right.png'
+
+  import full_image from '$lib/assets/homepage/full_image.png'
 </script>
 
-<svelte:head>
-  <title>Accueil - Nico Moisson</title>
-  <meta name="description" content="Site personnel de Nico, aka Maratz">
-</svelte:head>
+<HeadSEO 
+  title="Nico Moisson"
+  description="C'est mon site perso, il y en a plein comme lui sur Internet mais celui-là c'est le mien"
+  author="Nico 'Maratz' Moisson"
+  siteName="Site personnel de Nico Moisson"
+  imageURL="$lib/assets/homepage/full_image.png"
+  twitter
+  openGraph
+/>
 
 <div id="fullscreen-homepage">
 
