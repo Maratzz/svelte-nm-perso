@@ -30,42 +30,38 @@
 </script>
 
 <div class:isOpened class="item" on:click={toggleItemPage} on:keypress={toggleItemPage} >
-  <div class="item__content">
+  <div class="item__header">
+    <img 
+      src={game.cover}
+      alt="Jaquette du jeu {game.name}"
+      class="item__image">
+  </div>
 
-    <div class="item__header">
-      <img 
-        src={game.cover}
-        alt="Jaquette du jeu {game.name}"
-        class="item__image">
-    </div>
-    
-    <div class="item__body">
-
-      <div class="item__info">
-        <h2>{game.name} ({game.platform})</h2>
-        <p>{game.developers}</p>
-        <p>Sorti le {formatDate(game.released_in)}</p>
-        <p>{game.status}</p>
-        {#if game.status === 'finished' && game.finished_at !== null}
-          <p>Terminé le {formatDate(game.finished_at)}</p>
-        {:else if  game.status === 'currently playing'}
-          <p>En cours depuis le {formatDate(game.started_at)}</p>
-        {:else if game.status === 'flushed' && game.finished_at !== null}
-          <p>Abandonné le {formatDate(game.finished_at)}</p>
-        {/if}
-      </div>
-  
-      <div class="item__notes">
-        <p>{game.notes}</p>
-      </div>
-    </div>
-      
-    <div class="item__controls">
-      {#if session}
-      <button type="button">Edit</button>
+  <div class="item__body">
+    <div class="item__info">
+      <h2>{game.name} ({game.platform})</h2>
+      <p>{game.developers}</p>
+      <p>Sorti le {formatDate(game.released_in)}</p>
+      <p>{game.status}</p>
+      {#if game.status === 'finished' && game.finished_at !== null}
+        <p>Terminé le {formatDate(game.finished_at)}</p>
+      {:else if  game.status === 'currently playing'}
+        <p>En cours depuis le {formatDate(game.started_at)}</p>
+      {:else if game.status === 'flushed' && game.finished_at !== null}
+        <p>Abandonné le {formatDate(game.finished_at)}</p>
       {/if}
-      <button type="button" class="item__close">X</button>
-    </div>  
+    </div>
+
+    <div class="item__notes">
+      <p>{game.notes}</p>
+    </div>
+  </div>
+
+  <div class="item__controls">
+    {#if session}
+    <button type="button">Edit</button>
+    {/if}
+    <button type="button" class="item__close">X</button>
   </div>
 </div>
 
@@ -87,12 +83,13 @@
   .isOpened.item {
     display: flex;
     background-color: #ffffff;
-    position: sticky;
-    bottom: 50px;
+    position: fixed;
+    bottom: 30%;
     box-sizing: content-box;
-    width: 100%;
+    width: 65%;
     flex-flow: row nowrap;
     z-index: 15;
+    padding: 25px 0;
   }
 
   .isOpened .item__controls {
@@ -106,7 +103,6 @@
     margin: 30px 30px 0px 25px;
     padding-bottom: 5px;
     flex-shrink: 0;
-    border: 1px solid red;
   }
 
   .isOpened .item__body {
