@@ -6,12 +6,12 @@
 
   export let game
   export let session
-  let isOpened = false
+  let isOpened
   let toggleItemPage = async () => {
     const state = Flip.getState('.item')
     isOpened = !isOpened
     await tick()
-      Flip.from(state, {
+    Flip.from(state, {
       targets: '.isOpened.item',
       duration: 0.3,
       ease: "power1.inOut",
@@ -29,7 +29,7 @@
   }
 </script>
 
-<div class:isOpened class="item" on:click={toggleItemPage} on:keypress={toggleItemPage} >
+<div class={isOpened ? 'isOpened item border border-1' : 'item'} on:click={toggleItemPage} on:keypress={toggleItemPage} >
   <div class="item__header">
     <img 
       src={game.cover}
