@@ -5,11 +5,19 @@
   import { paginate, LightPaginationNav } from 'svelte-paginate'
   import { supabase } from '@supabase/auth-ui-shared';
   import HeadSEO from '$lib/components/HeadSEO.svelte'
+  import { onMount } from 'svelte';
   export let data
   export let form
-  $: ({ games, categories, status, session } = data)
+  $: ({ games, categories, status, session, lists } = data)
   let value
   $: filteredGames = games
+
+  onMount(() => {
+    const target = data.lists[0].lists
+    target.forEach(name => {
+      console.log(name.name)
+    });
+  })
 
   let currentPage = 1
   let pageSize = 9
@@ -89,7 +97,7 @@
   <div class="container" id="container" in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
     {#if filteredGames.length > 0}
       {#each paginatedItems as game (game.id)}
-        <ItemCard {game} {session}/>
+        <ItemCard {game} {session} {lists}/>
       {/each}
     {:else}
        <p>Aucun résultat avec ces critères.</p>
