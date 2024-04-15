@@ -15,23 +15,11 @@ export async function load({ parent }) {
     .from('game_status')
     .select('*')
     .order('id', { ascending: true })
-
-  let { data : lists } = await supabase
-    .from('games')
-    .select(`
-      name,
-      lists (
-        name
-      )
-    `)
-    .eq('name', 'Pizza Tower')
-    .order('name', { ascending: true })
     
   return {
     games: games ?? [],
     categories : categories ?? [],
     status: status ?? [],
-    lists: lists ?? [],
     supabase,
     session,
     currentRoute

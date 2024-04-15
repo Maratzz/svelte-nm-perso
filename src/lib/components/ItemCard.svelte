@@ -6,7 +6,11 @@
 
   export let game
   export let session
+  export let supabase
+
   let isOpened
+  let innerList = []
+
   let toggleItemPage = async () => {
     const state = Flip.getState('.item')
     isOpened = !isOpened
@@ -19,6 +23,26 @@
     });
   }
 
+  let fetchLists = async () => {
+    innerList = []
+    const { data } = await supabase
+    .from('games')
+    .select(`
+      name,
+      lists (
+        name
+      )
+    `)
+    .eq('name', `${game.name}`)
+    .order('name', { ascending: true })
+    let lists = data[0].lists
+    lists.forEach(list => 
+      innerList.push(list.name)
+    )
+    innerList = innerList
+    return innerList
+  }
+
   let formatDate = (e) => { 
     let options = {
       day: 'numeric',
@@ -29,7 +53,7 @@
   }
 </script>
 
-<div class={isOpened ? 'isOpened item border border-1' : 'item'} on:click={toggleItemPage} on:keypress={toggleItemPage} >
+<div class={isOpened ? 'isOpened item border border-1' : 'item'} on:click={toggleItemPage} on:click={fetchLists} on:keypress={toggleItemPage} on:keypress={fetchLists}>
   <div class="item__header">
     <img 
       src={game.cover}
@@ -54,6 +78,17 @@
 
     <div class="item__notes">
       <p>{game.notes}</p>
+    </div>
+
+    <div>
+      {#if innerList.length}
+      <p>Ce jeu est dans les listes suivantes:</p>
+        {#each innerList as list}
+          <p>{list}</p>
+        {/each}
+      {:else}
+        <p>Ce jeu n'est dans aucune liste, pour le moment</p>
+      {/if}
     </div>
   </div>
 
