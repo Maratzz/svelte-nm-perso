@@ -53,12 +53,16 @@
   }
 </script>
 
-<div class={isOpened ? 'isOpened item border border-1' : 'item'} on:click={toggleItemPage} on:click={fetchLists} on:keypress={toggleItemPage} on:keypress={fetchLists}>
+<div class={isOpened ? 'isOpened item border border-1' : 'item'}>
   <div class="item__header">
     <img 
       src={game.cover}
       alt="Jaquette du jeu {game.name}"
-      class="item__image">
+      class="item__image"
+      on:click={toggleItemPage}
+      on:click={fetchLists}
+      on:keypress={toggleItemPage}
+      on:keypress={fetchLists}>
   </div>
 
   <div class="item__body">
@@ -80,12 +84,14 @@
       <p>{game.notes}</p>
     </div>
 
-    <div>
+    <div class="item__lists">
       {#if innerList.length}
-      <p>Ce jeu est dans les listes suivantes:</p>
+      <p>Ce jeu est dans {innerList.length === 1 ? 'la liste suivante' : 'les listes suivantes'}:</p>
+      <ul>
         {#each innerList as list}
-          <p>{list}</p>
+        <li>{list}</li>
         {/each}
+      </ul>
       {:else}
         <p>Ce jeu n'est dans aucune liste, pour le moment</p>
       {/if}
@@ -96,7 +102,7 @@
     {#if session}
     <button type="button">Edit</button>
     {/if}
-    <button type="button" class="item__close">X</button>
+    <button type="button" class="item__close" on:click={toggleItemPage} on:keypress={toggleItemPage}>X</button>
   </div>
 </div>
 
@@ -119,7 +125,7 @@
     display: flex;
     background-color: #ffffff;
     position: fixed;
-    bottom: 30%;
+    bottom: 20%;
     box-sizing: content-box;
     width: 65%;
     flex-flow: row nowrap;
