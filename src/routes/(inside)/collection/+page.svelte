@@ -4,6 +4,8 @@
   import ItemCard from '$lib/components/ItemCard.svelte'
   import { paginate, LightPaginationNav } from 'svelte-paginate'
   import HeadSEO from '$lib/components/HeadSEO.svelte'
+  import { gsap } from "gsap";
+
   export let data
   export let form
   $: ({ games, categories, status, session, supabase } = data)
@@ -28,15 +30,19 @@
     return filteredGames
   }  
 
-  let editGame = (game) => {
+  let editGame = async (game) => {
+    const updatedForm = document.querySelector('#updatedForm')
     let updateGameNote = document.querySelector('#updated_notes')
     updateGameNote.textContent = game.notes
     let updateGameStatus = document.querySelector('#updated_status')
     updateGameStatus.value = game.status
+    let updateGameStarted = document.querySelector('#updated_started')
+    updateGameStarted.value = game.started_at
     let updateGameFinished = document.querySelector('#updated_finished')
     updateGameFinished.value = game.finished_at
     let updatedID = document.querySelector('#updated_id')
     updatedID.value = game.id
+    gsap.to(updatedForm, {display: 'block', x: 20, duration: 0.3})
   }
 
 </script>
@@ -105,29 +111,35 @@
     {:else}
        <p>Aucun résultat avec ces critères.</p>
     {/if}
+  
+    {#if session}
+    <div id="updatedForm" class='border border-3'>
+      <form method="POST" id="updated_form" action='?/update'>
 
+        <label for="updated_id">ID</label>
+        <input type="text" name="updated_id" id="updated_id">
+      
+        <label for="updated_status">Status</label>
+        <input type="text" name="updated_status" id="updated_status">
+
+        <label type="date" for="updated_started">Démarré le:</label>
+        <input type="date" name="updated_started" id="updated_started">
+      
+        <label type="date" for="updated_finished">Terminé le:</label>
+        <input type="date" name="updated_finished" id="updated_finished">
+      
+        <label for="updated_notes">Notes</label>
+        <textarea name="updated_notes" id="updated_notes" cols="50" rows="7"></textarea>
+      
+        <button type="submit">Mettre à jour</button>
+
+
+      
+      </form>
+    </div>
+    {/if}
   </div>
 {/key}
-
-<div id="updateForm" class="border border-3" class:isEditing>
-  <form method="POST" id="updated_form" action='?/update'>
-
-    <label for="updated_id">ID</label>
-    <input type="text" name="updated_id" id="updated_id">
-  
-    <label for="updated_status">Status</label>
-    <input type="text" name="updated_status" id="updated_status">
-  
-    <label type="date" for="updated_finished">Terminé le:</label>
-    <input type="date" name="updated_finished" id="updated_finished">
-  
-    <label for="updated_notes">Notes</label>
-    <textarea name="updated_notes" id="updated_notes" cols="50" rows="7"></textarea>
-  
-    <button type="submit">Mettre à jour</button>
-  
-  </form>
-</div>
 
 <LightPaginationNav
   totalItems="{filteredGames.length}"
@@ -176,17 +188,14 @@
     align-items: top;
   }
 
-  #updateForm {
-    position: fixed;
-    top: 150px;
+  #updatedForm {
+    display: none;
+    position: absolute;
+    top: 0;
     left: 0;
     z-index: 55;
     background-color: white;
     padding: 35px 50px;
-    margin-left: 10px;
-  }
-
-  #updateForm .isEditing {
-    
+    transition: all .3s ease-in-out;
   }
 </style>

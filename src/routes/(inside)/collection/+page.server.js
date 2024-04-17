@@ -98,10 +98,10 @@ export const actions = {
 
   update: async ({ request, locals: { supabase, getSession } }) => {
     const session = await getSession()
-    const user = session.user.id
 
     const form = await request.formData()
     const updatedStatus = form.get('updated_status')
+    const updatedStarted = form.get('update_started')
     const updatedFinished = form.get('updated_finished')
     const updatedNotes = form.get('updated_notes')
     const gameID = form.get('updated_id')
@@ -116,12 +116,15 @@ export const actions = {
         .update(
           {
             status: updatedStatus,
+            started_at: updatedStarted,
             finished_at: updatedFinished,
             notes: updatedNotes
           }
         )
         .eq('id', gameID)
         .select()
+
+        return updatedForm
 
       } catch(error) {
         console.log(error)
