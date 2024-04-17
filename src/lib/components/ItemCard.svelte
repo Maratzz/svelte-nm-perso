@@ -7,6 +7,7 @@
   export let game
   export let session
   export let supabase
+  export let onEdit = () => {}
 
   let isOpened
   let innerList = []
@@ -100,7 +101,7 @@
 
   <div class="item__controls">
     {#if session}
-    <button type="button">Edit</button>
+    <button type="button" on:click={onEdit}>Edit</button>
     {/if}
     <button type="button" class="item__close" on:click={toggleItemPage} on:keypress={toggleItemPage}>X</button>
   </div>
@@ -125,7 +126,7 @@
     display: flex;
     background-color: #ffffff;
     position: fixed;
-    bottom: 20%;
+    top: 20%;
     box-sizing: content-box;
     width: 65%;
     flex-flow: row nowrap;

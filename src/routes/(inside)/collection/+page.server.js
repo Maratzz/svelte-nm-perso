@@ -94,5 +94,39 @@ export const actions = {
     } catch(error) {
       return error
     }
+  },
+
+  update: async ({ request, locals: { supabase, getSession } }) => {
+    const session = await getSession()
+    const user = session.user.id
+
+    const form = await request.formData()
+    const updatedStatus = form.get('updated_status')
+    const updatedFinished = form.get('updated_finished')
+    const updatedNotes = form.get('updated_notes')
+    const gameID = form.get('updated_id')
+
+    if (!session) {
+      throw redirect(303, '/')
+    }
+    if (session) {
+      try {
+        const updatedForm = await supabase
+        .from('games')
+        .update(
+          {
+            status: updatedStatus,
+            finished_at: updatedFinished,
+            notes: updatedNotes
+          }
+        )
+        .eq('id', gameID)
+        .select()
+
+      } catch(error) {
+        console.log(error)
+        return error
+      }
+    }
   }
 }

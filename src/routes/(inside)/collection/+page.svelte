@@ -12,6 +12,7 @@
 
   let currentPage = 1
   let pageSize = 9
+  let isEditing = false
   $: paginatedItems = paginate({ items: filteredGames, pageSize, currentPage })
   
   const multiFilterGames = async () => {
@@ -25,6 +26,17 @@
     filteredGames = games.filter(game => game.name.toLowerCase().includes(searchValue) && (platformValue === 'everything' ? game.platform !== null : game.platform === platformValue) && (statusValue === 'everything' ? game.status !== null : game.status === statusValue))
     currentPage = 1
     return filteredGames
+  }  
+
+  let editGame = (game) => {
+    let updateGameNote = document.querySelector('#updated_notes')
+    updateGameNote.textContent = game.notes
+    let updateGameStatus = document.querySelector('#updated_status')
+    updateGameStatus.value = game.status
+    let updateGameFinished = document.querySelector('#updated_finished')
+    updateGameFinished.value = game.finished_at
+    let updatedID = document.querySelector('#updated_id')
+    updatedID.value = game.id
   }
 
 </script>
@@ -88,7 +100,7 @@
   <div class="container" id="container" in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
     {#if filteredGames.length > 0}
       {#each paginatedItems as game (game.id)}
-        <ItemCard {game} {session} {supabase} />
+        <ItemCard {game} {session} {supabase} onEdit={() => editGame(game)}/>
       {/each}
     {:else}
        <p>Aucun résultat avec ces critères.</p>
@@ -96,6 +108,26 @@
 
   </div>
 {/key}
+
+<div id="updateForm" class="border border-3" class:isEditing>
+  <form method="POST" id="updated_form" action='?/update'>
+
+    <label for="updated_id">ID</label>
+    <input type="text" name="updated_id" id="updated_id">
+  
+    <label for="updated_status">Status</label>
+    <input type="text" name="updated_status" id="updated_status">
+  
+    <label type="date" for="updated_finished">Terminé le:</label>
+    <input type="date" name="updated_finished" id="updated_finished">
+  
+    <label for="updated_notes">Notes</label>
+    <textarea name="updated_notes" id="updated_notes" cols="50" rows="7"></textarea>
+  
+    <button type="submit">Mettre à jour</button>
+  
+  </form>
+</div>
 
 <LightPaginationNav
   totalItems="{filteredGames.length}"
@@ -142,5 +174,19 @@
     flex-flow: row nowrap;
     gap: 50px;
     align-items: top;
+  }
+
+  #updateForm {
+    position: fixed;
+    top: 150px;
+    left: 0;
+    z-index: 55;
+    background-color: white;
+    padding: 35px 50px;
+    margin-left: 10px;
+  }
+
+  #updateForm .isEditing {
+    
   }
 </style>
