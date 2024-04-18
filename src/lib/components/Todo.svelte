@@ -15,17 +15,20 @@
         todo.task = e.currentTarget.value
       }
     } />
+
     <button 
       type="button"
       class="button-delete-todo btn-danger"
       on:click={onDelete}>Supprimer
     </button>
+
     <button
       type="button"
       id="button-update-todo"
       class="btn-warning"
       on:click={onUpdate}>Mettre à jour
     </button>
+    
   </div>
 </li>
 

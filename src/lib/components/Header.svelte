@@ -1,13 +1,15 @@
 <script>
   export let session
   export let currentRoute
-  let className
   export { className as class}
+
+  let className
 </script>
 
 <nav class={className}>
-  <ul class='removePaperLi'>
-    {#if currentRoute !== '/'}
+
+  <ul class="removePaperLi">
+    {#if currentRoute !== "/"}
       <li><a href="/">Accueil</a></li>
     {/if}
     <li><a href="/textes">Textes</a></li>
@@ -27,4 +29,5 @@
       </a>
     </li>
   </ul>
+  
 </nav>

@@ -1,5 +1,5 @@
 <script>
-  import HeadSEO from '$lib/components/HeadSEO.svelte'
+  import HeadSEO from "$lib/components/HeadSEO.svelte"
 </script>
 
 <HeadSEO 

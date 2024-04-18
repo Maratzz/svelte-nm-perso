@@ -1,18 +1,18 @@
 <!-- src/routes/account/+page.svelte -->
 <script>
-	import { enhance } from '$app/forms'
-  import HeadSEO from '$lib/components/HeadSEO.svelte'
+	import { enhance } from "$app/forms"
+  import HeadSEO from "$lib/components/HeadSEO.svelte"
+
   export let data;
 	export let form;
 
 	let { session, supabase, profile } = data
-
   let profileForm;
 	let loading = false;
-	let fullName = profile?.full_name ?? ''
-	let username = profile?.username ?? ''
-	let website = profile?.website ?? ''
-	let avatarUrl = profile?.avatar_url ?? ''
+	let fullName = profile?.full_name ?? ""
+	let username = profile?.username ?? ""
+	let website = profile?.website ?? ""
+	let avatarUrl = profile?.avatar_url ?? ""
 
 	function handleSubmit() {
 		loading = true
@@ -69,7 +69,7 @@
 		<div>
 			<input
 				type="submit"
-				value={loading ? 'Chargement...' : 'Mettre à jour'}
+				value={loading ? "Chargement..." : "Mettre à jour"}
 				disabled={loading}
 			/>
 		</div>

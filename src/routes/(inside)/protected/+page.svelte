@@ -1,6 +1,6 @@
 <!-- src/routes/+page.svelte -->
 <script>
-	import { Auth } from '@supabase/auth-ui-svelte';
+	import { Auth } from "@supabase/auth-ui-svelte";
 
 	export let data;
 </script>
@@ -11,12 +11,12 @@
 </svelte:head>
 
 <h1>Connexion</h1>
-<p>Vous n'êtes pas connecté·e</p>
+<p>Vous n"êtes pas connecté·e</p>
 <div>
 	<div>
     <Auth
       supabaseClient={data.supabase}
-      providers={['github']}
+      providers={[ "github" ]}
       onlyThirdPartyProviders
     />
 	</div>

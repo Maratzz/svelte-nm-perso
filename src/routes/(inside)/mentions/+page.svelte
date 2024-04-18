@@ -1,5 +1,5 @@
 <script>
-  import HeadSEO from '$lib/components/HeadSEO.svelte'
+  import HeadSEO from "$lib/components/HeadSEO.svelte"
 </script>
 
 <HeadSEO 
@@ -14,4 +14,4 @@
 
 <h1>Mentions</h1>
 
-<p>Les mentions de type légales, pas les mentions sur des réseaux sociaux, parce que je suis sur aucun d'entre eux. Don't @ me.</p>
+<p>Les mentions de type légales, pas les mentions sur des réseaux sociaux, parce que je suis sur aucun d"entre eux. Don"t @ me.</p>

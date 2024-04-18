@@ -1,14 +1,16 @@
 <script>
-  import HeadSEO from '$lib/components/HeadSEO.svelte'
+  import HeadSEO from "$lib/components/HeadSEO.svelte"
+
   export let data
+  
   let { posts } = data
   let formatDate = (e) => { 
     let options = {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric'
+      day: "numeric",
+      month: "long",
+      year: "numeric"
     }
-    return new Date(e).toLocaleDateString('fr', options)
+    return new Date(e).toLocaleDateString( "fr", options )
   }
 </script>
 
@@ -39,7 +41,7 @@
             </a>
           </h2>
           <p>Publié le {formatDate(post.meta.date)}</p>
-          <p>{post.meta.headline ?? 'Aucune headline'}</p>
+          <p>{post.meta.headline ?? "Aucune headline"}</p>
         </div>
       </div>
     </li>

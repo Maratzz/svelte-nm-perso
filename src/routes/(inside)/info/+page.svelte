@@ -1,5 +1,5 @@
 <script>
-  import HeadSEO from '$lib/components/HeadSEO.svelte'
+  import HeadSEO from "$lib/components/HeadSEO.svelte"
 </script>
 
 <HeadSEO 
@@ -13,4 +13,4 @@
 />
 
 <h1>À propos </h1>
-<p>Ceci est la refonte du site personnel de Nico 'Maratz' Moisson</p>
+<p>Ceci est la refonte du site personnel de Nico "Maratz" Moisson</p>

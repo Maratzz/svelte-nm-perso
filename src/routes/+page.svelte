@@ -1,35 +1,35 @@
 <script>
-  import MediaQuery from '$lib/components/MediaQuery.svelte'
-  import Header from '$lib/components/Header.svelte'
-  import Footer from '$lib/components/Header.svelte'
-  import HeadSEO from '$lib/components/HeadSEO.svelte'
+  import MediaQuery from "$lib/components/MediaQuery.svelte"
+  import Header from "$lib/components/Header.svelte"
+  import Footer from "$lib/components/Header.svelte"
+  import HeadSEO from "$lib/components/HeadSEO.svelte"
 
-  import background from '$lib/assets/homepage/background.png'
-  import bag from '$lib/assets/homepage/bag.png'
-  import bao_out from '$lib/assets/homepage/bao_out.png'
-  import baos from '$lib/assets/homepage/baos.png'
-  import bourses from '$lib/assets/homepage/bourses.png'
-  import chest from '$lib/assets/homepage/chest.png'
-  import coin_1 from '$lib/assets/homepage/coin_1.png'
-  import coin_2 from '$lib/assets/homepage/coin_2.png'
-  import coin_3 from '$lib/assets/homepage/coin_3.png'
-  import couvercle_bao from '$lib/assets/homepage/couvercle_bao.png'
-  import feather from '$lib/assets/homepage/feather.png'
-  import flag from '$lib/assets/homepage/flag.png'
-  import lanterne_left from '$lib/assets/homepage/lanterne_left.png'
-  import lanterne_right from '$lib/assets/homepage/lanterne_right.png'
-  import nico_body from '$lib/assets/homepage/nico_body.png'
-  import nico_head from '$lib/assets/homepage/nico_head.png'
-  import parchemin from '$lib/assets/homepage/parchemin.png'
-  import poele from '$lib/assets/homepage/poele.png'
-  import pot_tournesol from '$lib/assets/homepage/pot_tournesol.png'
-  import potion from '$lib/assets/homepage/potion.png'
-  import tournesol_bouture from '$lib/assets/homepage/tournesol_bouture.png'
-  import tournesol_left from '$lib/assets/homepage/tournesol_left.png'
-  import tournesol_middle from '$lib/assets/homepage/tournesol_middle.png'
-  import tournesol_right from '$lib/assets/homepage/tournesol_right.png'
+  import background from "$lib/assets/homepage/background.png"
+  import bag from "$lib/assets/homepage/bag.png"
+  import bao_out from "$lib/assets/homepage/bao_out.png"
+  import baos from "$lib/assets/homepage/baos.png"
+  import bourses from "$lib/assets/homepage/bourses.png"
+  import chest from "$lib/assets/homepage/chest.png"
+  import coin_1 from "$lib/assets/homepage/coin_1.png"
+  import coin_2 from "$lib/assets/homepage/coin_2.png"
+  import coin_3 from "$lib/assets/homepage/coin_3.png"
+  import couvercle_bao from "$lib/assets/homepage/couvercle_bao.png"
+  import feather from "$lib/assets/homepage/feather.png"
+  import flag from "$lib/assets/homepage/flag.png"
+  import lanterne_left from "$lib/assets/homepage/lanterne_left.png"
+  import lanterne_right from "$lib/assets/homepage/lanterne_right.png"
+  import nico_body from "$lib/assets/homepage/nico_body.png"
+  import nico_head from "$lib/assets/homepage/nico_head.png"
+  import parchemin from "$lib/assets/homepage/parchemin.png"
+  import poele from "$lib/assets/homepage/poele.png"
+  import pot_tournesol from "$lib/assets/homepage/pot_tournesol.png"
+  import potion from "$lib/assets/homepage/potion.png"
+  import tournesol_bouture from "$lib/assets/homepage/tournesol_bouture.png"
+  import tournesol_left from "$lib/assets/homepage/tournesol_left.png"
+  import tournesol_middle from "$lib/assets/homepage/tournesol_middle.png"
+  import tournesol_right from "$lib/assets/homepage/tournesol_right.png"
 
-  import full_image from '$lib/assets/homepage/full_image.png'
+  import full_image from "$lib/assets/homepage/full_image.png"
 </script>
 
 <HeadSEO 
@@ -49,7 +49,7 @@
     <div id="presentation">
       <p>Bonjour, je suis <span class="highlight">Nico</span> aka <span class="highlight">Maratz</span></p>
       <p>Écrivain, critique, développeur web, <i>shitposter</i>.</p>
-      <p>Ce site est mon espace personnel sur Internet,<br> j'y mets toutes mes affaires et le reste.</p>
+      <p>Ce site est mon espace personnel sur Internet,<br> j"y mets toutes mes affaires et le reste.</p>
       <p>Bonne visite !</p>
     </div>
   
@@ -81,7 +81,7 @@
           <img src={tournesol_middle} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-tournesol-middle">
           <img src={tournesol_right} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-tournesol-right">
         {:else}
-          <img src={full_image} alt="Illustration d'accueil" class='no-border'>
+          <img src={full_image} alt="Illustration d'accueil" class="no-border">
         {/if}
       </MediaQuery>
     </div>
@@ -95,7 +95,7 @@
 </div>
 
 
-<style lang='scss'>
+<style lang="scss">
   #homepage {
     background-color: #FFF;
     box-sizing: border-box;

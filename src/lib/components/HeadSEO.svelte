@@ -19,7 +19,7 @@
 
   let jsonLd = {
       "@context": "https://schema.org",
-      "@type":  ['Person', 'Organization'],
+      "@type":  ["Person", "Organization"],
       "name": `${name}`,
       "url": `${$page.url.origin}`,
       "image": `${imageURL}`,
@@ -34,7 +34,7 @@
       ]
   };
   let jsonLdStrung = JSON.stringify(jsonLd);
-  let jsonLdScript = `<script type="application/ld+json">${jsonLdStrung}${'<'}/script>`;
+  let jsonLdScript = `<script type="application/ld+json">${jsonLdStrung}${"<"}/script>`;
 </script>
 
 <svelte:head>

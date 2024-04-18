@@ -2,7 +2,7 @@
   import { gsap } from "gsap";
   import { Flip } from "gsap/dist/Flip";
   import { tick } from "svelte";
-  gsap.registerPlugin(Flip)
+  gsap.registerPlugin( Flip )
 
   export let game
   export let session
@@ -13,11 +13,11 @@
   let innerList = []
 
   let toggleItemPage = async () => {
-    const state = Flip.getState('.item')
+    const state = Flip.getState(".item")
     isOpened = !isOpened
     await tick()
     Flip.from(state, {
-      targets: '.isOpened.item',
+      targets: ".isOpened.item",
       duration: 0.3,
       ease: "power1.inOut",
       absolute: true
@@ -27,18 +27,19 @@
   let fetchLists = async () => {
     innerList = []
     const { data } = await supabase
-    .from('games')
+    .from("games")
     .select(`
       name,
       lists (
         name
       )
     `)
-    .eq('name', `${game.name}`)
-    .order('name', { ascending: true })
+    .eq("name", `${game.name}`)
+    .order("name", {ascending: true})
+
     let lists = data[0].lists
     lists.forEach(list => 
-      innerList.push(list.name)
+      innerList.push( list.name )
     )
     innerList = innerList
     return innerList
@@ -46,15 +47,16 @@
 
   let formatDate = (e) => { 
     let options = {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric'
+      day: "numeric",
+      month: "long",
+      year: "numeric"
     }
-    return new Date(e).toLocaleDateString('fr', options)
+    return new Date(e).toLocaleDateString( "fr", options )
   }
 </script>
 
-<div class={isOpened ? 'isOpened item border border-1' : 'item'}>
+<div class={isOpened ? "isOpened item border border-1" : "item"}>
+
   <div class="item__header">
     <img 
       src={game.cover}
@@ -67,16 +69,17 @@
   </div>
 
   <div class="item__body">
+
     <div class="item__info">
       <h2>{game.name} ({game.platform})</h2>
       <p>{game.developers}</p>
       <p>Sorti le {formatDate(game.released_in)}</p>
       <p>{game.status}</p>
-      {#if game.status === 'finished' && game.finished_at !== null}
+      {#if game.status === "finished" && game.finished_at !== null}
         <p>Terminé le {formatDate(game.finished_at)}</p>
-      {:else if  game.status === 'currently playing'}
+      {:else if  game.status === "currently playing"}
         <p>En cours depuis le {formatDate(game.started_at)}</p>
-      {:else if game.status === 'flushed' && game.finished_at !== null}
+      {:else if game.status === "flushed" && game.finished_at !== null}
         <p>Abandonné le {formatDate(game.finished_at)}</p>
       {/if}
     </div>
@@ -87,16 +90,17 @@
 
     <div class="item__lists">
       {#if innerList.length}
-      <p>Ce jeu est dans {innerList.length === 1 ? 'la liste suivante' : 'les listes suivantes'}:</p>
+      <p>Ce jeu est dans {innerList.length === 1 ? "la liste suivante" : "les listes suivantes"}:</p>
       <ul>
         {#each innerList as list}
         <li>{list}</li>
         {/each}
       </ul>
       {:else}
-        <p>Ce jeu n'est dans aucune liste, pour le moment</p>
+        <p>Ce jeu n"est dans aucune liste, pour le moment</p>
       {/if}
     </div>
+
   </div>
 
   <div class="item__controls">
@@ -105,6 +109,7 @@
     {/if}
     <button type="button" class="item__close" on:click={toggleItemPage} on:keypress={toggleItemPage}>X</button>
   </div>
+  
 </div>
 
 <style>

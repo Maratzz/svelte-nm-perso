@@ -1,33 +1,30 @@
-import { fail, redirect } from '@sveltejs/kit'
+import { fail, redirect } from "@sveltejs/kit"
 
 export const load = (async ({ locals: { supabase, getSession } }) => {
   const session = await getSession()
-
-  if (!session) {
-    throw redirect(303, '/')
+  if ( !session ) {
+    throw redirect(303, "/")
   }
-
   const { data: profile } = await supabase
-    .from('profiles')
+    .from("profiles")
     .select(`username, full_name, website, avatar_url`)
-    .eq('id', session.user.id)
+    .eq("id", session.user.id)
     .single()
-
   return { session, profile }
 })
 
 // form actions
 export const actions = {
+
   update: async ({ request, locals: { supabase, getSession } }) => {
     const formData = await request.formData()
-    const fullName = formData.get('fullName')
-    const username = formData.get('username')
-    const website = formData.get('website')
-    const avatarUrl = formData.get('avatarUrl')
-
+    const fullName = formData.get("fullName")
+    const username = formData.get("username")
+    const website = formData.get("website")
+    const avatarUrl = formData.get("avatarUrl")
     const session = await getSession()
 
-    const { error } = await supabase.from('profiles').upsert({
+    const { error } = await supabase.from("profiles").upsert({
       id: session?.user.id,
       full_name: fullName,
       username,
@@ -36,7 +33,7 @@ export const actions = {
       updated_at: new Date(),
     })
 
-    if (error) {
+    if ( error ) {
       return fail(500, {
         fullName,
         username,
@@ -52,11 +49,12 @@ export const actions = {
       avatarUrl,
     }
   },
-  signout: async ({ locals: { supabase, getSession } }) => {
+
+  signout: async ({ locals: { supabase, getSession }}) => {
     const session = await getSession()
-    if (session) {
+    if ( session ) {
       await supabase.auth.signOut()
-      throw redirect(303, '/')
+      throw redirect(303, "/")
     }
   },
 }

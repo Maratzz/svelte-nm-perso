@@ -2,19 +2,19 @@ export async function load({ parent }) {
   const { supabase, session, currentRoute } =  await parent()
 
   let { data: games } = await supabase
-    .from('games')
-    .select('*')
-    .order('id', { ascending: false })
+    .from("games")
+    .select("*")
+    .order("id", { ascending: false })
 
   let { data : categories } = await supabase
-    .from('platforms')
-    .select('*')
-    .order('name', { ascending: true })
+    .from("platforms")
+    .select("*")
+    .order("name", { ascending: true })
 
   let { data : status } = await supabase
-    .from('game_status')
-    .select('*')
-    .order('id', { ascending: true })
+    .from("game_status")
+    .select("*")
+    .order("id", { ascending: true })
     
   return {
     games: games ?? [],
