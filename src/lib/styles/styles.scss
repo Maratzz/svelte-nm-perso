@@ -4,8 +4,11 @@ body {
   background: #eee;
 }
 
-nav, .footer {
-  background: red;
+main {
+  background-color: #fff;
+}
+
+/* nav, .footer {
   font-size: 1.5em;
   ul {
     display: flex;
@@ -13,7 +16,7 @@ nav, .footer {
     width: 100%;
     justify-content: space-evenly;
   }
-}
+} */
 
 //override the annoying dash added by paperCSS on every li element, like why? put it on ul element
 .removePaperLi {
@@ -22,10 +25,10 @@ nav, .footer {
     }
 }
 
-h1 {
+/* h1 {
   font-size: 2em;
 }
 
 h2 {
   font-size: 1.8em;
-}
+} */

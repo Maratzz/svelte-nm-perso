@@ -63,19 +63,44 @@
   </div>
 
   <div id="learn-more-container">
-    <p>Toujours là ? Okay, voici plus de détails</p>
-    <p></p>
-    <p></p>
+    <img src={background} alt="décor" class="no-border" id="first">
+    <img src={background} alt="décor" class="no-border" id="second">
+    <img src={background} alt="décor" class="no-border" id="third">
+    <h4>Re-bonjour, bienvenue en moi</h4>
+    <p>Vous trouverez donc ici des <a href="/textes">textes critiques, des poèmes, des nouvelles</a>. Avec des phrases courtes et un certain sens de la musique des mots, parce que j'aime Marguerite Duras plus que de raison. Avec beaucoup de jeux vidéo dedans, parce que c'est le medium que je préfère, après la littérature.</p>
+    <p>Et puis il y a tout le reste. Des billets de <a href="/blog">blog</a>, une <a href="/collection">collection</a> d'objets culturels, des listes par <strike>dizaines</strike> centaines, des bricolages de dev web, des surprises comme Internet sait en faire.</p>
+
+    <p>Ce site est à <a href="/info">mon image</a>, changeant, vivant. Il se remplira progressivement de secrets, de pages cachées, et de surprises dans le code.</p>
+    <p>Je prône la curiosité et le ré-enchantement en vertus cardinales pour être heureux·se, en vrai comme en faux, dans la vie comme sur le web. Explorez, fouillez, flânez.</p>
+    <p>C'est mon espace, et donc le vôtre également.</p>
+
+    <h4>Toujours là ? Okay.</h4>
+    <p>Comme beaucoup de gens de ma génération, j'ai ouvert des blogs à foison, puis je les ai délaissés.</p>
+    <p>J'ai créé des pages Tumblr, des profils sur des réseaux sociaux devenus infréquentables, sur des sites avec un sens communautaire, certains déviants, d'autres critiques. J'ai hanté des forums RP, à l'époque où j'apprenais en cours de latin que le pluriel était <i>fora</i>.</p>
+    <p>Tout ça pour le seul plaisir d'écrire. De coucher des mots sur l'écran. De profiter du pouvoir d'Internet pour s'exprimer, pour laisser libre cours à l'imagination.</p>
+
+    <h4>Écrire, dit-il,</h4>
+    <p>Et avant Internet, c'était des feuilles doubles au collège. Des histoires à la pelle, des phrases qui naissent et meurent en heure de perm'.</p>
+    <p>Et puis j'ai eu envie d'arrêter de faire le Petit Poucet. D'avoir un espace où je pourrais enfin réunir tout ces morceaux, sans pour autant tout unifier ou uniformiser. Posséder un coin véritablement à moi, loin des conditions d'utilisation de GAFAM, loin de la menace de voir un espace transformé par une bottom line de quelques annonceurs, publicistes, éditeurs, s'accaparant le bien commun du numérique.</p>
+    <p>Voià l'origine de ce site.</p>
+
   </div>
 </main>
+
+<footer>
+  <ul>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="/mentions">Mentions légales</a></li>
+    <li><a href="/site-pro">Site pro</a></li>
+    <li><a href="soutien">Soutenez-moi</a></li>
+  </ul>
+</footer>
 
 
 
 
 <style lang="scss">
-  * {
-    margin: 0;
-    padding: 0;
+  main, header {
     box-sizing: border-box;
     background-color: #fff;
   }
@@ -85,11 +110,13 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 35px;
       background-color: #fff;
-      //border: 5px solid red;
       width: 100vw;
       height: 100vh;
+    }
+
+    &-image {
+      padding-top: 35px;
     }
 
     &-presentation {
@@ -101,11 +128,37 @@
   }
 
   #learn-more-container {
-    display: flex;
-    flex-direction: column;
+    position: relative;
     border: 5px solid orange;
     width: 95vw;
-    margin: 15px auto;
+    margin: 0 auto;
+    z-index: 5;
+    p, h4 {
+      position: inherit;
+      z-index: inherit;
+    }
+    h4 {
+      margin: 0 auto;
+    }
+    #first {
+      position: absolute;
+      top: 0;
+      left: -100px;
+      z-index: 1;
+    }
+    #second {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      z-index: 1;
+      width: 50%;
+    }
+    #third {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+    }
   }
 
   .inline {
@@ -114,18 +167,9 @@
   }
 
   .highlight {
-    //font-size: 1.5em;
     background-color: #E1DAEA;
     padding: 5px 8px 2px 8px;
     border-radius: 10px;
-  }
-
-  .nav-brand {
-    padding: 10px 20px;
-  }
-
-  .first-offset {
-    padding-bottom: 15px;
   }
 
   #underline {
