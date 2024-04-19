@@ -45,3 +45,9 @@
     <slot />
 </div>
 {/key}
+
+<style>
+  div {
+    background-color: #fff;
+  }
+</style>
