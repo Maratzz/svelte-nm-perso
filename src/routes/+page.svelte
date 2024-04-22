@@ -4,7 +4,7 @@
 
   import background from "$lib/assets/homepage/background.png"
   import full_image from "$lib/assets/homepage/full_image.png"
-  import parchemin_full from "$lib/assets/inside-pages/parchemin_full.png"
+  import parchemin_icon from "$lib/assets/icons/parchemin_icon.png"
 </script>
 
 <HeadSEO 
@@ -31,7 +31,7 @@
       </label>
       <div class="collapsible-body">
         <ul class="inline" id="nav-menu">
-          <li id="nav-textes"><img src={parchemin_full} alt="icône de parchemin pour la nav"><a href="/textes">Textes</a></li>
+          <li id="nav-textes"><img src={parchemin_icon} alt="icône de parchemin pour la nav" class="no-border"><a href="/textes">Textes</a></li>
           <li><a href="/collection">Collection</a></li>
           <li><a href="/blog">Blog</a></li>
           <li><a href="/info">À propos</a></li>
@@ -91,11 +91,7 @@
 <style lang="scss">
   #nav-textes img {
     display: inline-block;
-    position: absolute;
-    left: 100px;
-    width: 40px;
-    height: 40px;
-    border: 1px solid black;
+    width: 1.3em;
   }
 
   main, header, footer {
