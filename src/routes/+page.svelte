@@ -2,8 +2,31 @@
   import MediaQuery from "$lib/components/MediaQuery.svelte"
   import HeadSEO from "$lib/components/HeadSEO.svelte"
 
-  import background from "$lib/assets/homepage/background.png"
   import full_image from "$lib/assets/homepage/full_image.png"
+  import background from "$lib/assets/homepage/background.png"
+  import bag from "$lib/assets/homepage/bag.png"
+  import bao_out from "$lib/assets/homepage/bao_out.png"
+  import baos from "$lib/assets/homepage/baos.png"
+  import bourses from "$lib/assets/homepage/bourses.png"
+  import chest from "$lib/assets/homepage/chest.png"
+  import coin_1 from "$lib/assets/homepage/coin_1.png"
+  import coin_2 from "$lib/assets/homepage/coin_2.png"
+  import coin_3 from "$lib/assets/homepage/coin_3.png"
+  import couvercle_bao from "$lib/assets/homepage/couvercle_bao.png"
+  import feather from "$lib/assets/homepage/feather.png"
+  import flag from "$lib/assets/homepage/flag.png"
+  import lanterne_left from "$lib/assets/homepage/lanterne_left.png"
+  import lanterne_right from "$lib/assets/homepage/lanterne_right.png"
+  import nico_body from "$lib/assets/homepage/nico_body.png"
+  import nico_head from "$lib/assets/homepage/nico_head.png"
+  import parchemin from "$lib/assets/homepage/parchemin.png"
+  import poele from "$lib/assets/homepage/poele.png"
+  import pot_tournesol from "$lib/assets/homepage/pot_tournesol.png"
+  import potion from "$lib/assets/homepage/potion.png"
+  import tournesol_bouture from "$lib/assets/homepage/tournesol_bouture.png"
+  import tournesol_left from "$lib/assets/homepage/tournesol_left.png"
+  import tournesol_middle from "$lib/assets/homepage/tournesol_middle.png"
+  import tournesol_right from "$lib/assets/homepage/tournesol_right.png"
 </script>
 
 <HeadSEO 
@@ -45,20 +68,52 @@
 
   <div id="landing-container">
 
-    <div id="landing-image">
-      <img src={full_image} alt="Dessin de la page d'accueil" class="no-border">
-    </div>
+    <MediaQuery query="(min-height: 750px) and (min-width: 500px)" let:matches>
+      {#if matches}
+      <div id="landing-image">
+        <img src={background} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-background">
+        <img src={bag} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-bag">
+        <img src={bao_out} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-bao-out">
+        <img src={baos} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-baos">
+        <img src={bourses} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-bourses">
+        <img src={chest} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-chest">
+        <img src={coin_1} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-coin-1">
+        <img src={coin_2} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-coin-2">
+        <img src={coin_3} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-coin-3">
+        <img src={couvercle_bao} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-couvercle-bao">
+        <img src={feather} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-feather">
+        <img src={flag} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-flag">
+        <img src={lanterne_left} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-lanterne-left">
+        <img src={lanterne_right} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-lanterne-right">
+        <img src={nico_body} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-nico-body">
+        <img src={nico_head} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-nico-head">
+        <img src={parchemin} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-parchemin">
+        <img src={poele} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-poele">
+        <img src={pot_tournesol} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-pot-tournesol">
+        <img src={potion} alt="Élément de l'illusration de page d'accueil" class="no-border hover" id="homepage-potion">
+        <img src={tournesol_bouture} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-tournesol-bouture">
+        <img src={tournesol_left} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-tournesol-left">
+        <img src={tournesol_middle} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-tournesol-middle">
+        <img src={tournesol_right} alt="Élément de l'illusration de page d'accueil" class="no-border" id="homepage-tournesol-right">
+      </div>
+      {:else}
+      <div id="landing-image">
+        <img src={full_image} alt="Dessin de la page d'accueil" class="no-border">
+      </div>
+      {/if}
+
+    </MediaQuery>
+
 
     <div id="landing-presentation">
       <p class="first-offset">Bonjour, je suis <span class="highlight">Nico</span> aka <span class="highlight">Maratz</span></p>
       <p>Écrivain, critique, développeur web, <i>shitposter</i>.</p>
       <p>Ce site est mon espace personnel sur Internet,<br> j"y mets toutes mes affaires et le reste.</p>
       <p>Bonne visite !</p>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1418 125" fill="#E1DAEA" class="underline">
+        <path d="M1412.29 72.17c-11.04-5.78-20.07-14.33-85.46-25.24-22.37-3.63-44.69-7.56-67.07-11.04-167.11-22.06-181.65-21.24-304.94-30.56C888.78 1.39 822.57 1.1 756.44 0c-46.63-.11-93.27 1.56-139.89 2.5C365.5 13.55 452.86 7.68 277.94 23.15 202.57 33.32 127.38 45.01 52.07 55.69c-11.23 2.41-22.63 4.17-33.71 7.22C6.1 66.33 5.64 66.19 3.89 67.79c-7.99 5.78-2.98 20.14 8.72 17.5 33.99-9.47 32.28-8.57 178.06-29.66 4.26 4.48 7.29 3.38 18.42 3.11 13.19-.32 26.38-.53 39.56-1.12 53.51-3.81 106.88-9.62 160.36-13.95 18.41-1.3 36.8-3.12 55.21-4.7 23.21-1.16 46.43-2.29 69.65-3.4 120.28-2.16 85.46-3.13 234.65-1.52 23.42.99 1.57-.18 125.72 6.9 96.61 8.88 200.92 27.94 295.42 46.12 40.87 7.91 116.67 23.2 156.31 36.78 3.81 1.05 8.28-.27 10.51-3.58 3.17-3.72 2.66-9.7-.78-13.13-3.25-3.12-8.14-3.44-12.18-5.08-17.89-5.85-44.19-12.09-63.67-16.56l26.16 3.28c23.02 3.13 46.28 3.92 69.34 6.75 10.8.96 25.43 1.81 34.34-4.39 2.26-1.54 4.86-2.75 6.21-5.27 2.76-4.59 1.13-11.06-3.59-13.68ZM925.4 23.77c37.64 1.4 153.99 10.85 196.64 14.94 45.95 5.51 91.89 11.03 137.76 17.19 24.25 4.77 74.13 11.21 101.72 18.14-11.87-1.15-23.77-1.97-35.65-3.06-133.46-15.9-266.8-33.02-400.47-47.21Z"></path>
+      </svg>
     </div>
-
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1418 125" fill="#E1DAEA" class="underline">
-      <path d="M1412.29 72.17c-11.04-5.78-20.07-14.33-85.46-25.24-22.37-3.63-44.69-7.56-67.07-11.04-167.11-22.06-181.65-21.24-304.94-30.56C888.78 1.39 822.57 1.1 756.44 0c-46.63-.11-93.27 1.56-139.89 2.5C365.5 13.55 452.86 7.68 277.94 23.15 202.57 33.32 127.38 45.01 52.07 55.69c-11.23 2.41-22.63 4.17-33.71 7.22C6.1 66.33 5.64 66.19 3.89 67.79c-7.99 5.78-2.98 20.14 8.72 17.5 33.99-9.47 32.28-8.57 178.06-29.66 4.26 4.48 7.29 3.38 18.42 3.11 13.19-.32 26.38-.53 39.56-1.12 53.51-3.81 106.88-9.62 160.36-13.95 18.41-1.3 36.8-3.12 55.21-4.7 23.21-1.16 46.43-2.29 69.65-3.4 120.28-2.16 85.46-3.13 234.65-1.52 23.42.99 1.57-.18 125.72 6.9 96.61 8.88 200.92 27.94 295.42 46.12 40.87 7.91 116.67 23.2 156.31 36.78 3.81 1.05 8.28-.27 10.51-3.58 3.17-3.72 2.66-9.7-.78-13.13-3.25-3.12-8.14-3.44-12.18-5.08-17.89-5.85-44.19-12.09-63.67-16.56l26.16 3.28c23.02 3.13 46.28 3.92 69.34 6.75 10.8.96 25.43 1.81 34.34-4.39 2.26-1.54 4.86-2.75 6.21-5.27 2.76-4.59 1.13-11.06-3.59-13.68ZM925.4 23.77c37.64 1.4 153.99 10.85 196.64 14.94 45.95 5.51 91.89 11.03 137.76 17.19 24.25 4.77 74.13 11.21 101.72 18.14-11.87-1.15-23.77-1.97-35.65-3.06-133.46-15.9-266.8-33.02-400.47-47.21Z"></path>
-    </svg>
 
   </div>
 
@@ -118,12 +173,17 @@
 
     &-image {
       padding-top: 35px;
+      position: relative;
     }
 
     &-presentation {
       width: 95vw;
       margin: 0 auto;
       text-align: center;
+
+      .underline {
+        width: 250px;
+      }
     }
   }
 
@@ -175,18 +235,146 @@
   }
 
   @media (width >= 900px) {
-    #nav-menu {
-      flex-direction: row;
-    }
 
-    #landing-container {
-      flex-direction: row;
-      align-content: center;
-      justify-content: center;
-    }
-
-    .underline {
+    header {
       display: none;
+    }
+
+    #landing {
+      &-container {
+        flex-direction: row;
+        width: 100vw;
+        height: 100vh;
+      }
+      &-image {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        border: 2px solid red;
+        padding-top: 0;
+        img {
+          position: absolute;
+          border: 2px solid orange;
+        }
+      }
+      &-presentation {
+        width: 33%;
+        margin: auto auto;
+        flex-grow: 1;
+        border: 2px solid blue;
+      }
+    }
+
+    #homepage {
+      &-bag {
+        top: 26%;
+        left: 18%;
+      }
+      &-background {
+        width: auto;
+        height: 100%;
+      }
+      &-bao-out {
+        top: 37%;
+        left: 68%;
+      }
+      &-baos {
+        top: 40%;
+        left: 64%;
+      }
+      &-bourses {
+        top: 47%;
+        left: 22.1%;
+      }
+      &-chest {
+        top: 37%;
+        left: 33%;
+        z-index: 10;
+      }
+      &-coin-1 {
+        top: 55%;
+        left: 13%;
+      }
+      &-coin-2 {
+        top: 51.5%;
+        left: 16%;
+      }
+      &-coin-3 {
+        top: 54%;
+        left: 18%;
+      }
+      &-couvercle-bao {
+        top: 32%;
+        left: 62%;
+      }
+      &-feather {
+        top: 24%;
+        left: 7%;
+      }
+      &-flag {
+        top: 11%;
+        left: 54%;
+      }
+      &-lanterne-left {
+        top: 62%;
+        left: 29%;
+      }
+      &-lanterne-right {
+        top: 64.2%;
+        left: 41.8%;
+        z-index: 10;
+      }
+      &-parchemin {
+        top: 33%;
+        left: 14%;
+      }
+      &-pot-tournesol {
+        top: 25.1%;
+        left: 32.5%;
+      }
+      &-potion {
+        top: 30%;
+        left: 19%;
+      }
+      &-nico-body {
+        top: 43%;
+        left: 35%;
+      }
+      &-nico-head {
+        top: 43%;
+        left: 51%;
+      }
+      &-poele {
+        top: 66%;
+        left: 31%;
+      }
+      &-tournesol-bouture {
+        top: 24%;
+        left: 24%;
+      }
+      &-tournesol-left {
+        top: 17%;
+        left: 16%;
+      }
+      &-tournesol-middle {
+        top: 5%;
+        left: 18%;
+      }
+      &-tournesol-right {
+        top: 8.5%;
+        left: 33%;
+      }
+    }
+
+    #learn-more-container {
+      #first {
+        top: 0;
+        left: 0;
+        width: 450px;
+      }
+      #second {
+        width: 250px;
+      }
     }
   }
 </style>
