@@ -93,7 +93,7 @@ export const actions = {
     const session = await getSession()
     const form = await request.formData()
     const updatedStatus = form.get( "updated_status" )
-    const updatedStarted = form.get( "update_started" )
+    const updatedStarted = form.get( "updated_started" )
     const updatedFinished = form.get( "updated_finished" )
     const updatedNotes = form.get( "updated_notes" )
     const gameID = form.get( "updated_id" )
@@ -108,8 +108,8 @@ export const actions = {
         .update(
           {
             status: updatedStatus,
-            started_at: updatedStarted,
-            finished_at: updatedFinished,
+            started_at: updatedStarted !== "" ? updatedStarted : null,
+            finished_at: updatedFinished !== "" ? updatedFinished : null,
             notes: updatedNotes
           }
         )
