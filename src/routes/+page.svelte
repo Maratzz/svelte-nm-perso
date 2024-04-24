@@ -192,6 +192,7 @@
     width: 95vw;
     margin: 0 auto;
     z-index: 5;
+    border: 3px solid green;
     p, h4 {
       position: inherit;
       z-index: inherit;
@@ -245,10 +246,11 @@
         flex-direction: row;
         width: 100vw;
         height: 100vh;
+        border: solid 2px purple;
       }
       &-image {
-        width: 100%;
-        height: 100%;
+        width: 888px;
+        height: 800px;
         position: relative;
         border: 2px solid red;
         padding-top: 0;
@@ -275,12 +277,12 @@
         height: 100%;
       }
       &-bao-out {
-        top: 37%;
-        left: 68%;
+        top: 35%;
+        left: 74%;
       }
       &-baos {
         top: 40%;
-        left: 64%;
+        left: 71.4%;
       }
       &-bourses {
         top: 47%;
@@ -304,8 +306,8 @@
         left: 18%;
       }
       &-couvercle-bao {
-        top: 32%;
-        left: 62%;
+        top: 30%;
+        left: 67.4%;
       }
       &-feather {
         top: 24%;
@@ -313,7 +315,7 @@
       }
       &-flag {
         top: 11%;
-        left: 54%;
+        left: 59%;
       }
       &-lanterne-left {
         top: 62%;
@@ -338,15 +340,15 @@
       }
       &-nico-body {
         top: 43%;
-        left: 35%;
+        left: 38%;
       }
       &-nico-head {
         top: 43%;
-        left: 51%;
+        left: 56.5%;
       }
       &-poele {
-        top: 66%;
-        left: 31%;
+        top: 65%;
+        left: 32.8%;
       }
       &-tournesol-bouture {
         top: 24%;
@@ -367,6 +369,7 @@
     }
 
     #learn-more-container {
+      margin-top: 100px;
       #first {
         top: 0;
         left: 0;
