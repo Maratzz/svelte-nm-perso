@@ -370,6 +370,7 @@
 
     #learn-more-container {
       margin-top: 100px;
+      padding-bottom: 100px;
       #first {
         top: 0;
         left: 0;
@@ -378,6 +379,13 @@
       #second {
         width: 250px;
       }
+    }
+
+    #footer-menu {
+      flex-direction: row;
+      margin: 100px auto 0 auto;
+      gap: 100px;
+      font-size: 1.3em;
     }
   }
 </style>

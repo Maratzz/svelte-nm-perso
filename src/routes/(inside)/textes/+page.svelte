@@ -34,64 +34,59 @@
   openGraph
 />
 
-<h1>Textes</h1>
-    
-<ul class="removePaperLi container">
-  {#each posts as post}
-    <li>
-      <div class="item">
-        <div class="item__img">
-          <img 
-            src={attachCoverImage( post.meta.title, items )} 
-            alt=" Illustration du texte">
-        </div>
-        <div class="item__content">
-          <h2>
-            <a href={post.path}>
-              {post.meta.title}
-            </a>
-          </h2>
+
+<div id="main">
+  <h1>Textes</h1>
+
+  <div id="container">
+  
+    {#each posts as post}
+  
+      <div id="item">
+  
+        <img src={attachCoverImage( post.meta.title, items )} alt="Illustration du texte" id="item-img">
+  
+        <div id="item-content">
+          <h2><a href={post.path}>{post.meta.title}</a></h2>
           <p>Publié le {formatDate( post.meta.date )}</p>
-          <p>{post.meta.headline ?? "Headline missing"}</p>
+          <p>{post.meta.headline ?? "Pas d'accroche, bouh !"}</p>
         </div>
+  
       </div>
-    </li>
-  {/each}
-</ul>
+      
+    {/each}
+  </div>
+</div>
+
 
 <style lang="scss">
+  #main {
+    margin-top: 100px;
 
-  h1 {
-    display: flex;
-    place-content: center;
+    h1 {
+      text-align: center;
+    }
   }
 
-  .container {
-    display: flex;
-    flex-flow: column wrap;
-    padding: 0;
+  #container {
+    background-color: #eee;
   }
 
-  .item {
-    display: flex;
-    flex-flow: row nowrap;
-    margin: 10px 15px;
+  #item {
     background-color: rgb(255, 255, 255);
-    padding: 15px 25px;
-    border-radius: 5px;
-    align-items: center;
-    &__img {
-      width: 140px;
-      height: auto;
-      flex: 1 0 auto;
-    }
-    &__content {
-      margin-left: 25px;
-      flex: 2 0 80%;
+    width: 90%;
+    margin: 15px auto;
+    padding: 15px 15px;
+    border-radius: 10px;
+    &-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      margin: 0 auto;
     }
   }
 
-  ul li {
-    text-indent: 0;
+  @media (width <= 900px) {
+    
   }
 </style>

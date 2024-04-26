@@ -6,8 +6,10 @@
   import Footer from "$lib/components/Footer.svelte"
 </script>
 
-<Header/>
+<Header />
 
-<slot />
+<main>
+  <slot />
+</main>
 
-<Footer/>
+<Footer />

@@ -1,5 +1,5 @@
 ---
-title: "Papo Y Yo"
+title: "Papo & Yo"
 date: "2015-05-10"
 headline: "Papo Y Yo est un je, mais ce n’est pas le mien, et ce ne le sera jamais."
 categories:
