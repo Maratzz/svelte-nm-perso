@@ -42,9 +42,9 @@
   
     {#each posts as post}
   
-      <div id="item">
+      <div id="item" class="border border-2">
   
-        <img src={attachCoverImage( post.meta.title, items )} alt="Illustration du texte" id="item-img">
+        <img src={attachCoverImage( post.meta.title, items )} alt="Illustration du texte" id="item-img" class="border-2">
   
         <div id="item-content">
           <h2><a href={post.path}>{post.meta.title}</a></h2>
@@ -75,9 +75,8 @@
   #item {
     background-color: rgb(255, 255, 255);
     width: 90%;
-    margin: 15px auto;
+    margin: 15px auto 25px auto;
     padding: 15px 15px;
-    border-radius: 10px;
     &-img {
       width: 100%;
       height: 150px;
@@ -86,7 +85,24 @@
     }
   }
 
-  @media (width <= 900px) {
-    
+  @media (width >= 900px) {
+    #main {
+      width: 65%;
+      margin: 150px auto 0 auto;
+    }
+
+    #item {
+      display: flex;
+      flex-flow: row nowrap;
+      &-content {
+        width: 45%;
+      }
+      &-img {
+        width: 45%;
+        height: 200px;
+        margin: auto auto;
+        object-position: right 40%;
+      }
+    }
   }
 </style>

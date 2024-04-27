@@ -32,10 +32,10 @@
   
 </article>
 
-<style>
+<style lang="scss">
   .category {
     margin: 0 3px;
-    background-color: aquamarine;
+    background-color: #978CAA;
     padding: 4px 4px;
   }
 
@@ -43,11 +43,14 @@
     width: 55%;
     margin-right: auto;
     margin-left: auto;
+    h1 {
+      margin-top: 100px;
+    }
   }
 
   @media (max-width: 600px) {
     article {
-      width: 85%;
+      width: 90%;
     }
   }
 </style>
