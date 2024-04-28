@@ -50,6 +50,11 @@
     gsap.to( updatedForm, { display: "block", x: 20, duration: 0.3 })
   }
 
+  let displayCollectionForm = async () => {
+    let collectionForm = document.querySelector("#collection-form")
+    collectionForm.style.display = "block"
+  }
+
 </script>
 
 <HeadSEO 
@@ -65,20 +70,14 @@
 <h1>Collection</h1>
 
 {#if session }
-  <div id="collection-form" class="collapsible">
-
-    <input type="checkbox" name="collection-form" id="collapsible1">
-    <label for="collapsible1">Ajouter une oeuvre</label>
-
-    <div class="collapsible-body">
-      <Form {form} {categories} {status}/>
-      <div class="form-image">
-        {#if form?.success}
-          <img src={form?.gameCoverLink} alt="">
-        {/if}
-      </div>
+  <button on:click={displayCollectionForm}>Ajouter une oeuvre</button>
+  <div id="collection-form">
+    <Form {form} {categories} {status}/>
+    <div class="form-image">
+      {#if form?.success}
+      <img src={form?.gameCoverLink} alt="">
+      {/if}
     </div>
-
   </div>
 {/if}
 
@@ -118,7 +117,7 @@
 </div>
 
 {#key currentPage, paginatedItems }
-  <div class="container" id="container" in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
+  <div id="container" in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
     {#if filteredGames.length > 0 }
       {#each paginatedItems as game ( game.id )}
         <ItemCard {game} {session} {supabase} onEdit={() => editGame( game )}/>
@@ -144,7 +143,7 @@
         <input type="date" name="updated_finished" id="updated_finished">
       
         <label for="updated_notes">Notes</label>
-        <textarea name="updated_notes" id="updated_notes" cols="50" rows="7"></textarea>
+        <textarea name="updated_notes" id="updated_notes"></textarea>
       
         <button type="submit">Mettre à jour</button>
       
@@ -165,50 +164,19 @@
     }}"
 />
 
-<style>
-
+<style lang="scss">
   #collection-form {
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-flow: column wrap;
-    & img {
-      flex-shrink: 0;
-    }
+    display: none;
+    border: solid 3px red;
   }
 
-  .container {
+  #container {
+    border: 3px solid green;
+    width: 95%;
+    margin: 0 auto;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-evenly;
-    gap: 50px 0px ;
-    margin-bottom: 50px;
-    position: relative;
-  }
-
-  #filter-container {
-    margin-bottom: 25px;
-    display: flex;
-    flex-flow: column wrap;
-    gap: 10px;
-  }
-
-  .collapsible-body {
-    display: flex;
-    flex-flow: row nowrap;
-    gap: 50px;
-    align-items: top;
-  }
-
-  #updatedForm {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 55;
-    background-color: white;
-    padding: 35px 50px;
-    transition: all .3s ease-in-out;
+    gap: 30px;
+    justify-content: center;
   }
 </style>

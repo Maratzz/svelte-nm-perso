@@ -1,7 +1,7 @@
 ---
 title: Blasphemous
 date: "2023-05-19"
-headline: "Cachez ces saints à qui je ne saurais me vouer"
+headline: "Cachez ces saints à qui je ne saurais me vouer."
 categories:
 - "textes"
 - "critique"

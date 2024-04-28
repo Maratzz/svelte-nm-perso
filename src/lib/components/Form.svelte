@@ -85,7 +85,7 @@
   </div>
 
   <label for="game_notes">Notes</label>
-  <textarea name="game_notes" id="game_notes" cols="50" rows="7" placeholder="Something to say?"></textarea>
+  <textarea name="game_notes" id="game_notes" placeholder="Something to say?"></textarea>
 
   <div>
     <div class="collapsible">
@@ -111,7 +111,7 @@
 <style>
   .form-inside-name, .form-inside-calendar, .form-inside-input {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     gap: 15px;
   }
 

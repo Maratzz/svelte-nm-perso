@@ -42,7 +42,7 @@
   
     {#each posts as post}
   
-      <div id="item" class="border border-2">
+      <div id="item">
   
         <img src={attachCoverImage( post.meta.title, items )} alt="Illustration du texte" id="item-img" class="border-2">
   
@@ -60,13 +60,9 @@
 
 
 <style lang="scss">
-  #main {
-    margin-top: 100px;
-
-    h1 {
+  #main h1 {
       text-align: center;
     }
-  }
 
   #container {
     background-color: #eee;
@@ -77,6 +73,7 @@
     width: 90%;
     margin: 15px auto 25px auto;
     padding: 15px 15px;
+    border-radius: 15px;
     &-img {
       width: 100%;
       height: 150px;

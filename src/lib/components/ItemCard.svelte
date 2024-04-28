@@ -97,7 +97,7 @@
         {/each}
       </ul>
       {:else}
-        <p>Ce jeu n"est dans aucune liste, pour le moment</p>
+        <p>Ce jeu n'est dans aucune liste, pour le moment</p>
       {/if}
     </div>
 
@@ -121,22 +121,26 @@
     width: auto;
     z-index: 1;
     position: relative;
+    display: flex;
+    flex-flow: column wrap;
   }
 
   .item__image {
     cursor: pointer;
+    width: 150px;
+    margin: 10px auto;
   }
 
   .isOpened.item {
-    display: flex;
+/*     display: flex;
+    flex-flow: column wrap; */
     background-color: #ffffff;
     position: fixed;
-    top: 20%;
+    top: 10%;
     box-sizing: content-box;
-    width: 65%;
-    flex-flow: row nowrap;
+    width: 90%;
     z-index: 15;
-    padding: 25px 0;
+    padding: 0 10px;
   }
 
   .isOpened .item__controls {
@@ -147,7 +151,6 @@
   }
 
   .isOpened .item__header {
-    margin: 30px 30px 0px 25px;
     padding-bottom: 5px;
     flex-shrink: 0;
   }
@@ -156,16 +159,19 @@
     display: flex;
     flex-flow: column;
     gap: 35px;
-    margin-bottom: 10px;
-    margin-left: 25px;
     opacity: 1;
     height: auto;
     width: auto;
   }
 
+  .isOpened .item__info {
+    line-height: 0.6;
+  }
+
   .isOpened .item__notes {
-    padding-right: 30px;
     text-align: justify;
     display: block;
+    overflow-y: auto;
+    height: 200px;
   }
 </style>

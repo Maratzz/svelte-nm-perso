@@ -1,7 +1,7 @@
 ---
 title: "À malin, malin et demi"
 date: "2016-05-15"
-headline: "Une histoire courte d'anticipation"
+headline: "Une histoire courte d'anticipation."
 categories: 
 - "textes"
 - "fiction"
