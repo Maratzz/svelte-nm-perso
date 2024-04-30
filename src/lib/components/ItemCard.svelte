@@ -138,7 +138,9 @@
     position: fixed;
     top: 10%;
     box-sizing: content-box;
-    width: 90%;
+    width: 70vw;
+    height: 50vh;
+    overflow-y: auto;
     z-index: 15;
     padding: 0 10px;
   }
@@ -172,6 +174,5 @@
     text-align: justify;
     display: block;
     overflow-y: auto;
-    height: 200px;
   }
 </style>
