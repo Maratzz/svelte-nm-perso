@@ -9,7 +9,11 @@
 
   let itemOpened = false
 
-  let formatDate = (e) => { 
+  let formatDateYear = ( e ) => { 
+    return new Date(e).getFullYear()
+  }
+
+  let formatDate = ( e ) => { 
     let options = {
       day: "numeric",
       month: "long",
@@ -66,48 +70,42 @@
 {#key itemDetails, innerList}
 <div class={itemOpened ? "border border-5 item-opened opened" : "item-opened"}>
 
+  <button on:click={closeItem}>X</button>
+
   <div id="item-opened__info">
 
-    <img src={itemDetails.cover} alt="">
+    <img src={itemDetails.cover} alt="Jaquette du jeu {itemDetails.name}" id="info__img">
 
-    <div>
-      <p>{itemDetails.name}</p>
-      <p>{itemDetails.developers}</p>
-      <p>Sorti le {formatDate(itemDetails.released_in)}</p>
-      <p>{itemDetails.status}</p>
+    <div id="info__inner">
+      <p class="info-big"><b>{itemDetails.name}</b></p>
+      <p class="info-small"><i>{itemDetails.developers}, {formatDateYear(itemDetails.released_in)}</i></p>
+      <p class="info-small">Status: {itemDetails.status}</p>
+      {#if itemDetails.status === "finished" && itemDetails.finished_at !== null}
+      <p class="info-small">Terminé le {formatDate(itemDetails.finished_at)}</p>
+      {:else if  itemDetails.status === "currently playing"}
+      <p class="info-small">En cours depuis le {formatDate(itemDetails.started_at)}</p>
+      {:else if itemDetails.status === "flushed" && itemDetails.finished_at !== null}
+      <p class="info-small">Abandonné le {formatDate(itemDetails.finished_at)}</p>
+      {/if}
     </div>
 
-  </div>
-
-  <div id="item-opened__content">
-    {#if itemDetails.status === "finished" && itemDetails.finished_at !== null}
-    <p>Terminé le {formatDate(itemDetails.finished_at)}</p>
-    {:else if  itemDetails.status === "currently playing"}
-    <p>En cours depuis le {formatDate(itemDetails.started_at)}</p>
-    {:else if itemDetails.status === "flushed" && itemDetails.finished_at !== null}
-    <p>Abandonné le {formatDate(itemDetails.finished_at)}</p>
-    {/if}
-
-    {#if innerList.length}
-    <p id="item-opened__list">Ce jeu est dans {innerList.length === 1 ? "la liste suivante" : "les listes suivantes"}:</p>
-    <ul>
-      {#each innerList as list}
-      <li>{list}</li>
-      {/each}
-    </ul>
-    {:else}
-    <p id="item-opened__list">Ce jeu n'est dans aucune liste, pour le moment</p>
-    {/if}
   </div>
 
   <div id="item-opened__notes">
     {itemDetails.notes}
   </div>
 
+  {#if innerList.length}
+  <p id="content__list">Ce jeu est dans {innerList.length === 1 ? "la liste suivante" : "les listes suivantes"}:</p>
+  <ul>
+    {#each innerList as list}
+    <li>{list}</li>
+    {/each}
+  </ul>
+  {:else}
+  <p id="content__list">Ce jeu n'est dans aucune liste, pour le moment</p>
+  {/if}
 
-  
-
-  <button on:click={closeItem}>X</button>
 </div>
 {/key}
 
@@ -124,17 +122,16 @@
     display: none;
     position: fixed;
     width: 95%;
+    height: 85vh;
+    overflow: auto;
     top: 100px;
+    left: 10px;
     z-index: 15;
     background-color: #eee;
     button {
-      position: absolute;
-      top: -20px;
-      right: -20px;
-    }
-    img {
-      width: 45%;
-      height: auto;
+      position: fixed;
+      bottom: 0;
+      right: 45%;
     }
   }
 
@@ -146,15 +143,32 @@
     &__info {
       display: flex;
       flex-flow: row nowrap;
-      justify-content: space-around;
-    }
-    &__list, &__content {
-      margin-top: 15px;
-      margin-left: 20px;
-      margin-right: 10px;
+      margin: 25px 10px 10px 10px;
+      gap: 15px;
     }
     &__notes {
-      background-color: pink;
+      margin: 25px 10px 0 10px;
+    }
+  }
+
+  #info__inner {
+    p:not(:last-child) {
+      margin: 0;
+    }
+  }
+
+  #info__img {
+    width: 30vw;
+    height: 100%;
+  }
+
+  .info {
+    &-big {
+      font-size: 1.5em;
+      margin: 0 0 10px 0;
+    }
+    &-small {
+      font-size: 0.8em;
     }
   }
 </style>
