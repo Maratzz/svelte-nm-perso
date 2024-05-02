@@ -23,7 +23,6 @@
   }
 
   let getInfo = async ( game ) => {
-
     let { data: item } = await supabase
       .from('games')
       .select('*')
@@ -32,7 +31,6 @@
     itemDetails = item[0]
     innerList = await getLists(game)
     itemOpened = !itemOpened
-
   }
 
   let getLists = async ( e ) => {
@@ -59,57 +57,76 @@
   }
 </script>
 
-<h1>Collection</h1>
+<main class={itemOpened ? "dimmed" : ""}>
 
-<div class="container">
-  {#each games as game}
-  <Item {game} getInfo={() => {getInfo( game )}}/>
-  {/each}
-</div>
+  <h1>Collection</h1>
 
-{#key itemDetails, innerList}
-<div class={itemOpened ? "border border-5 item-opened opened" : "item-opened"}>
+  <div class="container">
+    {#each games as game}
+    <Item {game} getInfo={() => {getInfo( game )}}/>
+    {/each}
+  </div>
 
-  <button on:click={closeItem}>X</button>
+  {#key itemDetails, innerList}
+  <div class={itemOpened ? "border border-5 item-opened opened" : "item-opened"}>
 
-  <div id="item-opened__info">
+    <button on:click={closeItem}>X</button>
 
-    <img src={itemDetails.cover} alt="Jaquette du jeu {itemDetails.name}" id="info__img">
+    <div id="item-opened__info">
 
-    <div id="info__inner">
-      <p class="info-big"><b>{itemDetails.name}</b></p>
-      <p class="info-small"><i>{itemDetails.developers}, {formatDateYear(itemDetails.released_in)}</i></p>
-      <p class="info-small">Status: {itemDetails.status}</p>
-      {#if itemDetails.status === "finished" && itemDetails.finished_at !== null}
-      <p class="info-small">Terminé le {formatDate(itemDetails.finished_at)}</p>
-      {:else if  itemDetails.status === "currently playing"}
-      <p class="info-small">En cours depuis le {formatDate(itemDetails.started_at)}</p>
-      {:else if itemDetails.status === "flushed" && itemDetails.finished_at !== null}
-      <p class="info-small">Abandonné le {formatDate(itemDetails.finished_at)}</p>
-      {/if}
+      <img src={itemDetails.cover} alt="Jaquette du jeu {itemDetails.name}" id="info__img">
+
+      <div id="info__inner">
+        <p class="info-big"><b>{itemDetails.name}</b></p>
+        <p class="info-small"><i>{itemDetails.developers}, {formatDateYear(itemDetails.released_in)}</i></p>
+        <p class="info-small">Status: {itemDetails.status}</p>
+        {#if itemDetails.status === "finished" && itemDetails.finished_at !== null}
+        <p class="info-small">Terminé le {formatDate(itemDetails.finished_at)}</p>
+        {:else if  itemDetails.status === "currently playing"}
+        <p class="info-small">En cours depuis le {formatDate(itemDetails.started_at)}</p>
+        {:else if itemDetails.status === "flushed" && itemDetails.finished_at !== null}
+        <p class="info-small">Abandonné le {formatDate(itemDetails.finished_at)}</p>
+        {/if}
+      </div>
+
     </div>
 
+    <div id="item-opened__notes">
+      {itemDetails.notes}
+    </div>
+
+    {#if innerList.length}
+    <p id="item-opened__lists">Ce jeu est dans {innerList.length === 1 ? "la liste suivante" : "les listes suivantes"}:</p>
+    <ul>
+      {#each innerList as list}
+      <li>{list}</li>
+      {/each}
+    </ul>
+    {:else}
+    <p id="item-opened__lists">Ce jeu n'est dans aucune liste, pour le moment</p>
+    {/if}
+
   </div>
+  {/key}
 
-  <div id="item-opened__notes">
-    {itemDetails.notes}
-  </div>
+</main>
 
-  {#if innerList.length}
-  <p id="content__list">Ce jeu est dans {innerList.length === 1 ? "la liste suivante" : "les listes suivantes"}:</p>
-  <ul>
-    {#each innerList as list}
-    <li>{list}</li>
-    {/each}
-  </ul>
-  {:else}
-  <p id="content__list">Ce jeu n'est dans aucune liste, pour le moment</p>
-  {/if}
 
-</div>
-{/key}
 
 <style lang="scss">
+
+  main {
+    padding-top: 100px;
+  }
+
+  .dimmed {
+    background-color: rgba($color: #000000, $alpha: 0.8);
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+  }
+
   .container {
     display: flex;
     position: relative;
@@ -146,7 +163,7 @@
       margin: 25px 10px 10px 10px;
       gap: 15px;
     }
-    &__notes {
+    &__notes, &__lists {
       margin: 25px 10px 0 10px;
     }
   }

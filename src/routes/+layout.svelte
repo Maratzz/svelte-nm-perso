@@ -42,7 +42,7 @@
 
 {#key currentRoute }
 <div in:fly={transitionIn} out:fly={transitionOut}>
-    <slot />
+  <slot />
 </div>
 {/key}
 

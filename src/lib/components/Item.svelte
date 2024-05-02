@@ -10,5 +10,6 @@
     cursor: pointer;
     width: 40vw;
     height: auto;
+    position: relative;
   }
 </style>
