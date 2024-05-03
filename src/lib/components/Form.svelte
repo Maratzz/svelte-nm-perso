@@ -39,7 +39,7 @@
 
     <div>
       <label for="game_name">Nom</label>
-      <input type="text" name="game_name" id="game_name" value={form?.game ?? ""}>
+      <input type="text" name="game_name" id="game_name" value={form?.game ?? ""} size="13">
     </div>
 
     <button type="submit" formaction="?/search">IGDB API</button>
@@ -64,7 +64,7 @@
 
     <div>
       <label for="game_platform">Plateforme</label>
-      <input list="game_platform" name="game_platform">
+      <input list="game_platform" name="game_platform" size="13">
       <datalist id="game_platform">
         {#each categories as category}
         <option value={category.name}></option>
@@ -74,7 +74,7 @@
 
     <div>
       <label for="game_status">Status</label>
-      <input list="game_status" name="game_status">
+      <input list="game_status" name="game_status" size="13">
       <datalist id="game_status">
         {#each status as state}
           <option value={state.name}></option>
@@ -84,8 +84,11 @@
 
   </div>
 
-  <label for="game_notes">Notes</label>
-  <textarea name="game_notes" id="game_notes" placeholder="Something to say?"></textarea>
+  <div class="form-inside-notes">
+    <label for="game_notes">Notes</label>
+    <textarea name="game_notes" id="game_notes" placeholder="Something to say?"></textarea>
+  </div>
+
 
   <div>
     <div class="collapsible">
@@ -104,15 +107,29 @@
     </div>
   </div>
 
-  <button type="submit">Créer la fiche</button>
+  <button type="submit" id="button-submit">Créer la fiche</button>
 
 </form>
 
-<style>
+<style lang="scss">
+
+  form {
+    padding: 10px 5px 10px 5px;
+  }
+
   .form-inside-name, .form-inside-calendar, .form-inside-input {
     display: flex;
     flex-flow: row wrap;
     gap: 15px;
+  }
+
+  .form-inside-name, .form-inside-calendar, .form-inside-input, .form-inside-notes {
+    padding-top: 15px;
+    //padding-left: 5px;
+  }
+
+  #button-submit {
+    margin-left: 5px;
   }
 
   .form-inside-calendar, .form-inside-input {

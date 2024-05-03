@@ -1,11 +1,40 @@
 <script>
+  import { fade } from "svelte/transition"
   import Item from "$lib/components/Item.svelte"
+  import HeadSEO from "$lib/components/HeadSEO.svelte"
+  import Form from "$lib/components/Form.svelte"
+  import { paginate, LightPaginationNav } from "svelte-paginate"
+
 
   export let data
+  export let form
 
   $: ({ games, categories, status, session, supabase } = data)
   $: itemDetails = []
   $: innerList = []
+
+  $: filteredGames = games
+
+  let currentPage = 1
+  let pageSize = 9
+  let isEditing = false
+  $: paginatedItems = paginate({ items: filteredGames, pageSize, currentPage })
+
+  const multiFilterGames = async () => {
+    const platformFilter = document.querySelector("#filter-platform")
+    const platformValue = platformFilter.value
+    const statusFilter = document.querySelector("#filter-status")
+    const statusValue = statusFilter.value
+    const searchFilter = document.querySelector("#filter-search")
+    const searchValue = searchFilter.value
+
+    filteredGames = games.filter(
+      game => game.name.toLowerCase().includes( searchValue )
+      && (platformValue === "everything" ? game.platform !== null : game.platform === platformValue)
+      && (statusValue === "everything" ? game.status !== null : game.status === statusValue))
+    currentPage = 1
+    return filteredGames
+  }
 
   let itemOpened = false
 
@@ -55,22 +84,53 @@
   let closeItem = () => {
     itemOpened = !itemOpened
   }
+
+  let displayCollectionForm = () => {
+    let collectionForm = document.querySelector(".collection-form")
+    collectionForm.classList.toggle('opened')
+  }
 </script>
+
+<HeadSEO 
+  title="Nico Moisson | Collection"
+  description="Des oeuvres à n'en plus finir, des listes à n'en plus vouloir"
+  author="Nico 'Maratz' Moisson"
+  siteName="Site personnel de Nico Moisson"
+  imageURL="$lib/assets/homepage/full_image.png"
+  twitter
+  openGraph
+/>
 
 <main class={itemOpened ? "dimmed" : ""}>
 
   <h1>Collection</h1>
 
-  <div class="container">
-    {#each games as game}
+  {#if session }
+  <button on:click={displayCollectionForm}>Ajouter une oeuvre</button>
+  <div class="collection-form">
+    <Form {form} {categories} {status}/>
+    <div class="form-image">
+      {#if form?.success}
+      <img src={form?.gameCoverLink} alt="">
+      {/if}
+    </div>
+  </div>
+  {/if}
+
+  {#key currentPage, paginatedItems}
+    <div class="container" in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
+    
+    {#each paginatedItems as game ( game.id )}
     <Item {game} getInfo={() => {getInfo( game )}}/>
     {/each}
-  </div>
+    </div>
+  {/key}
+
 
   {#key itemDetails, innerList}
   <div class={itemOpened ? "border border-5 item-opened opened" : "item-opened"}>
 
-    <button on:click={closeItem}>X</button>
+    <button on:click={closeItem}>Fermer</button>
 
     <div id="item-opened__info">
 
@@ -109,6 +169,17 @@
   </div>
   {/key}
 
+  <LightPaginationNav
+  totalItems="{ filteredGames.length }"
+  pageSize="{ pageSize }"
+  currentPage="{ currentPage }"
+  limit="{ 2 }"
+  showStepOptions="{ true }"
+  on:setPage="{(e) => {
+    currentPage = e.detail.page
+    }}"
+  />
+
 </main>
 
 
@@ -117,14 +188,16 @@
 
   main {
     padding-top: 100px;
+    border: 3px solid red;
   }
 
-  .dimmed {
-    background-color: rgba($color: #000000, $alpha: 0.8);
-    overflow: hidden;
-    width: 100vw;
-    height: 100vh;
-    z-index: 10;
+  .collection-form {
+    display: none;
+    position: absolute;
+    top: 10%;
+    z-index: 2;
+    background-color: white;
+    border: solid 3px green;
   }
 
   .container {
@@ -148,11 +221,11 @@
     button {
       position: fixed;
       bottom: 0;
-      right: 45%;
+      right: 15%;
     }
   }
 
-  .item-opened.opened {
+  .opened {
     display: block;
   }
 
@@ -163,8 +236,11 @@
       margin: 25px 10px 10px 10px;
       gap: 15px;
     }
-    &__notes, &__lists {
-      margin: 25px 10px 0 10px;
+    &__notes {
+      padding: 25px 10px 0 10px;
+    }
+    &__lists {
+      padding: 25px 10px 50px 10px;
     }
   }
 
