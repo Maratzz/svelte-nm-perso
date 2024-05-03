@@ -10,7 +10,7 @@
 <Toaster/>
 
 <form method="POST" action="?/insert" use:enhance={() => {
-  let toastResolve, toastReject
+  /* let toastResolve, toastReject
   let toastPromise = new Promise(( resolve, reject ) => {
     toastResolve = resolve
     toastReject = reject
@@ -19,17 +19,26 @@
     loading: "Saving...",
     success: (e) => `${e}`,
     error: (e) => `${e.message}`,
-  })
+  }) */
 
   return ({ result, update }) => {
     if ( result.data === "no game found" ) {
-      toastReject(new Error( "Aucun jeu avec ce titre" ))
+      /* toastReject(new Error( "Aucun jeu avec ce titre" )) */
+      toast.error("aucun jeu avec ce titre frère", {
+        style: "margin-top: 80px;"
+      })
     }
     else if ( result.data.formStatus && result.data.formStatus >= 400 ) {
-      toastReject(new Error( "Il manque un champ obligatoire !" ))
+      /* toastReject(new Error( "Il manque un champ obligatoire !" )) */
+      toast.error("il manque un champ", {
+        style: "margin-top: 80px;"
+      })
       console.log( result )
     } else {
-      toastResolve("OK !")
+      /* toastResolve("OK !") */
+      toast.success("okay, tout bon !", {
+        style: "margin-top: 80px;"
+      })
       update()
     }
   }
@@ -115,17 +124,19 @@
 
   form {
     padding: 10px 5px 10px 5px;
+    :has(label) {
+      font-size: 0.8rem;
+      font-style: italic;
+    }
   }
 
   .form-inside-name, .form-inside-calendar, .form-inside-input {
     display: flex;
     flex-flow: row wrap;
-    gap: 15px;
   }
 
   .form-inside-name, .form-inside-calendar, .form-inside-input, .form-inside-notes {
-    padding-top: 15px;
-    //padding-left: 5px;
+    padding-top: 10px;
   }
 
   #button-submit {

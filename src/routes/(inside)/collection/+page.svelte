@@ -4,7 +4,7 @@
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import Form from "$lib/components/Form.svelte"
   import { paginate, LightPaginationNav } from "svelte-paginate"
-
+  import { onMount } from "svelte"
 
   export let data
   export let form
@@ -12,15 +12,16 @@
   $: ({ games, categories, status, session, supabase } = data)
   $: itemDetails = []
   $: innerList = []
-
   $: filteredGames = games
 
   let currentPage = 1
-  let pageSize = 9
+  let pageSize = 12
+  let itemOpened = false
   let isEditing = false
+
   $: paginatedItems = paginate({ items: filteredGames, pageSize, currentPage })
 
-  const multiFilterGames = async () => {
+  const multiFilterGames = () => {
     const platformFilter = document.querySelector("#filter-platform")
     const platformValue = platformFilter.value
     const statusFilter = document.querySelector("#filter-status")
@@ -35,8 +36,6 @@
     currentPage = 1
     return filteredGames
   }
-
-  let itemOpened = false
 
   let formatDateYear = ( e ) => { 
     return new Date(e).getFullYear()
@@ -89,6 +88,16 @@
     let collectionForm = document.querySelector(".collection-form")
     collectionForm.classList.toggle('opened')
   }
+
+  onMount(() => {
+    let filterButton = document.querySelector("#filter-search")
+    filterButton.addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+      event.preventDefault()
+      multiFilterGames()
+      }
+    })
+  })
 </script>
 
 <HeadSEO 
@@ -101,12 +110,12 @@
   openGraph
 />
 
-<main class={itemOpened ? "dimmed" : ""}>
+<main>
 
   <h1>Collection</h1>
 
   {#if session }
-  <button on:click={displayCollectionForm}>Ajouter une oeuvre</button>
+  <button on:click={displayCollectionForm} id="button-add">Ajouter une oeuvre</button>
   <div class="collection-form">
     <Form {form} {categories} {status}/>
     <div class="form-image">
@@ -116,6 +125,44 @@
     </div>
   </div>
   {/if}
+
+  <div id="filter-container">
+
+    <div id="filter-wrap-options">
+
+      <div id="filter-wrap-platform">
+  
+        <label for="filter-platform">Plateforme</label>
+        <select name="filter-platform" id="filter-platform">
+        <option value="everything" selected>Toutes</option>
+        {#each categories as category }
+          <option value={category.name}>{category.name}</option>
+        {/each}
+        </select>
+    
+      </div>
+    
+      <div id="filter-wrap-status">
+    
+        <label for="filter-status">Status</label>
+        <select name="filter-status" id="filter-status">
+        <option value="everything" selected>Tous</option>
+        {#each status as singleStatus }
+          <option value={singleStatus.name}>{singleStatus.converted}</option>
+        {/each}
+        </select>
+    
+      </div>
+    </div>
+
+    <div id="filter-wrap-search">
+  
+      <input type="text" name="filter-search" id="filter-search" placeholder="Chercher un jeu">
+      <button type="button" id="filter-button" on:click={multiFilterGames}>Filtrer</button>
+  
+    </div>
+  
+  </div>
 
   {#key currentPage, paginatedItems}
     <div class="container" in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
@@ -156,14 +203,18 @@
     </div>
 
     {#if innerList.length}
-    <p id="item-opened__lists">Ce jeu est dans {innerList.length === 1 ? "la liste suivante" : "les listes suivantes"}:</p>
-    <ul>
-      {#each innerList as list}
-      <li>{list}</li>
-      {/each}
-    </ul>
+    <div id="item-opened__lists">
+      <p>Ce jeu est dans {innerList.length === 1 ? "la liste suivante" : "les listes suivantes"}:</p>
+      <ul>
+        {#each innerList as list}
+        <li>{list}</li>
+        {/each}
+      </ul>
+    </div>
     {:else}
-    <p id="item-opened__lists">Ce jeu n'est dans aucune liste, pour le moment</p>
+    <div id="item-opened__lists">
+      <p>Ce jeu n'est dans aucune liste, pour le moment</p>
+    </div>
     {/if}
 
   </div>
@@ -173,7 +224,7 @@
   totalItems="{ filteredGames.length }"
   pageSize="{ pageSize }"
   currentPage="{ currentPage }"
-  limit="{ 2 }"
+  limit="{ 1 }"
   showStepOptions="{ true }"
   on:setPage="{(e) => {
     currentPage = e.detail.page
@@ -188,16 +239,22 @@
 
   main {
     padding-top: 100px;
-    border: 3px solid red;
+    h1 {
+      padding-left: 15px;
+    }
   }
 
   .collection-form {
     display: none;
     position: absolute;
-    top: 10%;
+    top: 20%;
+    left: 10px;
     z-index: 2;
     background-color: white;
-    border: solid 3px green;
+  }
+
+  #button-add {
+    margin-left: 15px;
   }
 
   .container {
@@ -206,6 +263,8 @@
     flex-flow: row wrap;
     gap: 30px;
     justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
   }
 
   .item-opened {
@@ -262,6 +321,37 @@
     }
     &-small {
       font-size: 0.8em;
+    }
+  }
+
+  #filter {
+    &-container {
+      margin-bottom: 25px;
+      &:has(label) {
+        font-size: 0.8rem;
+      }
+    }
+    &-wrap-options {
+      display: flex;
+      flex-flow: row nowrap;
+      gap: 15px;
+    }
+    &-wrap-search {
+      margin-top: 25px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    &-wrap-options, &-wrap-search {
+      margin-left: 15px;
+    }
+    &-search {
+      height: 50px;
+    }
+
+    &-button {
+      margin-bottom: 0;
+      margin-top: 0;
     }
   }
 </style>
