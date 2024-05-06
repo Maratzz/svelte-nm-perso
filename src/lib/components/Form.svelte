@@ -55,6 +55,13 @@
 
   </div>
 
+  <div class="form-inside-acquired">
+
+    <label for="game_acquired">Acquis le:</label>
+    <input type="date" name="game_acquired" id="game_acquired">
+
+  </div>
+
   <div class="form-inside-calendar">
 
     <div>
@@ -135,7 +142,7 @@
     flex-flow: row wrap;
   }
 
-  .form-inside-name, .form-inside-calendar, .form-inside-input, .form-inside-notes {
+  .form-inside-name, .form-inside-calendar, .form-inside-input, .form-inside-notes, .form-inside-acquired {
     padding-top: 10px;
   }
 

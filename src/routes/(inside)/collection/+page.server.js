@@ -10,6 +10,7 @@ export const actions = {
     const user = session.user.id
     const form = await request.formData()
     const newGame = form.get( "game_name" )
+    const newAcquired = form.get( "game_acquired" )
     const newPlatform = form.get( "game_platform" )
     const newStatus = form.get( "game_status" )
     const newCover = form.get( "game_cover" )
@@ -35,14 +36,15 @@ export const actions = {
         .from("games")
         .upsert([
           {
-            user_id: user, 
-            name: newGame, 
-            platform: newPlatform, 
-            released_in: newReleasedDate, 
-            cover: newCover, 
-            started_at: newStarted, 
-            finished_at: newFinished, 
-            status: newStatus, 
+            user_id: user,
+            name: newGame,
+            platform: newPlatform,
+            date_released: newReleasedDate,
+            date_acquired: newAcquired,
+            cover: newCover,
+            date_started: newStarted,
+            date_finished: newFinished,
+            status: newStatus,
             developers: newDeveloper,
             notes: newNotes
           }
@@ -108,8 +110,8 @@ export const actions = {
         .update(
           {
             status: updatedStatus,
-            started_at: updatedStarted !== "" ? updatedStarted : null,
-            finished_at: updatedFinished !== "" ? updatedFinished : null,
+            date_started: updatedStarted !== "" ? updatedStarted : null,
+            date_finished: updatedFinished !== "" ? updatedFinished : null,
             notes: updatedNotes
           }
         )

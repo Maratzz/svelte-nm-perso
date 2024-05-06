@@ -185,14 +185,14 @@
 
       <div id="info__inner">
         <p class="info-big"><b>{itemDetails.name}</b></p>
-        <p class="info-small"><i>{itemDetails.developers}, {formatDateYear(itemDetails.released_in)}</i></p>
-        <p class="info-small">Status: {itemDetails.status}</p>
-        {#if itemDetails.status === "finished" && itemDetails.finished_at !== null}
-        <p class="info-small">Terminé le {formatDate(itemDetails.finished_at)}</p>
+        <p class="info-small"><i>{itemDetails.developers}, {formatDateYear(itemDetails.date_released)}</i></p>
+        <p class="info-small">Status: {itemDetails.status} {#if itemDetails.date_acquired}(depuis le {formatDate(itemDetails.date_acquired)}){/if}</p>
+        {#if itemDetails.status === "finished" && itemDetails.date_finished !== null}
+        <p class="info-small">Terminé le {formatDate(itemDetails.date_finished)}</p>
         {:else if  itemDetails.status === "currently playing"}
-        <p class="info-small">En cours depuis le {formatDate(itemDetails.started_at)}</p>
-        {:else if itemDetails.status === "flushed" && itemDetails.finished_at !== null}
-        <p class="info-small">Abandonné le {formatDate(itemDetails.finished_at)}</p>
+        <p class="info-small">En cours depuis le {formatDate(itemDetails.date_started)}</p>
+        {:else if itemDetails.status === "flushed" && itemDetails.date_finished !== null}
+        <p class="info-small">Abandonné le {formatDate(itemDetails.date_finished)}</p>
         {/if}
       </div>
 
