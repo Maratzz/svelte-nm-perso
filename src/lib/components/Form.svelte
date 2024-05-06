@@ -145,6 +145,7 @@
 
   .form-inside-calendar, .form-inside-input {
     margin-top: 15px;
+    gap: 10px;
   }
   .form-inside-input {
     margin-bottom: 15px;

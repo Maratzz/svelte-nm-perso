@@ -246,9 +246,6 @@
 
   .collection-form {
     display: none;
-    position: absolute;
-    top: 20%;
-    left: 10px;
     z-index: 2;
     background-color: white;
   }
