@@ -244,6 +244,8 @@
             dans le backlog depuis le {formatDate(itemDetails.date_acquired)}
           {:else if itemDetails.status === "currently playing"}
             en cours
+          {:else if itemDetails.status === "wishlist"}
+            dans les envies
           {/if}
         </p>
         {#if itemDetails.status === "finished" && itemDetails.date_finished !== null}
