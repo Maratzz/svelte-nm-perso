@@ -300,14 +300,12 @@
 
   main {
     padding-top: 100px;
-    h1 {
-      padding-left: 15px;
-    }
   }
 
   h1 {
     position: relative;
     z-index: 2;
+    padding-left: 15px;
     &::after {
       z-index: -1;
       display: inline-block;

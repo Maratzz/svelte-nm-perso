@@ -24,7 +24,7 @@
   openGraph
 />
 
-<main>
+<!-- <main>
   <h1>Blog</h1>
     
   <ul class="removePaperLi container">
@@ -32,7 +32,7 @@
       <li>
         <div class="item">
           <img
-            src="https://placehold.co/140x190"
+            src={post.meta.image ?? "https://placehold.co/140x190"}
             alt="Placeholder"
             class="text-img">
           <div class="item__content">
@@ -48,12 +48,31 @@
       </li>
     {/each}
   </ul>
+</main> -->
+
+<main>
+  <h1>Blog</h1>
+
+  <div id="container">
+    {#each posts as post}
+    <div id="item">
+      <img src={post.meta.image ?? "https://placehold.co/140x190"} alt="Illustration pour le billet de blog" id="item-img" class="border-2">
+
+      <div id="item-content">
+        <h2><a href={post.path}>{post.meta.title}</a></h2>
+        <p>Publié le {formatDate( post.meta.date )}</p>
+        <p>{post.meta.headline ?? "Pas d'accroche, bouh !"}</p>
+      </div>
+    </div>
+    {/each}
+  </div>
 </main>
 
 <style lang="scss">
   main {
     padding-top: 100px;
   }
+
 
   h1 {
     position: relative;
@@ -68,39 +87,47 @@
       height: 20px;
       position: absolute;
       bottom: 0;
-      left: 40px;
+      left: 50px;
     }
   }
 
-  .text-img {
-    width: 140px;
-    height: 190px;
-    object-fit: contain;
+  #container {
+    background-color: #eee;
+    padding-bottom: 15px;
   }
 
-  .container {
-    //border: 1px solid red;
-    display: flex;
-    flex-flow: column wrap;
-    //margin: 0;
-    padding: 0;
-  }
-
-  .item {
-    //border: 1px solid green;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    margin: 10px 15px;
+  #item {
     background-color: rgb(255, 255, 255);
-    padding: 15px 25px;
-    border-radius: 5px;
-    &__content {
-      margin-left: 25px;
+    width: 90%;
+    margin: 15px auto 25px auto;
+    padding: 15px 15px;
+    border-radius: 15px;
+    &-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      margin: 0 auto;
     }
   }
 
-  ul li {
-    text-indent: 0;
+  @media (width >= 900px) {
+    main {
+      width: 65%;
+      margin: 150px auto 0 auto;
+    }
+
+    #item {
+      display: flex;
+      flex-flow: row nowrap;
+      &-content {
+        width: 45%;
+      }
+      &-img {
+        width: 45%;
+        height: 200px;
+        margin: auto auto;
+        object-position: right 40%;
+      }
+    }
   }
 </style>

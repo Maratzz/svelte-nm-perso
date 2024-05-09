@@ -58,7 +58,6 @@
   </div>
 </main>
 
-
 <style lang="scss">
   main {
     padding-top: 100px;
@@ -84,6 +83,7 @@
 
   #container {
     background-color: #eee;
+    padding-bottom: 15px;
   }
 
   #item {

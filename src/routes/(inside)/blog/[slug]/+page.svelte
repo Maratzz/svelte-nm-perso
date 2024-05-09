@@ -3,7 +3,7 @@
 
   export let data;
 
-  let { date, title, content, headline, categories } = data
+  let { date, title, content, headline, categories, image } = data
   let options = {
     day: "numeric",
     month: "long",
@@ -22,15 +22,22 @@
   openGraph
 />
 
-<article>
+<main>
+  <article>
+    <h1>{title}</h1>
+    {#if image}
+    <img src={image} alt="un placeholder">
+    {/if}
+    <p>Publié le {humanDate} dans {categories.length === 1 ? "la catégorie" : "les catégories"}{#each categories as category}<span class="category">{category}</span>{/each}</p>
+    <svelte:component this={content} />
+  </article>
+</main>
 
-  <h1>{title}</h1>
-  <p>Publié le {humanDate} dans {categories.length === 1 ? "la catégorie" : "les catégories"}{#each categories as category}<span class="category">{category}</span>{/each}</p>
-  <svelte:component this={content} />
-  
-</article>
 
 <style>
+  main {
+    padding-top: 80px;
+  }
   .category {
     margin: 0 3px;
     background-color: aquamarine;
@@ -38,14 +45,7 @@
   }
 
   article {
-    width: 55%;
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  @media (max-width: 600px) {
-    article {
-      width: 85%;
-    }
+    width: 95%;
+    margin: 0 auto;
   }
 </style>

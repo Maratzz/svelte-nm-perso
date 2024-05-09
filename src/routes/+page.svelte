@@ -157,7 +157,6 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
-    border: 1px solid blue;
     text-align: start;
   }
 
