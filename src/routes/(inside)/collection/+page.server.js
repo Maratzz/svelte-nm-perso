@@ -10,13 +10,13 @@ export const actions = {
     const user = session.user.id
     const form = await request.formData()
     const newGame = form.get( "game_name" )
-    const newAcquired = form.get( "game_acquired" )
     const newPlatform = form.get( "game_platform" )
     const newStatus = form.get( "game_status" )
     const newCover = form.get( "game_cover" )
     const newReleasedDate = form.get( "game_released_date" )
     let newStarted = form.get( "game_started" )
     let newFinished = form.get( "game_finished" )
+    let newAcquired = form.get( "game_acquired" )
     const newDeveloper = form.get( "game_developer" )
     const newNotes = form.get( "game_notes" )
     
@@ -30,6 +30,9 @@ export const actions = {
       }
       if ( !newFinished ) {
         newFinished = null
+      }
+      if ( !newAcquired ) {
+        newAcquired = null
       }
       try {
         const newForm = await supabase
