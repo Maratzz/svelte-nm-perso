@@ -89,6 +89,23 @@
     collectionForm.classList.toggle('opened')
   }
 
+  let editItem = () => {
+    let updatedForm = document.querySelector( ".updatedForm" )
+    let updateGameNote = document.querySelector( "#updated_notes" )
+    let updateGameStatus = document.querySelector( "#updated_status" )
+    let updateGameStarted = document.querySelector( "#updated_started" )
+    let updateGameFinished = document.querySelector( "#updated_finished" )
+    let updatedID = document.querySelector( "#updated_id" )
+
+    updateGameNote.textContent = itemDetails.notes
+    updateGameStatus.value = itemDetails.status
+    updateGameStarted.value = itemDetails.started_at
+    updateGameFinished.value = itemDetails.finished_at
+    updatedID.value = itemDetails.id
+
+    updatedForm.classList.toggle("opened")
+  }
+
   onMount(() => {
     let filterButton = document.querySelector("#filter-search")
     filterButton.addEventListener("keypress", function(event) {
@@ -166,10 +183,14 @@
 
   {#key currentPage, paginatedItems}
     <div class="container" in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
-    
-    {#each paginatedItems as game ( game.id )}
-    <Item {game} getInfo={() => {getInfo( game )}}/>
-    {/each}
+    {#if filteredGames.length}
+      {#each paginatedItems as game ( game.id )}
+      <Item {game} getInfo={() => {getInfo( game )}}/>
+      {/each}
+    {:else}
+      <p>Aucun résultat avec ces critères.</p>
+    {/if}
+
     </div>
   {/key}
 
@@ -177,7 +198,34 @@
   {#key itemDetails, innerList}
   <div class={itemOpened ? "border border-5 item-opened opened" : "item-opened"}>
 
-    <button on:click={closeItem}>Fermer</button>
+    <button on:click={closeItem} id="button-close">Fermer</button>
+
+    {#if session}
+      <button on:click={editItem} id="button-edit">Edit</button>
+
+      <div class="border border-3 updatedForm">
+        <form method="POST" id="updated_form" action="?/update">
+  
+          <label for="updated_id">ID</label>
+          <input type="text" name="updated_id" id="updated_id">
+        
+          <label for="updated_status">Status</label>
+          <input type="text" name="updated_status" id="updated_status">
+  
+          <label type="date" for="updated_started">Démarré le:</label>
+          <input type="date" name="updated_started" id="updated_started">
+        
+          <label type="date" for="updated_finished">Terminé le:</label>
+          <input type="date" name="updated_finished" id="updated_finished">
+        
+          <label for="updated_notes">Notes</label>
+          <textarea name="updated_notes" id="updated_notes"></textarea>
+        
+          <button type="submit">Mettre à jour</button>
+        
+        </form>
+      </div>
+    {/if}
 
     <div id="item-opened__info">
 
@@ -186,7 +234,18 @@
       <div id="info__inner">
         <p class="info-big"><b>{itemDetails.name}</b></p>
         <p class="info-small"><i>{itemDetails.developers}, {formatDateYear(itemDetails.date_released)}</i></p>
-        <p class="info-small">Status: {itemDetails.status} {#if itemDetails.date_acquired}(depuis le {formatDate(itemDetails.date_acquired)}){/if}</p>
+
+        <p class="info-small">Status: 
+          {#if itemDetails.status === "finished"}
+            terminé
+          {:else if  itemDetails.status === "flushed"}
+            abandonné
+          {:else if itemDetails.status === "backlog"}
+            dans le backlog depuis le {formatDate(itemDetails.date_acquired)}
+          {:else if itemDetails.status === "currently playing"}
+            en cours
+          {/if}
+        </p>
         {#if itemDetails.status === "finished" && itemDetails.date_finished !== null}
         <p class="info-small">Terminé le {formatDate(itemDetails.date_finished)}</p>
         {:else if  itemDetails.status === "currently playing"}
@@ -217,6 +276,8 @@
     </div>
     {/if}
 
+
+
   </div>
   {/key}
 
@@ -241,6 +302,22 @@
     padding-top: 100px;
     h1 {
       padding-left: 15px;
+    }
+  }
+
+  h1 {
+    position: relative;
+    z-index: 2;
+    &::after {
+      z-index: -1;
+      display: inline-block;
+      content: "";
+      background-color: #C3BDD9;
+      width: 120px;
+      height: 20px;
+      position: absolute;
+      bottom: 0;
+      left: 60px;
     }
   }
 
@@ -274,15 +351,32 @@
     left: 10px;
     z-index: 15;
     background-color: #eee;
-    button {
-      position: fixed;
-      bottom: 0;
-      right: 15%;
-    }
   }
 
-  .opened {
-    display: block;
+  .updatedForm {
+    display: none;
+    background-color: rgb(250, 252, 179);
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    width: 80vw;
+    margin: 0 auto;
+    padding: 15px 20px;
+  }
+
+  #button {
+    &-close, &-edit {
+      position: fixed;
+    }
+    &-close {
+      bottom: -10px;
+      right: 25px;
+    }
+
+    &-edit {
+      bottom: -10px;
+      left: 25px;
+    }
   }
 
   #item-opened {
@@ -350,5 +444,9 @@
       margin-bottom: 0;
       margin-top: 0;
     }
+  }
+
+  .opened {
+    display: block;
   }
 </style>

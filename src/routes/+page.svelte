@@ -192,7 +192,6 @@
     width: 95vw;
     margin: 0 auto;
     z-index: 5;
-    border: 3px solid green;
     p, h4 {
       position: inherit;
       z-index: inherit;
@@ -246,24 +245,20 @@
         flex-direction: row;
         width: 100vw;
         height: 100vh;
-        border: solid 2px purple;
       }
       &-image {
         width: 888px;
         height: 800px;
         position: relative;
-        border: 2px solid red;
         padding-top: 0;
         img {
           position: absolute;
-          border: 2px solid orange;
         }
       }
       &-presentation {
         width: 33%;
         margin: auto auto;
         flex-grow: 1;
-        border: 2px solid blue;
       }
     }
 

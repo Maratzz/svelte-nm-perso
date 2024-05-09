@@ -35,7 +35,7 @@
 />
 
 
-<div id="main">
+<main>
   <h1>Textes</h1>
 
   <div id="container">
@@ -56,13 +56,31 @@
       
     {/each}
   </div>
-</div>
+</main>
 
 
 <style lang="scss">
-  #main h1 {
-      text-align: center;
+  main {
+    padding-top: 100px;
+  }
+
+
+  h1 {
+    position: relative;
+    padding-left: 15px;
+    z-index: 2;
+    &::after {
+      z-index: -1;
+      display: inline-block;
+      content: "";
+      background-color: #C3BDD9;
+      width: 90px;
+      height: 20px;
+      position: absolute;
+      bottom: 0;
+      left: 50px;
     }
+  }
 
   #container {
     background-color: #eee;
@@ -83,7 +101,7 @@
   }
 
   @media (width >= 900px) {
-    #main {
+    main {
       width: 65%;
       margin: 150px auto 0 auto;
     }

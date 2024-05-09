@@ -24,34 +24,52 @@
   openGraph
 />
 
-<h1>Blog</h1>
-  
-<ul class="removePaperLi container">
-  {#each posts as post}
-    <li>
-      <div class="item">
-        <img
-          src="https://placehold.co/140x190"
-          alt="Placeholder"
-          class="text-img">
-        <div class="item__content">
-          <h2>
-            <a href={post.path}>
-              {post.meta.title}
-            </a>
-          </h2>
-          <p>Publié le {formatDate(post.meta.date)}</p>
-          <p>{post.meta.headline ?? "Aucune headline"}</p>
+<main>
+  <h1>Blog</h1>
+    
+  <ul class="removePaperLi container">
+    {#each posts as post}
+      <li>
+        <div class="item">
+          <img
+            src="https://placehold.co/140x190"
+            alt="Placeholder"
+            class="text-img">
+          <div class="item__content">
+            <h2>
+              <a href={post.path}>
+                {post.meta.title}
+              </a>
+            </h2>
+            <p>Publié le {formatDate(post.meta.date)}</p>
+            <p>{post.meta.headline ?? "Aucune headline"}</p>
+          </div>
         </div>
-      </div>
-    </li>
-  {/each}
-</ul>
+      </li>
+    {/each}
+  </ul>
+</main>
 
 <style lang="scss">
+  main {
+    padding-top: 100px;
+  }
+
   h1 {
-    display: flex;
-    place-content: center;
+    position: relative;
+    padding-left: 15px;
+    z-index: 2;
+    &::after {
+      z-index: -1;
+      display: inline-block;
+      content: "";
+      background-color: #C3BDD9;
+      width: 60px;
+      height: 20px;
+      position: absolute;
+      bottom: 0;
+      left: 40px;
+    }
   }
 
   .text-img {
