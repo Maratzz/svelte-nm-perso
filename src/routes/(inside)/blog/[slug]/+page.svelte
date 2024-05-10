@@ -22,22 +22,17 @@
   openGraph
 />
 
-<main>
-  <article>
-    <h1>{title}</h1>
-    {#if image}
-    <img src={image} alt="un placeholder">
-    {/if}
-    <p>Publié le {humanDate} dans {categories.length === 1 ? "la catégorie" : "les catégories"}{#each categories as category}<span class="category">{category}</span>{/each}</p>
-    <svelte:component this={content} />
-  </article>
-</main>
+<article>
+  <h1>{title}</h1>
+  {#if image}
+  <img src={image} alt="un placeholder">
+  {/if}
+  <p>Publié le {humanDate} dans {categories.length === 1 ? "la catégorie" : "les catégories"}{#each categories as category}<span class="category">{category}</span>{/each}</p>
+  <svelte:component this={content} />
+</article>
 
 
 <style>
-  main {
-    padding-top: 80px;
-  }
   .category {
     margin: 0 3px;
     background-color: aquamarine;

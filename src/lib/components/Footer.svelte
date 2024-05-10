@@ -1,24 +1,25 @@
 <footer>
-  <ul class="removePaperLi">
-    <li><a href="/mentions">Mentions légales</a></li>
-    <li><a href="/credits">Crédits</a></li>
-    <li><a href="/site-pro">Site pro</a></li>
-    <li><a href="/soutien">Soutenez-moi</a></li>
-  </ul>
+  <div>
+    <ul class="removePaperLi">
+      <li><a href="/mentions">Mentions légales</a></li>
+      <li><a href="/credits">Crédits</a></li>
+      <li><a href="/site-pro">Site pro</a></li>
+      <li><a href="/soutien">Soutenez-moi</a></li>
+    </ul>
+  </div>
+
 </footer>
 
-<style>
-  .removePaperLi {
-    display: flex;
-    flex-flow: row wrap;
-    gap: 20px;
-  }
-
-  li {
-    border: 2px solid blue;
-  }
-
+<style lang="scss">
   footer {
-    border: 2px solid red;
+    margin: 0;
+    padding: 10px 0 0 0;
+  }
+
+  .removePaperLi {
+    :is(a, a:visited) {
+      color: #41403e;
+      background-image: none;
+    }
   }
 </style>

@@ -36,7 +36,7 @@
 
   <p>Après une formation en linguistique et en littérature, en français et en anglais, j'ai trempé les pieds dans la piscine de la communication et du marketing numérique avant de me rendre compte qu'écrire pour des grands groupes et des marques, bof bof quoi.</p>
 
-  <p>Depuis j'écris et je développe des sites pour des associations, des petites structures et des personnes qui partagent mon avis qu'Internet, c'est d'abord pour tout le monde, et ensuite pour tout le monde, et enfin pour tout le monde.D'ailleurs, si vous voulez collaborer professionnellement, <a href="/site-pro">c'est par ici.</a></p>
+  <p>Depuis j'écris et je développe des sites pour des associations, des petites structures et des personnes qui partagent mon avis qu'Internet, c'est d'abord pour tout le monde, et ensuite pour tout le monde, et enfin pour tout le monde. D'ailleurs, si vous voulez collaborer professionnellement, <a href="/site-pro">c'est par ici.</a></p>
 
 </main>
 

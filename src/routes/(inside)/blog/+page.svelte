@@ -24,56 +24,23 @@
   openGraph
 />
 
-<!-- <main>
-  <h1>Blog</h1>
-    
-  <ul class="removePaperLi container">
-    {#each posts as post}
-      <li>
-        <div class="item">
-          <img
-            src={post.meta.image ?? "https://placehold.co/140x190"}
-            alt="Placeholder"
-            class="text-img">
-          <div class="item__content">
-            <h2>
-              <a href={post.path}>
-                {post.meta.title}
-              </a>
-            </h2>
-            <p>Publié le {formatDate(post.meta.date)}</p>
-            <p>{post.meta.headline ?? "Aucune headline"}</p>
-          </div>
-        </div>
-      </li>
-    {/each}
-  </ul>
-</main> -->
+<h1>Blog</h1>
 
-<main>
-  <h1>Blog</h1>
+<div id="container">
+  {#each posts as post}
+  <div id="item">
+    <img src={post.meta.image ?? "https://placehold.co/140x190"} alt="Illustration pour le billet de blog" id="item-img" class="border-2">
 
-  <div id="container">
-    {#each posts as post}
-    <div id="item">
-      <img src={post.meta.image ?? "https://placehold.co/140x190"} alt="Illustration pour le billet de blog" id="item-img" class="border-2">
-
-      <div id="item-content">
-        <h2><a href={post.path}>{post.meta.title}</a></h2>
-        <p>Publié le {formatDate( post.meta.date )}</p>
-        <p>{post.meta.headline ?? "Pas d'accroche, bouh !"}</p>
-      </div>
+    <div id="item-content">
+      <h2><a href={post.path}>{post.meta.title}</a></h2>
+      <p>Publié le {formatDate( post.meta.date )}</p>
+      <p>{post.meta.headline ?? "Pas d'accroche, bouh !"}</p>
     </div>
-    {/each}
   </div>
-</main>
+  {/each}
+</div>
 
 <style lang="scss">
-  main {
-    padding-top: 100px;
-  }
-
-
   h1 {
     position: relative;
     padding-left: 15px;
@@ -111,10 +78,6 @@
   }
 
   @media (width >= 900px) {
-    main {
-      width: 65%;
-      margin: 150px auto 0 auto;
-    }
 
     #item {
       display: flex;

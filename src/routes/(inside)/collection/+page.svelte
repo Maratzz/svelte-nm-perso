@@ -127,183 +127,170 @@
   openGraph
 />
 
-<main>
 
-  <h1>Collection</h1>
+<h1>Collection</h1>
 
-  {#if session }
-  <button on:click={displayCollectionForm} id="button-add">Ajouter une oeuvre</button>
-  <div class="collection-form">
-    <Form {form} {categories} {status}/>
-    <div class="form-image">
-      {#if form?.success}
-      <img src={form?.gameCoverLink} alt="">
+{#if session }
+<button on:click={displayCollectionForm} id="button-add">Ajouter une oeuvre</button>
+<div class="collection-form">
+  <Form {form} {categories} {status}/>
+  <div class="form-image">
+    {#if form?.success}
+    <img src={form?.gameCoverLink} alt="">
+    {/if}
+  </div>
+</div>
+{/if}
+
+<div id="filter-container">
+
+  <div id="filter-wrap-options">
+
+    <div id="filter-wrap-platform">
+
+      <label for="filter-platform">Plateforme</label>
+      <select name="filter-platform" id="filter-platform">
+      <option value="everything" selected>Toutes</option>
+      {#each categories as category }
+        <option value={category.name}>{category.name}</option>
+      {/each}
+      </select>
+  
+    </div>
+  
+    <div id="filter-wrap-status">
+  
+      <label for="filter-status">Status</label>
+      <select name="filter-status" id="filter-status">
+      <option value="everything" selected>Tous</option>
+      {#each status as singleStatus }
+        <option value={singleStatus.name}>{singleStatus.converted}</option>
+      {/each}
+      </select>
+  
+    </div>
+  </div>
+
+  <div id="filter-wrap-search">
+
+    <input type="text" name="filter-search" id="filter-search" placeholder="Chercher un jeu">
+    <button type="button" id="filter-button" on:click={multiFilterGames}>Filtrer</button>
+
+  </div>
+
+</div>
+
+{#key currentPage, paginatedItems}
+<div class="container" in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
+  {#if filteredGames.length}
+    {#each paginatedItems as game ( game.id )}
+      <Item {game} getInfo={() => {getInfo( game )}}/>
+    {/each}
+  {:else}
+      <p>Aucun résultat avec ces critères.</p>
+  {/if}
+</div>
+{/key}
+
+
+{#key itemDetails, innerList}
+<div class={itemOpened ? "border border-5 item-opened opened" : "item-opened"}>
+
+  <button on:click={closeItem} id="button-close">Fermer</button>
+
+  {#if session}
+    <button on:click={editItem} id="button-edit">Edit</button>
+
+    <div class="border border-3 updatedForm">
+      <form method="POST" id="updated_form" action="?/update">
+
+        <label for="updated_id">ID</label>
+        <input type="text" name="updated_id" id="updated_id">
+      
+        <label for="updated_status">Status</label>
+        <input type="text" name="updated_status" id="updated_status">
+
+        <label type="date" for="updated_started">Démarré le:</label>
+        <input type="date" name="updated_started" id="updated_started">
+      
+        <label type="date" for="updated_finished">Terminé le:</label>
+        <input type="date" name="updated_finished" id="updated_finished">
+      
+        <label for="updated_notes">Notes</label>
+        <textarea name="updated_notes" id="updated_notes"></textarea>
+      
+        <button type="submit">Mettre à jour</button>
+      
+      </form>
+    </div>
+  {/if}
+
+  <div id="item-opened__info">
+
+    <img src={itemDetails.cover} alt="Jaquette du jeu {itemDetails.name}" id="info__img">
+
+    <div id="info__inner">
+      <p class="info-big"><b>{itemDetails.name}</b></p>
+      <p class="info-small"><i>{itemDetails.developers}, {formatDateYear(itemDetails.date_released)}</i></p>
+
+      <p class="info-small">Status: 
+        {#if itemDetails.status === "finished"}
+          terminé
+        {:else if  itemDetails.status === "flushed"}
+          abandonné
+        {:else if itemDetails.status === "backlog"}
+          dans le backlog depuis le {formatDate(itemDetails.date_acquired)}
+        {:else if itemDetails.status === "currently playing"}
+          en cours
+        {:else if itemDetails.status === "wishlist"}
+          dans les envies
+        {/if}
+      </p>
+      {#if itemDetails.status === "finished" && itemDetails.date_finished !== null}
+      <p class="info-small">Terminé le {formatDate(itemDetails.date_finished)}</p>
+      {:else if  itemDetails.status === "currently playing"}
+      <p class="info-small">En cours depuis le {formatDate(itemDetails.date_started)}</p>
+      {:else if itemDetails.status === "flushed" && itemDetails.date_finished !== null}
+      <p class="info-small">Abandonné le {formatDate(itemDetails.date_finished)}</p>
       {/if}
     </div>
+
+  </div>
+
+  <div id="item-opened__notes">
+    {itemDetails.notes}
+  </div>
+
+  {#if innerList.length}
+  <div id="item-opened__lists">
+    <p>Ce jeu est dans {innerList.length === 1 ? "la liste suivante" : "les listes suivantes"}:</p>
+    <ul>
+      {#each innerList as list}
+      <li>{list}</li>
+      {/each}
+    </ul>
+  </div>
+  {:else}
+  <div id="item-opened__lists">
+    <p>Ce jeu n'est dans aucune liste, pour le moment</p>
   </div>
   {/if}
 
-  <div id="filter-container">
+</div>
+{/key}
 
-    <div id="filter-wrap-options">
-
-      <div id="filter-wrap-platform">
-  
-        <label for="filter-platform">Plateforme</label>
-        <select name="filter-platform" id="filter-platform">
-        <option value="everything" selected>Toutes</option>
-        {#each categories as category }
-          <option value={category.name}>{category.name}</option>
-        {/each}
-        </select>
-    
-      </div>
-    
-      <div id="filter-wrap-status">
-    
-        <label for="filter-status">Status</label>
-        <select name="filter-status" id="filter-status">
-        <option value="everything" selected>Tous</option>
-        {#each status as singleStatus }
-          <option value={singleStatus.name}>{singleStatus.converted}</option>
-        {/each}
-        </select>
-    
-      </div>
-    </div>
-
-    <div id="filter-wrap-search">
-  
-      <input type="text" name="filter-search" id="filter-search" placeholder="Chercher un jeu">
-      <button type="button" id="filter-button" on:click={multiFilterGames}>Filtrer</button>
-  
-    </div>
-  
-  </div>
-
-  {#key currentPage, paginatedItems}
-    <div class="container" in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
-    {#if filteredGames.length}
-      {#each paginatedItems as game ( game.id )}
-      <Item {game} getInfo={() => {getInfo( game )}}/>
-      {/each}
-    {:else}
-      <p>Aucun résultat avec ces critères.</p>
-    {/if}
-
-    </div>
-  {/key}
-
-
-  {#key itemDetails, innerList}
-  <div class={itemOpened ? "border border-5 item-opened opened" : "item-opened"}>
-
-    <button on:click={closeItem} id="button-close">Fermer</button>
-
-    {#if session}
-      <button on:click={editItem} id="button-edit">Edit</button>
-
-      <div class="border border-3 updatedForm">
-        <form method="POST" id="updated_form" action="?/update">
-  
-          <label for="updated_id">ID</label>
-          <input type="text" name="updated_id" id="updated_id">
-        
-          <label for="updated_status">Status</label>
-          <input type="text" name="updated_status" id="updated_status">
-  
-          <label type="date" for="updated_started">Démarré le:</label>
-          <input type="date" name="updated_started" id="updated_started">
-        
-          <label type="date" for="updated_finished">Terminé le:</label>
-          <input type="date" name="updated_finished" id="updated_finished">
-        
-          <label for="updated_notes">Notes</label>
-          <textarea name="updated_notes" id="updated_notes"></textarea>
-        
-          <button type="submit">Mettre à jour</button>
-        
-        </form>
-      </div>
-    {/if}
-
-    <div id="item-opened__info">
-
-      <img src={itemDetails.cover} alt="Jaquette du jeu {itemDetails.name}" id="info__img">
-
-      <div id="info__inner">
-        <p class="info-big"><b>{itemDetails.name}</b></p>
-        <p class="info-small"><i>{itemDetails.developers}, {formatDateYear(itemDetails.date_released)}</i></p>
-
-        <p class="info-small">Status: 
-          {#if itemDetails.status === "finished"}
-            terminé
-          {:else if  itemDetails.status === "flushed"}
-            abandonné
-          {:else if itemDetails.status === "backlog"}
-            dans le backlog depuis le {formatDate(itemDetails.date_acquired)}
-          {:else if itemDetails.status === "currently playing"}
-            en cours
-          {:else if itemDetails.status === "wishlist"}
-            dans les envies
-          {/if}
-        </p>
-        {#if itemDetails.status === "finished" && itemDetails.date_finished !== null}
-        <p class="info-small">Terminé le {formatDate(itemDetails.date_finished)}</p>
-        {:else if  itemDetails.status === "currently playing"}
-        <p class="info-small">En cours depuis le {formatDate(itemDetails.date_started)}</p>
-        {:else if itemDetails.status === "flushed" && itemDetails.date_finished !== null}
-        <p class="info-small">Abandonné le {formatDate(itemDetails.date_finished)}</p>
-        {/if}
-      </div>
-
-    </div>
-
-    <div id="item-opened__notes">
-      {itemDetails.notes}
-    </div>
-
-    {#if innerList.length}
-    <div id="item-opened__lists">
-      <p>Ce jeu est dans {innerList.length === 1 ? "la liste suivante" : "les listes suivantes"}:</p>
-      <ul>
-        {#each innerList as list}
-        <li>{list}</li>
-        {/each}
-      </ul>
-    </div>
-    {:else}
-    <div id="item-opened__lists">
-      <p>Ce jeu n'est dans aucune liste, pour le moment</p>
-    </div>
-    {/if}
-
-
-
-  </div>
-  {/key}
-
-  <LightPaginationNav
-  totalItems="{ filteredGames.length }"
-  pageSize="{ pageSize }"
-  currentPage="{ currentPage }"
-  limit="{ 1 }"
-  showStepOptions="{ true }"
-  on:setPage="{(e) => {
-    currentPage = e.detail.page
-    }}"
-  />
-
-</main>
-
-
+<LightPaginationNav
+totalItems="{ filteredGames.length }"
+pageSize="{ pageSize }"
+currentPage="{ currentPage }"
+limit="{ 1 }"
+showStepOptions="{ true }"
+on:setPage="{(e) => {
+  currentPage = e.detail.page
+  }}"
+/>
 
 <style lang="scss">
-
-  main {
-    padding-top: 100px;
-  }
-
   h1 {
     position: relative;
     z-index: 2;

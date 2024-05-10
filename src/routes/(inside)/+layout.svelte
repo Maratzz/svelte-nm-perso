@@ -8,6 +8,14 @@
 
 <Header />
 
-<slot />
+<main>
+  <slot />
+</main>
 
 <Footer />
+
+<style>
+  main {
+    padding-top: 100px;
+  }
+</style>
