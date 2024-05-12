@@ -27,6 +27,10 @@
       toast.error("aucun jeu avec ce titre frère", {
         style: "margin-top: 80px;"
       })
+    } else if ( result.data === undefined ) {
+      toast.error("data manquante sur la fiche", {
+        style: "margin-top: 80px;"
+      })
     }
     else if ( result.data.formStatus && result.data.formStatus >= 400 ) {
       /* toastReject(new Error( "Il manque un champ obligatoire !" )) */

@@ -90,6 +90,7 @@ export const actions = {
         success: true }
 
     } catch( error ) {
+      console.log(error.message)
       return error
     }
   },
