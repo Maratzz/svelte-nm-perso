@@ -74,13 +74,18 @@ export const actions = {
       const newGame = gameData[0]
       if ( newGame === undefined ) throw "no game found"
       game = newGame.name
-      const gameCover = newGame.cover.image_id
+      const gameCover = newGame.cover?.image_id ?? "nocover"
       const gameCoverLink = `https://images.igdb.com/igdb/image/upload/t_cover_big/${gameCover}.png`
-      const gameReleaseDate = await getHumanDate(newGame.first_release_date)
+      const gameReleaseDate = await getHumanDate(newGame.first_release_date ?? "140140140")
       // we only want the developer studio, nothing else
-      const gameCompanies = newGame.involved_companies
-      const gameDevCompany = gameCompanies.filter( company => company.developer === true )
-      const gameCompany = gameDevCompany[0].company.name
+      const gameCompanies = newGame.involved_companies ?? "Studio inconnu"
+      let gameCompany
+      if (gameCompanies !== "Studio inconnu") {
+        const gameDevCompany = gameCompanies.filter( company => company.developer === true )
+        gameCompany = gameDevCompany[0].company.name
+      } else {
+        gameCompany = "Studio inconnu"
+      }
       
       return { 
         game,

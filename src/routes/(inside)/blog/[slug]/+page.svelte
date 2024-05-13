@@ -35,7 +35,7 @@
 <style>
   .category {
     margin: 0 3px;
-    background-color: aquamarine;
+    background-color: #C5BEDA;
     padding: 4px 4px;
   }
 

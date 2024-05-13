@@ -6,7 +6,7 @@
   export let data;
 	export let form;
 
-	let { session, supabase, profile } = data
+	let { session, profile } = data
   let profileForm;
 	let loading = false;
 	let fullName = profile?.full_name ?? ""

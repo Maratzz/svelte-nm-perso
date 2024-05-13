@@ -34,36 +34,28 @@
   openGraph
 />
 
+<h1>Textes</h1>
 
-<main>
-  <h1>Textes</h1>
+<div id="container">
 
-  <div id="container">
-  
-    {#each posts as post}
-  
-      <div id="item">
-  
-        <img src={attachCoverImage( post.meta.title, items )} alt="Illustration du texte" id="item-img" class="border-2">
-  
-        <div id="item-content">
-          <h2><a href={post.path}>{post.meta.title}</a></h2>
-          <p>Publié le {formatDate( post.meta.date )}</p>
-          <p>{post.meta.headline ?? "Pas d'accroche, bouh !"}</p>
-        </div>
-  
+  {#each posts as post}
+
+    <div id="item">
+
+      <img src={attachCoverImage( post.meta.title, items )} alt="Illustration du texte" id="item-img" class="border-2">
+
+      <div id="item-content">
+        <h2><a href={post.path}>{post.meta.title}</a></h2>
+        <p>Publié le {formatDate( post.meta.date )}</p>
+        <p>{post.meta.headline ?? "Pas d'accroche, bouh !"}</p>
       </div>
-      
-    {/each}
-  </div>
-</main>
+
+    </div>
+    
+  {/each}
+</div>
 
 <style lang="scss">
-  main {
-    padding-top: 100px;
-  }
-
-
   h1 {
     position: relative;
     padding-left: 15px;
@@ -101,11 +93,6 @@
   }
 
   @media (width >= 900px) {
-    main {
-      width: 65%;
-      margin: 150px auto 0 auto;
-    }
-
     #item {
       display: flex;
       flex-flow: row nowrap;

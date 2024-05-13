@@ -12,7 +12,7 @@
   openGraph
 />
 
-<main>
+<div>
   <h1>À propos</h1>
 
   <p>Je suis Nico, aussi connu sous le nom de Maratz sur Internet. Depuis tout petit j'ai toujours aimé écrire et créer des univers entre les lignes.</p>
@@ -37,14 +37,9 @@
   <p>Après une formation en linguistique et en littérature, en français et en anglais, j'ai trempé les pieds dans la piscine de la communication et du marketing numérique avant de me rendre compte qu'écrire pour des grands groupes et des marques, bof bof quoi.</p>
 
   <p>Depuis j'écris et je développe des sites pour des associations, des petites structures et des personnes qui partagent mon avis qu'Internet, c'est d'abord pour tout le monde, et ensuite pour tout le monde, et enfin pour tout le monde. D'ailleurs, si vous voulez collaborer professionnellement, <a href="/site-pro">c'est par ici.</a></p>
-
-</main>
+</div>
 
 <style lang="scss">
-  main {
-    padding: 100px 10px 50px 10px;
-  }
-
   h1 {
     position: relative;
     z-index: 2;

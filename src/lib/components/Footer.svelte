@@ -1,6 +1,7 @@
 <footer>
   <div>
     <ul class="removePaperLi">
+      <li><a href="/contact">Contact</a></li>
       <li><a href="/mentions">Mentions légales</a></li>
       <li><a href="/credits">Crédits</a></li>
       <li><a href="/site-pro">Site pro</a></li>

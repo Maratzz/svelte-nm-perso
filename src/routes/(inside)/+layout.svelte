@@ -14,7 +14,7 @@
 
 <Footer />
 
-<style>
+<style lang="scss">
   main {
     padding-top: 100px;
   }

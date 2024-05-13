@@ -40,17 +40,8 @@
   }
 
   article {
-    width: 55%;
+    width: 95vw;
     margin-right: auto;
     margin-left: auto;
-    h1 {
-      margin-top: 100px;
-    }
-  }
-
-  @media (max-width: 600px) {
-    article {
-      width: 90%;
-    }
   }
 </style>

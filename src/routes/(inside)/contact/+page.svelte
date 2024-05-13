@@ -12,15 +12,43 @@
   openGraph
 />
 
-<h1>Contact</h1>
+<div>
+  <h1>Contact</h1>
+  
+  <p>Voici les différentes méthodes pour me contacter. Toute sollicitation sur une autre plateforme que celles listées ci-dessous sera ignorée. Pareil si c'est pour de la publicité ou des messages farfelus. Je ne mords pas mais j'ai la correspondance irrégulière, ne m'en voulez pas trop !</p>
+  
+  <h2>Par mail</h2>
+  <a href="mailto:nicolas.moisson@protonmail.com">nicolas.moisson@protonmail.com</a>
+  
+  <h2>Sur les plateformes numériques</h2>
+  
+  <a href="https://discordapp.com/users/maratz_">Discord</a>
+  <a href="https://t.me/nmoisson">Telegram</a>
+  <a href="https://steamcommunity.com/id/Maratz/">Steam</a>
+  <a href="https://twitch.tv/maratz_">Twitch</a>
+</div>
 
-<p>Vous souhaitez m'envoyer des éloges, des insultes, des suggestions de jeux pour écrire dessus, des questions, n'importe quoi ? Vous trouverez ci-dessous les différentes méthodes. Si vous croisez un profil quelque part qui n'est pas répertorié ici, partez du principe que ce n'est pas moi.</p>
+<style lang="scss">
+  h1 {
+    position: relative;
+    z-index: 2;
+    &::after {
+      z-index: -1;
+      display: inline-block;
+      content: "";
+      background-color: #C3BDD9;
+      width: 90px;
+      height: 20px;
+      position: absolute;
+      bottom: 0;
+      left: 60px;
+    }
+  }
 
-<h2>Par mail</h2>
-<p>nicolas.moisson@protonmail.com</p>
-
-<h2>Sur les plateformes numériques</h2>
-
-<a href="https://steamcommunity.com/id/Maratz/">Steam</a>
-<a href="/">Discord</a>
-<a href="/">Twitch</a>
+  a {
+    display: block;
+    &:visited {
+      color: #4895DC;
+    }
+  }
+</style>
