@@ -24,9 +24,6 @@
 
 <article>
   <h1>{title}</h1>
-  {#if image}
-  <img src={image} alt="un placeholder">
-  {/if}
   <p>Publié le {humanDate} dans {categories.length === 1 ? "la catégorie" : "les catégories"}{#each categories as category}<span class="category">{category}</span>{/each}</p>
   <svelte:component this={content} />
 </article>
@@ -42,5 +39,12 @@
   article {
     width: 95%;
     margin: 0 auto;
+    padding-bottom: 15px;
+  }
+
+  @media (min-width: 900px) {
+    article {
+      width: 55vw;
+    }
   }
 </style>

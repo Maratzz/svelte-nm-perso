@@ -12,4 +12,16 @@
     height: auto;
     position: relative;
   }
+
+  @media (min-width: 900px) {
+    img {
+      width: 20vw;
+    }
+  }
+
+  @media (min-width: 1500px) {
+    img {
+      width: 15vw;
+    }
+  }
 </style>

@@ -29,4 +29,11 @@ h2 {
 main > div {
   width: 95vw;
   margin: 0 auto;
+  padding-bottom: 15px;
+}
+
+@media (min-width: 900px) {
+  main > div {
+    width: 55vw;
+  }
 }

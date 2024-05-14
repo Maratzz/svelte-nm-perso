@@ -415,13 +415,13 @@ on:setPage="{(e) => {
       gap: 15px;
     }
     &-wrap-search {
-      margin-top: 25px;
       display: flex;
       flex-direction: row;
       align-items: center;
     }
     &-wrap-options, &-wrap-search {
       margin-left: 15px;
+      max-width: fit-content;
     }
     &-search {
       height: 50px;
@@ -435,5 +435,49 @@ on:setPage="{(e) => {
 
   .opened {
     display: block;
+  }
+
+  @media (min-width: 900px) {
+
+    .item-opened {
+      width: 65vw;
+      position: fixed;
+      left: 18%;
+    }
+
+    .updatedForm {
+      width: 40vw;
+    }
+
+    #info__img {
+      width: 15vw;
+    }
+
+    #filter-container {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      gap: 30px;
+      align-items: flex-end;
+    }
+
+    #filter-wrap-search {
+      align-items: flex-end;
+      gap: 15px;
+    }
+
+    #button {
+      &-close {
+        position: absolute;
+        bottom: 75vh;
+        right: 25px;
+        z-index: 5;
+      }
+      &-edit {
+        position: absolute;
+        bottom: 66vh;
+        left: 55vw;
+      }
+    }
   }
 </style>

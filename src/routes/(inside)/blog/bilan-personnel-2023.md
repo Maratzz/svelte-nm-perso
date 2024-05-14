@@ -5,6 +5,7 @@ headline: "Méditer pour ne pas médire"
 categories:
 - "blog"
 - "bilan"
+image: "/img/blog/wtf_suashem.jpg"
 ---
 
 **Ce que je retiendrai de 2023:**

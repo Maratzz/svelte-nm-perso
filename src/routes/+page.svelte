@@ -275,8 +275,8 @@
         left: 74%;
       }
       &-baos {
-        top: 40%;
-        left: 71.4%;
+        top: 39.5%;
+        left: 71.1%;
       }
       &-bourses {
         top: 47%;

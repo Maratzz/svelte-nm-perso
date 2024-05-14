@@ -43,5 +43,12 @@
     width: 95vw;
     margin-right: auto;
     margin-left: auto;
+    padding-bottom: 15px;
+  }
+
+  @media (min-width: 900px) {
+    article {
+      width: 55vw;
+    }
   }
 </style>

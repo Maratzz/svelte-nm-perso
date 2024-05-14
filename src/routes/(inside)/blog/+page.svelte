@@ -33,7 +33,7 @@
 
     <div id="item-content">
       <h2><a href={post.path}>{post.meta.title}</a></h2>
-      <p>Publié le {formatDate( post.meta.date )}</p>
+      <p><i>{formatDate( post.meta.date )}</i></p>
       <p>{post.meta.headline ?? "Pas d'accroche, bouh !"}</p>
     </div>
   </div>
@@ -69,6 +69,9 @@
     margin: 15px auto 25px auto;
     padding: 15px 15px;
     border-radius: 15px;
+    h2 {
+      margin-bottom: 0;
+    }
     &-img {
       width: 100%;
       height: 150px;
@@ -77,18 +80,25 @@
     }
   }
 
-  @media (width >= 900px) {
+  #item-content h2 + p {
+    font-size: 0.8em;
+    margin-top: 5px;
+  }
 
+  @media (min-width: 900px) {
     #item {
       display: flex;
       flex-flow: row nowrap;
+      justify-content: space-evenly;
+      width: 50vw;
+      padding: 15px 0;
       &-content {
         width: 45%;
       }
       &-img {
         width: 45%;
         height: 200px;
-        margin: auto auto;
+        margin: auto 0;
         object-position: right 40%;
       }
     }
