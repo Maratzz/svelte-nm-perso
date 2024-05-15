@@ -12,7 +12,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 
 //override the annoying dash added by paperCSS on every li element, like why? put it on ul element
@@ -27,9 +27,10 @@ h2 {
 }
 
 main > div {
-  width: 95vw;
+  width: 90vw;
   margin: 0 auto;
   padding-bottom: 15px;
+  background-color: #eee;
 }
 
 @media (min-width: 900px) {

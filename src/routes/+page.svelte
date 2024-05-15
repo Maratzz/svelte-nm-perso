@@ -168,6 +168,7 @@
       background-color: #fff;
       width: 100vw;
       height: 100vh;
+      border: 3px solid orange;
     }
 
     &-image {
@@ -191,6 +192,7 @@
     width: 95vw;
     margin: 0 auto;
     z-index: 5;
+    background-color: #fff;
     p, h4 {
       position: inherit;
       z-index: inherit;
@@ -233,7 +235,7 @@
     margin: 0 auto;
   }
 
-  @media (width >= 900px) {
+  @media (min-width: 900px) {
 
     header {
       display: none;
@@ -250,6 +252,7 @@
         height: 800px;
         position: relative;
         padding-top: 0;
+        border: 3px solid red;
         img {
           position: absolute;
         }
@@ -258,6 +261,7 @@
         width: 33%;
         margin: auto auto;
         flex-grow: 1;
+        border: 3px solid green;
       }
     }
 
@@ -380,6 +384,20 @@
       margin: 100px auto 0 auto;
       gap: 100px;
       font-size: 1.3em;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    #landing {
+      &-container {
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      &-presentation {
+        flex-grow: 0;
+        margin: 0 0;
+      }
     }
   }
 </style>
