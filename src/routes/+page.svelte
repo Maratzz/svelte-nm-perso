@@ -1,6 +1,7 @@
 <script>
   import MediaQuery from "$lib/components/MediaQuery.svelte"
   import HeadSEO from "$lib/components/HeadSEO.svelte"
+  import Footer from "$lib/components/Footer.svelte"
 
   import full_image from "$lib/assets/homepage/full_image.png"
   import background from "$lib/assets/homepage/background.png"
@@ -27,6 +28,8 @@
   import tournesol_left from "$lib/assets/homepage/tournesol_left.png"
   import tournesol_middle from "$lib/assets/homepage/tournesol_middle.png"
   import tournesol_right from "$lib/assets/homepage/tournesol_right.png"
+
+  import footer_tournesol_middle from "$lib/assets/inside-pages/footer_tournesol_middle.png"
 </script>
 
 <HeadSEO 
@@ -131,19 +134,10 @@
   
 </main>
 
-<footer>
-  <nav class="removePaperLi">
-    <ul id="footer-menu">
-      <li><a href="soutien">Soutenez-moi</a></li>
-      <li><a href="/contact">Contact</a></li>
-      <li><a href="/mentions">Mentions légales</a></li>
-      <li><a href="/site-pro">Site pro</a></li>
-    </ul>    
-  </nav>
-</footer>
+<Footer />
 
 <style lang="scss">
-  main, header, footer {
+  main, header {
     box-sizing: border-box;
     background-color: #fff;
   }
@@ -152,23 +146,14 @@
     margin-top: 5px;
   }
 
-  #footer-menu {
-    margin-top: 100px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    text-align: start;
-  }
-
   #landing {
     &-container {
       display: flex;
       flex-direction: column;
       justify-content: center;
       background-color: #fff;
-      width: 100vw;
+      width: 99vw;
       height: 100vh;
-      border: 3px solid orange;
     }
 
     &-image {
@@ -190,9 +175,10 @@
   #learn-more-container {
     position: relative;
     width: 95vw;
-    margin: 0 auto;
+    margin: 0 auto 50px auto;
     z-index: 5;
     background-color: #fff;
+    padding-bottom: 100px;
     p, h4 {
       position: inherit;
       z-index: inherit;
@@ -231,10 +217,6 @@
     margin: 0 auto;
   }
 
-  footer {
-    margin: 0 auto;
-  }
-
   @media (min-width: 900px) {
 
     header {
@@ -244,7 +226,7 @@
     #landing {
       &-container {
         flex-direction: row;
-        width: 100vw;
+        //width: 100vw;
         height: 100vh;
       }
       &-image {
@@ -252,7 +234,6 @@
         height: 800px;
         position: relative;
         padding-top: 0;
-        border: 3px solid red;
         img {
           position: absolute;
         }
@@ -261,7 +242,6 @@
         width: 33%;
         margin: auto auto;
         flex-grow: 1;
-        border: 3px solid green;
       }
     }
 
@@ -367,7 +347,9 @@
     }
 
     #learn-more-container {
+      width: 75vw;
       margin-top: 100px;
+      margin-bottom: 100px;
       padding-bottom: 100px;
       #first {
         top: 0;
@@ -377,13 +359,6 @@
       #second {
         width: 250px;
       }
-    }
-
-    #footer-menu {
-      flex-direction: row;
-      margin: 100px auto 0 auto;
-      gap: 100px;
-      font-size: 1.3em;
     }
   }
 
