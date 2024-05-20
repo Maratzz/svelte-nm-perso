@@ -18,7 +18,9 @@
     if ( foundRow === undefined ) {
       return "https://placehold.co/140x190"
     } else {
-      let coverImage = foundRow.cover
+      let coverImageID = foundRow.cover
+      let coverImageString = coverImageID.slice(54)
+      let coverImage = `https://images.igdb.com/igdb/image/upload/t_screenshot_big/${coverImageString}`
       return coverImage
     }
   }
@@ -42,7 +44,7 @@
 
     <div id="item">
 
-      <img src={attachCoverImage( post.meta.title, items )} alt="Illustration du texte" id="item-img" class="border-2">
+      <img src={post.meta.image ?? attachCoverImage( post.meta.title, items )} alt="Illustration du texte" id="item-img" class="border-2">
 
       <div id="item-content">
         <h2><a href={post.path}>{post.meta.title}</a></h2>

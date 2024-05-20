@@ -6,6 +6,7 @@ categories:
 - "textes"
 - "critique"
 - "jv"
+image: "/img/textes/mussel.jpg"
 ---
 
 <script>

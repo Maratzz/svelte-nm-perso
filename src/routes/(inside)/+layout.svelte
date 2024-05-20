@@ -17,5 +17,12 @@
 <style lang="scss">
   main {
     padding-top: 100px;
+    padding-bottom: 50px;
+  }
+
+  @media (min-width: 900px) {
+    main { 
+      padding-bottom: 150px;
+    }
   }
 </style>

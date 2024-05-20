@@ -1,7 +1,7 @@
 export async function load({ params }){
   const posts = import.meta.glob("../*.md")
   const post = await posts[`../${params.slug}.md`]()
-  const { title, date, categories, headline } = post.metadata
+  const { title, date, categories, headline, image } = post.metadata
   const content = post.default
 
   return {
@@ -9,6 +9,7 @@ export async function load({ params }){
     title,
     date,
     categories,
-    headline
+    headline,
+    image
   }
 }

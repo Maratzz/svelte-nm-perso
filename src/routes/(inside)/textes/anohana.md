@@ -6,6 +6,7 @@ categories:
 - "textes"
 - "critique"
 - "anime"
+image: "/img/textes/anohana.jpg"
 ---
 
 

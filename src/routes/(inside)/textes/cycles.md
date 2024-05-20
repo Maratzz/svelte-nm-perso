@@ -5,6 +5,7 @@ headline: "Une histoire courte dans l'univers de World of Goo."
 categories:
 - "textes"
 - "fiction"
+image: "/img/textes/cycles.webp"
 ---
 
 J'ai écrit cette histoire courte avec le morceau proposé ci-dessous en tête. Je vous recommande de l'écouter durant la lecture.

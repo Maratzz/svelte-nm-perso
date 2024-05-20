@@ -5,6 +5,7 @@ headline: "Lister pour ne pas s'enliser"
 categories:
 - "blog"
 - "bilan"
+image: "/img/blog/les-grands-cerfs.webp"
 ---
 
 23 films sur 45

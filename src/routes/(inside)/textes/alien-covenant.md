@@ -6,6 +6,7 @@ categories:
 - "textes"
 - "critique"
 - "cinéma"
+image: "/img/textes/alien_covenant.jpg"
 ---
 
 <script>

@@ -5,6 +5,7 @@ headline: "Une histoire courte d'anticipation."
 categories: 
 - "textes"
 - "fiction"
+image: "/img/textes/nouvelle_crous.jpeg"
 ---
 
 <script>
