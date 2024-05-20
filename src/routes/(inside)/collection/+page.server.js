@@ -53,10 +53,10 @@ export const actions = {
           }
         ])
         .select()
-        const formStatus = await newForm.status
-        return { newForm, formStatus, success : true }
+        const supabaseResponse = await newForm
+        return { newForm, supabaseResponse }
       } catch( error ) {
-        return { success: false }
+        return error
       } 
     }
   },

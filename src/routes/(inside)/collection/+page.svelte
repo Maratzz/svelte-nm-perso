@@ -99,8 +99,8 @@
 
     updateGameNote.textContent = itemDetails.notes
     updateGameStatus.value = itemDetails.status
-    updateGameStarted.value = itemDetails.started_at
-    updateGameFinished.value = itemDetails.finished_at
+    updateGameStarted.value = itemDetails.date_started
+    updateGameFinished.value = itemDetails.date_finished
     updatedID.value = itemDetails.id
 
     updatedForm.classList.toggle("opened")
