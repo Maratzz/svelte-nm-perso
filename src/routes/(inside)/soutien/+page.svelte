@@ -46,4 +46,8 @@
     height: 30px;
     width: 30px;
   }
+  
+  :is(a:link, a:visited) {
+    color: purple;
+  }
 </style>
