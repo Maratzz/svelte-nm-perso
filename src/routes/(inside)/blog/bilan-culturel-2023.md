@@ -46,7 +46,7 @@ Vu au cinéma avec O. Parce qu’il refuse catégoriquement l’humilité requis
 
 _<span style='color:green'>Crouching Tiger, Hidden Dragon</span>_ (Ang Lee, 2000)
 
-Visionnage avec C. qui ne l’avait jamais vu. Un des meilleurs _wux__ia_ pour moi. La différence de tempérament entre Li Mu Bai et Jen, lié par une épée qui cristallise les performances : fascination, respect, peur, exaltation. A côté, une autre différence, celle entre Jen et Yu Shu Lien, lié par un homme qui cristallise les sentiments : sororité, jalousie, envie, colère, deuil. A l’image de son titre, _Tigre et Dragon_ fonctionne en dualité, en opposition, entre la fougue de la jeunesse et le désespoir de la vieillesse, entre explosion d’actions et moments de grâce.
+Visionnage avec C. qui ne l’avait jamais vu. Un des meilleurs *wuxia* pour moi. La différence de tempérament entre Li Mu Bai et Jen, lié par une épée qui cristallise les performances : fascination, respect, peur, exaltation. A côté, une autre différence, celle entre Jen et Yu Shu Lien, lié par un homme qui cristallise les sentiments : sororité, jalousie, envie, colère, deuil. A l’image de son titre, _Tigre et Dragon_ fonctionne en dualité, en opposition, entre la fougue de la jeunesse et le désespoir de la vieillesse, entre explosion d’actions et moments de grâce.
 
 _Le Sommet des Dieux_ (Patrick Imbert, 2021)
 
