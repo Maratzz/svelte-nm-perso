@@ -11,7 +11,6 @@
     <a href="/collection">Collection</a>
     <a href="/blog">Blog</a>
     <a href="/info">À propos</a>
-    <a href="/compte">Connexion</a>
   </div>
   <div id="footer-tournesol">
     <img src={footer_tournesol_middle} alt="Dessin d'un tournesol dans le footer" class="no-border" id="footer-tournesol-middle">
@@ -21,11 +20,9 @@
   <div id="footer-right">
     <a href="/contact">Contact</a>  
     <a href="/soutien">Soutenez-moi</a>
-    <a href="/mentions">Mentions légales</a>
     <a href="/credits">Crédits</a>
     <a href="/site-pro">Site pro</a>
   </div>
-
 
 </footer>
 
@@ -98,6 +95,10 @@
       &-middle {
         left: 0;
       }
+    }
+
+    #footer-right {
+      padding-right: 10px;
     }
   }
 

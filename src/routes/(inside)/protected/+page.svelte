@@ -10,14 +10,17 @@
   <meta name="description" content="Page de connexion sur le site de Nico Moisson, pour accéder aux trésors cachés">
 </svelte:head>
 
-<h1>Connexion</h1>
-<p>Vous n"êtes pas connecté·e</p>
 <div>
-	<div>
-    <Auth
+  <h1>Connexion</h1>
+  <p>Vous n'êtes pas connecté·e</p>
+  <div>
+	  <div>
+      <Auth
       supabaseClient={data.supabase}
       providers={[ "github" ]}
       onlyThirdPartyProviders
-    />
-	</div>
+      />
+	  </div>
+  </div>
 </div>
+

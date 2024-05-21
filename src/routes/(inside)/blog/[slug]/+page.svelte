@@ -37,7 +37,7 @@
   }
 
   article {
-    width: 95%;
+    width: 90vw;
     margin: 0 auto;
     padding-bottom: 15px;
   }

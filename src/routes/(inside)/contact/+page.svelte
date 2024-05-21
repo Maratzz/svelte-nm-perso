@@ -18,7 +18,7 @@
   <p>Voici les différentes méthodes pour me contacter. Toute sollicitation sur une autre plateforme que celles listées ci-dessous sera ignorée. Pareil si c'est pour de la publicité ou des messages farfelus. Je ne mords pas mais j'ai la correspondance irrégulière, ne m'en voulez pas trop !</p>
   
   <h2>Par mail</h2>
-  <a href="mailto:nicolas.moisson@protonmail.com">nicolas.moisson@protonmail.com</a>
+  <a href="mailto:nicolas.moisson@protonmail.com">nicolas.moisson [@] protonmail [point] com</a>
   
   <h2>Sur les plateformes numériques</h2>
 

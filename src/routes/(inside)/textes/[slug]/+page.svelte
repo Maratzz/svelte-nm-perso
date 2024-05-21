@@ -40,7 +40,7 @@
   }
 
   article {
-    width: 95vw;
+    width: 90vw;
     margin-right: auto;
     margin-left: auto;
     padding-bottom: 15px;
