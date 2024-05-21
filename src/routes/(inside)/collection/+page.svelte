@@ -231,7 +231,7 @@
 
     <div id="info__inner">
       <p class="info-big"><b>{itemDetails.name}</b></p>
-      <p class="info-small"><i>{itemDetails.developers}, {formatDateYear(itemDetails.date_released)}</i></p>
+      <p class="info-small"><i>{itemDetails.developers}, {formatDateYear(itemDetails.date_released)} ({itemDetails.platform})</i></p>
 
       <p class="info-small">Status: 
         {#if itemDetails.status === "finished"}
@@ -451,6 +451,13 @@ on:setPage="{(e) => {
 
     #info__img {
       width: 15vw;
+      margin-left: 50px;
+    }
+
+    #item-opened {
+      &__notes, &__lists {
+        margin-left: 50px;
+      }
     }
 
     #filter-container {

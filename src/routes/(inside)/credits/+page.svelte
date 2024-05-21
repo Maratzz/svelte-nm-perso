@@ -15,7 +15,7 @@
 <div>
   <h1>Crédits</h1>
   
-  <p>Ce site, comme tout les sites, est le mien mais c'est également un effort collectif, comme tout ce qui existe sur Internet. J'aimerais lister ici les auteurs et autrices des ressources et des outils que j'ai utilisés pour monter cet espace. Merci à elles et à eux. N'hésitez pas à voir leur travail et à les soutenir !</p>
+  <p>Ce site est le mien mais c'est également un effort collectif, comme tout ce qui existe sur Internet. J'aimerais lister ici les auteurs et autrices des ressources et des outils que j'ai utilisés pour monter cet espace. Merci à elles et à eux. N'hésitez pas à voir leur travail et à les soutenir !</p>
 
   <h2>Technologies</h2>
   <p>Le framework JavaScript qui fait tout tourner derrière est <a href="https://kit.svelte.dev/">SvelteKit</a>, créé par <a href="https://github.com/Rich-Harris">Richard Harris</a> et d'autres <a href="https://github.com/sveltejs/svelte/graphs/contributors">contributeurs et contributrices.</a></p>

@@ -39,7 +39,6 @@
     margin-top: auto;
     border-top: 3px solid darken(#8260b2, $amount: 15);
     font-size: 1.1rem;
-    //border: solid 3px orange;
     :is(a:link, a:visited) {
       color: #8260b2;
     }
@@ -55,7 +54,6 @@
   }
 
   #footer-left, #footer-right {
-    //border: 3px solid red;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-evenly;
@@ -63,7 +61,6 @@
   }
 
   #footer-tournesol {
-    //border: solid 3px purple;
     position: relative;
     &-left, &-middle, &-right {
       position: absolute;
