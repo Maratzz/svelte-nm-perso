@@ -24,4 +24,10 @@
       width: 15vw;
     }
   }
+
+  @media (min-width: 2000px) {
+    img {
+      width: 11vw;
+    }
+  }
 </style>

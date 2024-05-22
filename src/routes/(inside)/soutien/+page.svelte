@@ -1,5 +1,6 @@
 <script>
   import HeadSEO from "$lib/components/HeadSEO.svelte"
+  import { browser } from '$app/environment';
 </script>
 
 
@@ -33,6 +34,18 @@
     <a href="https://www.gog.com/en/u/Maratz/wishlist">Ou si c'est votre truc, sur GOG</a>
   </div>
 </div>
+
+{#if browser}
+  <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+  <script>
+    kofiWidgetOverlay.draw('maratz', {
+      'type': 'floating-chat',
+      'floating-chat.donateButton.text': 'Donate',
+      'floating-chat.donateButton.background-color': '#794bc4',
+      'floating-chat.donateButton.text-color': '#fff'
+    });
+  </script>
+{/if}
 
 <style lang="scss">
   .donation-wrap {
