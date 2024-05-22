@@ -44,7 +44,7 @@
 
   @media (min-width: 900px) {
     article {
-      width: 55vw;
+      width: 40vw;
     }
   }
 </style>

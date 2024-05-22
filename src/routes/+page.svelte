@@ -146,6 +146,14 @@
     margin-top: 5px;
   }
 
+  :is(a:link, a:visited) {
+      color: #8260b2;
+    }
+    :is(a:active, a:focus, a:hover) {
+      color: #c1abe1;
+      text-decoration: underline;
+    }
+
   #landing {
     &-container {
       display: flex;
@@ -174,7 +182,7 @@
 
   #learn-more-container {
     position: relative;
-    width: 95vw;
+    width: 90vw;
     margin: 0 auto 50px auto;
     z-index: 5;
     background-color: #fff;

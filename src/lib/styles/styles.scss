@@ -37,10 +37,19 @@ main > div {
   margin: 0 auto;
   padding-bottom: 15px;
   background-color: #eee;
+
+  :is(a:link, a:visited) {
+    color: #8260b2;
+  }
+  
+  :is(a:active, a:focus, a:hover) {
+    color: #c1abe1;
+    text-decoration: underline;
+  }
 }
 
 @media (min-width: 900px) {
   main > div {
-    width: 55vw;
+    width: 45vw;
   }
 }

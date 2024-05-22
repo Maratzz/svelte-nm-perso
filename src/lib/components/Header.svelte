@@ -15,7 +15,6 @@
         <li><a href="/collection">Collection</a></li>
         <li><a href="/blog">Blog</a></li>
         <li><a href="/info">À propos</a></li>
-        <li><a href="/protected">Connexion</a></li>
       </ul>
     </div>
   </div>

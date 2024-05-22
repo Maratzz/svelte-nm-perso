@@ -4,6 +4,7 @@ date: "2021-12-14"
 categories:
 - "blog"
 - "sveltekit"
+image: "/img/blog/sveltekit_setup.png"
 ---
 
 En démarrant la refonte de mon site perso j'avais plusieurs objectifs en tête:
