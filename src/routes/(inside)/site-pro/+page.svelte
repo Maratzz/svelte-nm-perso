@@ -1,3 +1,17 @@
+<script>
+  import HeadSEO from "$lib/components/HeadSEO.svelte"
+</script>
+
+<HeadSEO 
+  title="Nico Moisson | Collaboration professionnelle"
+  description="Envie de travailler ensemble ? Voici mes prestations"
+  author="Nico 'Maratz' Moisson"
+  siteName="Site personnel de Nico Moisson"
+  imageURL="$lib/assets/homepage/full_image.png"
+  twitter
+  openGraph
+/>
+
 <div>
 
   <h1>Collaboration professionnelle</h1>
