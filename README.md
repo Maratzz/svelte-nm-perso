@@ -1,10 +1,15 @@
 # Refonte d'un site personnel
 
-## Objectifs
+Après plusieurs années passées avec un vieux site qui tournait sur un CMS vieillissant sous PHP, j'ai reconstruit de zéro mon site personnel. J'ai profité de l'exercice pour me familiariser avec des technologies plus récentes. Bienvenue en 202X!
 
-- Créer un nouveau site perso en apprenant et en utilisant [SvelteKit](https://kit.svelte.dev/), [Svelte](https://svelte.dev/) et tous les outils des *cool kids* de 20XX.
-- Documenter tout ça précieusement et méticuleusement, pour mon futur moi et pour toi qui lis ces lignes. La documentation obsolète, inutilisable ou tout simplement inexistante n'est pas une fatalité, c'est un choix.
-- Expérimenter dans mon coin d'Internet bricolé de mes mains, héberger tout ce qui passe par ma tête et mes doigts, bricoler des bouts de code, déposer des textes, des idées, du *shitpost*, bref faire un site heureux, curieux, plaisant pour mes yeux, accessible aux jeunes comme aux aïeux.
+## Construit avec
+
+- [Svelte(Kit)](https://kit.svelte.dev/) pour le routing serveur et le framework JS
+- [Supabase](https://supabase.com) pour la base PostgreSQL qui contient les fiches
+- [IGDB API](https://www.igdb.com/api) pour les infos sur les jeux
+- Markdown combiné avec [mdsvex](https://mdsvex.pngwn.io/) pour les textes et les billets de blog
+- [PaperCSS](https://www.getpapercss.com/) pour les bases CSS.
+
 
 ## C'est cool, je veux le même en local
 
@@ -17,7 +22,7 @@
 
 SvelteKit c'est bien parce que [c'est documenté](https://kit.svelte.dev/docs/building-your-app).
 
-## Licence
+## Licences
 
 Le code est disponible sans conditions.
 
