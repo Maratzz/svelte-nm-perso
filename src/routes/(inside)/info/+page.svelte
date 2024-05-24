@@ -1,5 +1,6 @@
 <script>
   import HeadSEO from "$lib/components/HeadSEO.svelte"
+  import full_image from "$lib/assets/homepage/full_image.webp"
 </script>
 
 <HeadSEO 
@@ -7,7 +8,7 @@
   description="Où êtes-vous ? Qui suis-je ? Que faisons-nous là ?"
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
-  imageURL="$lib/assets/homepage/full_image.png"
+  imageURL="{full_image}"
   twitter
   openGraph
 />
@@ -34,9 +35,7 @@
   
   <h2>Toujours là ? Okay.</h2>
 
-  <p>Après une formation en linguistique et en littérature, en français et en anglais, j'ai trempé les pieds dans la piscine de la communication et du marketing numérique avant de me rendre compte qu'écrire pour des grands groupes et des marques, bof bof quoi.</p>
-
-  <p>Depuis j'écris et je développe des sites pour des associations, des petites structures et des personnes qui partagent mon avis qu'Internet, c'est d'abord pour tout le monde, et ensuite pour tout le monde, et enfin pour tout le monde. D'ailleurs, si vous voulez collaborer professionnellement, <a href="/site-pro">c'est par ici.</a></p>
+  <p>Mes inspirations littéraires sont Duras, Genette, Barthes, Deleuze. Parmi mes oeuvres vidéoludiques préférées on trouve <i>Superbrothers: Sword and Sworcery EP</i>, <i>Demon's Souls (celui de 2009)</i>, <i>Alundra</i>, <i>Super Hexagon</i>, <i>Slave of God</i>.</p>
 </div>
 
 <style lang="scss">

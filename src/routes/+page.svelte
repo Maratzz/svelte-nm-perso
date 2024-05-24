@@ -4,6 +4,7 @@
   import Footer from "$lib/components/Footer.svelte"
 
   import full_image from "$lib/assets/homepage/full_image.png"
+  import openGraph from "$lib/assets/homepage/full_image.webp"
   import background from "$lib/assets/homepage/background.png"
   import bag from "$lib/assets/homepage/bag.png"
   import bao_out from "$lib/assets/homepage/bao_out.png"
@@ -37,7 +38,7 @@
   description="C'est mon site perso, il y en a plein comme lui sur Internet mais celui-là c'est le mien"
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
-  imageURL="$lib/assets/homepage/full_image.png"
+  imageURL="{openGraph}"
   twitter
   openGraph
 />

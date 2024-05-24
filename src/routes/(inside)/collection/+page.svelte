@@ -5,6 +5,7 @@
   import Form from "$lib/components/Form.svelte"
   import { paginate, LightPaginationNav } from "svelte-paginate"
   import { onMount } from "svelte"
+  import full_image from "$lib/assets/homepage/full_image.webp"
 
   export let data
   export let form
@@ -122,7 +123,7 @@
   description="Des oeuvres à n'en plus finir, des listes à n'en plus vouloir"
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
-  imageURL="$lib/assets/homepage/full_image.png"
+  imageURL="{full_image}"
   twitter
   openGraph
 />

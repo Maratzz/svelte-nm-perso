@@ -1,5 +1,6 @@
 <script>
   import HeadSEO from "$lib/components/HeadSEO.svelte"
+  import full_image from "$lib/assets/homepage/full_image.webp"
 
   export let data
   
@@ -19,7 +20,7 @@
   description="Un blog où on parle de tout et de rien, mais surtout un peu de tout quand même"
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
-  imageURL="$lib/assets/homepage/full_image.png"
+  imageURL="{full_image}"
   twitter
   openGraph
 />

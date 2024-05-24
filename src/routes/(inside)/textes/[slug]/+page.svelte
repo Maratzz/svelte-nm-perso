@@ -1,7 +1,10 @@
 <script>
   import HeadSEO from "$lib/components/HeadSEO.svelte"
+  import full_image from "$lib/assets/homepage/full_image.webp"
+
   export let data
-  let  { date, title, content, headline, categories } = data
+
+  let  { date, title, content, headline, categories, image } = data
   let options = {
     day: "numeric",
     month: "long",
@@ -19,7 +22,7 @@
   description="{headline}"
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
-  imageURL="$lib/assets/homepage/full_image.png"
+  imageURL="{image ?? full_image}"
   twitter
   openGraph
 />

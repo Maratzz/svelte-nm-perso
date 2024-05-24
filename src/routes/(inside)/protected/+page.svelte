@@ -1,8 +1,9 @@
 <!-- src/routes/+page.svelte -->
 <script>
-	import { Auth } from "@supabase/auth-ui-svelte";
+	import { Auth } from "@supabase/auth-ui-svelte"
+  import full_image from "$lib/assets/homepage/full_image.webp"
 
-	export let data;
+	export let data
 </script>
 
 <svelte:head>

@@ -1,5 +1,6 @@
 <script>
   import HeadSEO from "$lib/components/HeadSEO.svelte"
+  import full_image from "$lib/assets/homepage/full_image.webp"
 </script>
 
 <HeadSEO 

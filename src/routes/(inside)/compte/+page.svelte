@@ -2,6 +2,7 @@
 <script>
 	import { enhance } from "$app/forms"
   import HeadSEO from "$lib/components/HeadSEO.svelte"
+  import full_image from "$lib/assets/homepage/full_image.webp"
 
   export let data;
 	export let form;
@@ -35,7 +36,7 @@
   description="Page de connexion pour du contenu supplémentaire"
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
-  imageURL="$lib/assets/homepage/full_image.png"
+  imageURL="{full_image}"
   index = false
 />
 
