@@ -12,11 +12,12 @@ type: default
 slug: bilan-culturel-2020
 headline: Les résolutions, c’est comme les pandémies, on fait ce qu’on peut avec ce qu’on a, et on veut ce qu’on fait avec qui on peut.
 ---
-**Films**: 47 sur 45, soit 104.44% de l'objectif initial.
-**Jeux vidéo:** 79 sur 36, soit 219.44%
-**Livres**: 6 sur 20, soit 30%
-**BDs**: 75 sur 24, soit 312.50%
-**Albums**: 41 sur 24, soit 170.83%
+
+**Films**: 47 sur 45, soit 104.44% de l'objectif initial.  
+**Jeux vidéo:** 79 sur 36, soit 219.44%  
+**Livres**: 6 sur 20, soit 30%  
+**BDs**: 75 sur 24, soit 312.50%  
+**Albums**: 41 sur 24, soit 170.83%  
 
 Côté _cinéma_, j’ai tout juste fait l’objectif. J’ai repris goût à Mubi, notamment grâce à la mise en place d’un système de visionnage en simultané avec un ami, qui m’a motivé pour découvrir environ la moitié des films sur l’année. Je ne me vois pas en regarder plus que ça par an, ce rythme me convient.
 
@@ -38,10 +39,8 @@ _Don’t Look Now_ (Nicolas Roeg, 1973): non, vaut mieux pas regarder en effet.
 
 _2001 : A Space Odyssey_ (Stanley Kubrick, 1968): alors le visionnage n’a pas eu lieu à 20h01, effectivement, mais l’avantage d’enchaîner deux ans avec des 2, des 0 et des 1 dedans, c’est qu’on pourra recommencer à faire une association de chiffres dès l’année prochaine.
 
-_Mon Oncle_ (Jacques Tati, 1958)
-
-_Manhunter_ (Michael Mann, 1986)
-
+_Mon Oncle_ (Jacques Tati, 1958)  
+_Manhunter_ (Michael Mann, 1986)  
 _Porco Rosso_ (Hayao Miyazaki, 1992)
 
 _My Neighbor Totoro_ (Hayao Miyazaki, 1988): on avait commencé une rétrospective Ghibli avec ma compagne, mais ces deux-là nous ont un peu refroidi. [C’est une chose de se lamenter que beaucoup de gens dans l’industrie de l’animation n’observe pas suffisamment l’humanité](https://soranews24.com/2014/01/30/ghiblis-hayao-miyazaki-says-the-anime-industrys-problem-is-that-its-full-of-anime-fans/), ce qui amène à créer des productions où il y en a soit pas beaucoup, soit trop de caricatures et de projections. C’est vrai; c’en est une autre de verser dans le _wakon yōsai_ détaché et le romantisme naïf, pour finalement se retrouver avec une humanité teintée de rose, où les problèmes se résolvent avec un peu de chance, de la volonté et un chat-bus qui tourne à l’eau cristalline sur une ligne de transport rural qui ne connaît pas la crise, grand bien lui fasse.
@@ -52,14 +51,12 @@ _Scott Pilgrim vs the World_ (Edgar Wright, 2010)
 
 _Murder!_ (Alfred Hithcock, 1930): Le _Douze hommes en colère_ du pauvre, avec un juré qui s’éprend de l’accusée, qui plus est, pour une romance complètement dispensable.
 
-_Aguirre, la colère de Dieu_ (Werner Herzog, 1972)
-
+_Aguirre, la colère de Dieu_ (Werner Herzog, 1972)  
 _Muriel ou le temps d’un retour_ (Alain Resnais, 1963)
 
 _Le Corbeau_ (Henri-Georges Clouzot, 1943): un _whodunnit_ à la française, avec des dialogues savoureux, tour à tour acerbes, narquois, désopilants. Une galerie de personnages aux couleurs aussi hautes que leurs intentions sont basses.
 
-_Mon oncle d’Amérique_ (Alain Resnais, 1980)
-
+_Mon oncle d’Amérique_ (Alain Resnais, 1980)  
 _Bajirao Mastani_ (Sanjay Leela Bhansali, 2015)
 
 _India Song_ (Marguerite Duras, 1975): un peu l’impression de voir un film _fanservice_ de Duras pour les gens qui aiment Duras. Je marche à fond dedans. Si ce n’est pas pour elle, regardez au moins pour le morceau de bossa nova qui se lance tout à coup en fond sonore pendant qu’un type hurle à plein poumons son chagrin d’amour alors qu’il déambule dans un château français où les lustres sont bien haut. Un moment absolument incroyable, du _shitpost_ des années 70, de l’or pour les oreilles. L’exercice sera répété et paufiné dans _Baxter_, qui vient après.
@@ -130,11 +127,9 @@ _Nostalgia de la Luz_ (Patricio Guzman, 2010): Chris Marker a trouvé son préte
 
 ### Jeux vidéo
 
-_Magicka_ (Arrowhead Game Studios, Paradox Interactive, 2011)
-
-_Monaco : What’s Yours is Mine_ (Pocketwatch Games, 2013)
-
-_Castle Crashers_ (The Behemoth, 2008)
+_Magicka_ (Arrowhead Game Studios, Paradox Interactive, 2011)  
+_Monaco : What’s Yours is Mine_ (Pocketwatch Games, 2013)  
+_Castle Crashers_ (The Behemoth, 2008)  
 
 _The Crew_ (Ivory Tower, Ubisoft Reflections, Ubisoft, 2014): Malgré et en dépit de l’écosystème Ubisoft qui se met en travers de toute tentative d’expérimenter le monde proposé dans son ensemble, sans micro-quêtes et autres coupures de jeu pour ludifier à excès ce qui reste essentiellement un road trip contemporain, il s’avère néanmoins que ce monde est _là_, avec ses distances qu’on se sent parcourir sans raccourci — ou presque, le voyage rapide fait partie de ses coupures mentionnées ci-dessus et que je regrette — son envergure, son hétéroclisme géographique, son histoire discrète dans l’urbanisme — ou son absence.
 
@@ -142,31 +137,21 @@ _Night of the Full Moon_ (Giant Network, 2019)
 
 _The Witness_ (Thekla, Inc., 2016): au commencement était le verbe.
 
-_2000:1 A Space Felony_ (National Insecurities, 2017)
-
-_Brownie Cove Cancelled_ (Sand Gardeners, 2018)
-
-_Exhaustlands_ (Sand Gardeners, 2018)
+_2000:1 A Space Felony_ (National Insecurities, 2017)  
+_Brownie Cove Cancelled_ (Sand Gardeners, 2018)  
+_Exhaustlands_ (Sand Gardeners, 2018)  
 
 _Pilgrimage_ (La Dispute, 2019): pire que le jeu-musée, l’animation interactive.
 
-_No Players Online_ (papercookies, 2019)
-
-_Kingdom Hearts_ (Square, 2002)
-
-_Elora’s Raid_ (Eyou games, 2019)
-
-_Space Captain McCallery – Episode1 : Crash Landing_ (Tales of the Renegade Sector, 2018)
-
-_WitchWay_ (Andrew Gleeson, 2017)
-
-_Shu’s Garden_ (Colin Sanders, Jason RT Bond, 2015)
-
-_No Response_ (Yarn Spinner, 2018)
-
-_Milkmaid of the Milky Way_ (Mattis Folkestad, 2018)
-
-_Spyro 2 : Ripto’s Rage_ (Insomniac Games, SCE, 1999)
+_No Players Online_ (papercookies, 2019)  
+_Kingdom Hearts_ (Square, 2002)  
+_Elora’s Raid_ (Eyou games, 2019)  
+_Space Captain McCallery – Episode1 : Crash Landing_ (Tales of the Renegade Sector, 2018)  
+_WitchWay_ (Andrew Gleeson, 2017)  
+_Shu’s Garden_ (Colin Sanders, Jason RT Bond, 2015)  
+_No Response_ (Yarn Spinner, 2018)  
+_Milkmaid of the Milky Way_ (Mattis Folkestad, 2018)  
+_Spyro 2 : Ripto’s Rage_ (Insomniac Games, SCE, 1999)  
 
 _Demon’s Souls_ (FromSoftware, SCE, 2009): ce monde a eu une infinité de fois le temps d’exister, de tomber, et de recommencer, avant qu’on y débarque; après notre passage, il aura une infinité de fois le temps d’effacer les traces de ce voyage, à la fois intradiégétiquement, mécaniquement, narrativement, métatextuellement. Entre-temps, il _est_. Pour toi? Momentanément. Contre toi? Possiblement. En toi? Essentiellement.
 
