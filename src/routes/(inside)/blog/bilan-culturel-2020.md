@@ -1,55 +1,34 @@
 ---
 title: Bilan culturel 2020
 description: ""
-date: 2024-05-27T16:40:02.000Z
+date: 2021-01-02
 preview: ""
-draft: ""
+draft: draft
 tags: []
-categories: []
+categories:
+  - bilan
+  - blog
 type: default
+slug: bilan-culturel-2020
+headline: Les résolutions, c’est comme les pandémies, on fait ce qu’on peut avec ce qu’on a, et on veut ce qu’on fait avec qui on peut.
 ---
-
-Les résolutions, c’est comme les pandémies, on fait ce qu’on peut avec ce qu’on a, et on veut ce qu’on fait avec qui on peut.
-
-Comme chaque année, voici un bilan de ce que j'ai pu lire, voir, jouer et écouter pour l'année qui vient de se terminer.
-
-**Tout d'abord quelques chiffres.**
-
-Le bilan est le suivant
-
 **Films**: 47 sur 45, soit 104.44% de l'objectif initial.
-
 **Jeux vidéo:** 79 sur 36, soit 219.44%
-
 **Livres**: 6 sur 20, soit 30%
-
 **BDs**: 75 sur 24, soit 312.50%
-
 **Albums**: 41 sur 24, soit 170.83%
-
-Bilan et résolutions 2020
--------------------------
 
 Côté _cinéma_, j’ai tout juste fait l’objectif. J’ai repris goût à Mubi, notamment grâce à la mise en place d’un système de visionnage en simultané avec un ami, qui m’a motivé pour découvrir environ la moitié des films sur l’année. Je ne me vois pas en regarder plus que ça par an, ce rythme me convient.
 
-**Objectif 2021:** Je reste sur le même nombre, à savoir 45 films.
-
 Côté _jeux vidéo_, ça va toujours. Beaucoup de titres que j’ai fait cette année sortaient de mes backlogs sur les différentes plateformes, et c’est plutôt chouette. Certes, je crois qu’ils se sont plus remplis que vidés dans l’absolu, mais le mouvement y est. Il faut la cadence maintenant. J'ai également fait des périodes avec des thèmes précis, par exemple un bloc horreur/tension autour d'Halloween, un petit bloc FPS à un autre moment de l'année, etc. Bien souvent ces blocs sont streamés [sur ma chaîne twitch](https://www.twitch.tv/maratz_), ça permet aussi de partager quelques bons ou mauvais moments vidéoludiques. C'est un comportement que je continuerai de faire cette année.
-
-**Objectif 2021:** Je vais monter un petit peu et passer à 45 jeux aussi, tiens.
 
 Côté _livres_, l’inspiration n’était pas au rendez-vous, même si c’est tout de même deux livres de plus que l’année dernière. Après un début d’année très durassien, tant littéraire que cinématographique, Marie Ndiaye m’a achevé, et j’ai bien failli ne pas en relever pour le semestre restant. J’ai préféré prendre des BDs, ça se lit plus vite, il y a des jolies images et moins de subjonctif et de virgules, vous comprenez.
 
-**Objectif 2021:** A ce stade, c’est pour la blague filée, mais je mets 21 livres pour 2021, sur un malentendu ça peut passer.
-
 Côté _albums de musique_, aucun souci. Des bonnes découvertes, moins d’albums oubliés aussitôt écoutés. Quelques ratés aussi. Si vous me trouviez péniblen en jeux vidéo, sachez qu’en musique c’est pire.
-
-**Objectif 2021:** Je reste sur la même base, 24 albums.
 
 Côté _bandes dessinées_, on sent que le confinement et la bibliothèque ont fait bon ménage. J’ai fini quelques séries d’une traite ou presque, d’autres sont en cours. J’aimerais bien emprunter et lire de la bande dessinée occidentale aussi, ça fait longtemps que je n’en ai pas ouvert, et les Tintin commencent à remonter loin dans les années collège.
 
-Commentaires sur les oeuvres et recommandations
------------------------------------------------
+## Commentaires sur les oeuvres et recommandations
 
 Comme d'habitude, je liste toutes les oeuvres (re)découvertes, en laissant parfois un commentaire sur certaines d'entre elles. Si vous souhaitez avoir plus de détails sur une oeuvre non-commentée, envoyez-moi un message via les [canaux habituels](https://nicolasmoisson.fr/contact "https://nicolasmoisson.fr/contact") et je mettrai à jour ce billet de blog en rajoutant un paragraphe sur l'oeuvre choisie. À nouveau, en vert je les recommande, en rouge non.
 
@@ -149,10 +128,7 @@ _Baxter, Véra Baxter_ (Marguerite Duras, 1977): le _shitpost_ est parfait de bo
 
 _Nostalgia de la Luz_ (Patricio Guzman, 2010): Chris Marker a trouvé son prétendant, attention la bataille sera terrible. A coups de métaphores tirées par les cheveux et de parallèles au mieux naïfs, au pire inappropriés et indécents, les deux vont essayer de relier Pac-Man au calcium des étoiles à neutrons en passant par l’Egypte et les pyramides. Savent-ils au moins placer le pays sur la carte sans passer par la case “de tout temps” ? _Come on_.
 
-![Annihilation](https://nerdist.com/wp-content/uploads/2018/02/bodies.png)
-
-Jeux vidéo
-----------
+### Jeux vidéo
 
 _Magicka_ (Arrowhead Game Studios, Paradox Interactive, 2011)
 
@@ -314,10 +290,7 @@ _The Search_ (Jason Godbey, 2017): très embarrassant.
 
 _Fragments of Euclid_ (NuSan, 2017)
 
- ![bernband](https://e.snmc.io/lk/lv/x/7e22084d7a38784486f5cf5fc50f1346/5274661)
-
-Livres
-------
+### Livres
 
 _Un barrage contre le Pacifique_ (Marguerite Duras, 1950)
 
@@ -331,8 +304,7 @@ _Trois femmes puissantes_ (Marie Ndiaye, 2009): ce livre m’a laissé coi. Je n
 
 _Le degré zéro de l’écriture_ (Roland Barthes, 1953): lu en préparation de quelques textes à venir, notamment celui sur _NaissancE_, _Witness_, et les _Souls_. Et aussi parce que c’est un des rares que je n’avais pas encore lu de Roland.
 
-Bandes dessinées
-----------------
+### Bandes dessinées
 
 _A Silent Voice_, série complète (Yoshitoki Ooima, 2014): à quel niveau de projection, de pensée magique et de déconnexion avec la réalité il faut être pour croire qu’il suffit de faire le chevalier blanc pour la personne dont on a ruiné l’enfance et la scolarité — via un harcèlement systématique basé sur un handicap — pour, non seulement avoir droit à un arc de rédemption, mais qu’en plus la personne en question carbure au syndrome de Stockholm, te pardonne et tombe amoureuse de son ancien bourreau ?!?!?! Quelle mauvaise plaisanterie. C’est du niveau de _Ano Hana_, par certains côtés. Urgh.
 
@@ -448,5 +420,3 @@ _Pablo Honey_ (Radiohead, 1993)
 _The Bends_ (Radiohead, 1995)
 
 _OK Computer_ (Radiohead, 1997)
-
-Photo de couverture par [Emiliano Arano](https://www.pexels.com/@earano?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels) de [Pexels](https://www.pexels.com/photo/ocean-water-wave-photo-1295138/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)

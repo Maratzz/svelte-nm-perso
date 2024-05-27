@@ -71,6 +71,10 @@
       "title": "textes",
       "path": "[[workspace]]/src/routes/(inside)/textes",
       "previewPath": "/textes/"
+    },
+    {
+      "title": "blog",
+      "path": "[[workspace]]/src/routes/(inside)/blog"
     }
   ],
   "frontMatter.git.enabled": true,
