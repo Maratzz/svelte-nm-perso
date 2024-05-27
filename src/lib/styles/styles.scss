@@ -48,6 +48,18 @@ main > div {
   }
 }
 
+.reco {
+  background-color: #94ff84;
+}
+
+.unreco {
+  background-color: #ff898a;
+}
+
+.reco, .unreco {
+  padding-right: 10px;
+}
+
 @media (min-width: 900px) {
   main > div {
     width: 45vw;

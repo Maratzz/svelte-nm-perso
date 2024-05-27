@@ -1,23 +1,21 @@
 ---
 title: Bilan culturel 2020
-description: ""
 date: 2021-01-02
-preview: ""
-draft: draft
-tags: []
+draft: published
 categories:
   - bilan
   - blog
 type: default
 slug: bilan-culturel-2020
 headline: Les résolutions, c’est comme les pandémies, on fait ce qu’on peut avec ce qu’on a, et on veut ce qu’on fait avec qui on peut.
+image: /src/lib/assets/blog/mu-cartographer.jpg
 ---
 
-**Films**: 47 sur 45, soit 104.44% de l'objectif initial.  
-**Jeux vidéo:** 79 sur 36, soit 219.44%  
-**Livres**: 6 sur 20, soit 30%  
-**BDs**: 75 sur 24, soit 312.50%  
-**Albums**: 41 sur 24, soit 170.83%  
+**Films**: <span class="reco">47 sur 45</span>, soit 104.44% de l'objectif initial.  
+**Jeux vidéo:** <span class="reco">79 sur 36</span>, soit 219.44%  
+**Livres**: <span class="unreco">6 sur 20</span>, soit 30%  
+**BDs**: <span class="reco">75 sur 24</span>, soit 312.50%  
+**Albums**: <span class="reco">41 sur 24</span>, soit 170.83%  
 
 Côté _cinéma_, j’ai tout juste fait l’objectif. J’ai repris goût à Mubi, notamment grâce à la mise en place d’un système de visionnage en simultané avec un ami, qui m’a motivé pour découvrir environ la moitié des films sur l’année. Je ne me vois pas en regarder plus que ça par an, ce rythme me convient.
 
@@ -33,11 +31,13 @@ Côté _bandes dessinées_, on sent que le confinement et la bibliothèque ont f
 
 Comme d'habitude, je liste toutes les oeuvres (re)découvertes, en laissant parfois un commentaire sur certaines d'entre elles. Si vous souhaitez avoir plus de détails sur une oeuvre non-commentée, envoyez-moi un message via les [canaux habituels](https://nicolasmoisson.fr/contact "https://nicolasmoisson.fr/contact") et je mettrai à jour ce billet de blog en rajoutant un paragraphe sur l'oeuvre choisie. À nouveau, en vert je les recommande, en rouge non.
 
+**Films**
+
 _L’année dernière à Marienbad_ (Alain Resnais, 1961): Une économie des mots pour un faste de classe, l’ennui du jeu de cartes, le jeu amoureux de l’ennui, l’amour joueur écartelé.
 
 _Don’t Look Now_ (Nicolas Roeg, 1973): non, vaut mieux pas regarder en effet.
 
-_2001 : A Space Odyssey_ (Stanley Kubrick, 1968): alors le visionnage n’a pas eu lieu à 20h01, effectivement, mais l’avantage d’enchaîner deux ans avec des 2, des 0 et des 1 dedans, c’est qu’on pourra recommencer à faire une association de chiffres dès l’année prochaine.
+_<span class="reco">2001 : A Space Odyssey_ (Stanley Kubrick, 1968): alors le visionnage n’a pas eu lieu à 20h01, effectivement, mais l’avantage d’enchaîner deux ans avec des 2, des 0 et des 1 dedans, c’est qu’on pourra recommencer à faire une association de chiffres dès l’année prochaine.
 
 _Mon Oncle_ (Jacques Tati, 1958)  
 _Manhunter_ (Michael Mann, 1986)  
@@ -47,7 +47,7 @@ _My Neighbor Totoro_ (Hayao Miyazaki, 1988): on avait commencé une rétrospecti
 
 _The Trial_ (Orson Welles, 1962): une interprétation du livre de Kafka qui met l’accent sur la désorientation et le vertige presque physique qui peut saisir les individus face au collectif, l’être nommé contre la chose innommable, innombrable, mais pourtant humaine, trop humaine. Comment expliquer alors cette fin, je ne comprends pas. Ça fait sacrément tâche.
 
-_Scott Pilgrim vs the World_ (Edgar Wright, 2010)
+_<span class="reco">Scott Pilgrim vs the World_ (Edgar Wright, 2010)
 
 _Murder!_ (Alfred Hithcock, 1930): Le _Douze hommes en colère_ du pauvre, avec un juré qui s’éprend de l’accusée, qui plus est, pour une romance complètement dispensable.
 
@@ -73,17 +73,17 @@ _Les lieux de Marguerite Duras_ (Michelle Porte, 1976): 2020 a été une année 
 
 _Big Fish & Begonia_ (Liang Xuan, Zhang Chun, 2016): il y a du travail là-dedans, mais ça manque de liant. La narration effilochée et le manque de profondeur dans les personnages peinent à élever des tableaux au demeurant enchanteurs.
 
-_Fullmetal Alchemist_ (Fumihiko Sori, 2017): j’ai mal à mon adolescence. Ça aurait eu sa place en _direct-to-dvd_ sur un stand de la Japan Expo avec l’équipe des cosplayers à côté pour signer des autographes d’une main tout en tenant la perruque blonde de l’autre.
+_<span class="unreco">Fullmetal Alchemist</span>_ (Fumihiko Sori, 2017): j’ai mal à mon adolescence. Ça aurait eu sa place en _direct-to-dvd_ sur un stand de la Japan Expo avec l’équipe des cosplayers à côté pour signer des autographes d’une main tout en tenant la perruque blonde de l’autre.
 
-_Annihilation_ (Alex Garland, 2018): on peut dire beaucoup de choses sur le film, mais ce que j’en retiens le plus c’est la désintégration et la mutation pogressive de la musique, qui, comme le reste de l’oeuvre, finit par devenir autre chose, quelque chose qui n’est plus de la musique, et en même temps c’est _toujours_ de la musique, à un niveau plus fondamental, en mutation, incohérente, atonale, ou complètement tonale, avec toutes les harmonies jouées d’un coup et comprimant le temps et l’espace dans la partition. Une fusion et une défusion, des notes et des non-notes, un jeu de miroir qui reflète les sons, les personnages, les lieux, l’alien qui imite Nathalie Portman dans le climax.
+_<span class="reco">Annihilation</span>_ (Alex Garland, 2018): on peut dire beaucoup de choses sur le film, mais ce que j’en retiens le plus c’est la désintégration et la mutation pogressive de la musique, qui, comme le reste de l’oeuvre, finit par devenir autre chose, quelque chose qui n’est plus de la musique, et en même temps c’est _toujours_ de la musique, à un niveau plus fondamental, en mutation, incohérente, atonale, ou complètement tonale, avec toutes les harmonies jouées d’un coup et comprimant le temps et l’espace dans la partition. Une fusion et une défusion, des notes et des non-notes, un jeu de miroir qui reflète les sons, les personnages, les lieux, l’alien qui imite Nathalie Portman dans le climax.
 
 _La Famille indienne_ (Karan Johar, 2001): une bonne source de stickers, et une [YTP savoureuse](https://www.youtube.com/watch?v=02aYkckB5Fw).
 
 ![The Trial](https://assets.mubicdn.net/images/notebook/post_images/25813/images-w1400.png?1525262518)
 
-_Margin Call_ (J.C Chandor, 2011)
+_<span class="reco">Margin Call</span>_ (J.C Chandor, 2011)
 
-_The Big Short_ (Adam McKay, 2015): deux films sur la finance, le temps de deux soirées avec ma compagne. C’est intéressant de les mettre en parallèle pour voir les aspérités qui se dessinent au creux des courbes et des bulles de spéculation. Quand l’un cherche à étouffer la catastrophe par obfuscation et anonymisation de la faute devenu artificielle, à l’instar des ordinateurs qui contrôlent le marché à la nanoseconde près, l’autre décide de retrouver l’humain derrière et les dialogues simples, évidents, qui cimentent les failles inhérentes aux schémas vendus sur le pas de la porte des maisons déjà hypothéquées. Quand l’un se passe en huis clos, ambiance costard cravatte et néon bleu à quatre heures du matin, l’autre s’expose au grand jour et aux agences en espace ouvert, et ses personnages avec. Et au milieu de tout ça, la parole mensongière, l’hyperréalité de l’économie, [la gouvernance par les nombres.](https://www.college-de-france.fr/site/alain-supiot/La-gouvernance-par-les-nombres-film.htm)
+_<span class="reco">The Big Short</span>_ (Adam McKay, 2015): deux films sur la finance, le temps de deux soirées avec ma compagne. C’est intéressant de les mettre en parallèle pour voir les aspérités qui se dessinent au creux des courbes et des bulles de spéculation. Quand l’un cherche à étouffer la catastrophe par obfuscation et anonymisation de la faute devenu artificielle, à l’instar des ordinateurs qui contrôlent le marché à la nanoseconde près, l’autre décide de retrouver l’humain derrière et les dialogues simples, évidents, qui cimentent les failles inhérentes aux schémas vendus sur le pas de la porte des maisons déjà hypothéquées. Quand l’un se passe en huis clos, ambiance costard cravatte et néon bleu à quatre heures du matin, l’autre s’expose au grand jour et aux agences en espace ouvert, et ses personnages avec. Et au milieu de tout ça, la parole mensongière, l’hyperréalité de l’économie, [la gouvernance par les nombres.](https://www.college-de-france.fr/site/alain-supiot/La-gouvernance-par-les-nombres-film.htm)
 
 _Oncle Boonmee, celui qui se souvient de ses vies antérieures_ (Apichatpong Weerasethakul, 2010)
 
@@ -97,7 +97,7 @@ _Kind Hearts and Coronets_ (Robert Hamer, 1949): pas aussi acide que je l’aura
 
 _Still Walking_ (Hirokazu Kore-eda, 2008): quel intérêt de voir à l’écran une famille dysfonctionnelle quand on a eu la chance de l’avoir expérimentée 20 ans, hmm? Je vous le demande.
 
-_La Forteresse_ (Fernand Melgar, 2008): il y a des moments absolument incroyables, au sens premier. Lorsque le directeur du centre d’accueil des demandeurs et demandeuses d’asile annule un rendez-vous qu’on devine important, pour se joindre à une prière collective qui transpire d’effervescence et de transcendance — une prière qui lui est detinée qui plus est, parce que les gens dans le centre l’estiment et le respectent pour ce qu’il essaie de faire pour eux, contre le système en place, au point de vouloir le bénir et l’intégrer dans leur rites, dans leur religion, pour tout lier à nouveau ensemble — et que la caméra capture son regard au milieu du groupe en furie, à nouveau au sens premier, c’est impossible de déceler ce qu’il croit à ce moment-là. La croyance est superflue, seules restent les actions, celle du quotidien, pour se battre, encore et encore, avec ou sans Dieu, et surtout sans.
+_<span class="reco">La Forteresse</span>_ (Fernand Melgar, 2008): il y a des moments absolument incroyables, au sens premier. Lorsque le directeur du centre d’accueil des demandeurs et demandeuses d’asile annule un rendez-vous qu’on devine important, pour se joindre à une prière collective qui transpire d’effervescence et de transcendance — une prière qui lui est detinée qui plus est, parce que les gens dans le centre l’estiment et le respectent pour ce qu’il essaie de faire pour eux, contre le système en place, au point de vouloir le bénir et l’intégrer dans leur rites, dans leur religion, pour tout lier à nouveau ensemble — et que la caméra capture son regard au milieu du groupe en furie, à nouveau au sens premier, c’est impossible de déceler ce qu’il croit à ce moment-là. La croyance est superflue, seules restent les actions, celle du quotidien, pour se battre, encore et encore, avec ou sans Dieu, et surtout sans.
 
 _Lethal Weapon 2_ (Richard Donner, 1989): des films comme ça on n’en fait plus. Ah c’est sûr, par les temps qui courent, l’apologie de la force policière, ça passe forcément moins bien...
 
@@ -105,7 +105,7 @@ _Vol Spécial_ (Fernand Melgar, 2011): relire Hannah Arendt, en particulier _Eic
 
 _L’abri_ (Fernand Melgar, 2014): à noter que les trois films de Fernand Melgar, et tous ses autres, sont disponibles intégralement [sur sa chaîne Youtube,](https://www.youtube.com/c/FernandMelgarFilms/videos) le réalisateur étant un grand défenseur du [mouvement copyleft](https://fr.wikipedia.org/wiki/Copyleft).
 
-_Sans Soleil_ (Chris Marker, 1983): si j’avais su que j’aurais pu faire carrière dans le cinéma documentaire en gardant mes copies de commentaire composée du lycée...!
+_<span class="unreco">Sans Soleil</span>_ (Chris Marker, 1983): si j’avais su que j’aurais pu faire carrière dans le cinéma documentaire en gardant mes copies de commentaire composée du lycée...!
 
 _The Tree House_ (Minh Quy Trupong, 2019): ça ne passe toujours pas. J’y arriverai un jour. Un jour.
 
@@ -113,10 +113,9 @@ _Uzak_ \[Lointain\] (Nuri Bilge Ceylan, 2002)
 
 _Üç maymun_ \[Les Trois Singes\] (Nuri Bilge Ceylan, 2008): du très bon théâtre.
 
-_Katalin Varga_ (Peter Strickland, 2009): une figure puissante, radicale, deleuzienne, passionnée et passionnante, réduite à néant par une fin conservatrice au possible. Si je trouve l’occasion, j’essaierai d’écrire dessus.
+_<span class="reco">Katalin Varga</span>_ (Peter Strickland, 2009): une figure puissante, radicale, deleuzienne, passionnée et passionnante, réduite à néant par une fin conservatrice au possible. Si je trouve l’occasion, j’essaierai d’écrire dessus.
 
-_Nimic_ (Yorgos Lanthimos, 2019)
-
+_Nimic_ (Yorgos Lanthimos, 2019)  
 _Black Coal, Thin Ice_ (Diao Yi’nan, 2014)
 
 _Hypernormalisation_ (Adam Curtis, 2016): c’est un collage qui raconte plus que la somme des bouts singuliers qui le composent — et malheur à qui le prendrait dans l’autre sens; c’est un labyrinthe postmoderne, l’antichambre d’une recherche sans boussole, l’impulsion pour se propulser vers la lisière de sa bulle de confort; c’est une oeuvre taillée pour l’ère du numérique, profitant des possibilités de pouvoir revenir en arrière, accélérer, passer des morceaux, garder ce qu’on aime et jeter ce qu’on aime pas d’un revers de la main, sans autre considération. C’est un pouvoir vertigineux, et c’est un piège d'orgueil.
@@ -135,9 +134,9 @@ _The Crew_ (Ivory Tower, Ubisoft Reflections, Ubisoft, 2014): Malgré et en dép
 
 _Night of the Full Moon_ (Giant Network, 2019)
 
-_The Witness_ (Thekla, Inc., 2016): au commencement était le verbe.
+_<span class="reco">The Witness</span>_ (Thekla, Inc., 2016): au commencement était le verbe.
 
-_2000:1 A Space Felony_ (National Insecurities, 2017)  
+_<span class="reco">2000:1 A Space Felony</span>_ (National Insecurities, 2017)  
 _Brownie Cove Cancelled_ (Sand Gardeners, 2018)  
 _Exhaustlands_ (Sand Gardeners, 2018)  
 
@@ -153,23 +152,23 @@ _No Response_ (Yarn Spinner, 2018)
 _Milkmaid of the Milky Way_ (Mattis Folkestad, 2018)  
 _Spyro 2 : Ripto’s Rage_ (Insomniac Games, SCE, 1999)  
 
-_Demon’s Souls_ (FromSoftware, SCE, 2009): ce monde a eu une infinité de fois le temps d’exister, de tomber, et de recommencer, avant qu’on y débarque; après notre passage, il aura une infinité de fois le temps d’effacer les traces de ce voyage, à la fois intradiégétiquement, mécaniquement, narrativement, métatextuellement. Entre-temps, il _est_. Pour toi? Momentanément. Contre toi? Possiblement. En toi? Essentiellement.
+_<span class="reco">Demon’s Souls</span>_ (FromSoftware, SCE, 2009): ce monde a eu une infinité de fois le temps d’exister, de tomber, et de recommencer, avant qu’on y débarque; après notre passage, il aura une infinité de fois le temps d’effacer les traces de ce voyage, à la fois intradiégétiquement, mécaniquement, narrativement, métatextuellement. Entre-temps, il _est_. Pour toi? Momentanément. Contre toi? Possiblement. En toi? Essentiellement.
 
-_Hob_ (Runic Games, 2017): la forme la plus excitante d’exploration environnementale qu’il m’ait été donné de faire cette année. Le monde comme terrain de jeu, mécanique, organique, avec des imbrications sur différentes échelles de perception, intégrées à même le relief.
+_<span class="reco">Hob</span>_ (Runic Games, 2017): la forme la plus excitante d’exploration environnementale qu’il m’ait été donné de faire cette année. Le monde comme terrain de jeu, mécanique, organique, avec des imbrications sur différentes échelles de perception, intégrées à même le relief.
 
-_A Short Hike_ (Adam Robinson-Yu, 2019): la forme la plus candide d’exploration environnementale qu’il m’ait été donné de faire cette année.
+_<span class="reco">A Short Hike</span>_ (Adam Robinson-Yu, 2019): la forme la plus candide d’exploration environnementale qu’il m’ait été donné de faire cette année.
 
 _Hyper Light Drifter_ (Heart Machine, 2016): l’indifférence du temps passé et de l’univers d’_HLD_ souffre de la comparaison avec ses inspirations directes (les _Souls_ et _Zelda_ 1, principalement).
 
-_GNOG_ (KO\_OP, Double Fine Presents, 2018): le jouet-jeu, le plaisir simple de manipuler du volume numérique. Le cube en bois de 20XX.
+_<span class="reco">GNOG</span>_ (KO\_OP, Double Fine Presents, 2018): le jouet-jeu, le plaisir simple de manipuler du volume numérique. Le cube en bois de 20XX.
 
 _Stories Untold_ (No Code, Devolver Digital, 2017): l'équivalent des histoires racontées au coin du feu avec des effets spéciaux bricolées maison, pour renforcer l'ambiance. Je regrette l'entêtement à essayer de rattacher ça à une narration qui fait sens, avec une histoire d'accidents, de regrets, etc. Les sentiments évoqués suffisaient, l'univers se moque de la cohérence.
 
-_Mutazione_ (Die Gute Fabrik, Akupara Games, 2019): sans même parler de la pénibilité mécanique dans l’oeuvre, où marcher d’un bout à l’autre de la carte vient se mettre en travers du dialogue qui est le seul élément de valeur, c’est trop verbeux pour son propre bien, trop attaché à la potentialité dramatique et en même temps pas suffisamment pour en faire quoi que ce soit de radical. C’est un jeu inoffensif, qui explore timidement des thèmes sans jamais aller jusqu’au bout, et qui revient vers la sécurité des bons sentiments. La fin qui semble promouvoir la recherche de l’équilibre et une forme de retour à la nature est l’ultime affront. Laissez la nature, peu importe ce que ça peut bien vouloir dire, en dehors du drame inhérent aux relations humaines. _Embrassez le théâtre_, ne le masquez pas derrière la prétension d’une naturalité équilibrée, dans un univers fondamentalement entropique. Quelle mauvaise blague.
+_<span class="unreco">Mutazione</span>_ (Die Gute Fabrik, Akupara Games, 2019): sans même parler de la pénibilité mécanique dans l’oeuvre, où marcher d’un bout à l’autre de la carte vient se mettre en travers du dialogue qui est le seul élément de valeur, c’est trop verbeux pour son propre bien, trop attaché à la potentialité dramatique et en même temps pas suffisamment pour en faire quoi que ce soit de radical. C’est un jeu inoffensif, qui explore timidement des thèmes sans jamais aller jusqu’au bout, et qui revient vers la sécurité des bons sentiments. La fin qui semble promouvoir la recherche de l’équilibre et une forme de retour à la nature est l’ultime affront. Laissez la nature, peu importe ce que ça peut bien vouloir dire, en dehors du drame inhérent aux relations humaines. _Embrassez le théâtre_, ne le masquez pas derrière la prétension d’une naturalité équilibrée, dans un univers fondamentalement entropique. Quelle mauvaise blague.
 
-_Battlefield 3_ (DICE, EA, 2011): début du bloc FPS, on commence fort.
+_<span class="unreco">Battlefield 3</span>_ (DICE, EA, 2011): début du bloc FPS, on commence fort.
 
-_SUPERHOT_ (Superhot Team, 2016): le méta a encore frappé.
+_<span class="unreco">SUPERHOT</span>_ (Superhot Team, 2016): le méta a encore frappé.
 
 _Metro 2033_ (4A Games, THQ, 2010): un univers tangible, avec une société dépeinte comme débrouillarde, bricoleuse, _survivante_. Le souci du détail dans sa représentation renforce l’immersion. Cela passe par la tension constante entre la sécurité relative des avant-postes dans les égouts et le froid mordant de l’extérieur, où chaque excursion est chronométrée non pas via une interface de jeu vidéo, mais par un outil intradiégétique — une boussole, un masque à gaz qui se fissure, une jauge de pression sur la lampe à gaz propane.
 
@@ -187,11 +186,11 @@ _Downfall_ (Harvester Games, Screen 7, 2009): il y aurait matière à écrire su
 
 _Edge_ (Mobigame, 2008)
 
-_Mu Cartographer_ (Titouan Millet, 2016): la carte et le territoire, voir [les billets de Yudkowsy à ce sujet](https://www.lesswrong.com/tag/map-and-territory).
+_<span class="reco">Mu Cartographer</span>_ (Titouan Millet, 2016): la carte et le territoire, voir [les billets de Yudkowsy à ce sujet](https://www.lesswrong.com/tag/map-and-territory).
 
-![Mu Cartographer](https://www.gamesidestory.com/wp-content/uploads/2016/09/mu-cartographer-1-20.png-Visionneuse-de-photos-Windows.jpg)
+![Capture d'écran de Mu Cartographer](/src/lib/assets/blog/mu-cartographer.jpg)
 
-_RiME_ (Tequila Works, Grey Box, Six Foot, 2017): le jour où on arrêtera de véhiculer la théorie — malcomprise qui plus est — d’Elizabeth Kübler-Ross, on aura fait un grand pas.
+_<span class="unreco">RiME</span>_ (Tequila Works, Grey Box, Six Foot, 2017): le jour où on arrêtera de véhiculer la théorie — malcomprise qui plus est — d’Elizabeth Kübler-Ross, on aura fait un grand pas.
 
 _Abzû_ (Giant Squid Studios, 505 Games, 2016): le jeu-musée mort, inerte, conservé, ici le musée océanographique de Monaco.
 
@@ -201,25 +200,23 @@ _Artus contre le démon du musée_ (Gyoza Média, Hachette Multimédia, 2000)
 
 _Never Alone \[Kisima Inŋitchuŋa\]_ (Upper One Games, E-Line Media, 2014): si vous voulez faire parler une culture et une ethnie, alors _laissez-les parler_. Ne la saupoudrez pas par-dessus un médiocre jeu de plateformes Unity façon ingrédients exotiques et folklore pour occidentaux en manque d'anecdotes pour briller en soirée sur leur ouverture cosmopolite.
 
-_Tales of Crestoria_ (Bandai Namco, 2020): la série _Tales_ à la sauce _gacha_, ça ne prend pas. L’impression de voir une série s’auto-cannibaliser à force de faire des _cross-overs_ avec elle-même.
+_<span class="unreco">Tales of Crestoria</span>_ (Bandai Namco, 2020): la série _Tales_ à la sauce _gacha_, ça ne prend pas. L’impression de voir une série s’auto-cannibaliser à force de faire des _cross-overs_ avec elle-même.
 
 _Hollow Knight_ (Team Cherry, 2017): j’en ai déjà beaucoup trop parlé à l’oral. En résumé, c’est trop sophistiqué pour moi. Tout se veut beau, tout est naïf, tout est violon et piano, tout se veut poétique, élégant, tout est léché, rien n’est brut, tout est inspiré, rien n’est aspirant à faire quoi que ce soit de neuf. C’est aussi personnel et authentique que peut l’être une copie de copies de suites de genres de jeux, autant dire nullement.
 
 _Guacamelee !_ (DrinkBox Studios, 2013): tout seul, je l’aurais abandonné au bout de deux heures.
 
-_Symphonia_ (ISART Digital, 2020)
-
-_Aaaarrrrgggghhhh_ (GOPPA, 2020)
-
+_Symphonia_ (ISART Digital, 2020)  
+_Aaaarrrrgggghhhh_ (GOPPA, 2020)  
 _That Feeling Blue_ (colorfiction, 2020)
 
 _The Year After_ (Hadrian Lin, 2020): essaie encore, peut-être qu’un jour Critical Distance remarquera ton oeuvre _about_.
 
-_A Mortician’s Tale_ (Laundry Bear Games, 2017): le jeu me parle comme à un enfant qu’il faudrait éduquer, non pire, _réveiller_.
+_<span class="unreco">A Mortician’s Tale</span>_ (Laundry Bear Games, 2017): le jeu me parle comme à un enfant qu’il faudrait éduquer, non pire, _réveiller_.
 
 _Genshin Impact_ (miHoYo, 2020)
 
-_AER Memories of Old_ (Forgotten Key, Daedalic Entertainment, 2017): complètement oubliable, un énième _platformer_ environnemental 3D poétique sous Unity
+_AER Memories of Old_ (Forgotten Key, Daedalic Entertainment, 2017): complètement oubliable, un énième _platformer_ environnemental 3D poétique sous Unity.
 
 _Pikuniku_ (Sectordub, Devolver Digital, 2019): des bons passages amusants.
 
@@ -227,11 +224,11 @@ _Dream Daddy : A Dad Dating Simulator_ (Game Grumps, 2017): l’écriture est tr
 
 _Heroes of Sokoban_ (Jonah Ostroff, 2013)
 
-_0\_abyssalSomewhere_ (nonoise, 2018): du grand potentiel d’univers mort-né, dans la lignée de _Demon’s Souls_ et _Shadow of the Colossus_.
+_<span class="reco">0\_abyssalSomewhere</span>_ (nonoise, 2018): du grand potentiel d’univers mort-né, dans la lignée de _Demon’s Souls_ et _Shadow of the Colossus_.
 
 _Stone House Orphanage_ (pixelb, 2020)
 
-_Layers of Fear 2_ (Bloober Team, Gun Media, 2019): c’est comme le premier, mais en pire. Je ne pensais pas cela possible, mais si si: non content de reprendre la formule de tour guidée dans une exposition de l’horreur millimétrée et calibrée qui était déjà dans le premier opus, celui-là rajoute par-dessus des séquences de poursuite sans liberté, sans tension de l’échec. Où est l’intérêt ?
+_<span class="unreco">Layers of Fear 2</span>_ (Bloober Team, Gun Media, 2019): c’est comme le premier, mais en pire. Je ne pensais pas cela possible, mais si si: non content de reprendre la formule de tour guidée dans une exposition de l’horreur millimétrée et calibrée qui était déjà dans le premier opus, celui-là rajoute par-dessus des séquences de poursuite sans liberté, sans tension de l’échec. Où est l’intérêt ?
 
 _The House in the Woods_ (Minigoliath, 2020)
 
@@ -245,7 +242,7 @@ _They Came First_ (Jordan Taylor, Jack Connor, 2020)
 
 _\>Observer_ (Blooper Team, Aspyr, 2017): il y a des choses à dire sur ce jeu. C’est, rétrospectivement, le moins mauvais du studio.
 
-_Amnesia : A Machine for Pigs_ (The Chinese Room, Frictional Games, 2013): un ennui profond. Je n’appréciais déjà pas beaucoup _Amnesia_ premier du nom, mais celui-là semble avoir encore moins compris ce qui a pu marcher pour d’autre personnes dans son prédécesseur, un comble.
+_<span class="unreco">Amnesia : A Machine for Pigs</span>_ (The Chinese Room, Frictional Games, 2013): un ennui profond. Je n’appréciais déjà pas beaucoup _Amnesia_ premier du nom, mais celui-là semble avoir encore moins compris ce qui a pu marcher pour d’autre personnes dans son prédécesseur, un comble.
 
 _Soul Void_ (Kadabura, 2019): un pixel art raffiné.
 
@@ -253,7 +250,7 @@ _Vertigo Temple_ (psy\_wombats, 2020)
 
 _Ridgewood Road_ (Milkbar Lads, 2020)
 
-_SOMA_ (Frictional Games, 2015)
+_<span class="reco">SOMA</span>_ (Frictional Games, 2015)
 
 _Blair Witch_ (Bloober Team, Lionsgate Games, 2019); un jeu malhonnête, paresseux, et voleur de concepts et d’univers qu’il ne comprend pas.
 
@@ -271,27 +268,25 @@ _bernband_ (Tom van den Boogaart, 2014): _bernband_ est en opposition directe av
 
 _hernhand_ (Jake Clover, 2015): _hernhand_ est en ligne directe avec _bernband_. Ça suit toujours ? Bien.
 
-_The Search_ (Jason Godbey, 2017): très embarrassant.
+_<span class="unreco">The Search</span>_ (Jason Godbey, 2017): très embarrassant.
 
 _Fragments of Euclid_ (NuSan, 2017)
 
 ### Livres
 
-_Un barrage contre le Pacifique_ (Marguerite Duras, 1950)
-
-_Le marin de Gibraltar_ (Marguerite Duras, 1952)
-
+_Un barrage contre le Pacifique_ (Marguerite Duras, 1950)  
+_Le marin de Gibraltar_ (Marguerite Duras, 1952)  
 _Le dieu du carnage_ (Yasmina Reza, 2008)
 
 _La Nausée_ (Jean-Paul Sartre, 1983): la pièce manquante du puzzle, l’alpha et l’oméga de la pensée sartrienne.
 
-_Trois femmes puissantes_ (Marie Ndiaye, 2009): ce livre m’a laissé coi. Je n’ai pas pu le finir, l’écriture m’a mis par terre par sa lourdeur, sa sophistication inexpliquée, qui tend vers l’exercice de style intéressé à raffler des prix. Ce n’est pas un hasard si on lui a décerné le prix Goncourt cette année. Plus jamais ça.
+_<span class="unreco">Trois femmes puissantes</span>_ (Marie Ndiaye, 2009): ce livre m’a laissé coi. Je n’ai pas pu le finir, l’écriture m’a mis par terre par sa lourdeur, sa sophistication inexpliquée, qui tend vers l’exercice de style intéressé à raffler des prix. Ce n’est pas un hasard si on lui a décerné le prix Goncourt cette année. Plus jamais ça.
 
-_Le degré zéro de l’écriture_ (Roland Barthes, 1953): lu en préparation de quelques textes à venir, notamment celui sur _NaissancE_, _Witness_, et les _Souls_. Et aussi parce que c’est un des rares que je n’avais pas encore lu de Roland.
+_<span class="reco">Le degré zéro de l’écriture</span>_ (Roland Barthes, 1953): lu en préparation de quelques textes à venir, notamment celui sur _NaissancE_, _Witness_, et les _Souls_. Et aussi parce que c’est un des rares que je n’avais pas encore lu de Roland.
 
 ### Bandes dessinées
 
-_A Silent Voice_, série complète (Yoshitoki Ooima, 2014): à quel niveau de projection, de pensée magique et de déconnexion avec la réalité il faut être pour croire qu’il suffit de faire le chevalier blanc pour la personne dont on a ruiné l’enfance et la scolarité — via un harcèlement systématique basé sur un handicap — pour, non seulement avoir droit à un arc de rédemption, mais qu’en plus la personne en question carbure au syndrome de Stockholm, te pardonne et tombe amoureuse de son ancien bourreau ?!?!?! Quelle mauvaise plaisanterie. C’est du niveau de _Ano Hana_, par certains côtés. Urgh.
+_<span class="unreco">A Silent Voice</span>_, série complète (Yoshitoki Ooima, 2014): à quel niveau de projection, de pensée magique et de déconnexion avec la réalité il faut être pour croire qu’il suffit de faire le chevalier blanc pour la personne dont on a ruiné l’enfance et la scolarité — via un harcèlement systématique basé sur un handicap — pour, non seulement avoir droit à un arc de rédemption, mais qu’en plus la personne en question carbure au syndrome de Stockholm, te pardonne et tombe amoureuse de son ancien bourreau ?!?!?! Quelle mauvaise plaisanterie. C’est du niveau de _Ano Hana_, par certains côtés. Urgh.
 
 _Le Sommet des Dieux_, série complète (Baku Yumemakura, Jiro Taniguchi, 2003): une belle histoire, des paysages de montagne qui inspirent. Ça change de _Céleste_ pour le côté “gravir la montagne et dépasser ses limites”, littéralement.
 
@@ -326,18 +321,14 @@ Musique
 
 _Desire_ (Mark Redito, 2019): cela aurait pu être la bande-son de Dustforce, dans une réalité alternative.
 
-_Elementary Particles_ (Bluetech, 2020)
-
-_Phantom Chains_ (Astropilot, 2020)
-
+_Elementary Particles_ (Bluetech, 2020)  
+_Phantom Chains_ (Astropilot, 2020)  
 _Rise & Fall_ (Douze, NewRetroWave Records, 2019)
 
 _Every Ending is a New Beginning_ (Marcos Ubeda, 2018): méditatif.
 
-_Phobos Monolith_ (Mare Cognitum, 2014)
-
-_Oxygène_ (Jean-Michel Jarre, 1976)
-
+_Phobos Monolith_ (Mare Cognitum, 2014)  
+_Oxygène_ (Jean-Michel Jarre, 1976)  
 _Emergence_ (Max Cooper, 2015)
 
 _A Vava Inouva_ (Idir, 1976): une douceur dans la voix.
@@ -348,49 +339,40 @@ _A Curious Tales + Persons_ (Little Simz, 2015): son phrasé et le rythme à laq
 
 _Ella and Louis_ (Ella Fitzgerald, Louis Armstrong, 1956)
 
-_Wolastoqiyik Lintuwakonawa_ (Jeremy Dutcher, 2018): la plus grande découverte de l’année, sans doute. Un travail d’archivage et de transmission de l’histoire des _First Nations_ autrement plus intéressant que dans _Never Alone_.
+_<span class="reco">Wolastoqiyik Lintuwakonawa</span>_ (Jeremy Dutcher, 2018): la plus grande découverte de l’année, sans doute. Un travail d’archivage et de transmission de l’histoire des _First Nations_ autrement plus intéressant que dans _Never Alone_.
 
-_No Place_ (A Lot Like Bird, 2013)
-
+_No Place_ (A Lot Like Bird, 2013)  
 _Sirens_ (Nicolas Jaar, 2016)
 
-_Psychic_ (Darkside, 2013)
+_<span class="reco">Psychic</span>_ (Darkside, 2013)
 
-_Stillness in Wonderland_ (Little Simz, 2017)
-
-_Drop 6_ (EP)(Little Simz, 2020)
-
-_Griseus_ (Aquilus, 2011)
-
+_Stillness in Wonderland_ (Little Simz, 2017)  
+_Drop 6_ (EP)(Little Simz, 2020)  
+_Griseus_ (Aquilus, 2011)  
 _Flow State_ (Tash Sultana, 2018)
 
-_Dummy_ (Portishead, 1994): ça chouine trop, c’est des morceaux pour continuer d’aller mal quand ça va mal, et ce n’est pas mon attitude quand je suis dans ces états. Plus vite j’en sors et mieux c’est, la réponse est donc souvent de la musique plus énergique, avec autre chose qu’un 4/4 en boîte à rythme neurasthénique derrière pour la batterie, et des notes moins étirées qu’un kilomètre de réglisse. Ce constat s’applique à d’autres albums dans cette liste.
+_<span class="unreco">Dummy</span>_ (Portishead, 1994): ça chouine trop, c’est des morceaux pour continuer d’aller mal quand ça va mal, et ce n’est pas mon attitude quand je suis dans ces états. Plus vite j’en sors et mieux c’est, la réponse est donc souvent de la musique plus énergique, avec autre chose qu’un 4/4 en boîte à rythme neurasthénique derrière pour la batterie, et des notes moins étirées qu’un kilomètre de réglisse. Ce constat s’applique à d’autres albums dans cette liste.
 
 _Tryptych_ (Demdike Stare, 2011)
 
 _dombrance_ (Dombrance, 2005): découvert par hasard sur un morceau qui avait le nom d’un homme politique français, et j’ai écouté le reste pour voir. J’ai vu.
 
-_Crashes in Love_ (William Onyeabor, 1977)
-
+_Crashes in Love_ (William Onyeabor, 1977)  
 _Atomic Bomb_ (William Onyeabor, 1978)
 
 _Tomorrow_ (William Onyeabor, 1979): petit triplé sur Onyeabor, musicien nigérien oublié des années 70/80, découvert à l’origine sur un site qui propose d’écouter de la musique qui vient d’un peu plus loin que les Etats-Unis ou l’Angleterre, pour un peu décoloniser vos cerveaux ravagés: [https://radiooooo.com/](https://radiooooo.com/)
 
-_The Mountain_ (Haken, 2013)
-
+_The Mountain_ (Haken, 2013)  
 _Compro_ (Skee Mask, 2018)
 
 _Just Another Diamond Day_ (Vashti Bunyan, 1970): à ne pas écouter trop souvent, ça finit par devenir du one-trick poney.
 
-_Some Things Just Stick In Your Mind_ (Vashti Bunyan, 2015)
-
-_Junun_ (Shye Ben Tzur, Jonny Greenwood, The Rajasthan Express, 2015)
-
-_GREY Area_ (Little Simz, 2019)
-
+_Some Things Just Stick In Your Mind_ (Vashti Bunyan, 2015)  
+_Junun_ (Shye Ben Tzur, Jonny Greenwood, The Rajasthan Express, 2015)  
+_GREY Area_ (Little Simz, 2019)  
 _Mamani_ (Joy Denalane, 2002)
 
-_MANGOTALE_ (Shawn Wasabi, 2020): une soupe indigeste de collage numérique.
+_<span class="unreco">MANGOTALE</span>_ (Shawn Wasabi, 2020): une soupe indigeste de collage numérique.
 
 _Person Pitch_ (Panda Bear, 2007)
 
@@ -398,10 +380,9 @@ _The Sadness of Things_ (Steve Stapleton, David Tibet, 1991): album qui a inspir
 
 _Bloodstone & Diamonds_ (Machine Head, 2014)
 
-_Catharsis_ (Machine Head, 2018): très gênant. La construction mélodique ne ressemble à rien, les riffs sont peu inspirés, la batterie se contente de faire du double tempo et des _swiss triplets_ à tout-va, les paroles nous feraient regretter les lamentations _angsty_ de Nirvana. Elle est loin l’époque de _The Blackening_ où on parle de l’autoritarianisme des religions en place. Maintenant on parle du danger des drogues dures (c’est dangereux, vous voyez), et de la difficulté de vivre à Los Angeles. Bouhouh.
+_<span class="unreco">Catharsis</span>_ (Machine Head, 2018): très gênant. La construction mélodique ne ressemble à rien, les riffs sont peu inspirés, la batterie se contente de faire du double tempo et des _swiss triplets_ à tout-va, les paroles nous feraient regretter les lamentations _angsty_ de Nirvana. Elle est loin l’époque de _The Blackening_ où on parle de l’autoritarianisme des religions en place. Maintenant on parle du danger des drogues dures (c’est dangereux, vous voyez), et de la difficulté de vivre à Los Angeles. Bouhouh.
 
-_Pablo Honey_ (Radiohead, 1993)
+_<span class="unreco">Pablo Honey</span>_ (Radiohead, 1993)
 
-_The Bends_ (Radiohead, 1995)
-
+_The Bends_ (Radiohead, 1995)  
 _OK Computer_ (Radiohead, 1997)

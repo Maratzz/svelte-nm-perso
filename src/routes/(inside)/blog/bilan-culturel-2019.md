@@ -10,19 +10,15 @@ draft: published
 slug: Bilan culturel 2019
 ---
 
-**Films**: 31 sur 60, soit 51.67% de l'objectif initial.
-
-**Jeux vidéo**: <span style='background-color:#a8e4a0;'>39 sur 24</span>, soit 162.50%
-
-**Livres**: 4 sur 19, soit 21.05%
-
-**BDs**: 13 sur 24, soit 54.17%
-
-**Albums**: <span style='background-color:#a8e4a0;'>25 sur 24</span>, soit 104.17%
+**Films**: 31 sur 60, soit 51.67% de l'objectif initial.  
+**Jeux vidéo**: <span class="reco">39 sur 24</span>, soit 162.50%  
+**Livres**: 4 sur 19, soit 21.05%  
+**BDs**: 13 sur 24, soit 54.17%  
+**Albums**: <span class='reco'>25 sur 24</span>, soit 104.17%
 
 Côté _cinéma_, j'ai péniblement fait la moitié de l'objectif. J'ai de plus en plus de mal à rester 1h30 voire plus devant un film; je ne suis pas allé au cinéma tout seul cette année; et j'ai réactivé mes visionnages sur Mubi grâce au partage du compte d'une amie vers novembre. Autant dire que ce ne fut pas une année très cinéphage, et je doute que ça va s'arranger avec le temps. Tant que j'aurai accès au compte partagé sur Mubi j'essaierai de regarder quelques films plus niches, parce que la production qui sort en salles ne m'intéresse pas, mais je ne sais pas jusqu'à quand ça va durer.
 
-Côté _jeux vidéo_, c'est toujours du zèle, plus de 150% de la quantité que je m'étais fixée. Que voulez-vous, j'adore ce medium, c'est presque pathologique à ce stade. Je n'ai toujours pas acheté de jeu sur Steam ni sur n'importe quelle autre plateforme propriétaire cette année, exception faite pour le DLC de _Crypt_ que je possédais déjà sur Steam, et qui avait été une résolution de l'année (débloquer Coda). J'ai pas mal streamé des jeux en entier aussi sur ma [chaîne twitch](https://www.twitch.tv/mformaratz/), c'est une façon agréable de vider le backlog tout en partageant avec les rares personnes qui m'accompagnent dans des sessions parfois drôles, parfois affligeantes, mais toujours sympathiques à faire.
+Côté _jeux vidéo_, c'est toujours du zèle, plus de 150% de la quantité que je m'étais fixée. Que voulez-vous, j'adore ce medium, c'est presque pathologique à ce stade. Je n'ai toujours pas acheté de jeu sur Steam ni sur n'importe quelle autre plateforme propriétaire cette année, exception faite pour le DLC de _Crypt_ que je possédais déjà sur Steam, et qui avait été une résolution de l'année (débloquer Coda). J'ai pas mal streamé des jeux en entier aussi sur ma [chaîne twitch](https://www.twitch.tv/mformaratz_/), c'est une façon agréable de vider le backlog tout en partageant avec les rares personnes qui m'accompagnent dans des sessions parfois drôles, parfois affligeantes, mais toujours sympathiques à faire.
 
 Côté _livres_, c'est l'échec complet. Je plaide coupable, j'ai dépensé mon temps de vie ailleurs que devant un livre. Les quatre livres que j'ai lus étaient tous choisis par contre, mais pas nécessairement appreciés. Je constate aussi que j'ai lu très exactement _zéro_ livre de fiction, et que l'idée d'en lire me parle de moins en moins face à un monde sur le point de brûler. _Read bleak bok, get wok_.
 
@@ -30,18 +26,17 @@ Côté _albums de musique_, ce fut plutôt tranquille. J'ai ma routine qui consi
 
 Côté _bandes dessinées_, j'ai eu une période d'emprunt vers la fin de l'année, suite au déménagement et la découverte d'une nouvelle bibliothèque. Période qui n'a pas suffi à rattraper le vide du reste de l'année hélas, mais j'ai bon espoir de continuer à emprunter cette année, la proximité de la bibliothèque aide beaucoup quand il s'agit de se motiver à sortir pour y aller.
 
-Commentaires sur les oeuvres et recommandations
------------------------------------------------
+## Commentaires sur les oeuvres et recommandations
 
 Comme d'habitude, je liste toutes les oeuvres (re)découvertes, en laissant parfois un commentaire sur certaines d'entre elles. Si vous souhaitez avoir plus de détails sur une oeuvre non-commentée, envoyez-moi un message via les [canaux habituels](https://nicolasmoisson.fr/contact) et je mettrai à jour ce billet de blog en rajoutant un paragraphe sur l'oeuvre choisie. À nouveau, en vert je les recommande, en rouge non.
 
 **Films**
 
-_<span style='background-color:#a8e4a0;'>2001 A Space Odyssey</span>_: en 2020, le 20/01 à 20h01, le revisionnage annuel de ce film aura une saveur particulière, celle de l'univers en phase.
+_<span class="reco">2001 A Space Odyssey</span>_: en 2020, le 20/01 à 20h01, le revisionnage annuel de ce film aura une saveur particulière, celle de l'univers en phase.
 
-_<span style='background-color:#a8e4a0;'>Trafic</span>_ (Jacques Tati, 1971)
+_<span class="reco">Trafic</span>_ (Jacques Tati, 1971)
 
-_<span style='background-color:#a8e4a0;'>Playtime</span>_ (Jacques Tati, 1967)
+_<span class="reco">Playtime</span>_ (Jacques Tati, 1967)
 
 _Tom à la ferme_ (Xavier Dolan, 2013): quel ennui, Dolan est indolent, c'est désolant.
 
@@ -49,41 +44,31 @@ _Les Faiseurs de Suisse_ (Rolf Lyssy, 1973): une institution cinématographique 
 
 _Evil Dead 2_ (Sam Raimi, 1987): toujours pas mon délire.
 
-_The Blues Brothers_ (John Landis, 1980)
-
-_The Hunt_ (Thomas Vinterberg, 2012)
-
-_Twilight Portrait_ (Angelina Nikonova, 2011)
-
-_Le Testament d’Orphée_ (Jean Cocteau, 1960)
+_The Blues Brothers_ (John Landis, 1980)  
+_The Hunt_ (Thomas Vinterberg, 2012)  
+_Twilight Portrait_ (Angelina Nikonova, 2011)  
+_Le Testament d’Orphée_ (Jean Cocteau, 1960)  
 
 _Harry Potter and the Deathly Hallows Part 1_ (David Yates, 2010): un revisionnage de tous les films du plus récent au plus vieux en couple.
 
-_Harry Potter and the Deathly Hallows Part 2_ (David Yates, 2011)
-
-_Harry Potter and the Half-Blood Prince_ (David Yates, 2009)
-
-_Harry Potter and the Order of the Phoenix_ (David Yates, 2007)
+_Harry Potter and the Deathly Hallows Part 2_ (David Yates, 2011)  
+_Harry Potter and the Half-Blood Prince_ (David Yates, 2009)  
+_Harry Potter and the Order of the Phoenix_ (David Yates, 2007)  
 
 _The Cook_ (Roscoe Arbuckle, 1918): ce film semble murmurer, presque chuchoter: "fallait-il que ça continue un siècle de plus cette histoire d'images en mouvement ?" Tout est là, déjà.
 
-_Harry Potter and the Prisoner of Azkaban_ (Alfonso Cuarón, 2004)
+_Harry Potter and the Prisoner of Azkaban_ (Alfonso Cuarón, 2004)  
+_Harry Potter and the Chamber of Secrets_ (Chris Columbus, 2002)  
+_Harry Potter and the Philosopher’s Stone_ (Chis Columbus, 2001)  
+_The Lord of the Rings: The Fellowship of the Ring_ (Peter Jackson, 2001)  
+_The Lord of the Rings: The Two Towers_ (Peter Jackson, 2002)  
+_The Lord of the Rings: The Return of the King_ (Peter Jackson, 2003)  
 
-_Harry Potter and the Chamber of Secrets_ (Chris Columbus, 2002)
+_<span class="reco">Over the Hedge</span>_ (Tim Johnson, Karey Kirkpatrick, 2006): que vous dire si ce n'est, foncez.
 
-_Harry Potter and the Philosopher’s Stone_ (Chis Columbus, 2001)
+_<span class="reco">Astérix et Obélix: Mission Cléopâtre</span>_ (Alain Chabat, 2002)
 
-_The Lord of the Rings: The Fellowship of the Ring_ (Peter Jackson, 2001)
-
-_The Lord of the Rings: The Two Towers_ (Peter Jackson, 2002)
-
-_The Lord of the Rings: The Return of the King_ (Peter Jackson, 2003)
-
-_<span style='background-color:#a8e4a0;'>Over the Hedge</span>_ (Tim Johnson, Karey Kirkpatrick, 2006): que vous dire si ce n'est, foncez.
-
-_<span style='background-color:#a8e4a0;'>Astérix et Obélix: Mission Cléopâtre</span>_ (Alain Chabat, 2002)
-
-_How to Dianetics Part 1_ (Bridge Publications, 2013): un film à la gloire de L. Ron Hubbard. C'est de la propagande pour la scientologie qui avance masquée et qui ne dira jamais son nom tout au long des deux films, car il y en a eu deux. Nous avons eu juste assez de courage et de force pour visionner le premier, et encore, à grand coups d'alcool et de commentaires sarcastiques. Entre les acteurs et actrices à peine crédibles, les assertions hallucinantes et le montage, c'est du grand cirque. N'oubliez pas: _"go back to the beginning and go over it again. Pick up whatever additional data you can contact"._
+_<span class="unreco">How to Dianetics Part 1</span>_ (Bridge Publications, 2013): un film à la gloire de L. Ron Hubbard. C'est de la propagande pour la scientologie qui avance masquée et qui ne dira jamais son nom tout au long des deux films, car il y en a eu deux. Nous avons eu juste assez de courage et de force pour visionner le premier, et encore, à grand coups d'alcool et de commentaires sarcastiques. Entre les acteurs et actrices à peine crédibles, les assertions hallucinantes et le montage, c'est du grand cirque. N'oubliez pas: _"go back to the beginning and go over it again. Pick up whatever additional data you can contact"._
 
 _Les Mondes Imaginaires de Laguionie_ (Laguionie, 2019): hey je n'ai pas dormi !
 
@@ -105,13 +90,10 @@ _Monster Super League_ (SmartStudy, FourThirtyThree, 2016): une perte de temps s
 
 _Animal Crossing : Pocket Camp_ (Nintendo, 2017): un avilissement de l'esprit _Animal Crossing_, validé par Nintendo. Les quêtes se ressemblent et ne se finissent jamais, les personnages ont perdu leur volubilité, l'argent, le vrai, a pris le devant de la scène. Je crains l'influence que _Pocket Camp_ aura sur _New Horizons_.
 
-_MazeOn_ (DocGeraud, 2019)
-
-_Discoraux_ (DocGeraud, 2019)
-
-_Teach me Sensei_ (DocGeraud, 2018)
-
-_Space Shapes_ (DocGeraud, 2017)
+_MazeOn_ (DocGeraud, 2019)  
+_Discoraux_ (DocGeraud, 2019)  
+_Teach me Sensei_ (DocGeraud, 2018)  
+_Space Shapes_ (DocGeraud, 2017)  
 
 _THOTH_ (Jeppe Carlsen, 2016): anxiogène axiomatique, connaissances automatiques, consciences symptomatiques. _THOTH_ est au _twin-stick shooter_ ce que _140_ est à la plateforme.
 
@@ -119,7 +101,7 @@ _Pikmin_ (Nintendo, 2001)
 
 _You are Jeff Bezos_ (Kris Ligman, 2018): une écriture caustique qui cache une dénonciation nécessaire.
 
-_<span style='background-color:#e05349'>The Walking Dead : Season One</span>_ (Telltale Games, 2012): ça me coûte tellement de le dire, mais jouez plutôt à _Until Dawn_ si vous voulez du "vos choix auront des conséquences" un peu plus solide, et le fait de recommander cet autre jeu montre à quel point _The Walking Dead_ (ou [Walking Dumb pour les intimes](https://www.twitch.tv/collections/koW5wiM7nBWcmg)) est un ratage complet pour moi. Un embarras permanent, sauvé par sa dimension comique malgré lui, grâce à la technologie du _stream_. Plus jamais.
+_<span class="unreco">The Walking Dead : Season One</span>_ (Telltale Games, 2012): ça me coûte tellement de le dire, mais jouez plutôt à _Until Dawn_ si vous voulez du "vos choix auront des conséquences" un peu plus solide, et le fait de recommander cet autre jeu montre à quel point _The Walking Dead_ (ou [Walking Dumb pour les intimes](https://www.twitch.tv/collections/koW5wiM7nBWcmg)) est un ratage complet pour moi. Un embarras permanent, sauvé par sa dimension comique malgré lui, grâce à la technologie du _stream_. Plus jamais.
 
 _Mandagon_ (Blind Sky Studios, 2016)
 
@@ -127,31 +109,26 @@ _Off-Peak_ (Cosmo D, 2015): le personnage qui danse à côté du train [avec ce 
 
 _Ultraworld Exodus_ (Neon Serpent LLC, 2014)
 
-_<span style='background-color:#e05349'>GRIS</span>_ (Nomada Studio, Devolver Digital, 2018): complètement inoffensif. Ce n'est pas un hasard si le jeu a eu la récompense "Indie Game of the Year" aux très mercantiles Game Awards. GRIS est le jeu indé qui a l'approbation des AAA pour co-exister dans leur espace médiatique.
+_<span class="unreco">GRIS</span>_ (Nomada Studio, Devolver Digital, 2018): complètement inoffensif. Ce n'est pas un hasard si le jeu a eu la récompense "Indie Game of the Year" aux très mercantiles Game Awards. GRIS est le jeu indé qui a l'approbation des AAA pour co-exister dans leur espace médiatique.
 
 _Tyrian 2000_ (Eclipse Software, Epic MegaGames, 1995): très sympathique. Ne jouez pas au dernier chapitre bonus qui est une blague, mais je ne le savais pas à l'époque, ça a failli entacher irrémédiablement mon appréciation du jeu.
 
-_<span style='background-color:#a8e4a0;'>SOMA</span>_ (Frictional Games, 2015): j'ai un problème avec la fin du jeu, et en revenant sur l'ensemble, ça éclaire l'oeuvre sous une autre lumière très intéressante. J'écrirai dessus, un jour.
+_<span class="reco">SOMA</span>_ (Frictional Games, 2015): j'ai un problème avec la fin du jeu, et en revenant sur l'ensemble, ça éclaire l'oeuvre sous une autre lumière très intéressante. J'écrirai dessus, un jour.
 
 _Jotun_ (Thunder Lotus Games, 2015)
 
 _Axiom Verge_ (Tom Happ, 2015): autant relancer les jeux dont il s'inspire, ça ira plus vite.
 
-_Ori and the Blind Forest_ (Moon Studios, Microsoft Studio, 2015)
-
-_<span style='background-color:#a8e4a0;'>t- e ni hтm-are of·\`a c ty</span>_ (Pol Clarissou, 2016)
-
-_Choke_ (EckgartG, 2018)
-
-_Ramble_ (Jacob Potterfield, 2018)
+_Ori and the Blind Forest_ (Moon Studios, Microsoft Studio, 2015)  
+_<span class="reco">t- e ni hтm-are of·\`a c ty</span>_ (Pol Clarissou, 2016)  
+_Choke_ (EckgartG, 2018)  
+_Ramble_ (Jacob Potterfield, 2018)  
 
 _September 1999_ (98DEMAKE, 2018): pourquoi personne n'a pensé à faire un jeu entier avec cet effet graphique ? Le résultat est saisissant.
 
-_PIXEL ISLANDS_ (xrnz, 2018)
-
-_Inside the Void_ (3D Methods, 2017)
-
-_DISCO / DISCOMFORT_ (wasdswag, 2016)
+_PIXEL ISLANDS_ (xrnz, 2018)  
+_Inside the Void_ (3D Methods, 2017)  
+_DISCO / DISCOMFORT_ (wasdswag, 2016)  
 
 _Cadence of Hyrule_ (Brace Yourself Games, Nintendo, 2019): mignon, mais inoffensif.
 
@@ -161,13 +138,12 @@ _Castle Crashers_ (Behemoth, 2008)
 
 _A Normal Lost Phone_ (Accidental Queens, Playdius, Plug in Digital, 2017)
 
-_<span style='background-color:#e05349'>Shrek’s Carnival Craze</span>_ (Ivolgamus, Activision, 2007): je croyais que ça allait être comme _Mario Party_, mais le vrai, pas la contrefaçon chinoise. Après ça ne coûtait que 3.50£.
+_<span class="unreco">Shrek’s Carnival Craze</span>_ (Ivolgamus, Activision, 2007): je croyais que ça allait être comme _Mario Party_, mais le vrai, pas la contrefaçon chinoise. Après ça ne coûtait que 3.50£.
 
-_Kingdom Hearts_ (Square, 2002)
-
+_Kingdom Hearts_ (Square, 2002)  
 _Fire Emblem Heroes_ (Intelligent Systems, Nintendo, 2017)
 
-_<span style='background-color:#e05349'>Ode to Heroes</span>_ (DH Games, 2019): une perte de temps sur téléphone apparemment intelligent.
+_<span class="unreco">Ode to Heroes</span>_ (DH Games, 2019): une perte de temps sur téléphone apparemment intelligent.
 
 _Battle Breakers_ (Epic Games, 2019): une perte de temps sur téléphone apparemment intelligent, mais aussi sur PC. Une époque formidable !
 
@@ -185,7 +161,7 @@ _Débats et réalités du nucléaire_ (Bertrand Barré, 2011)
 
 _Nourrir l’Europe en temps de crise_ (Pablo Servigne, 2017): j'ai bien lu, et j'ai rien vu. Mais c'est fondamental apparemment.
 
-_<span style='background-color:#a8e4a0;'>Zomia ou l’art de ne pas être gouverné</span>_ (James C. Scott, 2013): là par contre, c'est vraiment essentiel. C'est une contre-histoire des communs, une ombre dans un monde illuminé, surlumineux, éclairé par les phares du progrès qui apporteront la dernière lumière, 5 milliards d'année trop tôt. A côté de ça, Zomia se cachait, Zomia refusait. Ce livre est une munition dans le fusil anarchiste, braqué contre l'injuste. Fantastique.
+_<span class="reco">Zomia ou l’art de ne pas être gouverné</span>_ (James C. Scott, 2013): là par contre, c'est vraiment essentiel. C'est une contre-histoire des communs, une ombre dans un monde illuminé, surlumineux, éclairé par les phares du progrès qui apporteront la dernière lumière, 5 milliards d'année trop tôt. A côté de ça, Zomia se cachait, Zomia refusait. Ce livre est une munition dans le fusil anarchiste, braqué contre l'injuste. Fantastique.
 
 _La révolution d’un seul brin de paille_ (Masanobu Fukuoka, 1975)
 
@@ -203,52 +179,35 @@ _Vinland Saga_ #1 (Makoto Yukimura, 2005)
 
 **Albums**
 
-_Martes_ (Murcof, 2002)
-
-_Folk Songs and Soundscapes from Nepal_ (Bishwo Shahi, 2013)
-
-_Amdo – Monastère tibétain de Labrang_ (Tian Qing, Tian Miao, 1995)
-
-_Contemporary & Traditional chinese music_ (The Silk String Quartet, 2007)
-
-_Musique instrumentale de la tradition classique_ (Jong Nong Ak Ohô, 1982)
-
-_Kuabee Music_ (Jukio Kallio, 2019)
-
-_Merryweather Post Pavilion_ (Animal Collective, 2009)
-
-_Untrue_ (Burial, 2007)
-
-_Plunge_ (Fever Ray, 2017)
+_Martes_ (Murcof, 2002)  
+_Folk Songs and Soundscapes from Nepal_ (Bishwo Shahi, 2013)  
+_Amdo – Monastère tibétain de Labrang_ (Tian Qing, Tian Miao, 1995)  
+_Contemporary & Traditional chinese music_ (The Silk String Quartet, 2007)  
+_Musique instrumentale de la tradition classique_ (Jong Nong Ak Ohô, 1982)  
+_Kuabee Music_ (Jukio Kallio, 2019)  
+_Merryweather Post Pavilion_ (Animal Collective, 2009)  
+_Untrue_ (Burial, 2007)  
+_Plunge_ (Fever Ray, 2017)  
 
 _Elaenia_ (Floating Points, 2015): Ethéré.
 
-_<span style='background-color:#a8e4a0;'>Music for Nine Postcards</span>_ (Hiroshi Yoshimura, 1982): Kazumi Tokata a dû s'en inspirer pour faire les musiques d'_Animal Crossing_, c'est canon pour moi, ne me @ pas.
+_<span class="reco">Music for Nine Postcards</span>_ (Hiroshi Yoshimura, 1982): Kazumi Tokata a dû s'en inspirer pour faire les musiques d'_Animal Crossing_, c'est canon pour moi, ne me @ pas.
 
-_Pier & Loft_ (Hiroshi Yoshimura, 1983)
-
-_A I R_ (Hiroshi Yoshimura, 1984)
-
-_Undertow_ (Tool, 1993)
-
+_Pier & Loft_ (Hiroshi Yoshimura, 1983)  
+_A I R_ (Hiroshi Yoshimura, 1984)  
+_Undertow_ (Tool, 1993)  
 _Aenima_ (Tool, 1996)
 
-_<span style='background-color:#a8e4a0;'>Lateralus</span>_ (Tool, 2001)
+_<span class="reco">Lateralus</span>_ (Tool, 2001)
 
-_<span style='background-color:#a8e4a0;'>Fear Inoculum</span>_ (Tool, 2019): un voyage qui continue, des horizons familiers et pourtant sans cesse défrichés, un miroir qui se brise en mille morceaux au-dessus d'un lustre.
+_<span class="reco">Fear Inoculum</span>_ (Tool, 2019): un voyage qui continue, des horizons familiers et pourtant sans cesse défrichés, un miroir qui se brise en mille morceaux au-dessus d'un lustre.
 
-_<span style='background-color:#a8e4a0;'>10,000 Days</span>_ (Tool, 2006)
+_<span class="reco">10,000 Days</span>_ (Tool, 2006)
 
-_Bleak Sword OST_ (Jim Guthrie, 2019)
-
-_Devilman Crybaby_ (Aniplex, 2018)
-
-_The Mosaics_ (Moderator, 2019)
-
-_Hastur_ (Cryo Chamber, 2019)
-
-_Wildlife Addendum_ (Warmth, 2019)
-
-_Hiking in the Mist_ (Cicada, 2019)
-
+_Bleak Sword OST_ (Jim Guthrie, 2019)  
+_Devilman Crybaby_ (Aniplex, 2018)  
+_The Mosaics_ (Moderator, 2019)  
+_Hastur_ (Cryo Chamber, 2019)  
+_Wildlife Addendum_ (Warmth, 2019)  
+_Hiking in the Mist_ (Cicada, 2019)  
 _Signals_ (Motionfield, 2019)
