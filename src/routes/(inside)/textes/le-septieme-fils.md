@@ -1,12 +1,13 @@
 ---
-title: "Le Septième fils"
-date: "2015-04-23"
-headline: "Le Septième Fils est une énième daube."
+title: Le Septième fils
+date: 2015-04-23
+headline: Le Septième Fils est une énième daube.
 categories:
-- "textes"
-- "critique"
-- "cinéma"
-image: "/img/textes/seventh_son.jpg"
+  - textes
+  - critique
+  - cinéma
+image: /src/lib/assets/textes/seventh_son.jpg
+draft: published
 ---
 
 <script>

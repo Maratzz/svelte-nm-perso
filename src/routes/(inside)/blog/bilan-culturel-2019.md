@@ -1,11 +1,13 @@
 ---
 title: Bilan culturel 2019
-date: "2019-12-31"
-headline: "Les résolutions, c'est comme les élections, ça n'engage que celles qui y croient."
+date: 2019-12-31
+headline: Les résolutions, c'est comme les élections, ça n'engage que celles qui y croient.
 categories:
-- "blog"
-- "sveltekit"
-image: "/img/blog/suashem_1.jpg"
+  - blog
+  - sveltekit
+image: /src/lib/assets/blog/suashem_1.jpg
+draft: published
+slug: Bilan culturel 2019
 ---
 
 **Films**: 31 sur 60, soit 51.67% de l'objectif initial.

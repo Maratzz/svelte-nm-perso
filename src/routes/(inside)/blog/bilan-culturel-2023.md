@@ -1,11 +1,12 @@
 ---
 title: Bilan culturel 2023
-date: "2024-01-20"
-headline: "Lister pour ne pas s'enliser"
+date: 2024-01-20
+headline: Lister pour ne pas s'enliser
 categories:
-- "blog"
-- "bilan"
-image: "/img/blog/les-grands-cerfs.webp"
+  - blog
+  - bilan
+image: /src/lib/assets/blog/les-grands-cerfs.webp
+draft: published
 ---
 
 23 films sur 45

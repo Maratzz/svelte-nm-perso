@@ -1,0 +1,81 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "default",
+      "pageBundle": false,
+      "previewPath": null,
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "Slug",
+          "name": "slug",
+          "type": "slug",
+          "editable": false,
+          "default": "{{title}}"
+        },
+        {
+          "title": "Headline",
+          "name": "headline",
+          "type": "string"
+        },
+        {
+          "title": "Article preview",
+          "name": "image",
+          "type": "image",
+          "isPreviewImage": true
+        },
+        {
+          "title": "Publishing date",
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "dateFormat": "Y-MM-DD",
+          "isPublishDate": true
+        },
+        {
+          "title": "Categories",
+          "name": "categories",
+          "type": "categories"
+        },
+        {
+          "title": "Draft",
+          "name": "draft",
+          "type": "draft"
+        }
+      ]
+    }
+  ],
+  "frontMatter.content.draftField": {
+    "name": "draft",
+    "type": "choice",
+    "choices": [
+      "draft",
+      "in progress",
+      "published"
+    ]
+  },
+  "frontMatter.framework.id": "other",
+  "frontMatter.content.publicFolder": "",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "blog",
+      "path": "[[workspace]]/src/routes/(inside)/blog",
+      "previewPath": "/blog/"
+    },
+    {
+      "title": "textes",
+      "path": "[[workspace]]/src/routes/(inside)/textes",
+      "previewPath": "/textes/"
+    }
+  ],
+  "frontMatter.git.enabled": true,
+  "frontMatter.preview.host": "http://localhost:5173/",
+  "frontMatter.taxonomy.slugTemplate": "{{title}}",
+  "frontMatter.taxonomy.alignFilename": true,
+  "frontMatter.templates.prefix": ""
+}

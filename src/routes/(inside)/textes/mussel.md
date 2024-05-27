@@ -1,12 +1,13 @@
 ---
-title: "Mussel"
-date: "2015-06-01"
-headline: "Mussel est un de ces bonbons acidulés qui pétillent sous la langue et vous font faire une grimace, mais la sensation est exquise."
+title: Mussel
+date: 2015-06-01
+headline: Mussel est un de ces bonbons acidulés qui pétillent sous la langue et vous font faire une grimace, mais la sensation est exquise.
 categories:
-- "textes"
-- "critique"
-- "jv"
-image: "/img/textes/mussel.jpg"
+  - textes
+  - critique
+  - jv
+image: /src/lib/assets/textes/mussel.jpg
+draft: published
 ---
 
 <script>

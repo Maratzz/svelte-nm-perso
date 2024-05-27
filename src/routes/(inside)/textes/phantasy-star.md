@@ -1,11 +1,12 @@
 ---
-title: "Phantasy Star"
-date: "2015-06-06"
-headline: "Phantasy Star est une étoile inaccessible désormais, mais son éclat nous parvient toujours."
-categories: 
-- "textes"
-- "critique"
-- "jv"
+title: Phantasy Star
+date: 2015-06-06
+headline: Phantasy Star est une étoile inaccessible désormais, mais son éclat nous parvient toujours.
+categories:
+  - textes
+  - critique
+  - jv
+draft: published
 ---
 
 <script>

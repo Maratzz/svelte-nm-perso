@@ -1,11 +1,12 @@
 ---
 title: "Brothers: A Tale of Two Sons"
-date: "2015-10-09"
+date: 2015-10-09
 headline: "Brothers : A Tale of Two Sons est une relation symbiotique entre le joueur et la manette, le jeu vidéo et le cinéma, le spectateur et l’acteur, et la frontière est fine."
 categories:
-- "textes"
-- "critique"
-- "jv"
+  - textes
+  - critique
+  - jv
+draft: published
 ---
 
 <script>

@@ -1,10 +1,13 @@
 ---
 title: Apprendre SvelteKit en créant un blog Markdown statique
-date: "2021-12-14"
+date: 2021-12-14
 categories:
-- "blog"
-- "sveltekit"
-image: "/img/blog/sveltekit_setup.png"
+  - blog
+  - sveltekit
+image: /src/lib/assets/blog/sveltekit_setup_complete.png
+headline: Traduction française d'un article de Josh Collinsworth.
+draft: published
+slug: Apprendre SvelteKit en créant un blog Markdown statique
 ---
 
 En démarrant la refonte de mon site perso j'avais plusieurs objectifs en tête:
@@ -52,7 +55,7 @@ npm create svelte@latest my-app
 
 Quand vous exécutez la commande `init` pour démarrer, SvelteKit va vous poser quelques questions sur votre projet et ce que vous voulez faire:
 
-![Questionnaire pour préciser le projet](/img/blog/sveltekit_setup.png)
+![Questionnaire pour préciser le projet](/src/lib/assets/blog/sveltekit_setup.png)
 
 Nous allons choisir l'option **"Skeleton project"** (*attention, pas Library skeleton project, car nous simplement faisons un site, pas une librairie*)
 
@@ -62,7 +65,7 @@ L'outil de préparation va également demander vos préférences au sujet de Typ
 
 Après avoir fait vos choix et quelques secondes d'installation, vous devriez voir apparaître `Your project is ready!` dans votre terminal, ainsi que les prochaines étapes et des liens utiles:
 
-![Finalisation de l'installation de SvelteKit](/img/blog/sveltekit_setup_complete.png)
+![Finalisation de l'installation de SvelteKit](/src/lib/assets/blog/sveltekit_setup_complete.png)
 
 À ce moment-là, ouvrez votre projet dans VS Code (ou dans votre éditeur de texte préféré). Puis installez les dépendances dans le terminal et lancez le serveur de développement:
   
@@ -73,7 +76,7 @@ npm run dev -- --open
   
 Terminez ces commandes et votre nouveau site s'affichera dans la fenêtre de votre navigateur
 
-![La base du site après installation de SvelteKit](/img/blog/localhost_welcome.png)
+![La base du site après installation de SvelteKit](/src/lib/assets/blog/localhost_welcome.png)
 
 Le squelette tel quel n'est pas très excitant, et il n'y a même pas de CSS. Mais c'est okay; ça nous laisse le champ libre pour personnaliser notre application comme on le souhaite, sans avoir à supprimer ou à modifier du code déjà présent.
 
@@ -172,7 +175,7 @@ Faisons un exemple pour illustrer ça: ouvrez le nouveau `+layout.svelte` et ajo
 
 Sauvegardez et vous devriez voir le texte du *header* apparaître au-dessus du contenu de la page, et le texte du *footer* en-dessous.
 
-![Le layout avec le header et le footer est appliqué](/img/blog/localhost_header_and_footer.png)
+![Le layout avec le header et le footer est appliqué](/src/lib/assets/blog/localhost_header_and_footer.png)
 
 ## Créer des composants
 

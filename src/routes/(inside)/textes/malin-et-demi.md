@@ -1,11 +1,12 @@
 ---
-title: "À malin, malin et demi"
-date: "2016-05-15"
-headline: "Une histoire courte d'anticipation."
-categories: 
-- "textes"
-- "fiction"
-image: "/img/textes/nouvelle_crous.jpeg"
+title: À malin, malin et demi
+date: 2016-05-15
+headline: Une histoire courte d'anticipation.
+categories:
+  - textes
+  - fiction
+image: /src/lib/assets/textes/nouvelle_crous.jpeg
+draft: published
 ---
 
 <script>

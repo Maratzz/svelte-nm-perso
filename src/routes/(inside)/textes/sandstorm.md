@@ -1,11 +1,12 @@
 ---
-title: "Sandstorm"
-date: "2016-12-02"
-headline: "Le désert aride de Sandstorm vaut bien une heure de peine."
-categories: 
-- "textes"
-- "critique"
-- "jv"
+title: Sandstorm
+date: 2016-12-02
+headline: Le désert aride de Sandstorm vaut bien une heure de peine.
+categories:
+  - textes
+  - critique
+  - jv
+draft: published
 ---
 
 <script>

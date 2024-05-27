@@ -1,11 +1,12 @@
 ---
 title: Alan Wake
-date: "2015-05-31"
-headline: "Alan Wake a beaucoup de cartes en main, hélas quand vient son tour, il tire le pouilleux."
-categories: 
-- "textes"
-- "critique"
-- "jv"
+date: 2015-05-31
+headline: Alan Wake a beaucoup de cartes en main, hélas quand vient son tour, il tire le pouilleux.
+categories:
+  - textes
+  - critique
+  - jv
+draft: published
 ---
 
 <script>

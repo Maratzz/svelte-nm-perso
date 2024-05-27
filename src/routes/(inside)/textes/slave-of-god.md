@@ -1,11 +1,12 @@
 ---
-title: "Slave of God"
-date: "2016-12-03"
-headline: "Slave of God simule l’ivresse sans la gueule de bois, l’amour sans la rupture."
-categories: 
-- "textes"
-- "critique"
-- "jv"
+title: Slave of God
+date: 2016-12-03
+headline: Slave of God simule l’ivresse sans la gueule de bois, l’amour sans la rupture.
+categories:
+  - textes
+  - critique
+  - jv
+draft: published
 ---
 
 <script>

@@ -1,11 +1,12 @@
 ---
 title: Cycle(s)
-date: "2014-04-10"
-headline: "Une histoire courte dans l'univers de World of Goo."
+date: 2014-04-10
+headline: Une histoire courte dans l'univers de World of Goo.
 categories:
-- "textes"
-- "fiction"
-image: "/img/textes/cycles.webp"
+  - textes
+  - fiction
+image: /src/lib/assets/textes/cycles.webp
+draft: published
 ---
 
 J'ai écrit cette histoire courte avec le morceau proposé ci-dessous en tête. Je vous recommande de l'écouter durant la lecture.

@@ -1,11 +1,12 @@
 ---
 title: Blasphemous
-date: "2023-05-19"
-headline: "Cachez ces saints à qui je ne saurais me vouer."
+date: 2023-05-19
+headline: Cachez ces saints à qui je ne saurais me vouer.
 categories:
-- "textes"
-- "critique"
-- "jv"
+  - textes
+  - critique
+  - jv
+draft: published
 ---
 
 _Un jeu de The Game Kitchen, publié par Team17, sorti en septembre 2019._  

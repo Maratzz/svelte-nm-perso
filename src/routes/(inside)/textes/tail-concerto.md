@@ -1,11 +1,12 @@
 ---
-title: "Tail Concerto"
-date: "2015-11-05"
-headline: "Tail Concerto ne passera vraisemblablement pas le test du temps, alors profitons-en maintenant."
+title: Tail Concerto
+date: 2015-11-05
+headline: Tail Concerto ne passera vraisemblablement pas le test du temps, alors profitons-en maintenant.
 categories:
-- "textes"
-- "critique"
-- "jv"
+  - textes
+  - critique
+  - jv
+draft: published
 ---
 
 <script>

@@ -1,12 +1,13 @@
 ---
-title: Quelques mots sur l'édition 2022 du Festival Photo à la Gacilly
-date: "2019-08-19"
-headline: "le Festival Photo La Gacilly propose une expérience photographique immersive et déambulatoire"
+title: A propos de l'édition 2022 du Festival Photo à la Gacilly
+date: 2019-08-19
+headline: le Festival Photo La Gacilly propose une expérience photographique immersive et déambulatoire
 categories:
-- "blog"
-- "sorties"
-- "à chaud"
-image: "/img/blog/gacilly.jpg"
+  - blog
+  - sorties
+  - à chaud
+image: /src/lib/assets/blog/gacilly.jpg
+draft: published
 ---
 
 _Créé en 2004, le Festival Photo La Gacilly propose une expérience photographique immersive et déambulatoire au cœur d’une trentaine de galeries à ciel ouvert présentant le meilleur de la création photo contemporaine qui interroge notre relation au monde et à la nature._ - [Extrait du site du festival](https://www.festivalphoto-lagacilly.com/)

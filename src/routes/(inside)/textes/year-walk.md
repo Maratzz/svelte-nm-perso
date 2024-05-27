@@ -1,11 +1,12 @@
 ---
-title: "Year Walk"
-date: "2015-06-12"
-headline: "Year Walk est un passeur de mythes, une porte vers ce qui a été oublié et qui n’aurait pas dû l’être, une renaissance du conte dans l’ère digitale."
+title: Year Walk
+date: 2015-06-12
+headline: Year Walk est un passeur de mythes, une porte vers ce qui a été oublié et qui n’aurait pas dû l’être, une renaissance du conte dans l’ère digitale.
 categories:
-- "textes"
-- "critique"
-- "jv"
+  - textes
+  - critique
+  - jv
+draft: published
 ---
 
 <script>

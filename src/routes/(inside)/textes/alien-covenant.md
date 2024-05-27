@@ -1,12 +1,13 @@
 ---
 title: Alien Covenant
-date: "2017-06-17"
-headline: "“The dignity of movement of an iceberg is due to only one-eighth of it being above water.” "
+date: 2017-06-17
+headline: “The dignity of movement of an iceberg is due to only one-eighth of it being above water.” 
 categories:
-- "textes"
-- "critique"
-- "cinéma"
-image: "/img/textes/alien_covenant.jpg"
+  - textes
+  - critique
+  - cinéma
+image: /src/lib/assets/textes/alien_covenant.jpg
+draft: published
 ---
 
 <script>

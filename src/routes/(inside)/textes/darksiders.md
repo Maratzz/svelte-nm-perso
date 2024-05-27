@@ -1,11 +1,12 @@
 ---
-title: "Darksiders"
-date: "2015-04-24"
-headline: "Darksiders est l’idée qu’un garçon de 13 ans se fait de la masculinité."
+title: Darksiders
+date: 2015-04-24
+headline: Darksiders est l’idée qu’un garçon de 13 ans se fait de la masculinité.
 categories:
-- "textes"
-- "critique"
-- "jv"
+  - textes
+  - critique
+  - jv
+draft: published
 ---
 
 <script>

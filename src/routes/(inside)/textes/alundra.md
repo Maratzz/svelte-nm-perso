@@ -1,11 +1,12 @@
 ---
 title: Alundra
-date: "2016-05-08"
-headline: "Alundra est Zelda si Zelda grandissait et se concentrait un peu plus sur les Déesses que sur la princesse."
+date: 2016-05-08
+headline: Alundra est Zelda si Zelda grandissait et se concentrait un peu plus sur les Déesses que sur la princesse.
 categories:
-- "textes"
-- "critique"
-- "jv"
+  - textes
+  - critique
+  - jv
+draft: published
 ---
 
 *Un jeu développé par Matrix Software, édité par Psygnosis, sorti sur PS1 en 1997.*

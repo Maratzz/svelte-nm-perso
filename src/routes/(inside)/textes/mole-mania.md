@@ -1,11 +1,12 @@
 ---
-title: "Mole Mania"
-date: "2015-11-08"
-headline: "Mole Mania remue la terre et les méninges, s’inscrivant dans une tradition de jeux presque perdue."
+title: Mole Mania
+date: 2015-11-08
+headline: Mole Mania remue la terre et les méninges, s’inscrivant dans une tradition de jeux presque perdue.
 categories:
-- "textes"
-- "critique"
-- "jv"
+  - textes
+  - critique
+  - jv
+draft: published
 ---
 
 <script>

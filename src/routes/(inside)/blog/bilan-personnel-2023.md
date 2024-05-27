@@ -1,11 +1,12 @@
 ---
 title: Bilan personnel 2023
-date: "2024-01-22"
-headline: "Méditer pour ne pas médire"
+date: 2024-01-22
+headline: Méditer pour ne pas médire
 categories:
-- "blog"
-- "bilan"
-image: "/img/blog/wtf_suashem.jpg"
+  - blog
+  - bilan
+image: /src/lib/assets/blog/wtf_suashem.jpg
+draft: published
 ---
 
 **Ce que je retiendrai de 2023:**

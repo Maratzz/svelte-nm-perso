@@ -1,12 +1,13 @@
 ---
 title: Anohana
-date: "2018-09-21"
-headline: "Lisez plutôt Euripide."
+date: 2018-09-21
+headline: Lisez plutôt Euripide.
 categories:
-- "textes"
-- "critique"
-- "anime"
-image: "/img/textes/anohana.jpg"
+  - textes
+  - critique
+  - anime
+image: /src/lib/assets/textes/anohana.jpg
+draft: published
 ---
 
 

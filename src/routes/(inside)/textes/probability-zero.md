@@ -1,11 +1,12 @@
 ---
-title: "Probability 0"
-date: "2015-11-05"
-headline: "Probability 0 est un sentiment d’oppression funèbre, un étouffement à peine contenu."
+title: Probability 0
+date: 2015-11-05
+headline: Probability 0 est un sentiment d’oppression funèbre, un étouffement à peine contenu.
 categories:
-- "textes"
-- "critique"
-- "jv"
+  - textes
+  - critique
+  - jv
+draft: published
 ---
 
 <script>
