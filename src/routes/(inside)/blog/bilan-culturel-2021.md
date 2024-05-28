@@ -11,6 +11,18 @@ draft: published
 type: default
 ---
 
+_Films_: <span class="reco">48 sur 45</span>  
+_Jeux vidéo_: <span class="reco">47 sur 45</span>  
+_Livres_: <span class="unreco">4 sur 21</span>  
+_BDs_: <span class="reco">42 sur 24</span>  
+_Albums_: <span class="reco">24 sur 24</span>
+
+Comme depuis plusieurs années maintenant, je suis stable sur tous les domaines sauf les livres. J'ai lu pas mal de papiers académiques et d'essais au format long, sans que ce soit pour autant des livres. Est-ce que le support importe vraiment finalement ? Il se pourrait qu'à l'avenir je fasse une liste de textes que j'ai appreciés tout au long de l'année, pour compléter les éventuelles lectures de livre vrais véritables de type bouquin.
+
+Beaucoup d'articles viennent de lectures et de suggestions de lectures de blogs et de sites que je consulte régulièrement. Citons parmis eux [Astral Codex Ten](https://astralcodexten.substack.com/), [Affordance](https://affordance.framasoft.org/), [Le Monde Diplomatique](https://www.monde-diplomatique.fr/), [Aeon](https://aeon.co/), ou encore [Lundi Matin](https://lundi.am/).
+
+Si je maintiens une comptabilité et des chiffres, ce n'est pas pour le plaisir des stats. Bon, si, un peu, on ne va pas se mentir. Mais c'est surtout pour moi une façon d'observer mon rythme, tous les ans. Je sais à présent que je suis autour de 40-45 films dans l'année, et à peu près autant de jeux. Je vais garder les mêmes nombres pour 2022, sauf pour la blague des livres (qui ne fait rire que moi, mais hé), qui passent à 22, comme je disais dans le billet de l'année dernière, sur un malentendu ça peut passer.
+
 **Films**
 
 _<span class="reco">Ratatouille</span>_ (Brad Bird, Jan Pinkava, 2007)

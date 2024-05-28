@@ -2,12 +2,12 @@
 title: Bilan culturel 2022
 slug: bilan-culturel-2022
 headline: Je n'ai pas fait la moitié des objectifs à moitié autant que je le voudrais, et j'aime moins de la moitié du reste à moitié autant que ça le mérite.
-image: ""
+image: /src/lib/assets/blog/toussaint.webp
 date: 2023-01-04
 categories:
   - bilan
   - blog
-draft: draft
+draft: published
 type: default
 ---
 
@@ -68,13 +68,12 @@ _Salt_ (Phillip Noyce, 2010)
 
 _The Equalizer 2_ (Antoine Fuqua, 2018)
 
-_<span class="reco">Ava</span>_ (Tate Taylor, 2020): autant _Salt_ on pouvait encore y trouver quelque chose dans le double jeu d'agents secrets, l'infiltration des hautes sphères, les retournements de situation, autant _Ava_ nage dans un marasme dont il ne ressort jamais.
+_<span class="unreco">Ava</span>_ (Tate Taylor, 2020): autant _Salt_ on pouvait encore y trouver quelque chose dans le double jeu d'agents secrets, l'infiltration des hautes sphères, les retournements de situation, autant _Ava_ nage dans un marasme dont il ne ressort jamais.
 
-_The Addams Family_ (Barry Sonnenfeld, 1991)
-
+_The Addams Family_ (Barry Sonnenfeld, 1991)  
 _Oblivion_ (Joseph Kosinski, 2013)
 
-_The Yinyang Master_ (Li Weiran, 2021): c'est un film qui s'inspire d'_Onmyoji_, le gacha. Oui. Oui oui.
+_The Yinyang Master_ (Li Weiran, 2021): c'est un film qui s'inspire d'_Onmyoji_, le _gacha_. Oui. Oui oui.
 
 **Jeux vidéo**
 
@@ -88,8 +87,7 @@ _Hidden Folks_ (Adriaan de Jongh, Sylvain Tegroeg, 2017)
 
 _<span class="unreco">Sunlight</span>_ (Krillbite Studio, 2021): Le jeu veut nous faire ressentir un frisson, un sentiment de merveilleux mêlé d’amour pour la Vie avec une majuscule...mais c’est noyé dans une narration cacophonique d’un texte qui aligne les descriptions cliniques de stimuli physiques et  donne l’impression d’entendre la version rationnelle (tendance Eliezer Yudkowsky/Scott Alexander) d’un roman naturaliste.
 
-_Backbone_ (EggNut, Raw Fury, 2021)
-
+_Backbone_ (EggNut, Raw Fury, 2021)  
 _Shining Force_ (Climax Entertainment, Sonic ! Software Planning, Sega, 1992)
 
 _The Witcher 3 : Wild Hunt_ (CD Projekt, 2015): ça y est, après des années de réclamation de la part de C., je l'ai démarré, et je l'ai fini ce jeu. J'ai même fait les DLCs, et je ne me suis même pas tant forcé que ça pour les faire. Il y a beaucoup à dire sur ce jeu, [S. est passé par là avant moi](https://maqe-crit.github.io/TW3/) et a déjà défriché un bon morceau. Qu'est-ce que j'en retiens, finalement ? Des architectures, celles d'Oxenfurt et Kaer Trolde en particulier; deux lignes de dialogue qui m'ont bien fait rire, [ici](https://www.youtube.com/watch?v=OTJAc0COA3k) et [là](https://www.youtube.com/watch?v=ocH4vWOrdWE); des personnages bien écrits, bien joués, avec des relations qui sonnent vraies, je pense à Lambert, Dijkstra, Johnny; des morceaux aussi, tour à tour [hypnotiques](https://www.youtube.com/watch?v=J8J9HXcOxrs), [festifs](https://www.youtube.com/watch?v=xHYsgJ9Kgq4), [mélancoliques](https://www.youtube.com/watch?v=NknjE2SBPxw); mais tout ça ce ne sont que des _assets_. Le coeur du jeu, le propos, me laisse sur ma faim. Beaucoup trop d'éléments de design de monde ouvert qui referment le monde sur lui-même paradoxalement. Des quêtes qui ne peuvent être résolues sans devoir passer par le sens caché de sorceleur, l'impossibilité de se passer de l'interface pour naviguer sur le territoire, des combats qui ignorent complètement les règles pourtant établies de l'univers, réduisant les rencontres en une succession de roulades, comme si c'était _Dark Souls 3_ à nouveau. Des choix faussement multiples, qui sont finalement binaires. Des campagnes qui se vident à chaque jeu qui passe, et font office de tampons entre deux lieux plus intéressants, contrairement à _Witcher 1_ où on passait les deux premiers chapitres littéralement les pieds dans la vase et dans les champs de blé à la recherche d'idoles, d'enfants perdus et de noonwraiths, et où la ville principale puait l'alcool et la pauvreté des quartiers discriminés.
@@ -100,7 +98,7 @@ _<span class="reco">The Witcher 3 : Blood and Wine</span>_ (CD Projekt, 2015): 
 
 _<span class="reco">Haven</span>_ (The Game Bakers, 2020): fait en coop avec O., en l'espace de quatre mois environ. Un jeu _about_, mais surtout un jeu _between_. Un jeu entre Kay et Yu, _between me and you_, between _you_ and _me_. Un jeu qui oscille entre combats où on se serre les coudes et dialogues où on ouvre les bras pour accueillir l'autre, avec ses peurs, ses joies, son soutien, ses insécurités, son amour, ses incertitudes sur le futur, sur les gens qui nous pourchassent, sur le quotidien, sur les règles annexes d'engagement selon le guide du joueur, chapitre 12, page 45. _This is a mission fooooor..._
 
-_INSIDE_ (Playdead, 2016): écrit en anglais à l'époque parce que je voulais explorer le style de Tevis Thompson, parce que j'ai pensé à lui et _LIMBO_ après la session: the further you go inside, the more samefeeley it gets. Meaning is splatttered, broken, obtuse, unfocused. It could be about anything, really, so it is about nothing. Only remains the sound, the vista, the cherries for literature major pickers. That is to say, a checklist of good things, a discussion at a distance, critical and yawn-inducing. Barely worth having nightmares about.
+_INSIDE_ (Playdead, 2016): écrit en anglais à l'époque parce que je voulais explorer le style de Tevis Thompson, parce que j'ai pensé à lui et _LIMBO_ après la session: _"the further you go inside, the more samefeeley it gets. Meaning is splatttered, broken, obtuse, unfocused. It could be about anything, really, so it is about nothing. Only remains the sound, the vista, the cherries for literature major pickers. That is to say, a checklist of good things, a discussion at a distance, critical and yawn-inducing. Barely worth having nightmares about."_
 
 _The Dream Machine, Chapter 1 & 2_ (Cockroach Inc, The Sleeping Machine, 2012)  
 _Slide in the woods_ (Jonny’s Games, 2021)  
@@ -119,15 +117,15 @@ _Repenser la pauvreté_ (Abhijit Banerjee, Esther Duflo, 2011): on pourrait croi
 
 _Trois gouttes de sang_ (Sadeq Hedayat, 1932): je ne comprends pas l'attrait du recueil. Est-ce que c'est du commentaire dénonciateur de la société iranienne des années 30 fortement imprégnée de paternalisme, patriarcat, religion oppressante, que sais-je encore ? On aimerait le penser, surtout qu'Hedayat a apparemment vécu en France un bon moment. Rien dans le texte ne semble le suggérer malheureusement, tout est écrit au premier degré, et l'absurde, quand il surgit, ne vient pas remettre ça en question, tout au plus il joue autour des situations provoqués par les carcans cités plus haut. Est-ce que ce sont des histoires qui se veulent délibérément quelconques, pour mieux souligner l'ironie de la réalité ? Est-ce que c'est la traduction, peu inspirée, qui m'a fait passer à côté du texte ? Je ne sais pas, et c'est très gênant.
 
-_Propriété privée_ (Julia Deck, 2019): un humour et une écriture tour à tour pince-sans-rire, noire ou très incisive, qui saupoudre une parodie de roman policier sur fond de quartiers résidentiels peuplés de parisiens et parisiennes névrosées.
+_<span class="reco"></span>Propriété privée_ (Julia Deck, 2019): un humour et une écriture tour à tour pince-sans-rire, noire ou très incisive, qui saupoudre une parodie de roman policier sur fond de quartiers résidentiels peuplés de parisiens et parisiennes névrosées.
 
 **Bandes dessinées**
 
-_Vagabond tome 1 à 20_ (Takehiko Inoue, 1999-2004)
+_<span class="reco">Vagabond tome 1 à 20</span>_ (Takehiko Inoue, 1999-2004)
 
 **Albums**
 
-_Yoshi’s New Island OST_ (Masayoshi Ishi, 2014): et dire que plusieurs paires d'oreilles ont écouté ça chez Nintendo et se sont dit "c'est bon pour nous, envoyez en prod". Je n'en reviens pas.
+_<span class="unreco">Yoshi’s New Island OST</span>_ (Masayoshi Ishi, 2014): et dire que plusieurs paires d'oreilles ont écouté ça chez Nintendo et se sont dit "c'est bon pour nous, envoyez en prod". Je n'en reviens pas.
 
 _Death Magnetic_ (Metallica, 2008)  
 _Grey Skies_ (Taeko Onuki, 1976)  
@@ -138,10 +136,10 @@ _Orca Symphony No. 1_ (Serj Tankian, Das Karussel, 2012)
 
 _Thrill of the Arts_ (Vulfpeck, 2015): petite série de Vulfpeck et Moon Hooch, après avoir fait découvrir les deux groupes à O. C'est groovy, funky, jazzy.
 
-_The Beautiful Game_ (Vulfpeck, 2016)  
+_<span class="reco">The Beautiful Game</span>_ (Vulfpeck, 2016)  
 _Mr Finish Line_ (Vulfpeck, 2017)  
 _Red Sky_ (Moon Hooch, 2016)  
-_Spectra_ (Chipzel, 2013)
+_<span class="reco">Spectra</span>_ (Chipzel, 2013)
 
 _Of Kindom and Crown_ (Machine Head, 2022)
 
@@ -150,18 +148,18 @@ _Of Kindom and Crown_ (Machine Head, 2022)
 _Battlestar Galactica_ (Ronald D. Moore, 2004-2009): revisionnage pour le faire découvrir à C. Comme il y a quelques années, j'aime toujours autant la première moitié de la série, puis ensuite ça part en eau de boudin religio-ésotérico-on-sait-plus-quoi-faire-du-scénario-autant-faire-de-starbucks-jesus
 
 _Demon Slayer : Yaiba Mugen Train_ (ufotable, 2021)  
-_Demon Slayer, saison 2_ (ufotable, 2021)
+_Demon Slayer, saison 2_ (ufotable, 2021)  
 
 _Move to Heaven_ (Kim Sung-ho, 2021): C’était la première fois que je regardais une série sud-coréenne, alors je n’ai aucun recul sur les archétypes ou le paysage audiovisuel du pays. Je ne sais pas si la critique de la société sud-coréenne est quelque chose de subversif ou si au contraire c’est assez commun. Celle présente dans _Move to Heaven_ est en petites touches seulement, et de manière plus diffuse, avec le choix d’adopter le point de vue d’un personnage central sur le spectre autistique. À travers ses yeux et ses réactions, on observe en miroir une société réglée comme une montre, où chacune a sa place et son rôle. Le parallèle du rangement et du nettoyage effectué par le personnage principal en tant que trauma cleaner, associé à ses spécificités comportementales et verbales, soulignent paradoxalement la rigidité et la froideur de l’univers dans lequel il vit. C’est alors à lui et à ses proches de trouver la chaleur et la sensibilité là-dedans, ce qui est joliment montré dans les différents cas abordés et les histoires que les personnes décédées laissent derrière elles. Les morts parlent, nous dit-on, et parfois mieux que les vivants ; ce n’est pas pour autant qu’il faut négliger ni les uns ni les autres, pour peu qu’on daigne écouter. Ce mécanisme sous-jacent à la série la porte efficacement sur une première moitié, avant de passer en retrait dans la deuxième moitié pour se concentrer sur un drame légèrement moins intéressant à mes yeux.
 
 _Requiem of the Rose King_ (JC Staff, 2022): c'est...je ne sais pas. Ecoutez, vous n'avez peut-être jamais pensé à Richard III comme un femboy emo qui veut coucher avec son ennemi mais qui ne le sait pas encore parce que l'adolescence, les hormones, la pression de la royauté et de la guerre, la politique tout ça, mais quelqu'un, quelque part au Japon, y a pensé, et en a fait un manga, puis un studio l'a animé, et il fallait donc que je regarde ça, pour ne pas mourir bête. Voilà.
 
-_The Woman in the House Across the Street from the Girl in the Window_ (Hugh Davidson, Larry Dorf, Rachel Ramras, 2022): lancée au hasard, et en fait c'était ce que j'ai vu de mieux cette année en série. La définition de la subversion, qui subvertit même le fait de subvertir et piège les gens qui adorent anticiper ce genre de choses, au point de les blaser, à tort. Ça m'a fait penser à _Katanagatari_ par certains aspects.
+_<span class="reco">The Woman in the House Across the Street from the Girl in the Window</span>_ (Hugh Davidson, Larry Dorf, Rachel Ramras, 2022): lancée au hasard, et en fait c'était ce que j'ai vu de mieux cette année en série. La définition de la subversion, qui subvertit même le fait de subvertir et piège les gens qui adorent anticiper ce genre de choses, au point de les blaser, à tort. Ça m'a fait penser à _Katanagatari_ par certains aspects.
 
 _Chris Colorado_ (Thibaut Chatel, Franck Bertrand, Jacqueline Monsigny, 2000): On sent qu’il y a un univers derrière, mais il se fait timide. Chris Colorado emprunte à un imaginaire post-apocalyptique (notamment _Escape from New York_, l’inspiration primaire) qui ne regarde pas en arrière, ou très peu. L’accent est plutôt mis sur ce qui reste aujourd’hui, à travers des personnages variés et un mélange des cultures jamais remis en question. L’action, si elle est souvent expéditive et peu regardante sur les détails, fait avancer de façon efficace une narration qui se veut mystérieuse, conspirationniste, et toujours prête à lancer des pistes ici et là. C’est regrettable de voir que la fin de la saison s’emmêle les pinceaux et cherche à conclure trop vite, trop loin. L’histoire restera inachevée, tant pis, tant mieux.
 
 _Attack on Titans : The Final Season_ (MAPPA, 2022): surprise, ce n'était pas la saison finale. Mensonges ! Je dois avouer que depuis que les Titans ne sont plus vraiment des Titans mais des armes de guerre et que les gens ne sont plus vraiment des gens mais des copies carbone pour nous refaire une allégorie de la deuxième guerre mondiale, la série m'ennuie ferme. J'ai lâché le manga à peu près à ce moment, je voulais voir le reste en anime parce que quitte à s'ennuyer, autant le faire devant des images qui bougent, mais ça commence à faire long d'attendre la fin qui n'arrive pas.
 
-_Made in Abyss, saison 2_ (Kinema Citrus, 2022): cette série et _Demon Slayer_ ont eu exactement la même structure pour leur 2ème saison, et je me demande si c'est quelque chose qui émerge des processus de publication des mangas, avec la pression des magazines ou que sais-je. Après un début qui tape fort, qui laisse la part belle au développement, à l'introduction de l'univers, des personnages, on plonge ensuite dans un arc mou du genou qui se concentre sur un seul personnage, un seul lieu, une seule trame narrative. Que c'est chiant, que c'est long. Dans _Demon Slayer_, on met tout en pause pour suivre un des leaders dans le quartier chaud de la ville. Il passe son temps à attendre que le scénario l'appelle, il a plusieurs femmes qui ne sont là que pour le glorifier, et les trois héros à côté font des singeries au mieux ridicules, au pire problématiques. Puis tout d'un coup le _deus ex machina_ arrive, il faut se réveiller, les méchants deviennent vraiment très méchants, les héros se découvrent des pouvoirs qui sortent de nulle part, et ça se termine comme ça a commencé. Le monde était en pause pendant ce temps, il ne s'est rien passé dehors, et si peu dedans. Dans _Made in Abyss_, c'était la même chose. On commence par une descente de 6 niveaux dans la saison 1, plusieurs milliers de mètres parcourus et tout autant de nouvelles choses découvertes, et ensuite dans la saison 2 on passe tous les épisodes dans un seul village ??! Le rythme est affreux, il ne se passe rien, on nous introduit un système de valeur dont on se contrefout parce qu'en dehors du village ça n'a aucun autre usage, tant narratif que mécanique. Les personnages sont tous plus moches les uns que les autres, et leurs motivations peu convaincantes, jusqu'à ce que le _deux ex machina_ arrive, il faut se réveiller, la méchante devient vraiment méchante, le deutéragoniste se découvre des pouvois qui sort de nulle part, et ça se termine comme ça a commencé, avec un monde qui n'a pas bougé d'un iota pendant ce temps.
+_<span class="unreco">Made in Abyss, saison 2</span>_ (Kinema Citrus, 2022): cette série et _Demon Slayer_ ont eu exactement la même structure pour leur 2ème saison, et je me demande si c'est quelque chose qui émerge des processus de publication des mangas, avec la pression des magazines ou que sais-je. Après un début qui tape fort, qui laisse la part belle au développement, à l'introduction de l'univers, des personnages, on plonge ensuite dans un arc mou du genou qui se concentre sur un seul personnage, un seul lieu, une seule trame narrative. Que c'est chiant, que c'est long. Dans _Demon Slayer_, on met tout en pause pour suivre un des leaders dans le quartier chaud de la ville. Il passe son temps à attendre que le scénario l'appelle, il a plusieurs femmes qui ne sont là que pour le glorifier, et les trois héros à côté font des singeries au mieux ridicules, au pire problématiques. Puis tout d'un coup le _deus ex machina_ arrive, il faut se réveiller, les méchants deviennent vraiment très méchants, les héros se découvrent des pouvoirs qui sortent de nulle part, et ça se termine comme ça a commencé. Le monde était en pause pendant ce temps, il ne s'est rien passé dehors, et si peu dedans. Dans _Made in Abyss_, c'était la même chose. On commence par une descente de 6 niveaux dans la saison 1, plusieurs milliers de mètres parcourus et tout autant de nouvelles choses découvertes, et ensuite dans la saison 2 on passe tous les épisodes dans un seul village ??! Le rythme est affreux, il ne se passe rien, on nous introduit un système de valeur dont on se contrefout parce qu'en dehors du village ça n'a aucun autre usage, tant narratif que mécanique. Les personnages sont tous plus moches les uns que les autres, et leurs motivations peu convaincantes, jusqu'à ce que le _deux ex machina_ arrive, il faut se réveiller, la méchante devient vraiment méchante, le deutéragoniste se découvre des pouvois qui sort de nulle part, et ça se termine comme ça a commencé, avec un monde qui n'a pas bougé d'un iota pendant ce temps.
 
 _Spy x Family, saison 1_ (Wit Studio, CloverWorks, 2022)

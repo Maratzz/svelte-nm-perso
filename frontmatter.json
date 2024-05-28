@@ -16,7 +16,7 @@
           "name": "slug",
           "type": "slug",
           "editable": false,
-          "default": "{{title}}"
+          "default": "{{slug}}"
         },
         {
           "title": "Headline",
