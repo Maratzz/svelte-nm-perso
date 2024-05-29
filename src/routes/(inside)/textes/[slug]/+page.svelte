@@ -22,7 +22,7 @@
   description="{headline}"
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
-  imageURL="{image ?? full_image}"
+  imageURL={image ? `"/${image}"` : `"${full_image}"`}
   twitter
   openGraph
 />
