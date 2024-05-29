@@ -73,7 +73,7 @@
   <!-- Twitter Meta Tags -->
   {#if twitter}
       {#if title !== ""}
-          <meta name="twitter:card" content="summary_large_image">
+          <meta name="twitter:card" content="summary">
           <meta property="twitter:domain" content="{$page.url.host}">
           <meta property="twitter:url" content="{$page.url}">
           <meta name="twitter:title" content="{title}">

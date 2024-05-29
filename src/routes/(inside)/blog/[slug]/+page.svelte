@@ -1,6 +1,5 @@
 <script>
   import HeadSEO from "$lib/components/HeadSEO.svelte"
-  import full_image from "$lib/assets/homepage/full_image.webp"
 
   export let data;
 
@@ -18,7 +17,7 @@
   description="{headline}"
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
-  imageURL="{image}"
+  imageURL="/{image}"
   twitter
   openGraph
 />
