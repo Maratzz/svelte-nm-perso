@@ -2,7 +2,7 @@
 title: The Beginning of All Things
 slug: the-beginning-of-all-things
 headline: Un poème créé dans le cadre de l'Inktober 2018.
-image: /src/lib/assets/blog/universe.jpg
+image: blog/universe.jpg
 date: 2018-10-15
 categories:
   - poésie

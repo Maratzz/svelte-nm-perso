@@ -8,7 +8,7 @@ categories:
 type: default
 slug: bilan-culturel-2020
 headline: Les résolutions, c’est comme les pandémies, on fait ce qu’on peut avec ce qu’on a, et on veut ce qu’on fait avec qui on peut.
-image: /src/lib/assets/blog/mu-cartographer.jpg
+image: blog/mu-cartographer.jpg
 ---
 
 **Films**: <span class="reco">47 sur 45</span>, soit 104.44% de l'objectif initial.  

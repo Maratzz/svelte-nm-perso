@@ -2,7 +2,7 @@
 title: Bilan personnel 2020
 slug: bilan-personnel-2020
 headline: On peut memrrtiks une personne mille fois, mais on ne peut pas suashem mille fois...non.
-image: /src/lib/assets/blog/clouds.jpg
+image: blog/clouds.jpg
 date: 2021-01-03
 categories:
   - bilan

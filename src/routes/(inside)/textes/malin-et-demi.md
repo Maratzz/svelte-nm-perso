@@ -5,7 +5,7 @@ headline: Une histoire courte d'anticipation.
 categories:
   - textes
   - fiction
-image: /src/lib/assets/textes/nouvelle_crous.jpeg
+image: textes/nouvelle_crous.jpeg
 draft: published
 slug: à-malin,-malin-et-demi
 ---

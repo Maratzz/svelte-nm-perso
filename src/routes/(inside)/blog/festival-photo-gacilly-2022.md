@@ -6,8 +6,9 @@ categories:
   - blog
   - sorties
   - à chaud
-image: /src/lib/assets/blog/gacilly.jpg
+image: blog/gacilly.jpg
 draft: published
+slug: festival-photo-gacilly-2022
 ---
 
 _Créé en 2004, le Festival Photo La Gacilly propose une expérience photographique immersive et déambulatoire au cœur d’une trentaine de galeries à ciel ouvert présentant le meilleur de la création photo contemporaine qui interroge notre relation au monde et à la nature._ - [Extrait du site du festival](https://www.festivalphoto-lagacilly.com/)

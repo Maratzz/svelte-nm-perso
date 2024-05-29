@@ -2,7 +2,7 @@
 title: Bilan personnel 2019
 slug: bilan-personnel-2019
 headline: De grands changements impliquent de grands suashem.
-image: /src/lib/assets/blog/king_conga_.jpg
+image: blog/king_conga_.jpg
 date: 2020-01-02
 categories:
   - bilan

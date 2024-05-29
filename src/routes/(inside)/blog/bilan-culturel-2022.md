@@ -2,7 +2,7 @@
 title: Bilan culturel 2022
 slug: bilan-culturel-2022
 headline: Je n'ai pas fait la moitié des objectifs à moitié autant que je le voudrais, et j'aime moins de la moitié du reste à moitié autant que ça le mérite.
-image: /src/lib/assets/blog/toussaint.webp
+image: blog/toussaint.webp
 date: 2023-01-04
 categories:
   - bilan

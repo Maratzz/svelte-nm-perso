@@ -6,8 +6,9 @@ categories:
   - textes
   - critique
   - jv
-image: /src/lib/assets/textes/mussel.jpg
+image: textes/mussel.jpg
 draft: published
+slug: mussel
 ---
 
 <script>

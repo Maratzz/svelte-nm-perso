@@ -5,8 +5,9 @@ headline: Méditer pour ne pas médire
 categories:
   - blog
   - bilan
-image: /src/lib/assets/blog/wtf_suashem.jpg
+image: blog/wtf_suashem.jpg
 draft: published
+slug: bilan-personnel-2023
 ---
 
 **Ce que je retiendrai de 2023:**

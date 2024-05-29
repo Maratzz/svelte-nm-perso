@@ -5,7 +5,7 @@ headline: Une histoire courte dans l'univers de World of Goo.
 categories:
   - textes
   - fiction
-image: /src/lib/assets/textes/cycles.webp
+image: textes/cycles.webp
 draft: published
 slug: cycle(s)
 ---

@@ -6,8 +6,9 @@ categories:
   - textes
   - critique
   - cinéma
-image: /src/lib/assets/textes/alien_covenant.jpg
+image: textes/alien_covenant.jpg
 draft: published
+slug: alien-covenant
 ---
 
 <script>

@@ -6,8 +6,9 @@ categories:
   - textes
   - critique
   - anime
-image: /src/lib/assets/textes/anohana.jpg
+image: textes/anohana.jpg
 draft: published
+slug: anohana
 ---
 
 

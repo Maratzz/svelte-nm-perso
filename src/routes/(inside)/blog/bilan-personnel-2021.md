@@ -2,7 +2,7 @@
 title: Bilan personnel 2021
 slug: bilan-personnel-2021
 headline: En retard, mais qui cherche à PB l'existence ?
-image: /src/lib/assets/blog/temple_donon.jpg
+image: blog/temple_donon.jpg
 date: 2022-02-04
 categories:
   - bilan

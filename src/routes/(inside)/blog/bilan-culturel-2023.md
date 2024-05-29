@@ -5,8 +5,9 @@ headline: Lister pour ne pas s'enliser
 categories:
   - blog
   - bilan
-image: /src/lib/assets/blog/les-grands-cerfs.webp
+image: blog/les-grands-cerfs.webp
 draft: published
+slug: bilan-culturel-2023
 ---
 
 23 films sur 45

@@ -2,7 +2,7 @@
 title: Bilan personnel 2022
 slug: bilan-personnel-2022
 headline: L'année où Hunter X Hunter a repris, ça ne peut être qu'une bonne année.
-image: /src/lib/assets/blog/grand-lieu.jpg
+image: blog/grand-lieu.jpg
 date: 2023-01-03
 categories:
   - blog

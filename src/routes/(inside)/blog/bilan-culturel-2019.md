@@ -5,7 +5,7 @@ headline: Les résolutions, c'est comme les élections, ça n'engage que celles 
 categories:
   - blog
   - sveltekit
-image: /src/lib/assets/blog/suashem_1.jpg
+image: blog/suashem_1.jpg
 draft: published
 slug: Bilan culturel 2019
 ---

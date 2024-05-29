@@ -2,7 +2,7 @@
 title: Bilan culturel 2021
 slug: bilan-culturel-2021
 headline: En retard, mais qui regarde la montre ?
-image: /src/lib/assets/blog/suashem_2.jpg
+image: blog/suashem_2.jpg
 date: 2022-01-15
 categories:
   - blog

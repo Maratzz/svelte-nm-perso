@@ -6,8 +6,9 @@ categories:
   - textes
   - critique
   - cinéma
-image: /src/lib/assets/textes/seventh_son.jpg
+image: textes/seventh_son.jpg
 draft: published
+slug: le-septieme-fils
 ---
 
 <script>
