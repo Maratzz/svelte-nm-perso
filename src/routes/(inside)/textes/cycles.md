@@ -7,6 +7,7 @@ categories:
   - fiction
 image: /src/lib/assets/textes/cycles.webp
 draft: published
+slug: cycle(s)
 ---
 
 J'ai écrit cette histoire courte avec le morceau proposé ci-dessous en tête. Je vous recommande de l'écouter durant la lecture.

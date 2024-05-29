@@ -7,6 +7,7 @@ categories:
   - fiction
 image: /src/lib/assets/textes/nouvelle_crous.jpeg
 draft: published
+slug: à-malin,-malin-et-demi
 ---
 
 <script>

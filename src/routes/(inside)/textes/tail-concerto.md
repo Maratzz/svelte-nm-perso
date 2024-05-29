@@ -7,6 +7,7 @@ categories:
   - critique
   - jv
 draft: published
+slug: tail-concerto
 ---
 
 <script>
