@@ -1,6 +1,7 @@
 <script>
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import full_image from "$lib/assets/homepage/full_image.webp"
+  import { goto } from "$app/navigation"
 
   export let data
 
@@ -25,6 +26,11 @@
       return coverImage
     }
   }
+
+  let handleClick = (post) => {
+    const link = post.path
+    goto(link)
+  }
 </script>
 
 <HeadSEO 
@@ -43,12 +49,12 @@
 
   {#each posts as post}
 
-    <div id="item">
+    <div class="item" on:click={() => {handleClick(post)}} on:keypress={() => {handleClick(post)}}>
 
-      <img src={post.meta.image ?? attachCoverImage( post.meta.title, items )} alt="Illustration du texte" id="item-img" class="border-2">
+      <img src={post.meta.image ?? attachCoverImage( post.meta.title, items )} alt="Illustration du texte" class="item-img border-2">
 
-      <div id="item-content">
-        <h2><a href={post.path}>{post.meta.title}</a></h2>
+      <div class="item-content">
+        <h2><a href={post.path} class="link">{post.meta.title}</a></h2>
         <p><i>{formatDate( post.meta.date )}</i></p>
         <p>{post.meta.headline ?? "Pas d'accroche, bouh !"}</p>
       </div>
@@ -81,12 +87,15 @@
     padding-bottom: 15px;
   }
 
-  #item {
+  .item {
     background-color: rgb(255, 255, 255);
     width: 90%;
     margin: 15px auto 25px auto;
     padding: 15px 15px;
     border-radius: 15px;
+    &:hover {
+      cursor: pointer;
+    }
     h2 {
       margin-bottom: 0;
     }
@@ -98,13 +107,13 @@
     }
   }
 
-  #item-content h2 + p {
+  .item-content h2 + p {
     font-size: 0.8em;
     margin-top: 5px;
   }
 
   @media (min-width: 900px) {
-    #item {
+    .item {
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-evenly;
