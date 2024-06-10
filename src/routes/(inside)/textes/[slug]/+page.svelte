@@ -1,16 +1,11 @@
 <script>
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import full_image from "$lib/assets/homepage/full_image.webp"
+  import { formatDate } from "$lib/utils/index.js"
 
   export let data
 
   let  { date, title, content, headline, categories, image } = data
-  let options = {
-    day: "numeric",
-    month: "long",
-    year: "numeric"
-  }
-  let humanDate = new Date(date).toLocaleDateString("fr", options)
 </script>
 
 <svelte:head>
@@ -30,7 +25,7 @@
 <article>
 
   <h1>{title}</h1>
-  <p>Publié le {humanDate} dans {categories.length === 1 ? "la catégorie" : "les catégories"}{#each categories as category}<span class="category">{category}</span>{/each}</p>
+  <p>Publié le {formatDate( date, "numeric", "long", "numeric" )} dans {categories.length === 1 ? "la catégorie" : "les catégories"}{#each categories as category}<span class="category">{category}</span>{/each}</p>
   <svelte:component this={content} />
   
 </article>

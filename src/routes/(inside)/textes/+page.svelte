@@ -2,18 +2,11 @@
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import full_image from "$lib/assets/homepage/full_image.webp"
   import { goto } from "$app/navigation"
+  import { formatDate } from "$lib/utils/index.js"
 
   export let data
 
   let { posts, items } = data
-  let formatDate = (e) => { 
-    let options = {
-      day: "numeric",
-      month: "long",
-      year: "numeric"
-    }
-    return new Date(e).toLocaleDateString( "fr", options )
-  }
 
   let attachCoverImage = ( target, database ) => {
     let foundRow = database.find( e => e.name === target )
@@ -55,7 +48,7 @@
 
       <div class="item-content">
         <h2><a href={post.path} class="link">{post.meta.title}</a></h2>
-        <p><i>{formatDate( post.meta.date )}</i></p>
+        <p><i>{formatDate( post.meta.date, "numeric", "long", "numeric" )}</i></p>
         <p>{post.meta.headline ?? "Pas d'accroche, bouh !"}</p>
       </div>
 
@@ -93,8 +86,11 @@
     margin: 15px auto 25px auto;
     padding: 15px 15px;
     border-radius: 15px;
+    transition: all .1s ease-in-out;
     &:hover {
       cursor: pointer;
+      box-shadow: 6px 6px 2px 1px #C3BDD9;
+      transition: all .1s ease-in-out;
     }
     h2 {
       margin-bottom: 0;

@@ -4,8 +4,7 @@
   export let onUpdate = () => {}
 </script>
 
-<li>
-  <div id="todo-{todo.id}" class="todo {todo.category} form-group">
+  <div class="todo form-group">
     
     <input 
       type="text"
@@ -13,8 +12,7 @@
       bind:value={todo.task}
       on:input={(e) => {
         todo.task = e.currentTarget.value
-      }
-    } />
+      }}/>
 
     <button 
       type="button"
@@ -30,14 +28,8 @@
     </button>
     
   </div>
-</li>
-
-
 
 <style>
-  li {
-    margin-bottom: 10px;
-  }
   .todo {
     display: flex;
     flex-direction: row;

@@ -41,4 +41,4 @@ slug: bilan-personnel-2023
 
 Comme toujours, les yeux sont gros et le ventre est petit, telle est l'histoire éternelle de niconino, niconini.
 
-![Un portrait rigolo de Suashem, les pattes avant bien en avant](/img/blog/wtf_suashem.jpg)
+![Un portrait rigolo de Suashem, les pattes avant bien en avant](/blog/wtf_suashem.jpg)

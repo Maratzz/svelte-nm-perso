@@ -1,17 +1,16 @@
 <script>
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import full_image from "$lib/assets/homepage/full_image.webp"
+  import { goto } from "$app/navigation"
+  import { formatDate } from "$lib/utils/index.js"
 
   export let data
-  
+
   let { posts } = data
-  let formatDate = (e) => { 
-    let options = {
-      day: "numeric",
-      month: "long",
-      year: "numeric"
-    }
-    return new Date(e).toLocaleDateString( "fr", options )
+
+  let handleClick = (post) => {
+    const link = post.path
+    goto(link)
   }
 </script>
 
@@ -29,12 +28,12 @@
 
 <div id="container">
   {#each posts as post}
-  <div id="item">
-    <img src={post.meta.image ?? "https://placehold.co/140x190"} alt="Illustration pour le billet de blog" id="item-img" class="border-2">
+  <div class="item" on:click={() => {handleClick(post)}} on:keypress={() => {handleClick(post)}}>
+    <img src={post.meta.image ?? "https://placehold.co/140x190"} alt="Illustration pour le billet de blog" class="item-img border-2">
 
-    <div id="item-content">
+    <div class="item-content">
       <h2><a href={post.path}>{post.meta.title}</a></h2>
-      <p><i>{formatDate( post.meta.date )}</i></p>
+      <p><i>{formatDate( post.meta.date, "numeric", "long", "numeric" )}</i></p>
       <p>{post.meta.headline ?? "Pas d'accroche, bouh !"}</p>
     </div>
   </div>
@@ -64,12 +63,18 @@
     padding-bottom: 15px;
   }
 
-  #item {
+  .item {
     background-color: rgb(255, 255, 255);
     width: 90%;
     margin: 15px auto 25px auto;
     padding: 15px 15px;
     border-radius: 15px;
+    transition: all .1s ease-in-out;
+    &:hover {
+      cursor: pointer;
+      box-shadow: 6px 6px 2px 1px #C3BDD9;
+      transition: all .1s ease-in-out;
+    }
     h2 {
       margin-bottom: 0;
     }
@@ -81,13 +86,13 @@
     }
   }
 
-  #item-content h2 + p {
+  .item-content h2 + p {
     font-size: 0.8em;
     margin-top: 5px;
   }
 
   @media (min-width: 900px) {
-    #item {
+    .item {
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-evenly;

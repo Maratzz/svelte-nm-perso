@@ -67,3 +67,12 @@ export const getHumanDate = async ( input ) => {
   const humanDate = rawDate.toISOString().substring(0, 10)
   return humanDate
 }
+
+export const formatDate = ( date, dayChoice, monthChoice, yearChoice ) => {
+  let options = {
+    day: dayChoice,
+    month: monthChoice,
+    year: yearChoice
+  }
+  return new Date(date).toLocaleDateString( "fr", options )
+}
