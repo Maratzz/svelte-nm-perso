@@ -9,7 +9,7 @@ export async function load({ parent }) {
   const { data : todos } = await supabase
     .from("todos")
     .select()
-    .order("inserted_at", { ascending: true })
+    .order("inserted_at", { ascending: false })
 
   const { data: categories } = await supabase
     .from("todos")
