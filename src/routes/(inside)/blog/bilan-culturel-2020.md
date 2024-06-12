@@ -188,7 +188,7 @@ _Edge_ (Mobigame, 2008)
 
 _<span class="reco">Mu Cartographer</span>_ (Titouan Millet, 2016): la carte et le territoire, voir [les billets de Yudkowsy à ce sujet](https://www.lesswrong.com/tag/map-and-territory).
 
-![Capture d'écran de Mu Cartographer](/src/lib/assets/blog/mu-cartographer.jpg)
+![Capture d'écran de Mu Cartographer](/blog/mu-cartographer.jpg)
 
 _<span class="unreco">RiME</span>_ (Tequila Works, Grey Box, Six Foot, 2017): le jour où on arrêtera de véhiculer la théorie — malcomprise qui plus est — d’Elizabeth Kübler-Ross, on aura fait un grand pas.
 

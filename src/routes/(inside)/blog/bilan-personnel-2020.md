@@ -34,7 +34,7 @@ Il n'y a presque pas de raison de revenir sur chaque objectif, si ce n'est pour 
 
 *mettre en ligne un site vitrine professionnel:* <span class="unreco">échoué</span> mais je suis à ça, à ça vous voyez ? Tenez, que pensez-vous de la page d'accueil ?
 
-![Capture d'écran d'un mockup du site pro](/src/lib/assets/blog/dope-landing-page.png)
+![Capture d'écran d'un mockup du site pro](/blog/dope-landing-page.png)
 
 *générer un chiffre d'affaire dans le dev et la rédaction web:* <span class="unreco">échoué</span>, mais j'ai fait quelques petites bricoles ici et là, et deux projets ont failli voir le jour, mais les personnes en face n'ont jamais donné suite.
 

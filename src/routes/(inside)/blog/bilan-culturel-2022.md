@@ -117,7 +117,7 @@ _Repenser la pauvreté_ (Abhijit Banerjee, Esther Duflo, 2011): on pourrait croi
 
 _Trois gouttes de sang_ (Sadeq Hedayat, 1932): je ne comprends pas l'attrait du recueil. Est-ce que c'est du commentaire dénonciateur de la société iranienne des années 30 fortement imprégnée de paternalisme, patriarcat, religion oppressante, que sais-je encore ? On aimerait le penser, surtout qu'Hedayat a apparemment vécu en France un bon moment. Rien dans le texte ne semble le suggérer malheureusement, tout est écrit au premier degré, et l'absurde, quand il surgit, ne vient pas remettre ça en question, tout au plus il joue autour des situations provoqués par les carcans cités plus haut. Est-ce que ce sont des histoires qui se veulent délibérément quelconques, pour mieux souligner l'ironie de la réalité ? Est-ce que c'est la traduction, peu inspirée, qui m'a fait passer à côté du texte ? Je ne sais pas, et c'est très gênant.
 
-_<span class="reco"></span>Propriété privée_ (Julia Deck, 2019): un humour et une écriture tour à tour pince-sans-rire, noire ou très incisive, qui saupoudre une parodie de roman policier sur fond de quartiers résidentiels peuplés de parisiens et parisiennes névrosées.
+_<span class="reco">Propriété privée</span>_ (Julia Deck, 2019): un humour et une écriture tour à tour pince-sans-rire, noire ou très incisive, qui saupoudre une parodie de roman policier sur fond de quartiers résidentiels peuplés de parisiens et parisiennes névrosées.
 
 **Bandes dessinées**
 

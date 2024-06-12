@@ -235,7 +235,7 @@ Remarquez le chemin de l'`import`. `$lib` est un alias pratique qui pointe direc
 
 Quoi qu'il en soit, vous devriez voir maintenant quelque chose d'un peu plus ergonomique pour l'utilisateur·rice:
 
-img screen
+![Capture d'écran du résultat](/blog/localhost_header_component.png)
 
 L'apparence n'est toujours pas en place, mais c'est fonctionnel. On peut désormais naviguer entre les pages, ce qui va permettre de tester les choses un peu plus facilement.
 
@@ -326,7 +326,7 @@ Une fois que nous avons la feuille de styles avec du CSS dedans, nous pouvons l'
 <!-- ...HTML here -->
 ```
 
-img rendu css
+![Capture d'écran du résultat](/blog/localhost_header_component_stylized.png)
 
 Etant donné que SvelteKit est compilé et généré sur le serveur (*server-side rendering*, ou SSR), on peut inspecter la page et voir que notre CSS a été directement rajouté au HTML au lieu d'être construite côté client (*client-side rendering* ou CSR). Chouette !
 
@@ -468,7 +468,7 @@ Pour tester, créons `src/routes/uses/+page.md` et écrivons du Markdown dedans.
 - Emojis 😎
 ```
 
-img result
+![Capture d'écran du résultat](/blog/localhost_markdown_ready.png)
 
 Vous pouvez même importer et utiliser du contenu Markdown à l'intérieur d'autres fichiers, si vous avez besoin qu'une partie de la page soit intéractive par exemple, mais que le reste soit juste du texte Markdown statique.
 
@@ -657,7 +657,7 @@ Les données de la function `load` sont automatiquement disponibles à l'utilisa
 
 En chargeant un billet de blog nous devrions maintenant voir tout son contenu
 
-img result
+![Capture d'écran du résultat](/blog/localhost_blog_individual_md.png)
 
 > Au cas où vous ne le sauriez pas, `<svelte: component />` est ce qu'on appelle un composant dynamique; il génère un composant Svelte arbitraire (fourni en tant que valeur de la prop `this`), quand le composant final est inconnu à ce moment-là. C'est parfait dans cette situation parce que nous ne sommes pas certain·e·s du billet et du contenu qui sera généré. Aussi: tout ça fonctionne parce que nous avons préalablement déclaré les fichiers .md comme utilisables en tant que composant dans notre `svelte.config.js`
 
@@ -813,7 +813,7 @@ Explicitons:
 
 Faisons un test ! Actualisez votre `/api/posts` et vous devriez voir de vraies données.
 
-img result api
+![Capture d'écran du résultat](/blog/localhost_api_call.png)
 
 Encore mieux: cet endpoint se mettra automatiquement à jour dès qu'on ajoutera un billet Markdown au reste.
 
@@ -874,7 +874,7 @@ export let data
 
 Dans l'exemple ci-dessus le HTML est simplifié (et ne prend pas bien en compte le scénario où il n'y aurait pas de billets à afficher), mais vous voyez le genre. Vous pouvez augmenter le code en fonction du frontmatter de vos propres billets, en ajoutant une image/lien d'accroche, un extrait, etc.
 
-img result index
+![Capture d'écran du résultat](/blog/localhost_blog_index.png)
 
 ## Précharger avec l'adaptateur statique
 
