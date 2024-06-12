@@ -6,7 +6,7 @@
 
   export let data
 
-  $: ({ todos, categories } = data)
+  $: ({ todos, categories, supabase } = data)
   $: { removeDuplicates( categories )
       .then( res => uniqueCategories = res.map(({ category }) => category ))}
   $: filteredTodos = todos
@@ -50,7 +50,7 @@
   </div>
 
   {#key filteredTodos}
-  <div in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
+  <div in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }} id="todo-wrap">
     {#each filteredTodos as todo (todo.task)}
       <Todo {todo}/>
     {/each}
@@ -59,5 +59,24 @@
 </div>
 
 
-<style>
+<style lang="scss">
+  h1 {
+    position: relative;
+    z-index: 2;
+    &::after {
+      z-index: -1;
+      display: inline-block;
+      content: "";
+      background-color: #C3BDD9;
+      width: 120px;
+      height: 20px;
+      position: absolute;
+      bottom: 0;
+      left: 140px;
+    }
+  }
+
+  #select-todo {
+    margin-bottom: 15px;
+  }
 </style>

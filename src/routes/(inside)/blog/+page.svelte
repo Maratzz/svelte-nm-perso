@@ -24,26 +24,28 @@
   openGraph
 />
 
-<h1>Blog</h1>
+<div>
+  <h1>Blog</h1>
 
-<div id="container">
-  {#each posts as post}
-  <div class="item" on:click={() => {handleClick(post)}} on:keypress={() => {handleClick(post)}}>
-    <img src={post.meta.image ?? "https://placehold.co/140x190"} alt="Illustration pour le billet de blog" class="item-img border-2">
+  <div id="container">
+    {#each posts as post}
+    <div class="item" on:click={() => {handleClick(post)}} on:keypress={() => {handleClick(post)}}>
+      <img src={post.meta.image ?? "https://placehold.co/140x190"} alt="Illustration pour le billet de blog" class="item-img border-2">
 
-    <div class="item-content">
-      <h2><a href={post.path}>{post.meta.title}</a></h2>
-      <p><i>{formatDate( post.meta.date, "numeric", "long", "numeric" )}</i></p>
-      <p>{post.meta.headline ?? "Pas d'accroche, bouh !"}</p>
+      <div class="item-content">
+        <h2><a href={post.path}>{post.meta.title}</a></h2>
+        <p><i>{formatDate( post.meta.date, "numeric", "long", "numeric" )}</i></p>
+        <p>{post.meta.headline ?? "Pas d'accroche, bouh !"}</p>
+      </div>
     </div>
+    {/each}
   </div>
-  {/each}
 </div>
+
 
 <style lang="scss">
   h1 {
     position: relative;
-    padding-left: 15px;
     z-index: 2;
     &::after {
       z-index: -1;
@@ -54,7 +56,7 @@
       height: 20px;
       position: absolute;
       bottom: 0;
-      left: 50px;
+      left: 30px;
     }
   }
 
@@ -65,7 +67,7 @@
 
   .item {
     background-color: rgb(255, 255, 255);
-    width: 90%;
+    width: 100%;
     margin: 15px auto 25px auto;
     padding: 15px 15px;
     border-radius: 15px;

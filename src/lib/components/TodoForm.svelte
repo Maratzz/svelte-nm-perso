@@ -10,17 +10,21 @@
   </div>
 
   <div class="inner_form">
-    <label for="todo-category-selection">Catégorie :</label>
+    <label for="todo_category">Catégorie :</label>
     <input name="todo_category" id="todo_category" placeholder="new category" required>
   </div>
 
-  <button type="submit" id="button-add-todo">Ajouter</button>
+  <button type="submit">Ajouter</button>
 
 </form>
 
 <style lang="scss">
   form {
-    margin: 0 0 20px 0;
+    margin: 0 0 15px 0;
     padding: 0;
+  }
+
+  .inner_form {
+    margin-bottom: 15px;
   }
 </style>

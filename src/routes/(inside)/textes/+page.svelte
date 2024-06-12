@@ -36,9 +36,10 @@
   openGraph
 />
 
-<h1>Textes</h1>
+<div>
+  <h1>Textes</h1>
 
-<div id="container">
+  <div id="container">
 
   {#each posts as post}
 
@@ -55,12 +56,13 @@
     </div>
     
   {/each}
+  </div>
 </div>
+
 
 <style lang="scss">
   h1 {
     position: relative;
-    padding-left: 15px;
     z-index: 2;
     &::after {
       z-index: -1;
@@ -82,7 +84,7 @@
 
   .item {
     background-color: rgb(255, 255, 255);
-    width: 90%;
+    width: 100%;
     margin: 15px auto 25px auto;
     padding: 15px 15px;
     border-radius: 15px;

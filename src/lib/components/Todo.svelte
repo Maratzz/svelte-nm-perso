@@ -23,8 +23,8 @@
   form {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: flex-end;
+    justify-content: space-evenly;
+    align-items: center;
     margin: 10px 0;
 
     button {

@@ -21,7 +21,11 @@ export const actions = {
         category: todoCategory
       })
       .select()
+      if ( error ) {
+        throw error
+      }
     } catch( error ) {
+      
       return error
     }
   },
