@@ -54,7 +54,7 @@ _Ce que j'essaierai de faire en 2023_
 * Basculer à plein temps en indépendant, à mi-temps ici et là, conjuguer les pluriels féminins et vivre une année singulière, la première de toutes.
 * Maîtriser Svelte, faire du dev
 * Publier, lier les barres sur les T, et fêter l'écriture, en ratures, donner en pâture mes mots trop longtemps restés clos.
-* Continuer de[stream](https://twitch.tv/maratz_), trouver des rendez-vous autour d'une bûche dorsale, d'un e-tronc numérique ou d'un jeu de l'année qui ne prévient même pas, quel malpoli.
+* Continuer de [stream](https://twitch.tv/maratz_), trouver des rendez-vous autour d'une bûche dorsale, d'un e-tronc numérique ou d'un jeu de l'année qui ne prévient même pas, quel malpoli.
 * Voir plus souvent les amies, les amis, les amours, les emmerdes.
 
 _Photo de couverture: [Jérémie Jénahin pour l'Office de tourisme du Lac de Grand-Lieu](https://lacdegrandlieu.com/)_

@@ -1,0 +1,23 @@
+$color-link: #8260b2;
+$color-link-active: #c1abe1;
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.3em;
+}
+
+:is(a) {
+  background-image: none;
+}
+
+:is(a:link, a:visited) {
+  color: $color-link;
+}
+
+:is(a:active, a:focus, a:hover) {
+  color: $color-link-active;
+  text-decoration: underline;
+}

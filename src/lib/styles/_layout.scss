@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+main > div {
+  width: 90vw;
+  margin: 0 auto;
+  padding-bottom: 15px;
+  background-color: #eee;
+}
+
+main, footer {
+  background-color: #eee;
+}
+
+main {
+  min-height: 100vh;
+}
+
+@media (min-width: 900px) {
+  main > div {
+    width: 45vw;
+  }
+}

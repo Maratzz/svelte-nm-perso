@@ -1,0 +1,10 @@
+/* **********
+Sometimes PaperCSS or another CSS framework inject weird opinionated choices that need to be overriden. This is where it should be done.
+********** */
+
+//override the annoying dash added by paperCSS on every li element, like why? put it on ul element
+.removePaperLi {
+  & li::before {
+    content: "";
+  }
+}
