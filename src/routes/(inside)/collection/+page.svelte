@@ -232,7 +232,13 @@
 
     <div id="info__inner">
       <p class="info-big"><b>{itemDetails.name}</b></p>
-      <p class="info-small"><i>{itemDetails.developers}, {formatDateYear(itemDetails.date_released)} ({itemDetails.platform})</i></p>
+      <p class="info-small"><i>{itemDetails.developers},
+        {#if itemDetails.date_released !== "1974-06-10"}
+        {formatDateYear(itemDetails.date_released)}
+        {:else}
+        pas encore sorti
+        {/if}
+        ({itemDetails.platform})</i></p>
 
       <p class="info-small">Status: 
         {#if itemDetails.status === "finished"}
