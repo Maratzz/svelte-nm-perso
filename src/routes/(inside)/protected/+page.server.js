@@ -1,13 +1,17 @@
-// src/routes/+page.server.ts
-import { redirect } from "@sveltejs/kit"
+import { redirect } from '@sveltejs/kit'
 
-export const load = async ({ url, locals: { getSession } }) => {
-  const session = await getSession()
+export const actions = {
+  login: async ({ request, locals: { supabase } }) => {
+    const formData = await request.formData()
+    const email = formData.get('email')
+    const password = formData.get('password')
 
-  // if the user is already logged in return them to the account page
-  if ( session ) {
-    throw redirect(303, "/compte")
-  }
-
-  return { url: url.origin }
+    const { error } = await supabase.auth.signInWithPassword({ email, password })
+    if (error) {
+      console.error(error)
+      return redirect(303, '/auth/error')
+    } else {
+      return redirect(303, '/private')
+    }
+  },
 }

@@ -3,7 +3,7 @@
   import "papercss/dist/paper.min.css"
   import "$lib/styles/styles.scss"
   import { onMount } from "svelte"
-  import { invalidate } from "$app/navigation"
+  import { goto, invalidate } from "$app/navigation"
   import { fly } from "svelte/transition"
 	import { cubicIn, cubicOut } from "svelte/easing"
 
@@ -18,13 +18,22 @@
 	const transitionIn = { easing: cubicOut, y, duration, delay }
 	const transitionOut = { easing: cubicIn, y: -y, duration }
   
-  // create an event listener which monitors supabase functions triggered in children pages
   onMount(() => {
-		const { data } = supabase.auth.onAuthStateChange(( event, _session ) => {
-			if ( _session?.expires_at !== session?.expires_at ) {
-				invalidate( "supabase:auth" );
+		const { data } = supabase.auth.onAuthStateChange((_, newSession) => {
+			if (!newSession) {
+				/**
+				 * Queue this as a task so the navigation won't prevent the
+				 * triggering function from completing
+				 */
+				setTimeout(() => {
+					goto('/', { invalidateAll: true });
+				});
+			}
+			if (newSession?.expires_at !== session?.expires_at) {
+				invalidate('supabase:auth');
 			}
 		});
+
 		return () => data.subscription.unsubscribe();
 	});
 </script>
