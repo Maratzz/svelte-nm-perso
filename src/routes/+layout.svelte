@@ -9,6 +9,7 @@
 
   export let data
 
+  let { supabase, session } = data
   $: ({ supabase, session, currentRoute } = data )
 
   const duration = 300
@@ -20,7 +21,7 @@
   
   // create an event listener which monitors supabase functions triggered in children pages
   onMount(() => {
-    const { data } = supabase.auth.onAuthStateChange((_, newSession) => {
+    const { data } = supabase.auth.onAuthStateChange((event, newSession) => {
 			if (newSession?.expires_at !== session?.expires_at) {
 				invalidate('supabase:auth');
 			}

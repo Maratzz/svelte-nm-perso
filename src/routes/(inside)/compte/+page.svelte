@@ -1,37 +1,76 @@
+<!-- src/routes/account/+page.svelte -->
 <script>
-	import { invalidate } from '$app/navigation'
+	import { enhance } from '$app/forms';
 
 	export let data
-	$: ({ notes, supabase, user } = data)
+	export let form
 
-	let handleSubmit
-	$: handleSubmit = async (evt) => {
-		evt.preventDefault();
-		if (!evt.target) return
+	let { session, supabase, profile } = data
+	$: ({ session, supabase, profile } = data)
 
-		const form = evt.target
+	let profileForm
+	let loading = false
+	let fullName = profile?.full_name ?? ''
+	let username = profile?.username ?? ''
+	let website = profile?.website ?? ''
+	let avatarUrl = profile?.avatar_url ?? ''
 
-		const note = (new FormData(form).get('note') ?? '')
-		if (!note) return
+	const handleSubmit = () => {
+		loading = true
+		return async () => {
+			loading = false
+		}
+	}
 
-		const { error } = await supabase.from('notes').insert({ note })
-		if (error) console.error(error)
-
-		invalidate('supabase:db:notes')
-		form.reset()
+	const handleSignOut = () => {
+		loading = true
+		return async ({ update }) => {
+			loading = false
+			update()
+		}
 	}
 </script>
 
-<h1>Private page for user: {user?.email}</h1>
-<h2>Notes</h2>
-<ul>
-	{#each notes as note}
-		<li>{note.note}</li>
-	{/each}
-</ul>
-<form on:submit={handleSubmit}>
-	<label>
-		Add a note
-		<input name="note" type="text" />
-	</label>
-</form>
+<div>
+	<form
+		method="post"
+		action="?/update"
+		use:enhance={handleSubmit}
+		bind:this={profileForm}
+	>
+		<div>
+			<label for="email">Email</label>
+			<input id="email" type="text" value={session.user.email} disabled />
+		</div>
+
+		<div>
+			<label for="fullName">Full Name</label>
+			<input id="fullName" name="fullName" type="text" value={form?.fullName ?? fullName} />
+		</div>
+
+		<div>
+			<label for="username">Username</label>
+			<input id="username" name="username" type="text" value={form?.username ?? username} />
+		</div>
+
+		<div>
+			<label for="website">Website</label>
+			<input id="website" name="website" type="url" value={form?.website ?? website} />
+		</div>
+
+		<div>
+			<input
+				type="submit"
+				class="button block primary"
+				value={loading ? 'Loading...' : 'Update'}
+				disabled={loading}
+			/>
+		</div>
+	</form>
+
+	<form method="post" action="?/signout" use:enhance={handleSignOut}>
+		<div>
+			<button class="button block" disabled={loading}>Sign Out</button>
+		</div>
+	</form>
+</div>

@@ -1,11 +1,8 @@
+// src/routes/+layout.ts
 import { createBrowserClient, createServerClient, isBrowser } from '@supabase/ssr'
 import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL } from '$env/static/public'
 
-export const load = async ({ data, depends, fetch, url }) => {
-  /**
-   * Declare a dependency so the layout can be invalidated, for example, on
-   * session refresh.
-   */
+export const load = async ({ fetch, data, depends, url }) => {
   depends('supabase:auth')
 
   const supabase = isBrowser()
@@ -34,11 +31,7 @@ export const load = async ({ data, depends, fetch, url }) => {
     data: { session },
   } = await supabase.auth.getSession()
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-
   const currentRoute = url.pathname
 
-  return { session, supabase, user, currentRoute }
+  return { supabase, session, currentRoute }
 }

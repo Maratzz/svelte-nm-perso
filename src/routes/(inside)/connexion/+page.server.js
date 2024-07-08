@@ -1,30 +1,12 @@
 import { redirect } from '@sveltejs/kit'
 
-export const actions = {
-  signup: async ({ request, locals: { supabase } }) => {
-    const formData = await request.formData()
-    const email = formData.get('email')
-    const password = formData.get('password')
+export const load = async ({ url, locals: { safeGetSession } }) => {
+  const { session } = await safeGetSession()
 
-    const { error } = await supabase.auth.signUp({ email, password })
-    if (error) {
-      console.error(error)
-      return redirect(303, '/connexion/error')
-    } else {
-      return redirect(303, '/')
-    }
-  },
-  login: async ({ request, locals: { supabase } }) => {
-    const formData = await request.formData()
-    const email = formData.get('email')
-    const password = formData.get('password')
+  // if the user is already logged in return them to the account page
+  if ( session ) {
+    redirect(303, '/compte')
+  }
 
-    const { error } = await supabase.auth.signInWithPassword({ email, password })
-    if (error) {
-      console.error(error)
-      return redirect(303, '/connexion/error')
-    } else {
-      return redirect(303, '/private')
-    }
-  },
+  return { url: url.origin }
 }
