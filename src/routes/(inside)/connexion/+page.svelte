@@ -1,6 +1,5 @@
-<!-- src/routes/+page.svelte -->
 <script>
-	import { Auth } from '@supabase/auth-ui-svelte'
+	import { Auth } from "@supabase/auth-ui-svelte"
 
 	export let data
 </script>

@@ -5,8 +5,8 @@ import { getTwitchToken, getHumanDate, getGames } from "$lib/utils/index.js"
 
 export const actions = {
 
-  insert: async ({ request, locals: { supabase, getSession } }) => {
-    const session = await getSession()
+  insert: async ({ request, locals: { supabase, safeGetSession } }) => {
+    const session = await safeGetSession()
     const user = session.user.id
     const form = await request.formData()
     const newGame = form.get( "game_name" )
@@ -100,8 +100,8 @@ export const actions = {
     }
   },
 
-  update: async ({ request, locals: { supabase, getSession } }) => {
-    const session = await getSession()
+  update: async ({ request, locals: { supabase, safeGetSession } }) => {
+    const session = await safeGetSession()
     const form = await request.formData()
     const updatedStatus = form.get( "updated_status" )
     const updatedStarted = form.get( "updated_started" )

@@ -2,7 +2,7 @@
 import { createBrowserClient, createServerClient, isBrowser } from '@supabase/ssr'
 import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL } from '$env/static/public'
 
-export const load = async ({ fetch, data, depends, url }) => {
+export const load = async ({ fetch, data, depends }) => {
   depends('supabase:auth')
 
   const supabase = isBrowser()
@@ -31,7 +31,5 @@ export const load = async ({ fetch, data, depends, url }) => {
     data: { session },
   } = await supabase.auth.getSession()
 
-  const currentRoute = url.pathname
-
-  return { supabase, session, currentRoute }
+  return { supabase, session }
 }

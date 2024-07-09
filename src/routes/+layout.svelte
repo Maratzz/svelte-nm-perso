@@ -19,16 +19,15 @@
 	const transitionIn = { easing: cubicOut, y, duration, delay }
 	const transitionOut = { easing: cubicIn, y: -y, duration }
   
-  // create an event listener which monitors supabase functions triggered in children pages
   onMount(() => {
-    const { data } = supabase.auth.onAuthStateChange((event, newSession) => {
+		const { data } = supabase.auth.onAuthStateChange((event, newSession) => {
 			if (newSession?.expires_at !== session?.expires_at) {
-				invalidate('supabase:auth');
+				invalidate('supabase:auth')
 			}
-		});
+		})
 
-		return () => data.subscription.unsubscribe();
-	});
+		return () => data.subscription.unsubscribe()
+	})
 </script>
 
 <svelte:head>

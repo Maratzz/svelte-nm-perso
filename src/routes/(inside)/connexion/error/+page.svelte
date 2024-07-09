@@ -1,1 +1,0 @@
-<p>Erreur lors de la connexion</p>
