@@ -1,8 +1,8 @@
 import { redirect } from "@sveltejs/kit";
 
 export const actions = {
-  insert: async ({ request, locals: { supabase, getSession }}) => {
-    const session = await getSession()
+  insert: async ({ request, locals: { supabase, safeGetSession }}) => {
+    const session = await safeGetSession()
     const user = session.user.id
     const form = await request.formData()
     const todoTask = form.get( "todo_task" )
