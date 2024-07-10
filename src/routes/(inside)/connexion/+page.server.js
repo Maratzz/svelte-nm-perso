@@ -5,7 +5,7 @@ export const load = async ({ url, locals: { safeGetSession } }) => {
 
   //if the user is already logged in return them to the account page
   if ( session ) {
-    throw redirect(303, '/compte')
+    redirect(303, '/compte')
   }
 
   return { url: url.origin }

@@ -21,7 +21,7 @@ export const actions = {
     const newNotes = form.get( "game_notes" )
     
     if ( !session ) {
-      throw redirect(303, "/")
+      redirect(303, "/")
     }
 
     if ( session ) {
@@ -110,7 +110,7 @@ export const actions = {
     const gameID = form.get( "updated_id" )
 
     if ( !session ) {
-      throw redirect(303, "/")
+      redirect(303, "/")
     }
     if ( session ) {
       try {

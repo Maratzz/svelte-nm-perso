@@ -4,7 +4,7 @@ export const load = async ({ locals: { supabase, safeGetSession } }) => {
   const { session } = await safeGetSession()
 
   if (!session) {
-    throw redirect(303, '/connexion')
+    redirect(303, '/connexion')
   }
 
   const { data: profile } = await supabase
@@ -55,7 +55,7 @@ export const actions = {
     const { session } = await safeGetSession()
     if (session) {
       await supabase.auth.signOut()
-      throw redirect(303, '/')
+      redirect(303, '/')
     }
   },
 }

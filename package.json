@@ -1,33 +1,28 @@
 {
-	"name": "svelte-nm-perso",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview"
-	},
-	"devDependencies": {
-		"@sveltejs/adapter-auto": "^2.0.0",
-		"@sveltejs/adapter-static": "^2.0.2",
-		"@sveltejs/adapter-vercel": "^3.0.1",
-		"@sveltejs/kit": "^1.5.0",
-		"mdsvex": "^0.11.2",
-		"sass": "^1.62.1",
-		"svelte": "^3.54.0",
-		"svelte-paginate": "^0.1.0",
-		"svelte-preprocess": "^5.0.3",
-		"vite": "^4.3.0"
-	},
-	"type": "module",
-	"dependencies": {
-		"@supabase/auth-helpers-sveltekit": "^0.10.0",
-		"@supabase/auth-ui-shared": "^0.1.8",
-		"@supabase/auth-ui-svelte": "^0.2.9",
-		"@supabase/ssr": "^0.4.0",
-		"@supabase/supabase-js": "^2.44.2",
-		"gsap": "^3.12.2",
-		"papercss": "^1.9.2",
-		"svelte-french-toast": "^1.2.0"
-	}
+  "name": "svelte-nm-perso",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "type": "module",
+  "dependencies": {
+    "@supabase/auth-helpers-sveltekit": "^0.13.0",
+    "@supabase/auth-ui-svelte": "^0.2.9",
+    "@supabase/ssr": "^0.4.0",
+    "@supabase/supabase-js": "^2.44.3",
+    "@sveltejs/adapter-auto": "^3.2.2",
+    "@sveltejs/kit": "^2.5.18",
+    "gsap": "^3.12.5",
+    "mdsvex": "^0.11.2",
+    "papercss": "^1.9.2",
+    "sass": "^1.77.7",
+    "svelte": "^4.2.18",
+    "svelte-french-toast": "^1.2.0",
+    "svelte-paginate": "^0.1.0",
+    "svelte-preprocess": "^6.0.2",
+    "vite": "^5.3.3"
+  }
 }

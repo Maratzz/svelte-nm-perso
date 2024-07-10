@@ -9,7 +9,7 @@ export const actions = {
     const todoCategory = form.get( "todo_category" )
 
     if ( !session ) {
-      throw redirect(303, "/")
+      redirect(303, "/")
     }
 
     try {
@@ -40,7 +40,7 @@ export const actions = {
     console.log(targetID, targetTodo)
 
     if ( !session ) {
-      throw redirect(303, "/")
+      redirect(303, "/")
     }
 
     try {
@@ -66,7 +66,7 @@ export const actions = {
     const targetTodo = form.get( "todo_task" )
 
     if ( !session ) {
-      throw redirect(303, "/")
+      redirect(303, "/")
     }
 
     try {
