@@ -9,7 +9,7 @@
 
   export let data
 
-  let { supabase, session } = data
+  let { supabase, session, currentRoute } = data
   $: ({ supabase, session, currentRoute } = data )
 
   const duration = 300
