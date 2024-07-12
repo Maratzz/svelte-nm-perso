@@ -1,7 +1,13 @@
 <script>
-	import { Auth } from "@supabase/auth-ui-svelte"
-
 	export let data
+
+  const { supabase } = data
+
+  const signInWithGithub = async () => {
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: 'github',
+    })
+  }
 </script>
 
 <svelte:head>
@@ -12,13 +18,5 @@
 <div>
   <h1>Connexion</h1>
   <p>Vous n'êtes pas connecté·e</p>
-  <div>
-	  <div>
-      <Auth
-      supabaseClient={data.supabase}
-      providers={[ "github" ]}
-      onlyThirdPartyProviders
-      />
-	  </div>
-  </div>
+  <button on:click={signInWithGithub}>Connexion avec Github</button>
 </div>

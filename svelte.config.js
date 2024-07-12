@@ -1,5 +1,5 @@
 
-// --- switch the adapter you want, static for static pages and auto for platforms like Vercel, Netlify, etc.
+// --- switch to the adapter you want by uncommenting, static for static pages and auto for platforms like Vercel, Netlify, etc. Remember to install the static adapter first if you want to use it! >npm install @sveltejs/adapter-static
 
 import adapter from '@sveltejs/adapter-auto'
 //import adapter from '@sveltejs/adapter-static'
