@@ -1,13 +1,5 @@
 <script>
-	export let data
-
-  const { supabase } = data
-
-  const signInWithGithub = async () => {
-    const { data, error } = await supabase.auth.signInWithOAuth({
-      provider: 'github',
-    })
-  }
+  import github from "$lib/assets/icons/github.svg"
 </script>
 
 <svelte:head>
@@ -16,7 +8,24 @@
 </svelte:head>
 
 <div>
+
   <h1>Connexion</h1>
-  <p>Vous n'êtes pas connecté·e</p>
-  <button on:click={signInWithGithub}>Connexion avec Github</button>
+  <p>Vous n'êtes pas connecté-e</p>
+  
+  <form  method="POST" action="?/login">
+  
+    <div id="wrap">
+      <img src={github} alt="icône de Github" class="no-border">
+      <button>Connexion avec Github</button>
+    </div>
+  
+  </form>
+
 </div>
+
+<style>
+  #wrap {
+    display: flex;
+    gap: 15px;
+  }
+</style>
