@@ -6,7 +6,7 @@
 
   export let data
 
-  $: ({ todos, categories, supabase } = data)
+  $: ({ todos, categories } = data)
   $: { removeDuplicates( categories )
       .then( res => uniqueCategories = res.map(({ category }) => category ))}
   $: filteredTodos = todos

@@ -3,7 +3,7 @@ import { redirect } from "@sveltejs/kit"
 export async function load({ parent }) {
   const { supabase, session } = await parent()
   if ( !session ) {
-    redirect(303, "/")
+    redirect(303, "/connexion")
   }
   
   const { data : todos } = await supabase
@@ -16,9 +16,7 @@ export async function load({ parent }) {
     .select("category")
 
   return {
-    user: session.user,
     todos: todos ?? [],
-    categories: categories ?? [],
-    supabase
+    categories: categories ?? []
   }
 }
