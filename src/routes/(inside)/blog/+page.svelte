@@ -29,7 +29,7 @@
 
   <div id="container">
     {#each posts as post}
-    <div class="item" on:click={() => {handleClick(post)}} on:keypress={() => {handleClick(post)}}>
+    <div class="item" on:click={() => {handleClick(post)}} on:keypress={() => {handleClick(post)}} role="link" tabindex="0">
       <img src={post.meta.image ?? "https://placehold.co/140x190"} alt="Illustration pour le billet de blog" class="item-img border-2">
 
       <div class="item-content">

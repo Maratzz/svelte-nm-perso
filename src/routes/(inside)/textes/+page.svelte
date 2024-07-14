@@ -43,7 +43,7 @@
 
   {#each posts as post}
 
-    <div class="item" on:click={() => {handleClick(post)}} on:keypress={() => {handleClick(post)}}>
+    <div class="item" on:click={() => {handleClick(post)}} on:keypress={() => {handleClick(post)}} role="link" tabindex="0">
 
       <img src={post.meta.image ?? attachCoverImage( post.meta.title, items )} alt="Illustration du texte" class="item-img border-2">
 
