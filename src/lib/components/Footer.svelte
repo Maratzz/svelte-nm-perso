@@ -27,6 +27,8 @@
 </footer>
 
 <style lang="scss">
+
+  @use 'sass:color';
   footer {
     background-color: #e7e4f4;
     position: relative;
@@ -37,7 +39,7 @@
     flex-flow: row nowrap;
     justify-content: space-between;
     margin-top: auto;
-    border-top: 3px solid darken(#8260b2, $amount: 15);
+    border-top: 3px solid color.adjust(#8260b2, $blackness: 15%);
     font-size: 1.1rem;
     :is(a:link, a:visited) {
       color: #8260b2;
