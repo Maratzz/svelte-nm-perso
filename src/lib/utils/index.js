@@ -84,11 +84,10 @@ export const slugify = (string) => {
            .replace(/\p{P}+/gu, '') // replace all unicode punctuation
            .replace(/\s+/g, '-') // replace spaces with hyphens
            .replace(/-+/g, '-') // remove consecutive hyphens
-           .replace(/éèêë/g, 'e') // replace french accentuated e
-           .replace(/àäá/g, 'a') // replace french accentuated a
-           .replace(/ùûü/g, 'u') // replace french accentuated u
-           .replace(/òôöó/g, 'o') // replace french accentuated o
+           .replace(/é|è|ê|ë/g, 'e') // replace french accentuated e
+           .replace(/à|ä|á/g, 'a') // replace french accentuated a
+           .replace(/ù|û|ü/g, 'u') // replace french accentuated u
+           .replace(/ò|ô|ö|ó|ō/g, 'o') // replace french accentuated o
            .replace(/ç/g, 'c') // replace french ç
-           .replace(/&/g, 'and') // replace &
   return string
 }
