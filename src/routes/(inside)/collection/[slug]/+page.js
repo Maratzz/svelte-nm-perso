@@ -9,6 +9,8 @@ export async function load({ params, parent }) {
     .eq('slug', slug)
 
   return {
-    item: item[0] ?? []
+    item: item[0] ?? [],
+    supabase,
+    currentRoute
    }
 }
