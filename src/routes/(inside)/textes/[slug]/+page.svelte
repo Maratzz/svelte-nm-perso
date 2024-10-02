@@ -25,7 +25,7 @@
 <article>
 
   <h1>{title}</h1>
-  <p>Publié le {formatDate( date, "numeric", "long", "numeric" )} dans {categories.length === 1 ? "la catégorie" : "les catégories"}{#each categories as category}<span class="category">{category}</span>{/each}</p>
+  <p>Publié le {formatDate( date )} dans {categories.length === 1 ? "la catégorie" : "les catégories"}{#each categories as category}<span class="category">{category}</span>{/each}</p>
   <svelte:component this={content} />
   
 </article>

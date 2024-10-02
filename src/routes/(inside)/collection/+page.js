@@ -12,7 +12,7 @@ export async function load({ parent }) {
     .order("name", { ascending: true })
 
   let { data : status } = await supabase
-    .from("game_status")
+    .from("culture_item_status")
     .select("*")
     .order("id", { ascending: true })
     

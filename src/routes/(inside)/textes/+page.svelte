@@ -49,7 +49,7 @@
 
       <div class="item-content">
         <h2><a href={post.path} class="link">{post.meta.title}</a></h2>
-        <p><i>{formatDate( post.meta.date, "numeric", "long", "numeric" )}</i></p>
+        <p><i>{formatDate( post.meta.date )}</i></p>
         <p>{post.meta.headline ?? "Pas d'accroche, bouh !"}</p>
       </div>
 

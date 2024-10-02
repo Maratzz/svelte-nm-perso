@@ -9,12 +9,12 @@
   export let data
 
   $: ({ collection, categories, status } = data)
-  $: filteredGames = collection
+  $: filteredCollection = collection
 
   let currentPage = 1
   let pageSize = 12
 
-  $: paginatedItems = paginate({ items: filteredGames, pageSize, currentPage })
+  $: paginatedItems = paginate({ items: filteredCollection, pageSize, currentPage })
 
   const multiFilterGames = () => {
     const platformFilter = document.querySelector("#filter-platform")
@@ -24,25 +24,12 @@
     const searchFilter = document.querySelector("#filter-search")
     const searchValue = searchFilter.value
 
-    filteredGames = collection.filter(
+    filteredCollection = collection.filter(
       item => item.name.toLowerCase().includes( searchValue )
       && (platformValue === "everything" ? item.platform !== null : item.platform === platformValue)
       && (statusValue === "everything" ? item.status !== null : item.status === statusValue))
     currentPage = 1
-    return filteredGames
-  }
-
-  let formatDateYear = ( e ) => { 
-    return new Date(e).getFullYear()
-  }
-
-  let formatDate = ( e ) => { 
-    let options = {
-      day: "numeric",
-      month: "long",
-      year: "numeric"
-    }
-    return new Date(e).toLocaleDateString( "fr", options )
+    return filteredCollection
   }
 
   onMount(() => {
@@ -109,7 +96,7 @@
 
 {#key currentPage, paginatedItems}
 <div class="container" in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
-  {#if filteredGames.length}
+  {#if filteredCollection.length}
     {#each paginatedItems as item ( item.id )}
       <CultureItemPreview {item} />
     {/each}
@@ -120,7 +107,7 @@
 {/key}
 
 <LightPaginationNav
-totalItems="{ filteredGames.length }"
+totalItems="{ filteredCollection.length }"
 pageSize="{ pageSize }"
 currentPage="{ currentPage }"
 limit="{ 1 }"
