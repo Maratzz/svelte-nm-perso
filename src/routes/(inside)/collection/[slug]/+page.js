@@ -8,8 +8,18 @@ export async function load({ params, parent }) {
     .select("*")
     .eq('slug', slug)
 
+  let { data: lists } = await supabase
+    .from("collection")
+    .select(`
+      name,
+      lists (
+        name )
+    `)
+    .eq("slug", slug)
+
   return {
     item: item[0] ?? [],
+    lists: lists ?? [],
     supabase,
     currentRoute
    }
