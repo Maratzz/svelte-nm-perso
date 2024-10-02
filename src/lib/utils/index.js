@@ -68,11 +68,11 @@ export const getHumanDate = async ( input ) => {
   return humanDate
 }
 
-export const formatDate = ( date, dayChoice, monthChoice, yearChoice ) => {
+export const formatDate = ( date ) => {
   let options = {
-    day: dayChoice,
-    month: monthChoice,
-    year: yearChoice
+    day: "numeric",
+    month: "long",
+    year: "numeric"
   }
   return new Date(date).toLocaleDateString( "fr", options )
 }
