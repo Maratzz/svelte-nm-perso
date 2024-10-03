@@ -15,11 +15,17 @@ export async function load({ parent }) {
     .from("culture_item_status")
     .select("*")
     .order("id", { ascending: true })
+
+  let { data : types } = await supabase
+    .from("item_type")
+    .select("*")
+    .order("id", { ascending: true })
     
   return {
     collection: collection ?? [],
     categories : categories ?? [],
     status: status ?? [],
+    types: types ?? [],
     supabase,
     session,
     currentRoute

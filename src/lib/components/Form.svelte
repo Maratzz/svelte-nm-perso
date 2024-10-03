@@ -5,6 +5,7 @@
   export let form
   export let categories
   export let status
+  export let types
 </script>
 
 <Toaster/>
@@ -40,8 +41,8 @@
   <div class="form-inside-name">
 
     <div>
-      <label for="game_name">Nom</label>
-      <input type="text" name="game_name" id="game_name" value={form?.game ?? ""} size="13">
+      <label for="item_name">Nom</label>
+      <input type="text" name="item_name" id="item_name" value={form?.game ?? ""} size="13">
     </div>
 
     <button type="submit" formaction="?/search">IGDB API</button>
@@ -50,21 +51,21 @@
 
   <div class="form-inside-acquired">
 
-    <label for="game_acquired">Acquis le:</label>
-    <input type="date" name="game_acquired" id="game_acquired">
+    <label for="item_acquired">Acquis le:</label>
+    <input type="date" name="item_acquired" id="item_acquired">
 
   </div>
 
   <div class="form-inside-calendar">
 
     <div>
-      <label for="game_started">Démarré le:</label>
-      <input type="date" name="game_started" id="game_started">
+      <label for="item_started">Démarré le:</label>
+      <input type="date" name="item_started" id="item_started">
     </div>
 
     <div>
-      <label type="date" for="game_finished">Fini le:</label>
-      <input type="date" name="game_finished" id="game_finished">
+      <label type="date" for="item_finished">Fini le:</label>
+      <input type="date" name="item_finished" id="item_finished">
     </div>
 
   </div>
@@ -72,9 +73,19 @@
   <div class="form-inside-input">
 
     <div>
-      <label for="game_platform">Plateforme</label>
-      <input list="game_platform" name="game_platform" size="13">
-      <datalist id="game_platform">
+      <label for="item_type">Type</label>
+      <input list="item_type" name="item_type" size="13">
+      <datalist id="item_type">
+        {#each types as type}
+        <option value={type.name}></option>
+        {/each}
+      </datalist>
+    </div>
+
+    <div>
+      <label for="item_platform">Plateforme</label>
+      <input list="item_platform" name="item_platform" size="13">
+      <datalist id="item_platform">
         {#each categories as category}
         <option value={category.name}></option>
         {/each}
@@ -82,9 +93,9 @@
     </div>
 
     <div>
-      <label for="game_status">Status</label>
-      <input list="game_status" name="game_status" size="13">
-      <datalist id="game_status">
+      <label for="item_status">Status</label>
+      <input list="item_status" name="item_status" size="13">
+      <datalist id="item_status">
         {#each status as state}
           <option value={state.name}></option>
         {/each}
@@ -94,26 +105,22 @@
   </div>
 
   <div class="form-inside-notes">
-    <label for="game_notes">Notes</label>
-    <textarea name="game_notes" id="game_notes" placeholder="Something to say?"></textarea>
+    <label for="item_notes">Notes</label>
+    <textarea name="item_notes" id="item_notes" placeholder="Something to say?"></textarea>
   </div>
 
 
   <div>
-    <div class="collapsible">
-      <input type="checkbox" id="collapsible2" name="collapsible2">
-      <label for="collapsible2">IGDB info</label>
-      <div class="collapsible-body">
-        <label for="game_developer">Développeuse</label>
-        <input type="text" name="game_developer" id="game_developer" value={form?.gameCompany ?? ""}>
-    
-        <label for="game_cover">Image</label>
-        <input type="url" name="game_cover" id="game_cover" value={form?.gameCoverLink ?? ""}>
-    
-        <label for="game_released_date">Date de sortie</label>
-        <input type="date" name="game_released_date" value={form?.gameReleaseDate ?? ""}>
-      </div>
-    </div>
+    <label for="game_developer">Autrices</label>
+    <input type="text" name="game_developer" id="game_developer" value={form?.gameCompany ?? ""}>
+
+    <label for="game_cover">Image</label>
+    <input type="url" name="game_cover" id="game_cover" value={form?.gameCoverLink ?? ""}>
+
+    <img src={form?.gameCoverLink} alt="">
+
+    <label for="game_released_date">Date de sortie</label>
+    <input type="date" name="game_released_date" value={form?.gameReleaseDate ?? ""}>
   </div>
 
   <button type="submit" id="button-submit">Créer la fiche</button>

@@ -2,13 +2,15 @@
   import { fade } from "svelte/transition"
   import CultureItemPreview from "$lib/components/CultureItemPreview.svelte"
   import HeadSEO from "$lib/components/HeadSEO.svelte"
+  import Form from "$lib/components/Form.svelte"
   import { paginate, LightPaginationNav } from "svelte-paginate"
   import { onMount } from "svelte"
   import full_image from "$lib/assets/homepage/full_image.webp"
 
   export let data
+  export let form
 
-  $: ({ collection, categories, status } = data)
+  $: ({ collection, categories, status, session, types } = data)
   $: filteredCollection = collection
 
   let currentPage = 1
@@ -33,6 +35,7 @@
   }
 
   onMount(() => {
+
     let filterButton = document.querySelector("#filter-search")
     filterButton.addEventListener("keypress", function(event) {
       if (event.key === "Enter") {
@@ -40,6 +43,7 @@
       multiFilterGames()
       }
     })
+
   })
 </script>
 
@@ -55,6 +59,19 @@
 
 
 <h1>Collection</h1>
+
+{#if session}
+<div class="collapsible">
+  <input type="checkbox" id="collapsible2" name="collapsible2">
+  <label for="collapsible2">Créer une oeuvre</label>
+  <div class="collapsible-body">
+    <Form {form} {categories} {status} {types}/>
+    {#if form?.success}
+    <img src={form?.gameCoverLink} alt="">
+    {/if}
+  </div>
+</div>
+{/if}
 
 <div id="filter-container">
 
