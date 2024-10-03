@@ -9,7 +9,7 @@
   let itemLists = lists[0].lists
   let innerList = []
   itemLists.forEach(list => 
-    innerList.push( list.name )
+    innerList.push( list )
   )
 </script>
 
@@ -46,7 +46,7 @@
         <div class="collapsible-body">
           <ul>
             {#each innerList as list}
-            <li>{list}</li>
+            <li><a href="/listes/{list.slug}">{list.name}</a></li>
             {/each}
           </ul>
         </div>

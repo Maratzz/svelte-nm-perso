@@ -3,11 +3,7 @@ export async function load({ parent }) {
 
   let { data: listes } = await supabase
   .from("lists")
-  .select(`
-    id,
-    name,
-    description,
-    games ( name )`)
+  .select("*")
 
   return {
     listes: listes ?? [],

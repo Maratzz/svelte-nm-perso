@@ -13,7 +13,7 @@ export async function load({ params, parent }) {
     .select(`
       name,
       lists (
-        name )
+        name, slug )
     `)
     .eq("slug", slug)
 
