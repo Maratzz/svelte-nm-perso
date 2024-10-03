@@ -130,10 +130,15 @@
 <style lang="scss">
 
   form {
+    min-height: 100%;
     padding: 10px 5px 10px 5px;
     :has(label) {
       font-size: 0.8rem;
       font-style: italic;
+    }
+    img {
+      height: 150px;
+      margin: 15px 0;
     }
   }
 

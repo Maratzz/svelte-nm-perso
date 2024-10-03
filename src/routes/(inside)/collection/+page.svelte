@@ -66,12 +66,15 @@
   <label for="collapsible2">Créer une oeuvre</label>
   <div class="collapsible-body">
     <Form {form} {categories} {status} {types}/>
-    {#if form?.success}
-    <img src={form?.gameCoverLink} alt="">
-    {/if}
   </div>
 </div>
 {/if}
+
+<!-- {#if session}
+  <button id="modalButton" on:click={openModal}>Créer une oeuvre</button>
+  <div id="modalForm">
+  </div>
+{/if} -->
 
 <div id="filter-container">
 
@@ -191,6 +194,10 @@ on:setPage="{(e) => {
       margin-bottom: 0;
       margin-top: 0;
     }
+  }
+
+  .collapsible-body {
+    overflow-y: scroll;
   }
 
   @media (min-width: 900px) {

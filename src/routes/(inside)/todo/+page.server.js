@@ -30,8 +30,8 @@ export const actions = {
     }
   },
 
-  update: async ({ request, locals: { supabase, getSession }}) => {
-    const session = await getSession()
+  update: async ({ request, locals: { supabase, safeGetSession }}) => {
+    const session = await safeGetSession()
     const user = session.user.id
     const form = await request.formData()
     const targetTodo = form.get( "todo_task" )
@@ -60,8 +60,8 @@ export const actions = {
     }
   },
 
-  delete: async ({ request, locals: { supabase, getSession }}) => {
-    const session = await getSession()
+  delete: async ({ request, locals: { supabase, safeGetSession }}) => {
+    const session = await safeGetSession()
     const form = await request.formData()
     const targetTodo = form.get( "todo_task" )
 

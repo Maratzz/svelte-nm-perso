@@ -1,5 +1,5 @@
 export async function load({ parent }) {
-  const { supabase, currentRoute } = await parent()
+  const { supabase, currentRoute, session } = await parent()
 
   let { data: listes } = await supabase
   .from("lists")
@@ -7,6 +7,7 @@ export async function load({ parent }) {
 
   return {
     listes: listes ?? [],
-    currentRoute
+    currentRoute,
+    session
   }
 }
