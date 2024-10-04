@@ -3,15 +3,16 @@
 </script>
 
 <a href="/collection/{item.slug}">
-  <img src={item.cover} alt="Affiche du {item.type} {item.name}" id={item.id}>
+  <img src={item.cover} alt="Affiche du {item.item_type} {item.name}" id={item.id}>
 </a>
 
 <style>
   img {
     cursor: pointer;
     width: 40vw;
-    height: 100%;
+    aspect-ratio: 3/4;
     position: relative;
+    /*object-fit: fill;*/
   }
 
   @media (min-width: 900px) {

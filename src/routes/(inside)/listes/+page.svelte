@@ -1,12 +1,21 @@
 <script>
-  import { enhance } from '$app/forms';
-  import FormData from "$lib/components/FormData.svelte";
+  import { enhance } from '$app/forms'
+  import HeadSEO from "$lib/components/HeadSEO.svelte"
+  import FormData from "$lib/components/FormData.svelte"
+    import full_image from "$lib/assets/homepage/full_image.webp"
 
   export let data
 
   $: ({ listes, session } = data)
-
 </script>
+
+<HeadSEO 
+  title="Nico Moisson | Listes"
+  description="Des listes à n'en plus finir, des oeuvres à n'en plus vouloir"
+  author="Nico 'Maratz' Moisson"
+  siteName="Site personnel de Nico Moisson"
+  imageURL="{full_image}"
+/>
 
 <div>
 
@@ -23,14 +32,26 @@
   </form>
   {/if}
 
-  {#each listes as liste}
+  {#key listes}
+  <div id="container">
+    {#each listes as liste}
     <a href="/listes/{liste.slug}">{liste.name}</a>
-  {/each}
+    {/each}
+  </div>
+  {/key}
 
 </div>
 
 <style lang="scss">
+  #container {
+    height: 100%;
+    margin-bottom: 50px;
+  }
+
   a {
     display: block;
+    &:not(:first-child) {
+      margin-top: 6px;
+    }
   }
 </style>

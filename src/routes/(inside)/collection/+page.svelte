@@ -70,12 +70,6 @@
 </div>
 {/if}
 
-<!-- {#if session}
-  <button id="modalButton" on:click={openModal}>Créer une oeuvre</button>
-  <div id="modalForm">
-  </div>
-{/if} -->
-
 <div id="filter-container">
 
   <div id="filter-wrap-options">
