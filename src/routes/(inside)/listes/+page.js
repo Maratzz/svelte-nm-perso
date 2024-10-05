@@ -4,6 +4,7 @@ export async function load({ parent }) {
   let { data: listes } = await supabase
   .from("lists")
   .select("*")
+  .order("name")
 
   return {
     listes: listes ?? [],

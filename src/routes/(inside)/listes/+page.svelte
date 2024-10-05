@@ -2,7 +2,7 @@
   import { enhance } from '$app/forms'
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import FormData from "$lib/components/FormData.svelte"
-    import full_image from "$lib/assets/homepage/full_image.webp"
+  import full_image from "$lib/assets/homepage/full_image.webp"
 
   export let data
 

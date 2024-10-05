@@ -17,9 +17,14 @@ export async function load({ params, parent }) {
     `)
     .eq("slug", slug)
 
+  let { data: allLists } = await supabase
+    .from("lists")
+    .select("name, slug")
+
   return {
     item: item[0] ?? [],
     lists: lists ?? [],
+    allLists: allLists ?? [],
     supabase,
     currentRoute
    }
