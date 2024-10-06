@@ -1,5 +1,5 @@
 export async function load({ params, parent }) {
-  const { supabase, currentRoute } = await parent()
+  const { supabase, currentRoute, session } = await parent()
 
   let slug = params.slug
 
@@ -26,6 +26,7 @@ export async function load({ params, parent }) {
     lists: lists ?? [],
     allLists: allLists ?? [],
     supabase,
-    currentRoute
+    currentRoute,
+    session
    }
 }

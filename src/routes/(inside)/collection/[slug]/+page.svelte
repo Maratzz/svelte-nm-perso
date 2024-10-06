@@ -7,7 +7,7 @@
 
   export let data
 
-  $: ({ item, lists, allLists } = data)
+  $: ({ item, lists, allLists, session } = data)
   $: itemLists = lists[0].lists
   $: innerList = []
   $: itemLists.forEach(list => 
@@ -36,10 +36,12 @@
     </div>
   </div>
 
+  {#if session}
   <form method="POST" action="?/addToList" use:enhance>
     <FormDatalist query="new_list" query_name="Nouvelle liste" items={allLists}/>
     <button type="submit">Ajouter à une liste</button>
   </form>
+  {/if}
 
   {#if item.notes}
   <p>{item.notes}</p>
