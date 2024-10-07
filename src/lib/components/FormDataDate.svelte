@@ -1,12 +1,11 @@
 <script>
   export let query
   export let query_name
-  export let placeholder
   export let value
 </script>
 
 <label for={query}>{query_name}</label>
-<input type="text" name={query} id={query} placeholder={placeholder} value={value ?? null}>
+<input type="date" name={query} id={query} value={value ?? null} >
 
 <style lang="scss">
   label {
