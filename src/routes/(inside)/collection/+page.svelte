@@ -27,7 +27,7 @@
     const searchValue = searchFilter.value
 
     filteredCollection = collection.filter(
-      item => item.name.toLowerCase().includes( searchValue )
+      item => (item.name.toLowerCase().includes( searchValue ) || item.name.includes( searchValue ))
       && (platformValue === "everything" ? item.platform !== null : item.platform === platformValue)
       && (statusValue === "everything" ? item.status !== null : item.status === statusValue))
     currentPage = 1
@@ -36,12 +36,23 @@
 
   onMount(() => {
 
-    let filterButton = document.querySelector("#filter-search")
-    filterButton.addEventListener("keypress", function(event) {
-      if (event.key === "Enter") {
+    let filterButton = document.getElementById("filter-search")
+    filterButton.addEventListener("keyup", () => {
+      /* if (event.key === "Enter") {
       event.preventDefault()
       multiFilterGames()
-      }
+      } */
+      multiFilterGames()
+    })
+
+    let platformChange = document.getElementById("filter-platform")
+    platformChange.addEventListener("change", () => {
+      multiFilterGames()
+    })
+
+    let statusChange = document.getElementById("filter-status")
+    statusChange.addEventListener("change", () => {
+      multiFilterGames()
     })
 
   })
@@ -102,7 +113,7 @@
   <div id="filter-wrap-search">
 
     <input type="text" name="filter-search" id="filter-search" placeholder="Chercher un jeu">
-    <button type="button" id="filter-button" on:click={multiFilterGames}>Filtrer</button>
+    <!-- <button type="button" id="filter-button" on:click={multiFilterGames}>Filtrer</button> -->
 
   </div>
 
@@ -182,11 +193,6 @@ on:setPage="{(e) => {
     }
     &-search {
       height: 50px;
-    }
-
-    &-button {
-      margin-bottom: 0;
-      margin-top: 0;
     }
   }
 
