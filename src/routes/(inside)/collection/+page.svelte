@@ -27,9 +27,9 @@
     const searchValue = searchFilter.value
 
     filteredCollection = collection.filter(
-      item => (item.name.toLowerCase().includes( searchValue ) || item.name.includes( searchValue ))
-      && (platformValue === "everything" ? item.platform !== null : item.platform === platformValue)
-      && (statusValue === "everything" ? item.status !== null : item.status === statusValue))
+      item => ( item.name.toLowerCase().includes( searchValue.toLowerCase() ))
+      && ( platformValue === "everything" ? item.platform !== null : item.platform === platformValue )
+      && ( statusValue === "everything" ? item.status !== null : item.status === statusValue ))
     currentPage = 1
     return filteredCollection
   }
@@ -38,10 +38,6 @@
 
     let filterButton = document.getElementById("filter-search")
     filterButton.addEventListener("keyup", () => {
-      /* if (event.key === "Enter") {
-      event.preventDefault()
-      multiFilterGames()
-      } */
       multiFilterGames()
     })
 
@@ -113,7 +109,6 @@
   <div id="filter-wrap-search">
 
     <input type="text" name="filter-search" id="filter-search" placeholder="Chercher un jeu">
-    <!-- <button type="button" id="filter-button" on:click={multiFilterGames}>Filtrer</button> -->
 
   </div>
 
