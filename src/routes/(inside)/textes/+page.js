@@ -6,7 +6,7 @@ export const load = async ({ fetch, parent }) => {
   )
   
   const { data : items } = await supabase
-    .from("games")
+    .from("collection")
     .select("*")
     
   return {
