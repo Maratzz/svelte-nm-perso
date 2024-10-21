@@ -59,10 +59,9 @@
         <ul class="inline" id="nav-menu">
           <li id="nav-textes"><a href="/textes">Textes</a></li>
           <li><a href="/collection">Collection</a></li>
-          <li><a href="/listes">Listes</a></li>
           <li><a href="/blog">Blog</a></li>
           <li><a href="/info">À propos</a></li>
-          <li><a href="/connexion">Connexion</a></li>
+          <li><a href="/protected">Connexion</a></li>
         </ul>
       </div>
     </div>

@@ -13,7 +13,6 @@
       <ul class="inline">
         <li><a href="/textes">Textes</a></li>
         <li><a href="/collection">Collection</a></li>
-        <li><a href="/listes">Listes</a></li>
         <li><a href="/blog">Blog</a></li>
         <li><a href="/info">À propos</a></li>
       </ul>

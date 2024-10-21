@@ -21,8 +21,6 @@
 
   <h1>Listes</h1>
 
-  <p>L'algorithme de découverte Netflix ou Steam vous renvoie toujours les mêmes oeuvres et ça vous lasse ? Plutôt que de piocher dans un top 10 quelconque vous aimeriez découvrir selon des thèmes originaux, loufoques ou peu explorés ? Ça tombe bien, j'adore faire des listes pour tout et n'importe quoi. Dedans, 5 titres au maximum, sans classement, et la garantie d'une sélection à la main, sans algorithme ni publicité mensongère. Et si vous avez des idées de listes sympas, <a href="/contact">n'hésitez pas à me les soumettre.</a></p>
-
   {#if session}
   <form method="POST" action="?/insert" use:enhance>
     
@@ -48,14 +46,12 @@
   #container {
     height: 100%;
     margin-bottom: 50px;
+  }
 
-    a {
+  a {
     display: block;
     &:not(:first-child) {
       margin-top: 6px;
     }
   }
-  }
-
-
 </style>

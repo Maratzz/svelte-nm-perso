@@ -14,6 +14,8 @@
 
   $: deleteItem = async ( element, liste ) => {
     let listeSlug = await liste.slug
+    /* console.log("liste:" + listeSlug)
+    console.log("l'oeuvre:" + element.slug) */
     try {
       const { data, error } = await supabase
         .from("collection_lists_m2m")
@@ -41,7 +43,6 @@
 <div>
   <h1>{targetList.name}</h1>
   <p>{targetList.description}</p>
-  <p class="info-small"><a href="/listes">Revenir à toutes les listes</a></p>
 
   {#if session}
 
