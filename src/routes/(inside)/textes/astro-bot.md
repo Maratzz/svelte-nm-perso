@@ -1,7 +1,7 @@
 ---
 title: Astro Bot
 slug: astro-bot
-headline: Un futur qui est déjà des passés
+headline: Un futur qui est déjà des passés.
 date: 2024-10-16
 categories:
   - textes
@@ -41,7 +41,7 @@ Peut-être les singes qu’on croise à la fin du premier monde, ceux qu’on do
 _Ape Escape_,  
 qu’est-ce que c’est _Ape Escape_ ?
 
-Le dernier jeu de la série principale a bientôt 20 ans. En étant plus généreuse, le dernier jeu dérivé a 14 ans. Quant à sa dernière apparence tant que en caméo, elle remonte à _Astro’s Playroom_, c’est-à-dire l’épisode précédent de la franchise _Astro_,  
+Le dernier jeu de la série principale a bientôt 20 ans. En étant plus généreuse, le dernier jeu dérivé a 14 ans. Quant à sa dernière apparence en tant que caméo, elle remonte à _Astro’s Playroom_, c’est-à-dire l’épisode précédent de la franchise _Astro_,  
 car on peut dire que c’est une franchise maintenant,  
 celle qui les enterre toutes,  
 et les déterre juste à temps pour la parade funèbre.
@@ -49,7 +49,7 @@ et les déterre juste à temps pour la parade funèbre.
 
 ## II.
 
-_Astro Bot_,
+_Astro Bot_,  
 dans sa nécromancie révérencieuse,  
 dans sa débauche de spectacle graphique,  
 dans son cynisme calibré de pur produit _corporate_,  
@@ -126,7 +126,7 @@ Et tant pis si l’enfant préfère jouer avec ses jeux de son époque, avec ses
 C’est notre culture,  
 c’est notre identité,  
 c’est notre enfance,  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;et c’est bientôt la tienne également.  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;et c’est bientôt la tienne également.  
 _C’est comme ça que nous avons toujours joué._  
 
 La douche froide ne vaut pas le coup.
@@ -139,6 +139,6 @@ Pour le boss final du jeu, toute la flotte spatiale est composée d’artefacts 
 
 Les objets tirent des lasers ronds, carrés, triangles, croix. La flotte de plastique, de puces électroniques et de personnages putréfiés traversent l’espace pour vaincre un ennemi qu’on croirait créé par une intelligence artificielle, comme tous les autres ennemis du jeu. C’est la dernière séquence du jeu, c’est le futur. C’est le passé.  
 
-C’est, pour reprendre les mots de [Tevis Thompson](https://tevisthompson.com/), la cristallisation de cette peur que j’ai que « _la plupart des joueur·se·s veulent simplement juste rejouer aux mêmes jeux, remixés et vaguement mis à jour, encore et encore, et ce jusqu’à la fin des temps._ »  
+C’est, pour reprendre les mots de [Tevis Thompson](https://tevisthompson.com/game-review-drabbles/), la cristallisation de cette peur que j’ai que « _la plupart des joueur·se·s veulent simplement juste rejouer aux mêmes jeux, remixés et vaguement mis à jour, encore et encore, et ce jusqu’à la fin des temps._ »  
 
 Ou jusqu'à la mise à mort du souvenir sacré.
