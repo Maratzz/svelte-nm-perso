@@ -1,6 +1,6 @@
 ---
 title: A propos de l'édition 2022 du Festival Photo à la Gacilly
-date: 2019-08-19
+date: 2022-08-19
 headline: le Festival Photo La Gacilly propose une expérience photographique immersive et déambulatoire
 categories:
   - blog
