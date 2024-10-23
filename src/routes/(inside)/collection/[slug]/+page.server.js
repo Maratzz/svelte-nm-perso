@@ -36,6 +36,7 @@ export const actions = {
 
     let itemSlug = params.slug
     let form = await request.formData()
+    let updatedDateAcquired = form.get( "item_date_acquired" )
     let updatedDateStarted = form.get( "item_date_started" )
     let updatedDateFinished = form.get( "item_date_finished" )
     let updatedStatus = form.get( "item_status" )
@@ -50,12 +51,16 @@ export const actions = {
     if ( !updatedDateFinished) {
       updatedDateFinished = null
     }
+    if ( !updatedDateAcquired ) {
+      updatedDateAcquired = null
+    }
     
     try {
       const { newForm, error } = await supabase
         .from("collection")
         .update([
           {
+            date_acquired: updatedDateAcquired,
             date_started: updatedDateStarted,
             date_finished: updatedDateFinished,
             status: updatedStatus,

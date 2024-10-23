@@ -12,6 +12,8 @@
 
   <FormData query="item_name" query_name="Nom" value={item.name}/>
 
+  <FormDataDate value={item.date_acquired ?? null} query="item_date_acquired" query_name="Acquis le:"/>
+
   <FormDataDate value={item.date_started ?? null} query="item_date_started" query_name="Commencé le:"/>
 
   <FormDataDate value={item.date_finished ?? null} query="item_date_finished" query_name="Terminé le:"/>

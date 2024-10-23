@@ -15,11 +15,11 @@ export const actions = {
     const newStatus = form.get( "item_status" )
     const newItemType = form.get( "item_type" )
     const newCover = form.get( "game_cover" )
-    const newReleasedDate = form.get( "game_released_date" )
-    let newStarted = form.get( "item_started" )
-    let newFinished = form.get( "item_finished" )
-    let newAcquired = form.get( "item_acquired" )
-    const newDeveloper = form.get( "game_developer" )
+    const newDateReleased = form.get( "item_date_released" )
+    let newDateStarted = form.get( "item_date_started" )
+    let newDateFinished = form.get( "item_date_finished" )
+    let newDateAcquired = form.get( "item_date_acquired" )
+    const newAuthor = form.get( "author" )
     const newNotes = form.get( "item_notes" )
     
     if ( !session ) {
@@ -27,14 +27,14 @@ export const actions = {
     }
 
     if ( session ) {
-      if ( !newStarted ) {
-        newStarted = null
+      if ( !newDateStarted ) {
+        newDateStarted = null
       }
-      if ( !newFinished ) {
-        newFinished = null
+      if ( !newDateFinished ) {
+        newDateFinished = null
       }
-      if ( !newAcquired ) {
-        newAcquired = null
+      if ( !newDateAcquired ) {
+        newDateAcquired = null
       }
       if ( !newPlatform ) {
         newPlatform = null
@@ -48,13 +48,13 @@ export const actions = {
             name: newItem,
             slug: slugName,
             platform: newPlatform,
-            date_released: newReleasedDate,
-            date_acquired: newAcquired,
+            date_released: newDateReleased,
+            date_acquired: newDateAcquired,
             cover: newCover,
-            date_started: newStarted,
-            date_finished: newFinished,
+            date_started: newDateStarted,
+            date_finished: newDateFinished,
             status: newStatus,
-            author: newDeveloper,
+            author: newAuthor,
             notes: newNotes,
             item_type: newItemType
           }
@@ -68,41 +68,53 @@ export const actions = {
     }
   },
 
-  search: async ({ request }) => {
+  searchGameDB: async ({ request }) => {
     const token = await getTwitchToken( PUBLIC_TWITCH_CLIENT, PRIVATE_TWITCH_SECRET )
     const access_token = token.access_token
     const form = await request.formData()
-    let game = form.get( "item_name" )
-    const gameString = game.toString()
+    let newItemName = form.get( "item_name" )
+    const gameString = newItemName.toString()
 
     try {
       // all the info about a game
       const gameData = await getGames( PUBLIC_TWITCH_CLIENT, access_token, gameString )
       const newItem = gameData[0]
       if ( newItem === undefined ) throw "no game found"
-      game = newItem.name
+      newItemName = newItem.name
       const gameCover = newItem.cover?.image_id ?? "nocover"
-      const gameCoverLink = `https://images.igdb.com/igdb/image/upload/t_cover_big/${gameCover}.png`
-      const gameReleaseDate = await getHumanDate(newItem.first_release_date ?? "140140140")
+      const newCover = `https://images.igdb.com/igdb/image/upload/t_cover_big/${gameCover}.png`
+      const newDateReleased = await getHumanDate(newItem.first_release_date ?? "140140140")
       // we only want the developer studio, nothing else
       const gameCompanies = newItem.involved_companies ?? "Studio inconnu"
-      let gameCompany
+      let newAuthor
       if (gameCompanies !== "Studio inconnu") {
         const gameDevCompany = gameCompanies.filter( company => company.developer === true )
-        gameCompany = gameDevCompany[0].company.name
+        newAuthor = gameDevCompany[0].company.name
       } else {
-        gameCompany = "Studio inconnu"
+        newAuthor = "Studio inconnu"
       }
       
       return { 
-        game,
-        gameCompany,
-        gameCoverLink,
-        gameReleaseDate,
+        newItemName,
+        newAuthor,
+        newCover,
+        newDateReleased,
         success: true }
 
     } catch( error ) {
       console.log(error.message)
+      return error
+    }
+  },
+
+  searchMovieDB: async ({ request }) => {
+    const form = await request.formData()
+    let newItemName = form.get( "item_name" ).toString()
+
+    try {
+
+    } catch( error ) {
+      console.log(error.message || error)
       return error
     }
   }

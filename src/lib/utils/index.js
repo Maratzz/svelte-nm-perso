@@ -1,3 +1,5 @@
+import * as config from "$lib/config.js"
+
 export const fetchMarkdownEverything = async () => {
   const allPostFiles = import.meta.glob( "/src/routes/*/*/*.md" )
   const iterablePostFiles = Object.entries( allPostFiles )
@@ -90,4 +92,38 @@ export const slugify = (string) => {
            .replace(/ò|ô|ö|ó|ō/g, 'o') // replace french accentuated o
            .replace(/ç/g, 'c') // replace french ç
   return string
+}
+
+export const searchMovieByName = async ( apiBearerToken, input ) => {
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: `Bearer ${apiBearerToken}`
+    }
+  }
+  
+  let itemID
+  let itemCover
+  let itemName = ""
+
+  const findMovieID = await fetch(`${config.baseUrlAPITMDB}/search/movie?query=${input}&language=fr`, options)
+  .then(res => res.json())
+  .then( res => itemID = res.results[0].id)
+  .catch( err => console.error(err) )
+
+  const dataMovie = await fetch(`${config.baseUrlAPITMDB}/movie/${itemID}?append_to_response=credits&language=fr`, options)
+    .then(res => res.json())
+    .then( res => itemName = res.title )
+
+
+
+    .finally( res => itemCover = `https://image.tmdb.org/t/p/w500${res.poster_path}` )
+    .catch( err => console.error(err) )
+
+  return {
+    itemID,
+    itemCover,
+    itemName
+  }
 }

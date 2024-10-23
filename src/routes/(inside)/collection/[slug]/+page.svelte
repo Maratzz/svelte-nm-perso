@@ -72,7 +72,7 @@
   <div>
     <div class="collapsible">
       <input type="checkbox" id="collapsible2" name="collapsible2">
-      <label for="collapsible2">Dans les listes suivantes:</label>
+      <label for="collapsible2">Dans {innerList.length <= 1 ? 'la liste suivante' : 'les listes suivantes'}:</label>
       <div class="collapsible-body">
         <ul>
           {#each innerList as list (list.name)}

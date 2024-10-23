@@ -1,6 +1,7 @@
 <script>
   import { enhance } from "$app/forms"
   import toast, { Toaster } from "svelte-french-toast"
+  import FormData from "$lib/components/FormData.svelte";
 
   export let form
   export let categories
@@ -41,31 +42,26 @@
   <div class="form-inside-name">
 
     <div>
-      <label for="item_name">Nom</label>
-      <input type="text" name="item_name" id="item_name" value={form?.game ?? ""} size="13">
+      <FormData type="text" query="item_name" query_name="Nom" value={form?.newItemName ?? ""} size="13"/>
     </div>
 
-    <button type="submit" formaction="?/search">IGDB API</button>
+    <button type="submit" formaction="?/searchGameDB">IGDB API</button>
+    <button type="submit" formaction="?/searchMovieDB"> TMDB</button>
 
   </div>
 
   <div class="form-inside-acquired">
-
-    <label for="item_acquired">Acquis le:</label>
-    <input type="date" name="item_acquired" id="item_acquired">
-
+    <FormData type="date" query="item_date_acquired" query_name="Acquis le:" value={form?.newDateAcquired ?? ""}/>
   </div>
 
   <div class="form-inside-calendar">
 
     <div>
-      <label for="item_started">Démarré le:</label>
-      <input type="date" name="item_started" id="item_started">
+      <FormData type="date" query="item_date_started" query_name="Démarré le:" value={form?.newDateStarted ?? ""}/>
     </div>
 
     <div>
-      <label type="date" for="item_finished">Fini le:</label>
-      <input type="date" name="item_finished" id="item_finished">
+      <FormData type="date" query="item_date_finished" query_name="Fini le:" value={form?.newDateFinished ?? ""}/>
     </div>
 
   </div>
@@ -111,16 +107,13 @@
 
 
   <div>
-    <label for="game_developer">Autrices</label>
-    <input type="text" name="game_developer" id="game_developer" value={form?.gameCompany ?? ""}>
+    <FormData type="text" query="item_author" query_name="Autrice(s)" value={form?.newAuthor ?? ""}/>
 
-    <label for="game_cover">Image</label>
-    <input type="url" name="game_cover" id="game_cover" value={form?.gameCoverLink ?? ""}>
+    <FormData type="url" query="item_cover" query_name="Image" value={form?.newCover ?? ""}/>
 
-    <img src={form?.gameCoverLink} alt="">
+    <img src={form?.newCover} alt="">
 
-    <label for="game_released_date">Date de sortie</label>
-    <input type="date" name="game_released_date" value={form?.gameReleaseDate ?? ""}>
+    <FormData type="date" query="item_date_released" query_name="Date de sortie" value={form?.newDateReleased ?? ""}/>
   </div>
 
   <button type="submit" id="button-submit">Créer la fiche</button>

@@ -64,18 +64,22 @@
   openGraph
 />
 
+<div>
+  <h1>Collection</h1>
 
-<h1>Collection</h1>
+  {#if session}
+  <div class="collapsible">
 
-{#if session}
-<div class="collapsible">
-  <input type="checkbox" id="collapsible2" name="collapsible2">
-  <label for="collapsible2">Créer une oeuvre</label>
-  <div class="collapsible-body">
-    <Form {form} {categories} {status} {types}/>
+    <input type="checkbox" id="collapsible2" name="collapsible2">
+    <label for="collapsible2">Créer une oeuvre</label>
+
+    <div class="collapsible-body">
+      <Form {form} {categories} {status} {types}/>
+    </div>
+
   </div>
+  {/if}
 </div>
-{/if}
 
 <div id="filter-container">
 
@@ -181,9 +185,9 @@ on:setPage="{(e) => {
       display: flex;
       flex-direction: row;
       align-items: center;
+      margin-top: 15px;
     }
     &-wrap-options, &-wrap-search {
-      margin-left: 15px;
       max-width: fit-content;
     }
     &-search {
@@ -201,7 +205,7 @@ on:setPage="{(e) => {
       display: flex;
       flex-flow: row nowrap;
       justify-content: center;
-      gap: 30px;
+      gap: 15px;
       align-items: flex-end;
     }
 
