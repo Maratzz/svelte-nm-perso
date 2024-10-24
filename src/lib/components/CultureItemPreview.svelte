@@ -12,7 +12,6 @@
     width: 40vw;
     aspect-ratio: 3/4;
     position: relative;
-    /*object-fit: fill;*/
   }
 
   @media (min-width: 900px) {

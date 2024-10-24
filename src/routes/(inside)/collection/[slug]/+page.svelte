@@ -37,10 +37,12 @@
 <div>
 
   <div id="item-info">
-    <div>
+    
+    <div id="item-info__image">
       <img src={item.cover} alt="Affiche du {item.item_type} {item.name}">
     </div>
-    <div id="item-info-data">
+
+    <div id="item-info__data">
       <h1>{item.name}</h1>
       <p class="info-small">{#if item.item_type === "BD" | item.item_type === "série"}Une{:else}Un{/if} {item.item_type} de {item.author}, sorti le {formatDate( item.date_released )}</p>
       <p class="info-small"><b>Status:</b> <CultureItemStatus {item} {formatDate}/></p>
@@ -92,8 +94,16 @@
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    //align-items: flex-start;
     gap: 10px;
+    &__image {
+      flex: 1 1 50%;
+      img {
+        width: 100%;
+      }
+    }
+    &__data {
+      flex: 1 2 50%;
+    }
   }
 
   h1 {
@@ -122,6 +132,14 @@
       justify-content: space-evenly;
       margin-bottom: 60px;
       margin-top: 30px;
+      /* &-data {
+        flex-basis: 45%;
+      } */
+      img {
+        width: 256px;
+        aspect-ratio: 3/4;
+        //margin: 0 auto;
+      }
     }
   }
 </style>

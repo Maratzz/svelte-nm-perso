@@ -109,6 +109,8 @@
   <div>
     <FormData type="text" query="item_author" query_name="Autrice(s)" value={form?.newAuthor ?? ""}/>
 
+    <FormData type="text" query="item_original_name" query_name="Nom original" value={form?.newOriginalName ?? ""}/>
+
     <FormData type="url" query="item_cover" query_name="Image" value={form?.newCover ?? ""}/>
 
     <img src={form?.newCover} alt="">

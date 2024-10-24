@@ -27,7 +27,7 @@
     const searchValue = searchFilter.value
 
     filteredCollection = collection.filter(
-      item => ( item.name.toLowerCase().includes( searchValue.toLowerCase() ))
+      item => (item.name.toLowerCase().includes( searchValue.toLowerCase() ))
       && ( platformValue === "everything" ? item.platform !== null : item.platform === platformValue )
       && ( statusValue === "everything" ? item.status !== null : item.status === statusValue ))
     currentPage = 1

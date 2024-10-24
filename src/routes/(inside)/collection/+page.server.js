@@ -1,7 +1,8 @@
 import { redirect } from "@sveltejs/kit"
 import { PUBLIC_TWITCH_CLIENT } from "$env/static/public"
 import { PRIVATE_TWITCH_SECRET } from "$env/static/private"
-import { getTwitchToken, getHumanDate, getGames, slugify } from "$lib/utils/index.js"
+import { PRIVATE_TMDB_BEARER } from "$env/static/private"
+import { getTwitchToken, getHumanDate, getGames, slugify, getMovieDetails } from "$lib/utils/index.js"
 
 export const actions = {
 
@@ -14,12 +15,13 @@ export const actions = {
     let newPlatform = form.get( "item_platform" )
     const newStatus = form.get( "item_status" )
     const newItemType = form.get( "item_type" )
-    const newCover = form.get( "game_cover" )
+    const newCover = form.get( "item_cover" )
     const newDateReleased = form.get( "item_date_released" )
     let newDateStarted = form.get( "item_date_started" )
     let newDateFinished = form.get( "item_date_finished" )
     let newDateAcquired = form.get( "item_date_acquired" )
-    const newAuthor = form.get( "author" )
+    let newOriginalName = form.get( "item_original_name" )
+    const newAuthor = form.get( "item_author" )
     const newNotes = form.get( "item_notes" )
     
     if ( !session ) {
@@ -39,6 +41,9 @@ export const actions = {
       if ( !newPlatform ) {
         newPlatform = null
       }
+      if ( !newOriginalName ) {
+        newOriginalName = null
+      }
       try {
         const newForm = await supabase
         .from("collection")
@@ -56,7 +61,8 @@ export const actions = {
             status: newStatus,
             author: newAuthor,
             notes: newNotes,
-            item_type: newItemType
+            item_type: newItemType,
+            original_name: newOriginalName
           }
         ])
         .select()
@@ -110,12 +116,29 @@ export const actions = {
   searchMovieDB: async ({ request }) => {
     const form = await request.formData()
     let newItemName = form.get( "item_name" ).toString()
+    let newAuthor
+    let newOriginalName
 
     try {
+      const movieData = await getMovieDetails(PRIVATE_TMDB_BEARER, newItemName)
+      newItemName = movieData.title
+      newOriginalName = movieData.original_title
+      const newCover = `https://image.tmdb.org/t/p/w342${movieData.poster_path}`
+      const newDateReleased = movieData.release_date
+      const movieDirector = movieData.credits.crew.filter( person => person.job === "Director")
+      newAuthor = movieDirector[0].name
 
+      return {
+        newItemName,
+        newCover,
+        newDateReleased,
+        newAuthor,
+        newOriginalName
+      }
     } catch( error ) {
       console.log(error.message || error)
       return error
     }
+
   }
 }

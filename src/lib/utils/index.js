@@ -37,7 +37,7 @@ export const getTwitchToken = async ( twitchClientId, twitchClientSecret ) => {
 }
 
 export const getGames = async ( clientID, twitchToken, gameName ) => {
-  const data = await fetch("https://api.igdb.com/v4/games/", {
+  const data = await fetch(`${config.baseUrlIGDB}/games/`, {
     method: "POST",
     headers: {
       "Client-ID": clientID,
@@ -51,7 +51,7 @@ export const getGames = async ( clientID, twitchToken, gameName ) => {
 
 // TODO check if it"s still used and/or useful, and delete it not
 export const getGameCover = async ( clientID, twitchToken, input ) => {
-  const data = await fetch("https://api.igdb.com/v4/covers", {
+  const data = await fetch(`${config.baseUrlIGDB}/covers`, {
     method: "POST",
     headers: {
       "Client-ID": clientID,
@@ -94,7 +94,7 @@ export const slugify = (string) => {
   return string
 }
 
-export const searchMovieByName = async ( apiBearerToken, input ) => {
+export const getMovieDetails = async ( apiBearerToken, input ) => {
   const options = {
     method: 'GET',
     headers: {
@@ -102,10 +102,8 @@ export const searchMovieByName = async ( apiBearerToken, input ) => {
       Authorization: `Bearer ${apiBearerToken}`
     }
   }
-  
+
   let itemID
-  let itemCover
-  let itemName = ""
 
   const findMovieID = await fetch(`${config.baseUrlAPITMDB}/search/movie?query=${input}&language=fr`, options)
   .then(res => res.json())
@@ -113,17 +111,8 @@ export const searchMovieByName = async ( apiBearerToken, input ) => {
   .catch( err => console.error(err) )
 
   const dataMovie = await fetch(`${config.baseUrlAPITMDB}/movie/${itemID}?append_to_response=credits&language=fr`, options)
-    .then(res => res.json())
-    .then( res => itemName = res.title )
 
+  const movieDetails = await dataMovie.json()
+  return movieDetails
 
-
-    .finally( res => itemCover = `https://image.tmdb.org/t/p/w500${res.poster_path}` )
-    .catch( err => console.error(err) )
-
-  return {
-    itemID,
-    itemCover,
-    itemName
-  }
 }
