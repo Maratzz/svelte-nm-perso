@@ -1,4 +1,4 @@
-import { PRIVATE_TMDB_BEARER } from "$env/static/private"
+/* import { PRIVATE_TMDB_BEARER } from "$env/static/private"
 
 import { searchMovieByName } from "$lib/utils/index.js"
 
@@ -20,4 +20,4 @@ export const actions = {
     }
   }
 
-}
+} */

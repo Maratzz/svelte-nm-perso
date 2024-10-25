@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
   import { enhance } from "$app/forms"
   export let form
 </script>
@@ -21,4 +21,4 @@
   <p>{form.data.itemName}</p>
   <p>{form.data.itemID}</p>
   <img src={form.data.itemCover} alt="Poster">
-{/if}
+{/if} -->

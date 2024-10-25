@@ -4,14 +4,39 @@
 </script>
 
 {#if item.status === "wishlist"}
-  <span>📋</span>
+  📋 dans les envies
 {:else if item.status === "backlog"}
-  <span>🎒 dans le sac depuis le {formatDate(item.date_acquired)}</span>
+  🎒 dans le sac depuis le {formatDate(item.date_acquired)}
 {:else if item.status === "currently playing"}
-  <span>🔁 en cours</span> depuis le {formatDate(item.date_started)}
+  🔁 en cours depuis le {formatDate(item.date_started)}
 {:else if item.status === "finished"}
-  <span>✅ {#if item.type === "BD" | item.type === "série"}terminée{:else}terminé{/if} depuis le {formatDate(item.date_finished)}</span>
-{:else if item.status === "flushed"}
-  <span>💩 {#if item.type === "BD" | item.type === "série"}abandonnée{:else}abandonné{/if} le {formatDate(item.date_finished)}</span>
-{/if}
+  ✅
+  {#if item.item_type === "film"}Vu
+  {:else if item.item_type === "série"}Vue
+  {:else if item.item_type === "livre"}Lu
+  {:else if item.item_type === "BD"}Lue
+  {:else}Joué{/if} 
 
+  {#if item.date_finished === null}
+    il y a un certain temps
+  {:else}
+    {#if item.item_type === "film" || item.date_started === item.date_finished}
+      le {formatDate(item.date_finished)}
+    {:else}
+      entre le
+      {#if new Date(item.date_started).getFullYear() === new Date(item.date_finished).getFullYear()}
+        {#if new Date(item.date_started).getMonth() === new Date(item.date_finished).getMonth()}
+          {new Date(item.date_started).toLocaleDateString("fr", { day: "numeric" })}
+        {:else}
+          {new Date(item.date_started).toLocaleDateString("fr", { day: "numeric", month: "long"})}
+        {/if}
+      {:else}
+        {formatDate(item.date_started)}
+      {/if}
+      et le {formatDate(item.date_finished)}
+    {/if}
+  {/if}
+
+{:else if item.status === "flushed"}
+  💩 {#if item.item_type === "BD" || item.item_type === "série"}abandonnée{:else}abandonné{/if} le {formatDate(item.date_finished)}
+{/if}
