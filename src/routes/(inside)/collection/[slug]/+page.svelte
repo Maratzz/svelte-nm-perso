@@ -18,11 +18,13 @@
   )
 
   onMount(() => {
-    const modalEdit = document.getElementById("modalEdit")
-    const modalOpenButton = document.getElementById("openModal")
-    modalOpenButton.addEventListener("click", () => {
-      modalEdit.style.visibility = "visible"
-    })
+    if ( session ) {
+      const modalEdit = document.getElementById("modalEdit")
+      const modalOpenButton = document.getElementById("openModal")
+      modalOpenButton.addEventListener("click", () => {
+        modalEdit.style.visibility = "visible"
+      })
+    }
   })
 </script>
 
