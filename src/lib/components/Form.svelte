@@ -47,6 +47,7 @@
 
     <button type="submit" formaction="?/searchGameDB">IGDB API</button>
     <button type="submit" formaction="?/searchMovieDB"> TMDB</button>
+    <button type="submit" formaction="?/searchAnimeDB"> ANI API</button>
 
   </div>
 
@@ -70,7 +71,7 @@
 
     <div>
       <label for="item_type">Type</label>
-      <input list="item_type" name="item_type" size="13">
+      <input list="item_type" name="item_type" size="13" value={form?.newItemType ?? ""}>
       <datalist id="item_type">
         {#each types as type}
         <option value={type.name}></option>

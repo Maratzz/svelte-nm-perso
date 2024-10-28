@@ -112,7 +112,7 @@
 
   <div id="filter-wrap-search">
 
-    <input type="text" name="filter-search" id="filter-search" placeholder="Chercher un jeu">
+    <input type="text" name="filter-search" id="filter-search" placeholder="Chercher une oeuvre">
 
   </div>
 

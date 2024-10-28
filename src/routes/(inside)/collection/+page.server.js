@@ -80,6 +80,7 @@ export const actions = {
     const form = await request.formData()
     let newItemName = form.get( "item_name" )
     const gameString = newItemName.toString()
+    let newItemType
 
     try {
       // all the info about a game
@@ -87,6 +88,7 @@ export const actions = {
       const newItem = gameData[0]
       if ( newItem === undefined ) throw "no game found"
       newItemName = newItem.name
+      newItemType = "jeu vidéo"
       const gameCover = newItem.cover?.image_id ?? "nocover"
       const newCover = `https://images.igdb.com/igdb/image/upload/t_cover_big/${gameCover}.png`
       const newDateReleased = await getHumanDate(newItem.first_release_date ?? "140140140")
@@ -99,11 +101,12 @@ export const actions = {
       } else {
         newAuthor = "Studio inconnu"
       }
-      
-      return { 
+
+      return {
         newItemName,
         newAuthor,
         newCover,
+        newItemType,
         newDateReleased,
         success: true }
 
@@ -118,6 +121,7 @@ export const actions = {
     let newItemName = form.get( "item_name" ).toString()
     let newAuthor
     let newOriginalName
+    let newItemType
 
     try {
       const movieData = await getMovieDetails(PRIVATE_TMDB_BEARER, newItemName)
@@ -127,10 +131,12 @@ export const actions = {
       const newDateReleased = movieData.release_date
       const movieDirector = movieData.credits.crew.filter( person => person.job === "Director")
       newAuthor = movieDirector[0].name
+      newItemType = "film"
 
       return {
         newItemName,
         newCover,
+        newItemType,
         newDateReleased,
         newAuthor,
         newOriginalName
@@ -140,5 +146,52 @@ export const actions = {
       return error
     }
 
+  },
+
+  searchAnimeDB: async ({ request }) => {
+    const form = await request.formData()
+    let newItemName = form.get( "item_name" ).toString()
+    let newItemType
+
+    try {
+      let variables = {
+        search: newItemName
+      }
+      const animeData = await fetch("https://graphql.anilist.co", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          query: `query Query($search: String) {
+            Media(search: $search, type: ANIME) {
+              id
+              title {
+                english
+                romaji
+              }
+              coverImage {
+                large
+              }
+              startDate {
+                day
+                month
+                year
+              }
+            }
+          }
+          `,
+          variables: variables
+        })
+      })
+      .then(res => res.json())
+
+      console.log(animeData)
+      return { animeData }
+    } catch(error) {
+      console.log(error)
+      return error
+    }
   }
 }
