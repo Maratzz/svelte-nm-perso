@@ -139,7 +139,8 @@ export const actions = {
         newItemType,
         newDateReleased,
         newAuthor,
-        newOriginalName
+        newOriginalName,
+        success: true
       }
     } catch( error ) {
       console.log(error.message || error)
@@ -151,11 +152,15 @@ export const actions = {
   searchAnimeDB: async ({ request }) => {
     const form = await request.formData()
     let newItemName = form.get( "item_name" ).toString()
+    let newDateGreater = form.get( "item_date_greater").toString() ?? "1900"
     let newItemType
+    let newOriginalName
+    let newCover
 
     try {
       let variables = {
-        search: newItemName
+        search: newItemName,
+        startDateGreater: `${newDateGreater}0101`
       }
       const animeData = await fetch("https://graphql.anilist.co", {
         method: "POST",
@@ -164,8 +169,8 @@ export const actions = {
           'Accept': 'application/json',
         },
         body: JSON.stringify({
-          query: `query Query($search: String) {
-            Media(search: $search, type: ANIME) {
+          query: `query Query($search: String, $startDateGreater: FuzzyDateInt) {
+            Media(search: $search, type: ANIME, startDate_greater: $startDateGreater) {
               id
               title {
                 english
@@ -186,9 +191,23 @@ export const actions = {
         })
       })
       .then(res => res.json())
+      const data = animeData.data.Media
+      newItemName = data.title.english
+      newOriginalName = data.title.romaji
+      newCover = data.coverImage.large
+      const newDate = new Date(Date.UTC(data.startDate.year, data.startDate.month-1, data.startDate.day))
+      console.log(newDate)
+      const newDateReleased = newDate.toISOString().split('T')[0]
 
-      console.log(animeData)
-      return { animeData }
+      console.log("type:", typeof(newDateReleased), "result:", newDateReleased)
+      newItemType = "série"
+      return {
+        newItemType,
+        newItemName,
+        newOriginalName,
+        newCover,
+        newDateReleased
+      }
     } catch(error) {
       console.log(error)
       return error

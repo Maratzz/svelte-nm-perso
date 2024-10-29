@@ -34,6 +34,7 @@
       toast.success("okay, tout bon !", {
         style: "margin-top: 80px;"
       })
+      console.log(result)
       update()
     }
   }
@@ -43,6 +44,7 @@
 
     <div>
       <FormData type="text" query="item_name" query_name="Nom" value={form?.newItemName ?? ""} size="13"/>
+      <FormData type="text" query="item_date_greater" query_name="Année" size="8"/>
     </div>
 
     <button type="submit" formaction="?/searchGameDB">IGDB API</button>
