@@ -36,14 +36,14 @@ export const getTwitchToken = async ( twitchClientId, twitchClientSecret ) => {
   return token
 }
 
-export const getGames = async ( clientID, twitchToken, gameName ) => {
+export const getGames = async ( clientID, twitchToken, gameName, dateFilter ) => {
   const data = await fetch(`${config.baseUrlIGDB}/games/`, {
     method: "POST",
     headers: {
       "Client-ID": clientID,
       Authorization: `Bearer ${twitchToken}`,
     },
-    body: `fields cover.image_id,first_release_date,name,involved_companies.company.name,involved_companies.developer; where name ~ "${gameName}";sort first_release_date asc;`
+    body: `fields cover.image_id,first_release_date,name,involved_companies.company.name,involved_companies.developer; where name ~ "${gameName}" & first_release_date > ${dateFilter}; sort first_release_date asc;`
   })
   const res = await data.json()
   return res
@@ -94,7 +94,7 @@ export const slugify = (string) => {
   return string
 }
 
-export const getMovieDetails = async ( apiBearerToken, input ) => {
+export const getMovieDetails = async ( apiBearerToken, input, year ) => {
   const options = {
     method: 'GET',
     headers: {
@@ -105,7 +105,7 @@ export const getMovieDetails = async ( apiBearerToken, input ) => {
 
   let itemID
 
-  const findMovieID = await fetch(`${config.baseUrlAPITMDB}/search/movie?query=${input}&language=fr`, options)
+  const findMovieID = await fetch(`${config.baseUrlAPITMDB}/search/movie?query=${input}&language=fr&primary_release_year=${year}`, options)
   .then(res => res.json())
   .then( res => itemID = res.results[0].id)
   .catch( err => console.error(err) )

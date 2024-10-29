@@ -79,12 +79,28 @@ export const actions = {
     const access_token = token.access_token
     const form = await request.formData()
     let newItemName = form.get( "item_name" )
+    let newRadio = form.get( "api_type" )
+    switch (newRadio) {
+      case "film":
+        console.log("yep, un flim")
+        break
+      case "jeu vidéo":
+        console.log("un jeej")
+        break
+      default:
+        console.log("euh jsais pas")
+        break
+    }
+    console.log(newRadio)
+    const newDateGreater = form.get( "item_date_greater").toString() ?? "1900"
+    //IGDB API requires and returns unix-based timestamps so we convert the filter year from our form input
+    const newDate = new Date(Date.parse(`${newDateGreater}-01-01`)) / 1000
     const gameString = newItemName.toString()
     let newItemType
 
     try {
       // all the info about a game
-      const gameData = await getGames( PUBLIC_TWITCH_CLIENT, access_token, gameString )
+      const gameData = await getGames( PUBLIC_TWITCH_CLIENT, access_token, gameString, newDate )
       const newItem = gameData[0]
       if ( newItem === undefined ) throw "no game found"
       newItemName = newItem.name
@@ -103,6 +119,7 @@ export const actions = {
       }
 
       return {
+        gameData,
         newItemName,
         newAuthor,
         newCover,
@@ -119,12 +136,13 @@ export const actions = {
   searchMovieDB: async ({ request }) => {
     const form = await request.formData()
     let newItemName = form.get( "item_name" ).toString()
+    let newDateGreater = form.get( "item_date_greater").toString() ?? "1900"
     let newAuthor
     let newOriginalName
     let newItemType
 
     try {
-      const movieData = await getMovieDetails(PRIVATE_TMDB_BEARER, newItemName)
+      const movieData = await getMovieDetails(PRIVATE_TMDB_BEARER, newItemName, newDateGreater)
       newItemName = movieData.title
       newOriginalName = movieData.original_title
       const newCover = `https://image.tmdb.org/t/p/w342${movieData.poster_path}`
@@ -160,7 +178,8 @@ export const actions = {
     try {
       let variables = {
         search: newItemName,
-        startDateGreater: `${newDateGreater}0101`
+        startDateGreater: `${newDateGreater}0101`,
+        isMain: true
       }
       const animeData = await fetch("https://graphql.anilist.co", {
         method: "POST",
@@ -169,7 +188,7 @@ export const actions = {
           'Accept': 'application/json',
         },
         body: JSON.stringify({
-          query: `query Query($search: String, $startDateGreater: FuzzyDateInt) {
+          query: `query Query($search: String, $startDateGreater: FuzzyDateInt, $isMain: Boolean) {
             Media(search: $search, type: ANIME, startDate_greater: $startDateGreater) {
               id
               title {
@@ -184,6 +203,11 @@ export const actions = {
                 month
                 year
               }
+              studios(isMain: $isMain) {
+                nodes {
+                  name
+                }
+              }
             }
           }
           `,
@@ -192,16 +216,16 @@ export const actions = {
       })
       .then(res => res.json())
       const data = animeData.data.Media
-      newItemName = data.title.english
-      newOriginalName = data.title.romaji
+      newItemName = data.title.english ?? data.title.romaji
+      newOriginalName = data.title.romaji ?? ""
       newCover = data.coverImage.large
       const newDate = new Date(Date.UTC(data.startDate.year, data.startDate.month-1, data.startDate.day))
-      console.log(newDate)
       const newDateReleased = newDate.toISOString().split('T')[0]
-
-      console.log("type:", typeof(newDateReleased), "result:", newDateReleased)
       newItemType = "série"
+      const newAuthor = data.studios.nodes[0].name ?? "Anonyme"
+
       return {
+        newAuthor,
         newItemType,
         newItemName,
         newOriginalName,

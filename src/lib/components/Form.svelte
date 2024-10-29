@@ -34,7 +34,6 @@
       toast.success("okay, tout bon !", {
         style: "margin-top: 80px;"
       })
-      console.log(result)
       update()
     }
   }
@@ -45,6 +44,24 @@
     <div>
       <FormData type="text" query="item_name" query_name="Nom" value={form?.newItemName ?? ""} size="13"/>
       <FormData type="text" query="item_date_greater" query_name="Année" size="8"/>
+    </div>
+
+    <div id="api_selection">
+      <div>
+        <FormData type="radio" query="api_type" query_name="jeu" value="jeu vidéo"/>
+      </div>
+      <div>
+        <FormData type="radio" query="api_type" query_name="film" value="film"/>
+      </div>
+      <div>
+        <FormData type="radio" query="api_type" query_name="série" value="série"/>
+      </div>
+      <div>
+        <FormData type="radio" query="api_type" query_name="anime" value="anime"/>
+      </div>
+      <div>
+        <FormData type="radio" query="api_type" query_name="manga" value="manga"/>
+      </div>
     </div>
 
     <button type="submit" formaction="?/searchGameDB">IGDB API</button>
@@ -163,5 +180,20 @@
 
   .form-inside-name button {
     margin: 15px 0px 0px 15px;
+  }
+
+  #api_selection {
+    display: flex;
+    flex-flow: row wrap;
+    width: auto;
+    height: auto;
+    gap: 15px;
+    div {
+      display: flex;
+      flex-flow: row nowrap;
+      height: 25px;
+      align-items: center;
+      gap: 5px;
+    }
   }
 </style>
