@@ -64,9 +64,7 @@
       </div>
     </div>
 
-    <button type="submit" formaction="?/searchGameDB">IGDB API</button>
-    <button type="submit" formaction="?/searchMovieDB"> TMDB</button>
-    <button type="submit" formaction="?/searchAnimeDB"> ANI API</button>
+    <button type="submit" formaction="?/searchAPI">Chercher</button>
 
   </div>
 

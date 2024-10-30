@@ -2,7 +2,9 @@ import { redirect } from "@sveltejs/kit"
 import { PUBLIC_TWITCH_CLIENT } from "$env/static/public"
 import { PRIVATE_TWITCH_SECRET } from "$env/static/private"
 import { PRIVATE_TMDB_BEARER } from "$env/static/private"
-import { getTwitchToken, getHumanDate, getGames, slugify, getMovieDetails } from "$lib/utils/index.js"
+import { slugify } from "$lib/utils/index.js"
+
+import { getTwitchToken, getGames, getMovieDetails, getAnilistDetails } from "$lib/utils/apiCalls.js"
 
 export const actions = {
 
@@ -74,167 +76,45 @@ export const actions = {
     }
   },
 
-  searchGameDB: async ({ request }) => {
-    const token = await getTwitchToken( PUBLIC_TWITCH_CLIENT, PRIVATE_TWITCH_SECRET )
-    const access_token = token.access_token
+  searchAPI: async ({ request }) => {
     const form = await request.formData()
-    let newItemName = form.get( "item_name" )
-    let newRadio = form.get( "api_type" )
-    switch (newRadio) {
-      case "film":
-        console.log("yep, un flim")
-        break
-      case "jeu vidéo":
-        console.log("un jeej")
-        break
-      default:
-        console.log("euh jsais pas")
-        break
-    }
-    console.log(newRadio)
+    let newItemName = form.get( "item_name" ).toString()
     const newDateGreater = form.get( "item_date_greater").toString() ?? "1900"
-    //IGDB API requires and returns unix-based timestamps so we convert the filter year from our form input
-    const newDate = new Date(Date.parse(`${newDateGreater}-01-01`)) / 1000
-    const gameString = newItemName.toString()
-    let newItemType
+    let newRadio = form.get( "api_type" ).toString()
 
-    try {
-      // all the info about a game
-      const gameData = await getGames( PUBLIC_TWITCH_CLIENT, access_token, gameString, newDate )
-      const newItem = gameData[0]
-      if ( newItem === undefined ) throw "no game found"
-      newItemName = newItem.name
-      newItemType = "jeu vidéo"
-      const gameCover = newItem.cover?.image_id ?? "nocover"
-      const newCover = `https://images.igdb.com/igdb/image/upload/t_cover_big/${gameCover}.png`
-      const newDateReleased = await getHumanDate(newItem.first_release_date ?? "140140140")
-      // we only want the developer studio, nothing else
-      const gameCompanies = newItem.involved_companies ?? "Studio inconnu"
-      let newAuthor
-      if (gameCompanies !== "Studio inconnu") {
-        const gameDevCompany = gameCompanies.filter( company => company.developer === true )
-        newAuthor = gameDevCompany[0].company.name
-      } else {
-        newAuthor = "Studio inconnu"
+    const apiCall = async () => {
+      let apiResults
+      switch (newRadio) {
+        case "jeu vidéo":
+          const token = await getTwitchToken( PUBLIC_TWITCH_CLIENT, PRIVATE_TWITCH_SECRET )
+          //IGDB requires unix-based timestamp for filtering
+          const newDate = new Date(Date.parse(`${newDateGreater}-01-01`)) / 1000
+          const gameString = newItemName.toString()
+          apiResults = await getGames( PUBLIC_TWITCH_CLIENT, token, gameString, newDate)
+          break
+        case "film":
+          apiResults = await getMovieDetails(PRIVATE_TMDB_BEARER, newItemName, newDateGreater)
+          break
+        case "anime":
+        case "manga":
+          apiResults = await getAnilistDetails( newDateGreater, newRadio, newItemName )
+          break
+        default:
+          console.log("pas encore")
+          break
       }
-
-      return {
-        gameData,
-        newItemName,
-        newAuthor,
-        newCover,
-        newItemType,
-        newDateReleased,
-        success: true }
-
-    } catch( error ) {
-      console.log(error.message)
-      return error
+      return apiResults
     }
-  },
+    const data = await apiCall()
 
-  searchMovieDB: async ({ request }) => {
-    const form = await request.formData()
-    let newItemName = form.get( "item_name" ).toString()
-    let newDateGreater = form.get( "item_date_greater").toString() ?? "1900"
-    let newAuthor
-    let newOriginalName
-    let newItemType
-
-    try {
-      const movieData = await getMovieDetails(PRIVATE_TMDB_BEARER, newItemName, newDateGreater)
-      newItemName = movieData.title
-      newOriginalName = movieData.original_title
-      const newCover = `https://image.tmdb.org/t/p/w342${movieData.poster_path}`
-      const newDateReleased = movieData.release_date
-      const movieDirector = movieData.credits.crew.filter( person => person.job === "Director")
-      newAuthor = movieDirector[0].name
-      newItemType = "film"
-
-      return {
-        newItemName,
-        newCover,
-        newItemType,
-        newDateReleased,
-        newAuthor,
-        newOriginalName,
-        success: true
-      }
-    } catch( error ) {
-      console.log(error.message || error)
-      return error
-    }
-
-  },
-
-  searchAnimeDB: async ({ request }) => {
-    const form = await request.formData()
-    let newItemName = form.get( "item_name" ).toString()
-    let newDateGreater = form.get( "item_date_greater").toString() ?? "1900"
-    let newItemType
-    let newOriginalName
-    let newCover
-
-    try {
-      let variables = {
-        search: newItemName,
-        startDateGreater: `${newDateGreater}0101`,
-        isMain: true
-      }
-      const animeData = await fetch("https://graphql.anilist.co", {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-          query: `query Query($search: String, $startDateGreater: FuzzyDateInt, $isMain: Boolean) {
-            Media(search: $search, type: ANIME, startDate_greater: $startDateGreater) {
-              id
-              title {
-                english
-                romaji
-              }
-              coverImage {
-                large
-              }
-              startDate {
-                day
-                month
-                year
-              }
-              studios(isMain: $isMain) {
-                nodes {
-                  name
-                }
-              }
-            }
-          }
-          `,
-          variables: variables
-        })
-      })
-      .then(res => res.json())
-      const data = animeData.data.Media
-      newItemName = data.title.english ?? data.title.romaji
-      newOriginalName = data.title.romaji ?? ""
-      newCover = data.coverImage.large
-      const newDate = new Date(Date.UTC(data.startDate.year, data.startDate.month-1, data.startDate.day))
-      const newDateReleased = newDate.toISOString().split('T')[0]
-      newItemType = "série"
-      const newAuthor = data.studios.nodes[0].name ?? "Anonyme"
-
-      return {
-        newAuthor,
-        newItemType,
-        newItemName,
-        newOriginalName,
-        newCover,
-        newDateReleased
-      }
-    } catch(error) {
-      console.log(error)
-      return error
+    return {
+      data,
+      newItemName: data?.newItemName ?? "",
+      newCover : data?.newCover ?? "",
+      newItemType: data?.newItemType ?? "",
+      newDateReleased: data?.newDateReleased ?? "",
+      newAuthor: data?.newAuthor ?? "Anonyme",
+      newOriginalName: data?.newOriginalName ?? ""
     }
   }
 }
