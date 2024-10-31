@@ -14,12 +14,16 @@
 <form method="POST" action="?/insert" use:enhance={() => {
 
   return ({ result, update }) => {
-    if ( result.data === "no game found" ) {
+    if ( result.data?.data === "no game found" ) {
       toast.error("aucun jeu avec ce titre frère", {
         style: "margin-top: 80px;"
       })
     } else if ( result.data === undefined ) {
       toast.error("data manquante sur la fiche", {
+        style: "margin-top: 80px;"
+      })
+    } else if ( result.data?.data === "missing input") {
+      toast.error("quel type d'oeuvre ?", {
         style: "margin-top: 80px;"
       })
     } else if ( result.data.supabaseResponse?.error?.code === "23503" ) {
@@ -34,6 +38,7 @@
       toast.success("okay, tout bon !", {
         style: "margin-top: 80px;"
       })
+      console.log(result)
       update()
     }
   }
@@ -41,31 +46,29 @@
 
   <div class="form-inside-name">
 
-    <div>
+    <div id="form_api_input">
+      <div id="api_selection">
+        <div>
+          <FormData type="radio" query="api_type" query_name="jeu" value="jeu vidéo"/>
+        </div>
+        <div>
+          <FormData type="radio" query="api_type" query_name="film" value="film"/>
+        </div>
+        <div>
+          <FormData type="radio" query="api_type" query_name="série" value="série"/>
+        </div>
+        <div>
+          <FormData type="radio" query="api_type" query_name="anime" value="anime"/>
+        </div>
+        <div>
+          <FormData type="radio" query="api_type" query_name="manga" value="manga"/>
+        </div>
+      </div>
       <FormData type="text" query="item_name" query_name="Nom" value={form?.newItemName ?? ""} size="13"/>
       <FormData type="text" query="item_date_greater" query_name="Année" size="8"/>
     </div>
 
-    <div id="api_selection">
-      <div>
-        <FormData type="radio" query="api_type" query_name="jeu" value="jeu vidéo"/>
-      </div>
-      <div>
-        <FormData type="radio" query="api_type" query_name="film" value="film"/>
-      </div>
-      <div>
-        <FormData type="radio" query="api_type" query_name="série" value="série"/>
-      </div>
-      <div>
-        <FormData type="radio" query="api_type" query_name="anime" value="anime"/>
-      </div>
-      <div>
-        <FormData type="radio" query="api_type" query_name="manga" value="manga"/>
-      </div>
-    </div>
-
     <button type="submit" formaction="?/searchAPI">Chercher</button>
-
   </div>
 
   <div class="form-inside-acquired">
@@ -155,12 +158,12 @@
     }
   }
 
-  .form-inside-name, .form-inside-calendar, .form-inside-input {
+  .form-inside-calendar, .form-inside-input, #api_selection {
     display: flex;
     flex-flow: row wrap;
   }
 
-  .form-inside-name, .form-inside-calendar, .form-inside-input, .form-inside-notes, .form-inside-acquired {
+  .form-inside-calendar, .form-inside-input, .form-inside-notes, .form-inside-acquired {
     padding-top: 10px;
   }
 
@@ -172,26 +175,17 @@
     margin-top: 15px;
     gap: 10px;
   }
+
   .form-inside-input {
     margin-bottom: 15px;
   }
 
   .form-inside-name button {
-    margin: 15px 0px 0px 15px;
+    margin-top: 10px;
   }
 
   #api_selection {
-    display: flex;
-    flex-flow: row wrap;
-    width: auto;
-    height: auto;
-    gap: 15px;
-    div {
-      display: flex;
-      flex-flow: row nowrap;
-      height: 25px;
-      align-items: center;
-      gap: 5px;
-    }
+    gap: 10px;
+    margin: 0 auto;
   }
 </style>

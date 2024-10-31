@@ -75,7 +75,8 @@ export const getMovieDetails = async ( apiBearerToken, input, year ) => {
   let newItemName
   let newItemType = "film"
 
-  const findMovieID = await fetch(`${config.baseUrlAPITMDB}/search/movie?query=${input}&language=fr&primary_release_year=${year}`, options)
+  const findMovieID = await fetch(`${config.baseUrlAPITMDB}/search/movie?query=${input}&language=fr
+    ${year !== "1900" ? `&primary_release_year=${year}` : ""}`, options)
   .then(res => res.json())
   .then( res => itemID = res.results[0].id)
   .catch( err => console.error(err) )

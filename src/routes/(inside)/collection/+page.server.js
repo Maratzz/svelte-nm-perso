@@ -25,7 +25,7 @@ export const actions = {
     let newOriginalName = form.get( "item_original_name" )
     const newAuthor = form.get( "item_author" )
     const newNotes = form.get( "item_notes" )
-    
+
     if ( !session ) {
       redirect(303, "/")
     }
@@ -79,16 +79,17 @@ export const actions = {
   searchAPI: async ({ request }) => {
     const form = await request.formData()
     let newItemName = form.get( "item_name" ).toString()
-    const newDateGreater = form.get( "item_date_greater").toString() ?? "1900"
-    let newRadio = form.get( "api_type" ).toString()
+    const newDateGreater = form.get( "item_date_greater").length !== 0 ? form.get( "item_date_greater") : "1900"
+    let newRadio = form.get( "api_type" )//.toString()
 
     const apiCall = async () => {
       let apiResults
-      switch (newRadio) {
+      try {
+        switch (newRadio) {
         case "jeu vidéo":
           const token = await getTwitchToken( PUBLIC_TWITCH_CLIENT, PRIVATE_TWITCH_SECRET )
           //IGDB requires unix-based timestamp for filtering
-          const newDate = new Date(Date.parse(`${newDateGreater}-01-01`)) / 1000
+          const newDate = Date.parse(`${newDateGreater}-01-01`) / 1000
           const gameString = newItemName.toString()
           apiResults = await getGames( PUBLIC_TWITCH_CLIENT, token, gameString, newDate)
           break
@@ -100,10 +101,14 @@ export const actions = {
           apiResults = await getAnilistDetails( newDateGreater, newRadio, newItemName )
           break
         default:
-          console.log("pas encore")
+          apiResults = "missing input"
           break
       }
       return apiResults
+      } catch (error) {
+        console.log(error)
+        return error
+      }
     }
     const data = await apiCall()
 
