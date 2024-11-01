@@ -11,7 +11,7 @@ export const getTwitchToken = async ( twitchClientId, twitchClientSecret ) => {
   return token
 }
 
-export const getGames = async ( clientID, twitchToken, gameName, dateFilter ) => {
+export const getGames = async ( clientID, twitchToken, gameName, year ) => {
 
   try {
     let newItemName
@@ -26,7 +26,7 @@ export const getGames = async ( clientID, twitchToken, gameName, dateFilter ) =>
         "Client-ID": clientID,
         Authorization: `Bearer ${twitchToken}`,
       },
-      body: `fields cover.image_id,first_release_date,name,involved_companies.company.name,involved_companies.developer; where name ~ "${gameName}" & first_release_date > ${dateFilter}; sort first_release_date asc;`
+      body: `fields cover.image_id,first_release_date,name,involved_companies.company.name,involved_companies.developer; where name ~ "${gameName}" & first_release_date > ${year}; sort first_release_date asc;`
     })
     .then(res => res.json())
 
@@ -60,7 +60,7 @@ export const getGames = async ( clientID, twitchToken, gameName, dateFilter ) =>
   }
 }
 
-export const getMovieDetails = async ( apiBearerToken, input, year ) => {
+export const getTMDBDetails = async ( apiBearerToken, input, year, type ) => {
 
   const options = {
     method: 'GET',
@@ -72,26 +72,42 @@ export const getMovieDetails = async ( apiBearerToken, input, year ) => {
   let itemID
   let newAuthor
   let newOriginalName
+  let newDateReleased
   let newItemName
-  let newItemType = "film"
+  let newItemType = type
 
-  const findMovieID = await fetch(`${config.baseUrlAPITMDB}/search/movie?query=${input}&language=fr
-    ${year !== "1900" ? `&primary_release_year=${year}` : ""}`, options)
+  let baseURLforID = `${config.baseUrlAPITMDB}/search/${ type === "film" ? "movie" : "tv"}?query=${input}&language=fr`
+  let appendYear
+  if (year.length !== 0) {
+    if (type === "movie") {
+      appendYear = `&primary_release_year=${year}`
+    } else {
+      appendYear = `&first_air_date_year=${year}`
+    }
+  } else {
+    appendYear = ""
+  }
+
+  const findTMDBID = await fetch(`${baseURLforID}${appendYear}`, options)
   .then(res => res.json())
   .then( res => itemID = res.results[0].id)
   .catch( err => console.error(err) )
 
-  const dataMovie = await fetch(`${config.baseUrlAPITMDB}/movie/${itemID}?append_to_response=credits&language=fr`, options)
+  const dataMovie = await fetch(`${config.baseUrlAPITMDB}/${ type === "film" ? "movie" : "tv"}/${itemID}?append_to_response=credits&language=fr`, options)
   .then(res => res.json())
 
-  const movie = await dataMovie
-  newItemName = movie.title ?? ""
-  newOriginalName = movie.original_title ?? ""
-  const newCover = `https://image.tmdb.org/t/p/w342${movie.poster_path}`
-  const newDateReleased = movie.release_date
-  const movieDirector = movie.credits?.crew?.filter( person => person.job === "Director") ?? "Anonyme"
-  newAuthor = movieDirector[0].name
-  newItemType = "film"
+  const item = await dataMovie
+
+  newItemName = item.title ?? item.name
+  newOriginalName = item.original_title ?? item.original_name
+  newDateReleased = item.release_date ?? item.first_air_date
+  const newCover = `https://image.tmdb.org/t/p/w342${item.poster_path}`
+  if (type === "film") {
+    const movieDirector = item.credits?.crew?.filter( person => person.job === "Director")
+    newAuthor = movieDirector[0]?.name ?? "Anonyme"
+  } else {
+    newAuthor = item.created_by[0].name ?? "Anonyme"
+  }
 
   return {
     newItemName,
@@ -108,13 +124,13 @@ export const getAnilistDetails = async ( date, type, input ) => {
 
   let newItemName
   let newCover
-  let newItemType = type
+  let newItemType = type === "anime" ? "série" : "manga"
   let newDateReleased
   let newAuthor
   let newOriginalName
   let variables = {
     search: input,
-    startDateGreater: `${date}0101`,
+    startDateGreater: `${date.length !== 0 ? date : `1900`}0101`,
     type: type.toUpperCase(),
     isMain: true
   }

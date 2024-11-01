@@ -4,7 +4,7 @@ import { PRIVATE_TWITCH_SECRET } from "$env/static/private"
 import { PRIVATE_TMDB_BEARER } from "$env/static/private"
 import { slugify } from "$lib/utils/index.js"
 
-import { getTwitchToken, getGames, getMovieDetails, getAnilistDetails } from "$lib/utils/apiCalls.js"
+import { getTwitchToken, getGames, getTMDBDetails, getAnilistDetails } from "$lib/utils/apiCalls.js"
 
 export const actions = {
 
@@ -79,8 +79,8 @@ export const actions = {
   searchAPI: async ({ request }) => {
     const form = await request.formData()
     let newItemName = form.get( "item_name" ).toString()
-    const newDateGreater = form.get( "item_date_greater").length !== 0 ? form.get( "item_date_greater") : "1900"
-    let newRadio = form.get( "api_type" )//.toString()
+    const yearForFilter = form.get( "item_date_greater")
+    let newRadio = form.get( "api_type" )
 
     const apiCall = async () => {
       let apiResults
@@ -89,16 +89,17 @@ export const actions = {
         case "jeu vidéo":
           const token = await getTwitchToken( PUBLIC_TWITCH_CLIENT, PRIVATE_TWITCH_SECRET )
           //IGDB requires unix-based timestamp for filtering
-          const newDate = Date.parse(`${newDateGreater}-01-01`) / 1000
+          const newDate = Date.parse(`${yearForFilter.length === 0 ? `1970` : yearForFilter}-01-01`) / 1000
           const gameString = newItemName.toString()
           apiResults = await getGames( PUBLIC_TWITCH_CLIENT, token, gameString, newDate)
           break
         case "film":
-          apiResults = await getMovieDetails(PRIVATE_TMDB_BEARER, newItemName, newDateGreater)
+        case "série":
+          apiResults = await getTMDBDetails(PRIVATE_TMDB_BEARER, newItemName, yearForFilter, newRadio)
           break
         case "anime":
         case "manga":
-          apiResults = await getAnilistDetails( newDateGreater, newRadio, newItemName )
+          apiResults = await getAnilistDetails( yearForFilter, newRadio, newItemName )
           break
         default:
           apiResults = "missing input"
@@ -113,7 +114,6 @@ export const actions = {
     const data = await apiCall()
 
     return {
-      data,
       newItemName: data?.newItemName ?? "",
       newCover : data?.newCover ?? "",
       newItemType: data?.newItemType ?? "",

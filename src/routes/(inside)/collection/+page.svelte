@@ -25,11 +25,14 @@
     const statusValue = statusFilter.value
     const searchFilter = document.querySelector("#filter-search")
     const searchValue = searchFilter.value
+    const typeFilter = document.querySelector("#filter-type")
+    const typeValue = typeFilter.value
 
     filteredCollection = collection.filter(
       item => (item.name.toLowerCase().includes( searchValue.toLowerCase() ))
       && ( platformValue === "everything" ? item.platform !== null : item.platform === platformValue )
-      && ( statusValue === "everything" ? item.status !== null : item.status === statusValue ))
+      && ( statusValue === "everything" ? item.status !== null : item.status === statusValue )
+      && ( typeValue === "everything" ? item.item_type !== null : item.item_type === typeValue))
     currentPage = 1
     return filteredCollection
   }
@@ -38,6 +41,11 @@
 
     let filterButton = document.getElementById("filter-search")
     filterButton.addEventListener("keyup", () => {
+      multiFilterGames()
+    })
+
+    let typeChange = document.getElementById("filter-type")
+    typeChange.addEventListener("change", () => {
       multiFilterGames()
     })
 
@@ -83,10 +91,21 @@
 
 <div id="filter-container">
 
-  <div id="filter-wrap-options">
+  <input type="text" name="filter-search" id="filter-search" placeholder="Chercher une oeuvre">
 
-    <div id="filter-wrap-platform">
+  <div id="filter-container__options">
 
+    <div>
+      <label for="filter-type">Type</label>
+      <select name="filter-type" id="filter-type">
+      <option value="everything" selected>Tous</option>
+      {#each types as type }
+        <option value={type.name}>{type.name}</option>
+      {/each}
+      </select>
+    </div>
+
+    <div>
       <label for="filter-platform">Plateforme</label>
       <select name="filter-platform" id="filter-platform">
       <option value="everything" selected>Toutes</option>
@@ -94,11 +113,9 @@
         <option value={category.name}>{category.name}</option>
       {/each}
       </select>
-  
     </div>
-  
-    <div id="filter-wrap-status">
-  
+
+    <div>
       <label for="filter-status">Status</label>
       <select name="filter-status" id="filter-status">
       <option value="everything" selected>Tous</option>
@@ -106,13 +123,7 @@
         <option value={singleStatus.name}>{singleStatus.converted}</option>
       {/each}
       </select>
-  
     </div>
-  </div>
-
-  <div id="filter-wrap-search">
-
-    <input type="text" name="filter-search" id="filter-search" placeholder="Chercher une oeuvre">
 
   </div>
 
@@ -143,7 +154,6 @@ on:setPage="{(e) => {
 
 <style lang="scss">
   h1 {
-    position: relative;
     z-index: 2;
     padding-left: 15px;
     &::after {
@@ -160,58 +170,38 @@ on:setPage="{(e) => {
   }
 
   .container {
-    display: flex;
-    position: relative;
-    flex-flow: row wrap;
     gap: 30px;
     justify-content: center;
     margin-top: 40px;
     margin-bottom: 40px;
   }
 
-  #filter {
-    &-container {
-      margin-bottom: 25px;
-      &:has(label) {
-        font-size: 0.8rem;
-      }
-    }
-    &-wrap-options {
-      display: flex;
-      flex-flow: row nowrap;
+  h1, .container {
+    position: relative;
+  }
+
+  .container, #filter-container, #filter-container__options {
+    display: flex;
+  }
+
+  .container, #filter-container__options {
+    flex-flow: row wrap;
+  }
+
+  #filter-container {
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    &__options {
       gap: 15px;
+      margin-top: 20px;
+      margin-bottom: 25px;
     }
-    &-wrap-search {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      margin-top: 15px;
-    }
-    &-wrap-options, &-wrap-search {
-      max-width: fit-content;
-    }
-    &-search {
-      height: 50px;
+    &:has(label) {
+      font-size: 0.8rem;
     }
   }
 
   .collapsible-body {
     overflow-y: scroll;
-  }
-
-  @media (min-width: 900px) {
-
-    #filter-container {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: center;
-      gap: 15px;
-      align-items: flex-end;
-    }
-
-    #filter-wrap-search {
-      align-items: flex-end;
-      gap: 15px;
-    }
   }
 </style>
