@@ -38,5 +38,5 @@
   {/if}
 
 {:else if item.status === "flushed"}
-  💩 {#if item.item_type === "BD" || item.item_type === "série"}abandonnée{:else}abandonné{/if} le {formatDate(item.date_finished)}
+  💩 {#if item.item_type === "BD" || item.item_type === "série"}abandonnée{:else}abandonné{/if} {item.date_finished ? `le ${formatDate(item.date_finished)}` : "il y a un certain temps"}
 {/if}
