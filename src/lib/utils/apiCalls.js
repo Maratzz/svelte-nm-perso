@@ -150,7 +150,7 @@ export const getAnilistDetails = async ( date, type, input ) => {
             romaji
           }
           coverImage {
-            large
+            extraLarge
           }
           startDate {
             day
@@ -180,7 +180,7 @@ export const getAnilistDetails = async ( date, type, input ) => {
 
   const data = aniListData.data.Media
   newItemName = data.title.english ?? data.title.romaji
-  newCover = data.coverImage.large ?? ""
+  newCover = data.coverImage.extraLarge ?? ""
   newOriginalName = data.title.romaji ?? ""
   const newDate = new Date(Date.UTC(data.startDate.year, data.startDate.month-1, data.startDate.day))
   newDateReleased = newDate.toISOString().split('T')[0]
