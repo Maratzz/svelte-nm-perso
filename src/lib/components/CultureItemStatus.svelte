@@ -13,7 +13,7 @@
   ✅
   {#if item.item_type === "film"}Vu
   {:else if item.item_type === "série"}Vue
-  {:else if item.item_type === "livre"}Lu
+  {:else if item.item_type === "livre" || item.item_type === "manga"}Lu
   {:else if item.item_type === "BD"}Lue
   {:else}Joué{/if} 
 
