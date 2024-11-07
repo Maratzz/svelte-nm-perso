@@ -114,12 +114,13 @@ export const actions = {
     const data = await apiCall()
 
     return {
+      data/* ,
       newItemName: data?.newItemName ?? "",
       newCover : data?.newCover ?? "",
       newItemType: data?.newItemType ?? "",
       newDateReleased: data?.newDateReleased ?? "",
       newAuthor: data?.newAuthor ?? "Anonyme",
-      newOriginalName: data?.newOriginalName ?? ""
+      newOriginalName: data?.newOriginalName ?? "" */
     }
   }
 }

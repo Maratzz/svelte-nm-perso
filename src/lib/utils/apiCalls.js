@@ -31,7 +31,7 @@ export const getGames = async ( clientID, twitchToken, gameName, year ) => {
     .then(res => res.json())
 
     const newItem = await data[0]
-    if ( newItem === undefined) throw "no game found"
+    if ( newItem === undefined) throw "no item found"
 
     newItemName = newItem.name
     const dataCover = newItem.cover?.image_id ?? "nocover"
@@ -79,7 +79,7 @@ export const getTMDBDetails = async ( apiBearerToken, input, year, type ) => {
   let baseURLforID = `${config.baseUrlAPITMDB}/search/${ type === "film" ? "movie" : "tv"}?query=${input}&language=fr`
   let appendYear
   if (year.length !== 0) {
-    if (type === "movie") {
+    if (type === "film") {
       appendYear = `&primary_release_year=${year}`
     } else {
       appendYear = `&first_air_date_year=${year}`
@@ -92,6 +92,8 @@ export const getTMDBDetails = async ( apiBearerToken, input, year, type ) => {
   .then(res => res.json())
   .then( res => itemID = res.results[0].id)
   .catch( err => console.error(err) )
+
+  if ( itemID === undefined) throw "no item found"
 
   const dataMovie = await fetch(`${config.baseUrlAPITMDB}/${ type === "film" ? "movie" : "tv"}/${itemID}?append_to_response=credits&language=fr`, options)
   .then(res => res.json())

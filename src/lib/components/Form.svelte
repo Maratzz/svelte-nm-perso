@@ -14,8 +14,8 @@
 <form method="POST" action="?/insert" use:enhance={() => {
 
   return ({ result, update }) => {
-    if ( result.data?.data === "no game found" ) {
-      toast.error("aucun jeu avec ce titre frère", {
+    if ( result.data?.data === "no item found" ) {
+      toast.error("aucun résultat", {
         style: "margin-top: 80px;"
       })
     } else if ( result.data === undefined ) {
@@ -26,11 +26,11 @@
       toast.error("quel type d'oeuvre ?", {
         style: "margin-top: 80px;"
       })
-    } else if ( result.data.supabaseResponse?.error?.code === "23503" ) {
+    } else if ( result.data?.supabaseResponse?.error?.code === "23503" ) {
       toast.error("il manque un champ", {
         style: "margin-top: 80px;"
       })
-    } else if ( result.data.supabaseResponse?.error?.code === "23505" ) {
+    } else if ( result.data?.supabaseResponse?.error?.code === "23505" ) {
       toast.error("ce jeu est déjà dans la collection", {
         style: "margin-top: 80px;"
       })
@@ -64,7 +64,7 @@
           <FormData type="radio" query="api_type" query_name="manga" value="manga"/>
         </div>
       </div>
-      <FormData type="text" query="item_name" query_name="Nom" value={form?.newItemName ?? ""} size="13"/>
+      <FormData type="text" query="item_name" query_name="Nom" value={form?.data?.newItemName ?? ""} size="13"/>
       <FormData type="text" query="item_date_greater" query_name="Année" size="8"/>
     </div>
 
@@ -91,7 +91,7 @@
 
     <div>
       <label for="item_type">Type</label>
-      <input list="item_type" name="item_type" size="13" value={form?.newItemType ?? ""}>
+      <input list="item_type" name="item_type" size="13" value={form?.data?.newItemType ?? ""}>
       <datalist id="item_type">
         {#each types as type}
         <option value={type.name}></option>
@@ -128,15 +128,15 @@
 
 
   <div>
-    <FormData type="text" query="item_author" query_name="Autrice(s)" value={form?.newAuthor ?? ""}/>
+    <FormData type="text" query="item_author" query_name="Autrice(s)" value={form?.data?.newAuthor ?? ""}/>
 
-    <FormData type="text" query="item_original_name" query_name="Nom original" value={form?.newOriginalName ?? ""}/>
+    <FormData type="text" query="item_original_name" query_name="Nom original" value={form?.data?.newOriginalName ?? ""}/>
 
-    <FormData type="url" query="item_cover" query_name="Image" value={form?.newCover ?? ""}/>
+    <FormData type="url" query="item_cover" query_name="Image" value={form?.data?.newCover ?? ""}/>
 
-    <img src={form?.newCover} alt="">
+    <img src={form?.data?.newCover} alt="">
 
-    <FormData type="date" query="item_date_released" query_name="Date de sortie" value={form?.newDateReleased ?? ""}/>
+    <FormData type="date" query="item_date_released" query_name="Date de sortie" value={form?.data?.newDateReleased ?? ""}/>
   </div>
 
   <button type="submit" id="button-submit">Créer la fiche</button>
