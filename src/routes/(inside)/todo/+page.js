@@ -5,7 +5,7 @@ export async function load({ parent }) {
   if ( !session ) {
     redirect(303, "/connexion")
   }
-  
+
   const { data : todos } = await supabase
     .from("todos")
     .select()

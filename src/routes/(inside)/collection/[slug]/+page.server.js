@@ -54,7 +54,7 @@ export const actions = {
     if ( !updatedDateAcquired ) {
       updatedDateAcquired = null
     }
-    
+
     try {
       const { newForm, error } = await supabase
         .from("collection")

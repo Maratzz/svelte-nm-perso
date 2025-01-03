@@ -50,12 +50,10 @@
     margin-bottom: 50px;
 
     a {
-    display: block;
-    &:not(:first-child) {
-      margin-top: 6px;
+      display: block;
+      &:not(:first-child) {
+        margin-top: 6px;
+      }
     }
   }
-  }
-
-
 </style>

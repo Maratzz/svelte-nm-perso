@@ -20,7 +20,7 @@ export async function load({ parent }) {
     .from("item_type")
     .select("*")
     .order("id", { ascending: true })
-    
+
   return {
     collection: collection ?? [],
     categories : categories ?? [],

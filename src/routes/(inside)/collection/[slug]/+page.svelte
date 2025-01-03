@@ -39,7 +39,7 @@
 <div>
 
   <div id="item-info">
-    
+
     <div id="item-info__image">
       <img src={item.cover} alt="Affiche du {item.item_type} {item.name}">
     </div>
@@ -134,13 +134,9 @@
       justify-content: space-evenly;
       margin-bottom: 60px;
       margin-top: 30px;
-      /* &-data {
-        flex-basis: 45%;
-      } */
       img {
         width: 256px;
         aspect-ratio: 3/4;
-        //margin: 0 auto;
       }
     }
   }

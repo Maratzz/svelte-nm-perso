@@ -4,11 +4,11 @@ export const load = async ({ fetch, parent }) => {
   const posts = await response.json()
     .then (( data ) => data.filter( post => post.meta.categories.includes( "textes" ))
   )
-  
+
   const { data : items } = await supabase
     .from("collection")
     .select("*")
-    
+
   return {
     posts,
     items

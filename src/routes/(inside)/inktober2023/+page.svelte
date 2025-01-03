@@ -50,20 +50,14 @@
         height="950">
       </object>
     {:else}
-      <!-- <p class="mobile">Téléchargez le PDF <a href={saddle} download="saddle_nico_moisson_inktober_2023.pdf">en cliquant juste ici</a> et ouvrez-le avec l'application de votre choix sur téléphone</p> -->
-       <img src={saddle_mobile} alt="Capture d'écran du texte Saddle">
+      <img src={saddle_mobile} alt="Capture d'écran du texte Saddle">
     {/if}
   </MediaQuery>
 
 </div>
 
 <style>
-
   div {
     width: 85vw;
   }
-  
-  /*.mobile {
-    margin-top: 55px;
-  }*/
 </style>
