@@ -4,7 +4,7 @@ import { PRIVATE_TWITCH_SECRET } from "$env/static/private"
 import { PRIVATE_TMDB_BEARER } from "$env/static/private"
 import { slugify } from "$lib/utils/index.js"
 
-import { getTwitchToken, getGames, getTMDBDetails, getAnilistDetails } from "$lib/utils/apiCalls.js"
+import { getTwitchToken, getGames, getTMDBDetails, getAnilistDetails, getBookDetails } from "$lib/utils/apiCalls.js"
 
 export const actions = {
 
@@ -100,6 +100,9 @@ export const actions = {
         case "anime":
         case "manga":
           apiResults = await getAnilistDetails( yearForFilter, newRadio, newItemName )
+          break
+        case "livre":
+          apiResults = await getBookDetails( newItemName )
           break
         default:
           apiResults = "missing input"

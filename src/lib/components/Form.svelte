@@ -63,6 +63,9 @@
         <div>
           <FormData type="radio" query="api_type" query_name="manga" value="manga"/>
         </div>
+        <div>
+          <FormData type="radio" query="api_type" query_name="livre" value="livre"/>
+        </div>
       </div>
       <FormData type="text" query="item_name" query_name="Nom" value={form?.data?.newItemName ?? ""} size="13"/>
       <FormData type="text" query="item_date_greater" query_name="Année" size="8"/>

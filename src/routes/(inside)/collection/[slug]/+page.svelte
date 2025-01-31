@@ -73,19 +73,12 @@
 
   {#key innerList}
   {#if innerList.length}
-  <div>
-    <div class="collapsible">
-      <input type="checkbox" id="collapsible2" name="collapsible2">
-      <label for="collapsible2">Dans {innerList.length <= 1 ? 'la liste suivante' : 'les listes suivantes'}:</label>
-      <div class="collapsible-body">
-        <ul>
-          {#each innerList as list (list.name)}
-          <li><a href="/listes/{list.slug}">{list.name}</a></li>
-          {/each}
-        </ul>
-      </div>
-    </div>
-  </div>
+    <p>Dans {innerList.length <= 1 ? 'la liste suivante' : 'les listes suivantes'}:</p>
+      <ul>
+        {#each innerList as list (list.name)}
+        <li><a href="/listes/{list.slug}">{list.name}</a></li>
+        {/each}
+      </ul>
   {/if}
   {/key}
 

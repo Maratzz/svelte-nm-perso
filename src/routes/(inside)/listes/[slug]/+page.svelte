@@ -68,7 +68,9 @@
   {#each itemsInCollection as item}
   <div class="item">
     <CultureItemPreview {item} />
-    <button on:click={() => deleteItem( item, targetList )} class="btn-danger">X</button>
+    {#if session}
+      <button on:click={() => deleteItem( item, targetList )} class="btn-danger">X</button>
+    {/if}
   </div>
   {/each}
   {/key}
