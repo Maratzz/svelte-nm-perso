@@ -202,11 +202,27 @@ export const getAnilistDetails = async ( date, type, input ) => {
 
 export const getBookDetails = async (newBook) => {
   let newBookData
-  let newBookDetails
+  let newItemName
+  let newCover
+  let newAuthor
+  let newDateReleased
+  let newItemType = "livre"
   const data = await fetch(`${config.baseUrlOpenLibrary}?bibkeys=ISBN:${newBook}&jscmd=data&format=json`, {
     method: "GET"
   })
   .then(res => res.json())
-  newBookData = Object.entries(data)[0]
-  console.log(newBookData ?? "aucun résultat")
+  newBookData = Object.entries(data)[0][1]
+  newItemName = newBookData.title
+  newCover = newBookData.cover.large
+  newDateReleased = `${newBookData.publish_date}-01-01`
+  newAuthor = newBookData.authors[0].name ?? "Anonyme"
+
+  return {
+    newItemName,
+    newCover,
+    newItemType,
+    newAuthor,
+    newDateReleased,
+    success: true
+  }
 }
