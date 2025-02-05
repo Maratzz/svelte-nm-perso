@@ -129,7 +129,6 @@
       margin-top: 30px;
       img {
         width: 256px;
-        aspect-ratio: 3/4;
       }
     }
   }

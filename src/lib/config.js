@@ -4,4 +4,5 @@ export const url = "https://nicolasmoisson.fr"
 
 export const baseUrlIGDB = 'https://api.igdb.com/v4'
 export const baseUrlAPITMDB = "https://api.themoviedb.org/3"
-export const baseUrlOpenLibrary = "https://openlibrary.org/api/books"
+export const baseUrlOpenLibraryISBN = "https://openlibrary.org/api/books"
+export const baseUrlOpenLibrarySearch = "https://openlibrary.org/search.json"

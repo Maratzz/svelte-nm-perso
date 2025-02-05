@@ -207,21 +207,24 @@ export const getBookDetails = async (newBook) => {
   let newAuthor
   let newDateReleased
   let newItemType = "livre"
-  const data = await fetch(`${config.baseUrlOpenLibrary}?bibkeys=ISBN:${newBook}&jscmd=data&format=json`, {
+  const data = await fetch(`${config.baseUrlOpenLibrarySearch}?q=${newBook}&fields=author_name,title,cover_edition_key,cover_i,first_publish_year,key,editions`, {
     method: "GET"
   })
   .then(res => res.json())
-  newBookData = Object.entries(data)[0][1]
-  newItemName = newBookData.title
-  newCover = newBookData.cover.large
-  newDateReleased = `${newBookData.publish_date}-01-01`
-  newAuthor = newBookData.authors[0].name ?? "Anonyme"
+
+  newBookData = await data.docs[0]
+  newItemName = newBookData.editions.docs[0].title
+  newAuthor = newBookData.author_name[0]
+  newCover = `https://covers.openlibrary.org/b/id/${newBookData.editions.docs[0].cover_i}-L.jpg`
+  newDateReleased = `${newBookData.first_publish_year}-01-01`
+
+  console.log("résultats:", newBookData)
 
   return {
-    newItemName,
-    newCover,
     newItemType,
+    newItemName,
     newAuthor,
+    newCover,
     newDateReleased,
     success: true
   }
