@@ -76,7 +76,7 @@ export const actions = {
     }
   },
 
-  searchAPI: async ({ request }) => {
+  searchAPI: async ({ request, locals: { supabase } }) => {
     const form = await request.formData()
     let newItemName = form.get( "item_name" ).toString()
     const yearForFilter = form.get( "item_date_greater")
@@ -102,7 +102,7 @@ export const actions = {
           apiResults = await getAnilistDetails( yearForFilter, newRadio, newItemName )
           break
         case "livre":
-          apiResults = await getBookDetails( newItemName )
+          apiResults = await getBookDetails( newItemName, supabase )
           break
         default:
           apiResults = "missing input"

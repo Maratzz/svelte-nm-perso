@@ -116,3 +116,20 @@ export const getMovieDetails = async ( apiBearerToken, input, year ) => {
   return movieDetails
 
 }
+
+export const uploadImageAndgetPublicURL = async (supabase, imageURLtoFetch, slug) => {
+
+  try {
+    const blob = await fetch(imageURLtoFetch).then( res => res.blob())
+    const { data, error } = await supabase.storage.from("collection").upload(slug, blob)
+    if (error) {
+      throw error
+    }
+  } catch (error) {
+    console.log(error)
+  }
+
+  const { data, error } = await supabase.storage.from("collection").getPublicUrl(slug)
+  let result = await data.publicUrl
+  return result
+}

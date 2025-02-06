@@ -1,5 +1,6 @@
 import { getHumanDate } from "$lib/utils/index.js"
 import * as config from "$lib/config.js"
+import { slugify, uploadImageAndgetPublicURL } from "$lib/utils/index.js"
 
 export const getTwitchToken = async ( twitchClientId, twitchClientSecret ) => {
   const twitchToken = await fetch(`https://id.twitch.tv/oauth2/token?client_id=${twitchClientId}&client_secret=${twitchClientSecret}&grant_type=client_credentials`,
@@ -200,25 +201,27 @@ export const getAnilistDetails = async ( date, type, input ) => {
   }
 }
 
-export const getBookDetails = async (newBook) => {
+export const getBookDetails = async (newBook, supabase) => {
   let newBookData
   let newItemName
   let newCover
   let newAuthor
   let newDateReleased
   let newItemType = "livre"
-  const data = await fetch(`${config.baseUrlOpenLibrarySearch}?q=${newBook}&fields=author_name,title,cover_edition_key,cover_i,first_publish_year,key,editions`, {
+  const dataBook = await fetch(`${config.baseUrlOpenLibrarySearch}?q=${newBook}&fields=author_name,title,cover_edition_key,cover_i,first_publish_year,key,editions`, {
     method: "GET"
   })
   .then(res => res.json())
 
-  newBookData = await data.docs[0]
+  newBookData = await dataBook.docs[0]
   newItemName = newBookData.editions.docs[0].title
   newAuthor = newBookData.author_name[0]
-  newCover = `https://covers.openlibrary.org/b/id/${newBookData.editions.docs[0].cover_i}-L.jpg`
   newDateReleased = `${newBookData.first_publish_year}-01-01`
 
-  console.log("résultats:", newBookData)
+  let newItemSlug = await slugify(newItemName)
+  let coverToDownload = `https://covers.openlibrary.org/b/id/${newBookData.editions.docs[0].cover_i}-L.jpg`
+
+  newCover = await uploadImageAndgetPublicURL(supabase, coverToDownload, newItemSlug)
 
   return {
     newItemType,
