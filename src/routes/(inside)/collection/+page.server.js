@@ -2,8 +2,8 @@ import { redirect } from "@sveltejs/kit"
 import { PUBLIC_TWITCH_CLIENT } from "$env/static/public"
 import { PRIVATE_TWITCH_SECRET } from "$env/static/private"
 import { PRIVATE_TMDB_BEARER } from "$env/static/private"
-import { slugify } from "$lib/utils/index.js"
-
+import { PRIVATE_APIFY_KEY } from "$env/static/private"
+import { slugify, uploadImageAndgetPublicURL } from "$lib/utils/index.js"
 import { getTwitchToken, getGames, getTMDBDetails, getAnilistDetails, getBookDetails } from "$lib/utils/apiCalls.js"
 
 export const actions = {
@@ -76,16 +76,16 @@ export const actions = {
     }
   },
 
-  searchAPI: async ({ request, locals: { supabase } }) => {
+  searchAPI: async ({ request }) => {
     const form = await request.formData()
     let newItemName = form.get( "item_name" ).toString()
-    const yearForFilter = form.get( "item_date_greater")
+    const yearForFilter = form.get( "item_date_greater" )
     let newRadio = form.get( "api_type" )
 
     const apiCall = async () => {
       let apiResults
       try {
-        switch (newRadio) {
+        switch ( newRadio ) {
         case "jeu vidéo":
           const token = await getTwitchToken( PUBLIC_TWITCH_CLIENT, PRIVATE_TWITCH_SECRET )
           //IGDB requires unix-based timestamp for filtering
@@ -102,19 +102,36 @@ export const actions = {
           apiResults = await getAnilistDetails( yearForFilter, newRadio, newItemName )
           break
         case "livre":
-          apiResults = await getBookDetails( newItemName, supabase )
+          apiResults = await getBookDetails( PRIVATE_APIFY_KEY, newItemName, yearForFilter )
           break
         default:
           apiResults = "missing input"
           break
       }
       return apiResults
-      } catch (error) {
+      } catch ( error ) {
         console.log(error)
         return error
       }
     }
     const data = await apiCall()
+
+    return {
+      data
+    }
+  },
+
+  uploadToSupabase: async ({ request, locals: { supabase } }) => {
+    const form = await request.formData()
+    const newItemName = form.get( "item_name" )
+    const sluggedName = await slugify(newItemName)
+    let newItemType = form.get( "item_type" )
+    let newCover = form.get( "item_cover" )
+    const newDateReleased = form.get( "item_date_released" )
+    let newOriginalName = form.get( "item_original_name" )
+    const newAuthor = form.get( "item_author" )
+
+    const data = await uploadImageAndgetPublicURL( supabase, sluggedName, newItemName, newItemType, newCover, newDateReleased, newOriginalName, newAuthor )
 
     return {
       data

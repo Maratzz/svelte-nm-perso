@@ -137,6 +137,8 @@
 
     <FormData type="url" query="item_cover" query_name="Image" value={form?.data?.newCover ?? ""}/>
 
+    <button type="submit" formaction="?/uploadToSupabase">Upload to Supabase</button>
+
     <img src={form?.data?.newCover} alt="">
 
     <FormData type="date" query="item_date_released" query_name="Date de sortie" value={form?.data?.newDateReleased ?? ""}/>
