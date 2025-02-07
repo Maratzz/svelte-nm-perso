@@ -1,5 +1,3 @@
-import * as config from "$lib/config.js"
-
 export const fetchMarkdownEverything = async () => {
   const allPostFiles = import.meta.glob( "/src/routes/*/*/*.md" )
   const iterablePostFiles = Object.entries( allPostFiles )
@@ -23,45 +21,6 @@ export const removeDuplicates = async ( items ) => {
   const uniqueSet = new Set( jsonObject )
   newArray = Array.from( uniqueSet ).map( JSON.parse )
   return newArray
-}
-
-// generate a twitch token on the fly
-// TODO perhaps we should store it somewhere and check if there is one, if not then we generate a new one and store it, so that way there are less API calls, but does it actually matter ? search info about it schlok
-export const getTwitchToken = async ( twitchClientId, twitchClientSecret ) => {
-  const twitchToken = await fetch(`https://id.twitch.tv/oauth2/token?client_id=${twitchClientId}&client_secret=${twitchClientSecret}&grant_type=client_credentials`,
-  { 
-    method: "POST",
-  })
-  const token = twitchToken.json()
-  return token
-}
-
-export const getGames = async ( clientID, twitchToken, gameName, dateFilter ) => {
-  const data = await fetch(`${config.baseUrlIGDB}/games/`, {
-    method: "POST",
-    headers: {
-      "Client-ID": clientID,
-      Authorization: `Bearer ${twitchToken}`,
-    },
-    body: `fields cover.image_id,first_release_date,name,involved_companies.company.name,involved_companies.developer; where name ~ "${gameName}" & first_release_date > ${dateFilter}; sort first_release_date asc;`
-  })
-  const res = await data.json()
-  return res
-}
-
-// TODO check if it"s still used and/or useful, and delete it not
-export const getGameCover = async ( clientID, twitchToken, input ) => {
-  const data = await fetch(`${config.baseUrlIGDB}/covers`, {
-    method: "POST",
-    headers: {
-      "Client-ID": clientID,
-      Authorization: `Bearer ${twitchToken}`,
-    },
-    body: `fields *; where game = ${input};`
-  })
-  const res = await data.json()
-  const gameCoverUrl = res[0].image_id
-  return gameCoverUrl
 }
 
 export const getHumanDate = async ( input ) => {
@@ -94,42 +53,27 @@ export const slugify = (string) => {
   return string
 }
 
-export const getMovieDetails = async ( apiBearerToken, input, year ) => {
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: `Bearer ${apiBearerToken}`
-    }
-  }
-
-  let itemID
-
-  const findMovieID = await fetch(`${config.baseUrlAPITMDB}/search/movie?query=${input}&language=fr&primary_release_year=${year}`, options)
-  .then(res => res.json())
-  .then( res => itemID = res.results[0].id)
-  .catch( err => console.error(err) )
-
-  const dataMovie = await fetch(`${config.baseUrlAPITMDB}/movie/${itemID}?append_to_response=credits&language=fr`, options)
-
-  const movieDetails = await dataMovie.json()
-  return movieDetails
-
-}
-
-export const uploadImageAndgetPublicURL = async (supabase, imageURLtoFetch, slug) => {
+export const uploadImageAndgetPublicURL = async (supabase, slug, name, type, cover, date, originalName, author) => {
 
   try {
-    const blob = await fetch(imageURLtoFetch).then( res => res.blob())
+    const blob = await fetch(cover).then( res => res.blob())
     const { data, error } = await supabase.storage.from("collection").upload(slug, blob)
-    if (error) {
+    if ( error ) {
       throw error
     }
-  } catch (error) {
+  } catch ( error ) {
     console.log(error)
   }
 
   const { data, error } = await supabase.storage.from("collection").getPublicUrl(slug)
-  let result = await data.publicUrl
-  return result
+
+  return {
+    newItemName: name,
+    newItemType: type,
+    newCover: data.publicUrl,
+    newDateReleased: date,
+    newOriginalName: originalName,
+    newAuthor: author,
+    success: true
+  }
 }
