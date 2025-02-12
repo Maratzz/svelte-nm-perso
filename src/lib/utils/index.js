@@ -46,9 +46,10 @@ export const slugify = (string) => {
            .replace(/\s+/g, '-') // replace spaces with hyphens
            .replace(/-+/g, '-') // remove consecutive hyphens
            .replace(/é|è|ê|ë/g, 'e') // replace french accentuated e
-           .replace(/à|ä|á/g, 'a') // replace french accentuated a
+           .replace(/à|ä|á|â/g, 'a') // replace french accentuated a
            .replace(/ù|û|ü/g, 'u') // replace french accentuated u
            .replace(/ò|ô|ö|ó|ō/g, 'o') // replace french accentuated o
+           .replace(/î|ï|í/g, 'i') // replace accentuated i
            .replace(/ç/g, 'c') // replace french ç
   return string
 }

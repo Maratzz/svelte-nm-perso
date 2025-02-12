@@ -176,6 +176,8 @@ export const getAnilistDetails = async ( date, type, input ) => {
 }
 
 export const getBookDetails = async ( apifyKey, query, language ) => {
+
+  //TODO replace apify with openlibrary method since apify goes 9.99$/month
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json")
   myHeaders.append("Accept", "application/json")
