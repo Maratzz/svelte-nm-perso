@@ -1,5 +1,6 @@
 import { getHumanDate } from "$lib/utils/index.js"
 import * as config from "$lib/config.js"
+import *  as cheerio from "cheerio"
 
 export const getTwitchToken = async ( twitchClientId, twitchClientSecret ) => {
   const twitchToken = await fetch(`https://id.twitch.tv/oauth2/token?client_id=${twitchClientId}&client_secret=${twitchClientSecret}&grant_type=client_credentials`,
@@ -175,36 +176,24 @@ export const getAnilistDetails = async ( date, type, input ) => {
   }
 }
 
-export const getBookDetails = async ( apifyKey, query, language ) => {
+export const getBookDetails = async () => {
 
-  //TODO replace apify with openlibrary method since apify goes 9.99$/month
-  const myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json")
-  myHeaders.append("Accept", "application/json")
+  const $ = await cheerio.fromURL(`https://isbndb.com/book/9780375703768`)
+  console.log("fetch result:", $)
+  const title = $(".book-title").text()
+  const cover = $("object").attr('data')
+  const author = $("tbody > tr:nth-child(5) > td > a").text()
 
-  const raw = JSON.stringify({
-    "language": language,
-    "query": query,
-    "totalPages": 1
-  })
+  console.log("résultat de cheerio:", title)
+  console.log("couverture:", cover)
+  console.log("auteur:", author)
 
-  const requestOptions = {
-    method: "POST",
-    headers: myHeaders,
-    body: raw,
-    redirect: "follow"
-  }
 
-  const data = await fetch(`https://api.apify.com/v2/acts/${config.apifyISBNScraper}/run-sync-get-dataset-items?token=${apifyKey}&limit=1`, requestOptions)
-  .then(res => res.json())
-  .catch((error) => console.error(error))
-  let result = await data[0]
-
-  return {
+  /* return {
     newItemName: result.title,
     newAuthor: result.authors[0] ?? "Anonyme",
     newDateReleased: result.published ?? "1970-01-01",
     newItemType: "livre",
     newCover: result.cover
-  }
+  } */
 }
