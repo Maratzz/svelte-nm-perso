@@ -102,7 +102,8 @@ export const actions = {
           apiResults = await getAnilistDetails( yearForFilter, newRadio, newItemName )
           break
         case "livre":
-          apiResults = await getBookDetails()
+        case "BD":
+          apiResults = await getBookDetails( newItemName, newRadio )
           break
         default:
           apiResults = "missing input"

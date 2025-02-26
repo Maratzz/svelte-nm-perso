@@ -176,24 +176,19 @@ export const getAnilistDetails = async ( date, type, input ) => {
   }
 }
 
-export const getBookDetails = async () => {
+export const getBookDetails = async ( ISBN, itemType) => {
 
-  const $ = await cheerio.fromURL(`https://isbndb.com/book/9780375703768`)
-  console.log("fetch result:", $)
+  const $ = await cheerio.fromURL(`https://isbndb.com/book/${ISBN}`)
   const title = $(".book-title").text()
-  const cover = $("object").attr('data')
-  const author = $("tbody > tr:nth-child(5) > td > a").text()
+  if (!title) {
+    throw "no item found"
+  }
 
-  console.log("résultat de cheerio:", title)
-  console.log("couverture:", cover)
-  console.log("auteur:", author)
-
-
-  /* return {
-    newItemName: result.title,
-    newAuthor: result.authors[0] ?? "Anonyme",
-    newDateReleased: result.published ?? "1970-01-01",
-    newItemType: "livre",
-    newCover: result.cover
-  } */
+  return {
+    newItemName: title,
+    newAuthor: $("tbody > tr:nth-child(5) > td > a").text() ?? "Anonyme",
+    newItemType: itemType,
+    newCover: $("object").attr('data') ?? "no cover",
+    success: true
+  }
 }
