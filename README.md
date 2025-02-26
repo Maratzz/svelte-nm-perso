@@ -29,6 +29,3 @@ Le code est disponible sans conditions.
 Si tu diffuses sur Internet les textes, billets de blog, et autres *shitposts* qui ne sont pas des bouts de code, sois sympa et: 
 - essaie de me mentionner et d'inclure un lien vers mon site perso ou pro
 - ne gagne pas des sous avec (comme dit l'autre, si je l'apprends ça va barder)
-
-
-
