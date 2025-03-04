@@ -186,7 +186,7 @@ export const getBookDetails = async ( ISBN, itemType) => {
 
   return {
     newItemName: title,
-    newAuthor: $("tbody > tr:nth-child(5) > td > a").text() ?? "Anonyme",
+    newAuthor: $("tbody > tr:nth-child(5) > td > a").text() !== "" ? $("tbody > tr:nth-child(5) > td > a").text() : $("tbody > tr:nth-child(4) > td > a").text(),
     newItemType: itemType,
     newCover: $("object").attr('data') ?? "no cover",
     success: true
