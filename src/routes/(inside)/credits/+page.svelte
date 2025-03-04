@@ -1,5 +1,5 @@
 <script>
-  import HeadSEO from "$lib/components/HeadSEO.svelte";
+  import HeadSEO from "$lib/components/HeadSEO.svelte"
   import full_image from "$lib/assets/homepage/full_image.webp"
 </script>
 
@@ -15,7 +15,7 @@
 
 <div>
   <h1>Crédits</h1>
-  
+
   <p>Ce site est le mien mais c'est également un effort collectif, comme tout ce qui existe sur Internet. J'aimerais lister ici les auteurs et autrices des ressources et des outils que j'ai utilisés pour monter cet espace. Merci à elles et à eux. N'hésitez pas à voir leur travail et à les soutenir !</p>
 
   <h2>Technologies</h2>
