@@ -1,5 +1,5 @@
 export async function load({ fetch, parent }) {
-  const { supabase, currentRoute, session } = await parent()
+  const { supabase, session } = await parent()
 
   let { data: collectionNow } = await supabase
   .from("collection")
@@ -30,7 +30,6 @@ export async function load({ fetch, parent }) {
     collectionLastFinished: collectionLastFinished ?? [],
     maintenant: maintenant[0] ?? [],
     text: latestText[0],
-    currentRoute,
     session
   }
 }
