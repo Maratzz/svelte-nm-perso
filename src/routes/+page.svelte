@@ -135,7 +135,7 @@
     <p>Je prône la curiosité et le ré-enchantement en vertus cardinales pour être heureux·se, en vrai comme en faux, dans la vie comme sur le web. Explorez, fouillez, flânez.</p>
     <p>C'est mon espace, et donc le vôtre également.</p>
   </div>
-  
+
 </main>
 
 <Footer />

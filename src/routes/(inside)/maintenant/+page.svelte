@@ -4,6 +4,7 @@
   import FormData from "$lib/components/FormData.svelte"
   import full_image from "$lib/assets/homepage/full_image.webp"
   import { formatDate } from "$lib/utils/index.js"
+  import { url } from "$lib/config.js"
 
   export let data
 
@@ -47,7 +48,7 @@
     {#if maintenant.elsewhere_bool === (true)}
     je suis actuellement {maintenant.elsewhere_location}, pour {maintenant.elsewhere_reason}
     {:else}
-    je suis actuellement chez moi, avec <a href="https://oriane.ink/">Oriane</a> et <a href="/blog/suashem_pc.jpg">Suashem</a>.
+    je suis actuellement chez moi, avec <a href="https://oriane.ink/">Oriane</a> et <a href="{url}/blog/suashem_pc.jpg">Suashem</a>.
     {/if}
   </p>
 
@@ -62,9 +63,9 @@
   <p>Je gagne des sous en étant<br/>
     <span class="whitespace">
       <s>
-        employé de magasin alimentaire<br/>
-        surveillant d'examens<br/>
         animateur numérique<br/>
+        surveillant d'examens<br/>
+        employé de magasin alimentaire<br/>
       </s>
     </span> {maintenant.jobs}.
     <br/>
