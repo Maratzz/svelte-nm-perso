@@ -1,13 +1,27 @@
 <script>
-  import HeadSEO from "$lib/components/HeadSEO.svelte"
-  import full_image from "$lib/assets/homepage/full_image.webp"
+  import { fade } from "svelte/transition"
   import { goto } from "$app/navigation"
   import { formatDate } from "$lib/utils/index.js"
 
+  import HeadSEO from "$lib/components/HeadSEO.svelte"
+  import CategoryList from "$lib/components/CategoryList.svelte"
+  import full_image from "$lib/assets/homepage/full_image.webp"
+
   export let data
 
-  let { posts } = data
+  $: ({ posts } = data)
+  $: filteredPosts = posts
+  $: selectedCategories = []
+  $: console.log("les catégories vues par parent", selectedCategories)
 
+  $: if (selectedCategories.length) {
+    filteredPosts = filteredPosts.filter( post => 
+    post.meta.categories.includes(`${selectedCategories}`)
+  )
+    console.log("posts filtrés:", filteredPosts)
+  } else {
+    filteredPosts = posts
+  }
   let handleClick = (post) => {
     const link = post.path
     goto(link)
@@ -27,8 +41,11 @@
 <div>
   <h1>Blog</h1>
 
-  <div id="container">
-    {#each posts as post}
+  <CategoryList {posts} categoryToExclude = "blog" bind:selectedCategories/>
+
+  {#key filteredPosts}
+  <div id="container" in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
+    {#each filteredPosts as post}
     <div class="item" on:click={() => {handleClick(post)}} on:keypress={() => {handleClick(post)}} role="link" tabindex="0">
       <img src={post.meta.image ?? "https://placehold.co/140x190"} alt="Illustration pour le billet de blog" class="item-img border-2">
 
@@ -40,6 +57,7 @@
     </div>
     {/each}
   </div>
+  {/key}
 </div>
 
 

@@ -1,6 +1,8 @@
 <script>
   import HeadSEO from "$lib/components/HeadSEO.svelte"
+  import CategoryList from "$lib/components/CategoryList.svelte"
   import full_image from "$lib/assets/homepage/full_image.webp"
+
   import { goto } from "$app/navigation"
   import { formatDate } from "$lib/utils/index.js"
 
@@ -39,6 +41,7 @@
 <div>
   <h1>Textes</h1>
 
+  <CategoryList {posts} categoryToExclude = "textes"/>
   <div id="container">
 
   {#each posts as post}

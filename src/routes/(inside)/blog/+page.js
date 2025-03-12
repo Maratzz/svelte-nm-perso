@@ -4,7 +4,7 @@ export const load = async ({ fetch }) => {
   const posts = await response.json()
   .then (( data ) => data.filter( post => post.meta.categories.includes( "blog" ) )
   )
-  
+
   return {
     posts
   }

@@ -8,7 +8,7 @@
   import Footer from "$lib/components/Footer.svelte"
 </script>
 
-<HeadSEO 
+<HeadSEO
   title="Page introuvable | Nico Moisson"
   description="Erreur quatre sans quatre, ça fait zéro, comme l'absence de résultat qui vous a fait atterrir ici"
   author="Nico 'Maratz' Moisson"
@@ -21,7 +21,7 @@
 <Header />
 
 <main>
-  <div> 
+  <div>
     <h1>Cette page n'existe pas</h1>
 
     <p>ou peut-être qu'elle a été déplacée à une autre adresse.</p>
@@ -55,7 +55,7 @@
   }
 
   @media (min-width: 900px) {
-    main { 
+    main {
       padding-bottom: 150px;
     }
   }

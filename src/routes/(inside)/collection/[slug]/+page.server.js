@@ -42,6 +42,9 @@ export const actions = {
     let updatedStatus = form.get( "item_status" )
     let updatedNotes = form.get( "item_notes" )
 
+    let dateNow = Date.now()
+    let ISOdateNow = new Date(dateNow).toISOString()
+
     if ( !session ) {
       redirect(303, "/connexion")
     }
@@ -64,7 +67,8 @@ export const actions = {
             date_started: updatedDateStarted,
             date_finished: updatedDateFinished,
             status: updatedStatus,
-            notes: updatedNotes
+            notes: updatedNotes,
+            date_updated: ISOdateNow
           }
         ])
         .eq("slug", itemSlug)

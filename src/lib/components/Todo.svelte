@@ -12,14 +12,14 @@
     </div>
 
     <button formaction="?/delete"  class="btn-danger">X</button>
-    
+
   </form>
 
 <style lang="scss">
   .hidden {
     display: none;
   }
-  
+
   form {
     display: flex;
     flex-flow: row nowrap;
