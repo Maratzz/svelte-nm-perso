@@ -31,10 +31,13 @@
 </article>
 
 <style lang="scss">
+  $color: hsl(253, 27%, 80%);
+
   .category {
-    margin: 0 3px;
-    background-color: #978CAA;
-    padding: 4px 4px;
+    margin: 0 5px;
+    background-color: $color;
+    padding: 5px 10px;
+    border-radius: 15px;
   }
 
   article {
