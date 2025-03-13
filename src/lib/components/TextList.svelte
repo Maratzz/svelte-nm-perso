@@ -1,4 +1,5 @@
 <script>
+  import "papercss/dist/paper.min.css"
   import { fade } from "svelte/transition"
   export let items, collection
   export let handleClick = () => {}
@@ -14,7 +15,7 @@
       {#each items as item}
       <div class="item" on:click={() => {handleClick(item)}} on:keypress={() => {handleClick(item)}} role="link" tabindex="0">
 
-        <img src={item.meta.image ?? attachCoverImage( item.meta.title, collection )} alt="Illustration du texte" class="item-img border-2">
+        <img src={item.meta.image ?? attachCoverImage( item.meta.title, collection )} alt="Illustration du texte" class="item-img border border-2">
 
         <div class="item-content">
           <h2><a href={item.path} class="link">{item.meta.title}</a></h2>
