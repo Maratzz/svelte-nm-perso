@@ -1,7 +1,7 @@
 <script>
   import { fade } from "svelte/transition"
   import { goto } from "$app/navigation"
-  import { formatDate } from "$lib/utils/index.js"
+  import { formatDate, multiFilteringText } from "$lib/utils/index.js"
 
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import CategoryList from "$lib/components/CategoryList.svelte"
@@ -12,16 +12,14 @@
   $: ({ posts } = data)
   $: filteredPosts = posts
   $: selectedCategories = []
-  $: console.log("les catégories vues par parent", selectedCategories)
 
   $: if (selectedCategories.length) {
-    filteredPosts = filteredPosts.filter( post => 
-    post.meta.categories.includes(`${selectedCategories}`)
-  )
-    console.log("posts filtrés:", filteredPosts)
+    filteredPosts = []
+    filteredPosts = multiFilteringText(posts, selectedCategories)
   } else {
     filteredPosts = posts
   }
+
   let handleClick = (post) => {
     const link = post.path
     goto(link)
@@ -45,17 +43,26 @@
 
   {#key filteredPosts}
   <div id="container" in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
-    {#each filteredPosts as post}
-    <div class="item" on:click={() => {handleClick(post)}} on:keypress={() => {handleClick(post)}} role="link" tabindex="0">
-      <img src={post.meta.image ?? "https://placehold.co/140x190"} alt="Illustration pour le billet de blog" class="item-img border-2">
 
-      <div class="item-content">
-        <h2><a href={post.path}>{post.meta.title}</a></h2>
-        <p><i>{formatDate( post.meta.date )}</i></p>
-        <p>{post.meta.headline ?? "Pas d'accroche, bouh !"}</p>
+    {#if filteredPosts.length}
+
+      {#each filteredPosts as post}
+      <div class="item" on:click={() => {handleClick(post)}} on:keypress={() => {handleClick(post)}} role="link" tabindex="0">
+        <img src={post.meta.image ?? "https://placehold.co/140x190"} alt="Illustration pour le billet de blog" class="item-img border-2">
+
+        <div class="item-content">
+          <h2><a href={post.path}>{post.meta.title}</a></h2>
+          <p><i>{formatDate( post.meta.date )}</i></p>
+          <p>{post.meta.headline ?? "Pas d'accroche, bouh !"}</p>
+        </div>
       </div>
-    </div>
-    {/each}
+      {/each}
+
+    {:else}
+
+      <p>Aucun billet avec cette combinaison de catégories. Veuillez modifier votre sélection.</p>
+
+    {/if}
   </div>
   {/key}
 </div>

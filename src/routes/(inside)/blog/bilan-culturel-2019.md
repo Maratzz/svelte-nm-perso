@@ -4,6 +4,7 @@ date: 2019-12-31
 headline: Les résolutions, c'est comme les élections, ça n'engage que celles qui y croient.
 categories:
   - blog
+  - bilan
   - sveltekit
 image: blog/suashem_1.jpg
 draft: published

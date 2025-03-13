@@ -78,3 +78,15 @@ export const uploadImageAndgetPublicURL = async (supabase, slug, name, type, cov
     success: true
   }
 }
+
+export const multiFilteringText = (elements, categories) => {
+  let filteredList = []
+  elements.forEach(element => {
+    let elementSet = new Set(element.meta.categories)
+    let categorySet = new Set(categories)
+    if (categorySet.isSubsetOf(elementSet)) {
+      filteredList.push(element)
+    }
+  })
+  return filteredList
+}
