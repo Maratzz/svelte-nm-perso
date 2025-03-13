@@ -1,5 +1,4 @@
 <script>
-  import "papercss/dist/paper.min.css"
   import { fade } from "svelte/transition"
   export let items, collection
   export let handleClick = () => {}

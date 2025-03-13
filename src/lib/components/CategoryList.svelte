@@ -20,7 +20,7 @@
 
       {#if (category) !== categoryToExclude}
 
-        <input type="checkbox" name={category} id={category} value={category} bind:group={selectedCategories} class="inputCheck">
+        <input type="checkbox" name={category} id={category} value={category} bind:group={selectedCategories}>
         <label for={category} class="filter__button">{category}</label>
 
       {/if}
