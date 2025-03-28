@@ -1,65 +1,61 @@
 <script>
   import { fade } from "svelte/transition"
+  import CollectionFilter from "$lib/components/CollectionFilter.svelte"
   import CultureItemPreview from "$lib/components/CultureItemPreview.svelte"
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import Form from "$lib/components/Form.svelte"
   import { paginate, LightPaginationNav } from "svelte-paginate"
-  import { onMount } from "svelte"
   import full_image from "$lib/assets/homepage/full_image.webp"
 
   export let data
   export let form
 
-  $: ({ collection, categories, status, session, types } = data)
+  $: ({ collection, categories, status, session, types, supabase } = data)
   $: filteredCollection = collection
+  $: filteredPlatforms = []
 
+  //whenever these two change, we update the filteredCollection
+  $: selectedCategories = []
+  $: selectedPlatforms = []
+
+  // controls the page and items-per-page components
   let currentPage = 1
   let pageSize = 12
-
   $: paginatedItems = paginate({ items: filteredCollection, pageSize, currentPage })
 
-  const multiFilterGames = () => {
-    const platformFilter = document.querySelector("#filter-platform")
-    const platformValue = platformFilter.value
-    const statusFilter = document.querySelector("#filter-status")
-    const statusValue = statusFilter.value
-    const searchFilter = document.querySelector("#filter-search")
-    const searchValue = searchFilter.value
-    const typeFilter = document.querySelector("#filter-type")
-    const typeValue = typeFilter.value
-
-    filteredCollection = collection.filter(
-      item => (item.name.toLowerCase().includes( searchValue.toLowerCase() ))
-      && ( platformValue === "everything" ? item.platform !== null : item.platform === platformValue )
-      && ( statusValue === "everything" ? item.status !== null : item.status === statusValue )
-      && ( typeValue === "everything" ? item.item_type !== null : item.item_type === typeValue))
-    currentPage = 1
-    return filteredCollection
+  let supabaseFilter = async () => {
+    let { data, error } = await supabase
+    .from("platforms")
+    .select("*")
+    .overlaps("type", selectedCategories)
+    if (error) {
+      console.error("erreur", error)
+    }
+    let array = []
+    data.forEach(element => {
+      array.push(element)
+      return array
+    })
+    return { array }
   }
 
-  onMount(() => {
+  $: if (selectedCategories.length) {
+    filteredCollection = collection.filter(item => selectedCategories.includes(item.item_type))
+    let whatever = supabaseFilter().then((data) => filteredPlatforms = data.array)
+    if (selectedPlatforms.length) {
+      filteredCollection = filteredCollection.filter(item => selectedPlatforms.includes(item.platform))
+      currentPage = 1
+    }
 
-    let filterButton = document.getElementById("filter-search")
-    filterButton.addEventListener("keyup", () => {
-      multiFilterGames()
-    })
+    currentPage = 1
+  } else {
+    filteredCollection = collection
+    filteredPlatforms = []
+    selectedPlatforms = []
+  }
 
-    let typeChange = document.getElementById("filter-type")
-    typeChange.addEventListener("change", () => {
-      multiFilterGames()
-    })
+  
 
-    let platformChange = document.getElementById("filter-platform")
-    platformChange.addEventListener("change", () => {
-      multiFilterGames()
-    })
-
-    let statusChange = document.getElementById("filter-status")
-    statusChange.addEventListener("change", () => {
-      multiFilterGames()
-    })
-
-  })
 </script>
 
 <HeadSEO 
@@ -89,11 +85,22 @@
   {/if}
 </div>
 
+<div class="filter-container">
+  <p>Filtrer par type</p>
+  <CollectionFilter categories={types} bind:selectedCategories/>
+</div>
+
+<div class="filter-container">
+  <p>Filtrer par plateforme</p>
+  <CollectionFilter categories={filteredPlatforms} bind:selectedCategories={selectedPlatforms}/>
+</div>
+
+
 <div id="filter-container">
 
   <input type="text" name="filter-search" id="filter-search" placeholder="Chercher une oeuvre">
 
-  <div id="filter-container__options">
+<!--   <div id="filter-container__options">
 
     <div>
       <label for="filter-type">Type</label>
@@ -125,7 +132,7 @@
       </select>
     </div>
 
-  </div>
+  </div> -->
 
 </div>
 
@@ -169,6 +176,13 @@ on:setPage="{(e) => {
     }
   }
 
+  .filter-container {
+    p {
+      font-size: 0.8em;
+      font-style: italic;
+    }
+  }
+
   .container {
     gap: 30px;
     justify-content: center;
@@ -180,22 +194,17 @@ on:setPage="{(e) => {
     position: relative;
   }
 
-  .container, #filter-container, #filter-container__options {
+  .container, #filter-container {
     display: flex;
   }
 
-  .container, #filter-container__options {
+  .container {
     flex-flow: row wrap;
   }
 
   #filter-container {
     flex-flow: column nowrap;
     justify-content: flex-start;
-    &__options {
-      gap: 15px;
-      margin-top: 20px;
-      margin-bottom: 25px;
-    }
     &:has(label) {
       font-size: 0.8rem;
     }
