@@ -10,10 +10,7 @@
     <input type="checkbox" name={category.name} id={category.name} value={category.name} bind:group={selectedCategories}>
     <label for={category.name} class="filter__button">{category.name}</label>
     {/each}
-  {:else}
-    <p>Sélectionnez une ou plusieurs catégories d'abord</p>
   {/if}
-  
 
 </div>
 
@@ -22,18 +19,12 @@
   $color: hsl(253, 27%, 80%);
   $color-checked: hsl(253, 52%, 65%);
 
-  p {
-    font-size: 0.8em;
-    font-style: italic;
-  }
-
   .filter {
     display: flex;
     flex-flow: row wrap;
     gap: 15px;
     justify-content: left;
     padding-left: 0;
-    margin-bottom: 10px;
     &__button {
       padding: 5px 10px;
       background-color: $color;

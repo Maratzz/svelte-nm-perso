@@ -11,11 +11,12 @@
   export let form
 
   $: ({ collection, categories, status, session, types, supabase } = data)
-  $: filteredCollection = collection
-  $: filteredPlatforms = []
+  $: filteredCollection = filteredData(selectedCategories, selectedPlatforms, selectedStatus, collection)
+  $: filteredPlatforms = selectedCategories.length ? supabaseFilter(supabase, selectedCategories).then((data) => filteredPlatforms = data.array) : []
 
-  //whenever these two change, we update the filteredCollection
+  //whenever these arrays change, we update the filteredCollection
   $: selectedCategories = []
+  $: selectedStatus = []
   $: selectedPlatforms = []
 
   // controls the page and items-per-page components
@@ -23,11 +24,11 @@
   let pageSize = 12
   $: paginatedItems = paginate({ items: filteredCollection, pageSize, currentPage })
 
-  let supabaseFilter = async () => {
+  $: supabaseFilter = async (supabase, categories) => {
     let { data, error } = await supabase
     .from("platforms")
     .select("*")
-    .overlaps("type", selectedCategories)
+    .overlaps("type", categories)
     if (error) {
       console.error("erreur", error)
     }
@@ -39,26 +40,18 @@
     return { array }
   }
 
-  $: if (selectedCategories.length) {
-    filteredCollection = collection.filter(item => selectedCategories.includes(item.item_type))
-    let whatever = supabaseFilter().then((data) => filteredPlatforms = data.array)
-    if (selectedPlatforms.length) {
-      filteredCollection = filteredCollection.filter(item => selectedPlatforms.includes(item.platform))
-      currentPage = 1
-    }
-
-    currentPage = 1
-  } else {
-    filteredCollection = collection
-    filteredPlatforms = []
-    selectedPlatforms = []
-  }
-
-  
+  $: filteredData = (categories, platforms, status, collection) => collection.filter(item => {
+      if ( categories.length || platforms.length || status.length ) {
+        currentPage = 1
+        return (categories.length ? categories.includes(item.item_type) : true) && (platforms.length ? platforms.includes(item.platform) : true) && (status.length ? status.includes(item.status) : true)
+      } else {
+        return collection
+      }
+    })
 
 </script>
 
-<HeadSEO 
+<HeadSEO
   title="Nico Moisson | Collection"
   description="Des oeuvres à n'en plus finir, des listes à n'en plus vouloir"
   author="Nico 'Maratz' Moisson"
@@ -85,55 +78,43 @@
   {/if}
 </div>
 
-<div class="filter-container">
-  <p>Filtrer par type</p>
-  <CollectionFilter categories={types} bind:selectedCategories/>
+<div class="collapsible">
+  <input id="collapsible-filter" type="checkbox" name="collapsible">
+  <label for="collapsible-filter">Filtrer les oeuvres</label>
+
+  <div class="collapsible-body">
+    <div class="filter-container">
+      <p>par type</p>
+      <CollectionFilter categories={types} bind:selectedCategories/>
+    </div>
+
+    <div class="filter-container">
+      <p>par status</p>
+      <div class="filter">
+        {#each status as status}
+        <input type="checkbox" name={status.name} id={status.name} value={status.name} bind:group={selectedStatus}>
+        <label for={status.name} class="filter__button">{status.converted}</label>
+        {/each}
+    </div>
+
+    <div class="filter-container">
+      <p>par plateforme</p>
+      <CollectionFilter categories={categories} bind:selectedCategories={selectedPlatforms}/>
+    </div>
+  </div>
+
 </div>
 
-<div class="filter-container">
-  <p>Filtrer par plateforme</p>
-  <CollectionFilter categories={filteredPlatforms} bind:selectedCategories={selectedPlatforms}/>
+
+
+
 </div>
+
+
 
 
 <div id="filter-container">
-
   <input type="text" name="filter-search" id="filter-search" placeholder="Chercher une oeuvre">
-
-<!--   <div id="filter-container__options">
-
-    <div>
-      <label for="filter-type">Type</label>
-      <select name="filter-type" id="filter-type">
-      <option value="everything" selected>Tous</option>
-      {#each types as type }
-        <option value={type.name}>{type.name}</option>
-      {/each}
-      </select>
-    </div>
-
-    <div>
-      <label for="filter-platform">Plateforme</label>
-      <select name="filter-platform" id="filter-platform">
-      <option value="everything" selected>Toutes</option>
-      {#each categories as category }
-        <option value={category.name}>{category.name}</option>
-      {/each}
-      </select>
-    </div>
-
-    <div>
-      <label for="filter-status">Status</label>
-      <select name="filter-status" id="filter-status">
-      <option value="everything" selected>Tous</option>
-      {#each status as singleStatus }
-        <option value={singleStatus.name}>{singleStatus.converted}</option>
-      {/each}
-      </select>
-    </div>
-
-  </div> -->
-
 </div>
 
 {#key currentPage, paginatedItems}
@@ -160,6 +141,7 @@ on:setPage="{(e) => {
 />
 
 <style lang="scss">
+  @use "sass:color";
   h1 {
     z-index: 2;
     padding-left: 15px;
@@ -212,5 +194,38 @@ on:setPage="{(e) => {
 
   .collapsible-body {
     overflow-y: scroll;
+  }
+
+  $color: hsl(253, 27%, 80%);
+  $color-checked: hsl(253, 52%, 65%);
+
+  .filter {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 15px;
+    justify-content: left;
+    padding-left: 0;
+    //margin-bottom: 10px;
+    &__button {
+      padding: 5px 10px;
+      background-color: $color;
+      border-radius: 15px;
+      &:hover {
+        background-color: color.scale($color, $lightness: 15%);
+        box-shadow: 3px 3px 2px 1px #C3BDD9;
+        cursor: pointer;
+      }
+    }
+  }
+
+  input {
+    display: none;
+  }
+
+  .filter input:checked + label {
+    background-color: $color-checked;
+    &:hover {
+      background-color: $color-checked;
+    }
   }
 </style>
