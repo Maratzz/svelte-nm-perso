@@ -21,11 +21,23 @@ export async function load({ parent }) {
     .select("*")
     .order("id", { ascending: true })
 
+  let { data : tags } = await supabase
+    .from("tags")
+    .select("*")
+    .order("name", { ascending: true})
+
+  let { data: gamePlatforms } = await supabase
+    .from("game_platforms")
+    .select("*")
+    .order("name", { ascending: true })
+
   return {
     collection: collection ?? [],
     categories : categories ?? [],
     status: status ?? [],
     types: types ?? [],
+    tags: tags ?? [],
+    gamePlatforms: gamePlatforms ?? [],
     supabase,
     session,
     currentRoute

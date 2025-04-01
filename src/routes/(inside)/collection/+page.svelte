@@ -11,14 +11,19 @@
   export let data
   export let form
 
-  $: ({ collection, categories, status, session, types, supabase } = data)
-  $: filteredCollection = filteredData(selectedCategories, selectedPlatforms, selectedStatus, checked, collection)
+  $: ({ collection, categories, status, session, types, gamePlatforms, tags, supabase } = data)
+  $: filteredCollection = noNotesChecked === true ? filterDataNoNotes(noNotesChecked) : filteredData(searchInput, selectedCategories, selectedPlatforms, selectedStatus, selectedTags, notesChecked, collection)
   $: filteredPlatforms = selectedCategories.length ? supabaseFilter(supabase, selectedCategories).then((data) => filteredPlatforms = data.array) : []
 
-  //whenever these arrays change, we update the filteredCollection
+  //whenever these variables change, we update the filteredCollection
+  $: searchInput = ""
   $: selectedCategories = []
   $: selectedStatus = []
   $: selectedPlatforms = []
+  $: selectedGamePlatforms = []
+  $: selectedTags = []
+  $: notesChecked = false
+  $: noNotesChecked = false
 
   // controls the page and items-per-page components
   let currentPage = 1
@@ -41,17 +46,22 @@
     return { array }
   }
 
-  $: filteredData = (categories, platforms, status, checked, collection) => collection.filter(item => {
-      if ( categories.length || platforms.length || status.length || checked === true ) {
+  $: filteredData = (search, categories, platforms, status, tags, checked, collection) => collection.filter(item => {
+      if ( search.length || categories.length || platforms.length || status.length || tags.length || checked === true ) {
         currentPage = 1
-        return (categories.length ? categories.includes(item.item_type) : true) && (platforms.length ? platforms.includes(item.platform) : true) && (status.length ? status.includes(item.status) : true) && (checked === true ? item.notes !== (null || "") : true)
+        return (search.length ? item.name.toLowerCase().includes( search.toLowerCase()) : true) && (categories.length ? categories.includes(item.item_type) : true) && (platforms.length ? platforms.includes(item.platform) : true) && (status.length ? status.includes(item.status) : true) && (tags.length ? tags.every(tag => item.tags?.includes(tag)) : true) && (checked === true ? item.notes !== (null || "") : true)
       } else {
         return collection
       }
     })
 
-  $: checked = false
-  let handleSwitch = () => console.log("checkvalue:", checked)
+  // SELF: I can check items without notes directly on the frontend part. Not implementing the deep filters as it would be too lenghty for such a small usage.
+  $: filterDataNoNotes = (checked) => collection.filter(item => {
+    if (checked === true) {
+      currentPage = 1
+      return (checked === true ? item.notes === (null || ""): true)
+    }
+  })
 </script>
 
 <HeadSEO
@@ -81,13 +91,17 @@
   {/if}
 </div>
 
+<div>
+  <input type="text" name="filter-search" id="filter-search" placeholder="Chercher une oeuvre" size="45" bind:value={searchInput}>
+</div>
+
 <div class="filter-container">
-  <p>Filtrer par type</p>
+  <p>Filtrer par type (OR)</p>
   <CollectionFilter categories={types} bind:selectedCategories/>
 </div>
 
 <div class="filter-container">
-  <p>...par statut</p>
+  <p>...par statut (OR)</p>
   <div class="filter">
     {#each status as status}
     <input type="checkbox" name={status.name} id={status.name} value={status.name} bind:group={selectedStatus}>
@@ -100,18 +114,32 @@
     <input id="collapsible-filter" type="checkbox" name="collapsible">
     <label for="collapsible-filter" id="icon">...et d'autres filtres encore</label>
     <div class="collapsible-body">
+
       <p>...avec un commentaire ?</p>
-      <Slider switchName='notes' --color-checked="hsl(253, 52%, 65%)" bind:checked {handleSwitch}/>
-      <p>...par origine</p>
+      <Slider switchName='notes' --color-checked="hsl(253, 52%, 65%)" bind:checked={notesChecked}/>
+
+      {#if session}
+        <p>...sans commentaire ?</p>
+        <Slider switchName='no-notes' --color-checked="hsl(253, 52%, 65%)" bind:checked={noNotesChecked}/>
+      {/if}
+
+      <p>...par origine (OR)</p>
       <div class="filter-container">
         <CollectionFilter categories={categories} bind:selectedCategories={selectedPlatforms}/>
       </div>
+
+      <p>...par périphérique (JV seulement) (OR)</p>
+      <div class="filter-container">
+        <CollectionFilter categories={gamePlatforms} bind:selectedCategories={selectedGamePlatforms}/>
+      </div>
+
+      <p>...par tags (AND)</p>
+      <div class="filter-container">
+        <CollectionFilter categories={tags} bind:selectedCategories={selectedTags}/>
+      </div>
+
     </div>
   </div>
-</div>
-
-<div id="filter-container">
-  <input type="text" name="filter-search" id="filter-search" placeholder="Chercher une oeuvre">
 </div>
 
 {#key currentPage, paginatedItems}
@@ -185,19 +213,11 @@ on:setPage="{(e) => {
     flex-flow: row wrap;
   }
 
-  #filter-container {
-    flex-flow: column nowrap;
-    justify-content: flex-start;
-    &:has(label) {
-      font-size: 0.8rem;
-    }
-  }
-
   .collapsible-body {
     overflow-y: scroll;
   }
 
-  .collapsible > input[id^="collapsible"]:checked ~ div.collapsible-body {
+  .filter-container > .collapsible > input[id^="collapsible"]:checked ~ div.collapsible-body {
     padding: 0.75em;
     border-left: solid 2px $color-checked;
   }
@@ -227,7 +247,7 @@ on:setPage="{(e) => {
     }
   }
 
-  input {
+  .filter input {
     display: none;
   }
 
