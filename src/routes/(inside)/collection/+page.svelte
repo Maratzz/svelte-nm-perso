@@ -2,6 +2,7 @@
   import { fade } from "svelte/transition"
   import CollectionFilter from "$lib/components/CollectionFilter.svelte"
   import CultureItemPreview from "$lib/components/CultureItemPreview.svelte"
+  import Slider from "$lib/components/Slider.svelte"
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import Form from "$lib/components/Form.svelte"
   import { paginate, LightPaginationNav } from "svelte-paginate"
@@ -11,7 +12,7 @@
   export let form
 
   $: ({ collection, categories, status, session, types, supabase } = data)
-  $: filteredCollection = filteredData(selectedCategories, selectedPlatforms, selectedStatus, collection)
+  $: filteredCollection = filteredData(selectedCategories, selectedPlatforms, selectedStatus, checked, collection)
   $: filteredPlatforms = selectedCategories.length ? supabaseFilter(supabase, selectedCategories).then((data) => filteredPlatforms = data.array) : []
 
   //whenever these arrays change, we update the filteredCollection
@@ -40,15 +41,17 @@
     return { array }
   }
 
-  $: filteredData = (categories, platforms, status, collection) => collection.filter(item => {
-      if ( categories.length || platforms.length || status.length ) {
+  $: filteredData = (categories, platforms, status, checked, collection) => collection.filter(item => {
+      if ( categories.length || platforms.length || status.length || checked === true ) {
         currentPage = 1
-        return (categories.length ? categories.includes(item.item_type) : true) && (platforms.length ? platforms.includes(item.platform) : true) && (status.length ? status.includes(item.status) : true)
+        return (categories.length ? categories.includes(item.item_type) : true) && (platforms.length ? platforms.includes(item.platform) : true) && (status.length ? status.includes(item.status) : true) && (checked === true ? item.notes !== (null || "") : true)
       } else {
         return collection
       }
     })
 
+  $: checked = false
+  let handleSwitch = () => console.log("checkvalue:", checked)
 </script>
 
 <HeadSEO
@@ -78,40 +81,34 @@
   {/if}
 </div>
 
-<div class="collapsible">
-  <input id="collapsible-filter" type="checkbox" name="collapsible">
-  <label for="collapsible-filter">Filtrer les oeuvres</label>
+<div class="filter-container">
+  <p>Filtrer par type</p>
+  <CollectionFilter categories={types} bind:selectedCategories/>
+</div>
 
-  <div class="collapsible-body">
-    <div class="filter-container">
-      <p>par type</p>
-      <CollectionFilter categories={types} bind:selectedCategories/>
-    </div>
-
-    <div class="filter-container">
-      <p>par status</p>
-      <div class="filter">
-        {#each status as status}
-        <input type="checkbox" name={status.name} id={status.name} value={status.name} bind:group={selectedStatus}>
-        <label for={status.name} class="filter__button">{status.converted}</label>
-        {/each}
-    </div>
-
-    <div class="filter-container">
-      <p>par plateforme</p>
-      <CollectionFilter categories={categories} bind:selectedCategories={selectedPlatforms}/>
+<div class="filter-container">
+  <p>...par statut</p>
+  <div class="filter">
+    {#each status as status}
+    <input type="checkbox" name={status.name} id={status.name} value={status.name} bind:group={selectedStatus}>
+    <label for={status.name} class="filter__button">{status.converted}</label>
+    {/each}
+  </div>
+</div>
+<div class="filter-container">
+  <div class="collapsible">
+    <input id="collapsible-filter" type="checkbox" name="collapsible">
+    <label for="collapsible-filter" id="icon">...et d'autres filtres encore</label>
+    <div class="collapsible-body">
+      <p>...avec un commentaire ?</p>
+      <Slider switchName='notes' --color-checked="hsl(253, 52%, 65%)" bind:checked {handleSwitch}/>
+      <p>...par origine</p>
+      <div class="filter-container">
+        <CollectionFilter categories={categories} bind:selectedCategories={selectedPlatforms}/>
+      </div>
     </div>
   </div>
-
 </div>
-
-
-
-
-</div>
-
-
-
 
 <div id="filter-container">
   <input type="text" name="filter-search" id="filter-search" placeholder="Chercher une oeuvre">
@@ -142,6 +139,10 @@ on:setPage="{(e) => {
 
 <style lang="scss">
   @use "sass:color";
+
+  $color: hsl(253, 27%, 80%);
+  $color-checked: hsl(253, 52%, 65%);
+
   h1 {
     z-index: 2;
     padding-left: 15px;
@@ -196,8 +197,17 @@ on:setPage="{(e) => {
     overflow-y: scroll;
   }
 
-  $color: hsl(253, 27%, 80%);
-  $color-checked: hsl(253, 52%, 65%);
+  .collapsible > input[id^="collapsible"]:checked ~ div.collapsible-body {
+    padding: 0.75em;
+    border-left: solid 2px $color-checked;
+  }
+
+  .collapsible label {
+    font-style: italic;
+    text-align: left;
+    padding-left: 0;
+    font-size: 0.8em;
+  }
 
   .filter {
     display: flex;
@@ -205,7 +215,6 @@ on:setPage="{(e) => {
     gap: 15px;
     justify-content: left;
     padding-left: 0;
-    //margin-bottom: 10px;
     &__button {
       padding: 5px 10px;
       background-color: $color;
@@ -227,5 +236,10 @@ on:setPage="{(e) => {
     &:hover {
       background-color: $color-checked;
     }
+  }
+
+  #icon:after {
+    content: "⤵️";
+    margin-left: 10px;
   }
 </style>
