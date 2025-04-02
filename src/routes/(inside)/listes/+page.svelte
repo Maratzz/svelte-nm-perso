@@ -1,14 +1,31 @@
 <script>
   import { enhance } from '$app/forms'
+  import { fade } from "svelte/transition"
+  import { paginate, LightPaginationNav } from "svelte-paginate"
+  import { randomNumber } from "$lib/utils/index.js"
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import FormData from "$lib/components/FormData.svelte"
   import full_image from "$lib/assets/homepage/full_image.webp"
-  import CollectionFilter from '$lib/components/CollectionFilter.svelte';
+  import CollectionFilter from '$lib/components/CollectionFilter.svelte'
 
   export let data
 
   $: ({ listes, listesThemes, session } = data)
   $: selectedThemes = []
+  $: filteredLists = filterLists(selectedThemes, listes)
+  $: filterLists = ( themes, listes ) => listes.filter(list => {
+    if ( themes.length ) {
+      currentPage = 1
+      return ( themes.length ? themes.includes(list.theme) : true )
+    } else {
+      return listes
+    }
+  })
+
+  // controls the page and items-per-page components
+  let currentPage = 1
+  let pageSize = 12
+  $: paginatedItems = paginate({ items: filteredLists, pageSize, currentPage })
 </script>
 
 <HeadSEO 
@@ -36,28 +53,36 @@
   </form>
   {/if}
 
-  {#key listes}
   <div id="container">
 
-    <CollectionFilter categories={listesThemes} bind:selectedCategories={selectedThemes}/>
-      <div>
-        <h2>Cinéma</h2>
-        {#each listes as liste}
-          {#if liste.type === "film"}
-            <a href="/listes/{liste.slug}">{liste.name}</a>
-          {/if}
-        {/each}
+    <div class="collapsible">
+      <input id="collapsible" type="checkbox" name="collapsible">
+      <label for="collapsible" id="icon">Filtrer par sujet</label>
+      <div class="collapsible-body">
+        <CollectionFilter categories={listesThemes} bind:selectedCategories={selectedThemes}/>
       </div>
-      <div>
-        <h2>Jeux vidéo</h2>
-        {#each listes as liste}
-          {#if liste.type === "jeu vidéo"}
-            <a href="/listes/{liste.slug}">{liste.name}</a>
-          {/if}
-        {/each}
-      </div>
+    </div>
+    
+  </div>
+
+  {#key currentPage, paginatedItems}
+  <div class="flex-lists" in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
+    {#each paginatedItems as liste ( liste.id )}
+    <a href="/listes/{liste.slug}" class="border border-{randomNumber(1, 5)}">{liste.name}</a>
+    {/each}
   </div>
   {/key}
+
+  <LightPaginationNav
+    totalItems="{ filteredLists.length }"
+    pageSize="{ pageSize }"
+    currentPage="{ currentPage }"
+    limit="{ 1 }"
+    showStepOptions="{ true }"
+    on:setPage="{(e) => {
+      currentPage = e.detail.page
+    }}"
+  />
 
 </div>
 
@@ -80,12 +105,32 @@
   #container {
     height: 100%;
     margin-bottom: 50px;
+  }
 
+  .flex-lists {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 15px;
+    margin-top: 15px;
+    margin-bottom: 45px;
     a {
       display: block;
-      &:not(:first-child) {
-        margin-top: 6px;
-      }
+      height: max-content;
+      background-color: #fff;
+      width: 40%;
+      padding: 15px 15px;
     }
+  }
+
+  .collapsible label {
+    font-style: italic;
+    text-align: left;
+    padding-left: 0;
+    font-size: 0.8em;
+  }
+
+  #icon:after {
+    content: "⤵️";
+    margin-left: 10px;
   }
 </style>
