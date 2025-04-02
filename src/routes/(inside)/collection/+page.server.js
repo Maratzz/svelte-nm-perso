@@ -2,7 +2,6 @@ import { redirect } from "@sveltejs/kit"
 import { PUBLIC_TWITCH_CLIENT } from "$env/static/public"
 import { PRIVATE_TWITCH_SECRET } from "$env/static/private"
 import { PRIVATE_TMDB_BEARER } from "$env/static/private"
-import { PRIVATE_APIFY_KEY } from "$env/static/private"
 import { slugify, uploadImageAndgetPublicURL } from "$lib/utils/index.js"
 import { getTwitchToken, getGames, getTMDBDetails, getAnilistDetails, getBookDetails } from "$lib/utils/apiCalls.js"
 
@@ -15,6 +14,7 @@ export const actions = {
     const newItem = form.get( "item_name" )
     let slugName = await slugify(newItem)
     let newPlatform = form.get( "item_platform" )
+    let newGamePlatform = form.get( "item_game_platform" )
     const newStatus = form.get( "item_status" )
     const newItemType = form.get( "item_type" )
     const newCover = form.get( "item_cover" )
@@ -43,6 +43,9 @@ export const actions = {
       if ( !newPlatform ) {
         newPlatform = null
       }
+      if ( !newGamePlatform ) {
+        newGamePlatform = null
+      }
       if ( !newOriginalName ) {
         newOriginalName = null
       }
@@ -55,6 +58,7 @@ export const actions = {
             name: newItem,
             slug: slugName,
             platform: newPlatform,
+            game_platform: newGamePlatform,
             date_released: newDateReleased,
             date_acquired: newDateAcquired,
             cover: newCover,

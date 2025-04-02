@@ -48,6 +48,13 @@
       <h1>{item.name}</h1>
       <p class="info-small">{#if item.item_type === "BD" | item.item_type === "série"}Une{:else}Un{/if} {item.item_type} de {item.author}, {#if item.item_type === "BD" | item.item_type === "série"}sortie{:else}sorti{/if} le {formatDate( item.date_released )}</p>
       <p class="info-small"><b>Status:</b> <CultureItemStatus {item} {formatDate}/></p>
+      {#if item.tags}
+      <div>
+        {#each item.tags as tag}
+          <span>{tag}</span>
+        {/each}
+      </div>
+      {/if}
       {#if session}
       <button id="openModal">Editer</button>
       {/if}
@@ -85,6 +92,8 @@
 </div>
 
 <style lang="scss">
+  $color: hsl(253, 27%, 80%);
+
   #item-info {
     display: flex;
     flex-flow: row nowrap;
@@ -97,12 +106,26 @@
       }
     }
     &__data {
-      flex: 1 2 50%;
+      flex: 1 1 50%;
+    }
+  }
+
+  #item-info__data {
+    div {
+      display: flex;
+      flex-flow: row wrap;
+      gap: 5px;
+    }
+    span {
+      padding: 5px 10px;
+      border-radius: 15px;
+      background-color: $color;
+      font-size: 0.8em;
     }
   }
 
   h1 {
-    font-size: 1.7em;
+    font-size: 1.2em;
     margin-bottom: 10px;
     margin-top: 0;
   }
@@ -123,6 +146,9 @@
   }
 
   @media (min-width: 900px) {
+    h1 {
+      font-size: 1.5em;
+    }
     #item-info {
       justify-content: space-evenly;
       margin-bottom: 60px;

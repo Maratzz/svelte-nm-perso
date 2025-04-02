@@ -12,7 +12,7 @@
   export let form
 
   $: ({ collection, categories, status, session, types, gamePlatforms, tags, supabase } = data)
-  $: filteredCollection = noNotesChecked === true ? filterDataNoNotes(noNotesChecked) : filteredData(searchInput, selectedCategories, selectedPlatforms, selectedStatus, selectedTags, notesChecked, collection)
+  $: filteredCollection = noNotesChecked === true ? filterDataNoNotes(noNotesChecked) : filteredData(searchInput, selectedCategories, selectedStatus, selectedPlatforms, selectedGamePlatforms, selectedTags, notesChecked, collection)
   $: filteredPlatforms = selectedCategories.length ? supabaseFilter(supabase, selectedCategories).then((data) => filteredPlatforms = data.array) : []
 
   //whenever these variables change, we update the filteredCollection
@@ -46,10 +46,10 @@
     return { array }
   }
 
-  $: filteredData = (search, categories, platforms, status, tags, checked, collection) => collection.filter(item => {
-      if ( search.length || categories.length || platforms.length || status.length || tags.length || checked === true ) {
+  $: filteredData = (search, categories, status, platforms, gamePlatforms, tags, checked, collection) => collection.filter(item => {
+      if ( search.length || categories.length || status.length ||platforms.length || gamePlatforms.length || tags.length || checked === true ) {
         currentPage = 1
-        return (search.length ? item.name.toLowerCase().includes( search.toLowerCase()) : true) && (categories.length ? categories.includes(item.item_type) : true) && (platforms.length ? platforms.includes(item.platform) : true) && (status.length ? status.includes(item.status) : true) && (tags.length ? tags.every(tag => item.tags?.includes(tag)) : true) && (checked === true ? item.notes !== (null || "") : true)
+        return (search.length ? item.name.toLowerCase().includes( search.toLowerCase()) : true) && (categories.length ? categories.includes(item.item_type) : true) && (status.length ? status.includes(item.status) : true) && (platforms.length ? platforms.includes(item.platform) : true) && (gamePlatforms.length ? gamePlatforms.includes(item.game_platform) : true) && (tags.length ? tags.every(tag => item.tags?.includes(tag)) : true) && (checked === true ? item.notes !== (null || "") : true)
       } else {
         return collection
       }
@@ -84,7 +84,7 @@
     <label for="collapsible2">Créer une oeuvre</label>
 
     <div class="collapsible-body">
-      <Form {form} {categories} {status} {types}/>
+      <Form {form} {categories} {status} {types} {gamePlatforms}/>
     </div>
 
   </div>
@@ -92,7 +92,7 @@
 </div>
 
 <div>
-  <input type="text" name="filter-search" id="filter-search" placeholder="Chercher une oeuvre" size="45" bind:value={searchInput}>
+  <input type="text" name="filter-search" id="filter-search" placeholder="Chercher une oeuvre" size="25" bind:value={searchInput}>
 </div>
 
 <div class="filter-container">

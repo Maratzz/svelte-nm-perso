@@ -7,6 +7,7 @@
   export let categories
   export let status
   export let types
+  export let gamePlatforms
 </script>
 
 <Toaster/>
@@ -111,6 +112,16 @@
       <datalist id="item_platform">
         {#each categories as category}
         <option value={category.name}></option>
+        {/each}
+      </datalist>
+    </div>
+
+    <div>
+      <label for="item_game_platform">Périphérique</label>
+      <input list="item_game_platform" name="item_game_platform" size="13">
+      <datalist id="item_game_platform">
+        {#each gamePlatforms as gamePlatform}
+        <option value={gamePlatform.name}></option>
         {/each}
       </datalist>
     </div>

@@ -3,10 +3,12 @@
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import FormData from "$lib/components/FormData.svelte"
   import full_image from "$lib/assets/homepage/full_image.webp"
+  import CollectionFilter from '$lib/components/CollectionFilter.svelte';
 
   export let data
 
-  $: ({ listes, session } = data)
+  $: ({ listes, listesThemes, session } = data)
+  $: selectedThemes = []
 </script>
 
 <HeadSEO 
@@ -25,7 +27,7 @@
 
   {#if session}
   <form method="POST" action="?/insert" use:enhance>
-    
+
     <FormData query="new_list" query_name="Nouvelle liste" placeholder="Comment s'appelle-t-elle ?"/>
 
     <FormData query="new_description" query_name="Description" placeholder="une liste pour quoi ?"/>
@@ -36,15 +38,45 @@
 
   {#key listes}
   <div id="container">
-    {#each listes as liste}
-    <a href="/listes/{liste.slug}">{liste.name}</a>
-    {/each}
+
+    <CollectionFilter categories={listesThemes} bind:selectedCategories={selectedThemes}/>
+      <div>
+        <h2>Cinéma</h2>
+        {#each listes as liste}
+          {#if liste.type === "film"}
+            <a href="/listes/{liste.slug}">{liste.name}</a>
+          {/if}
+        {/each}
+      </div>
+      <div>
+        <h2>Jeux vidéo</h2>
+        {#each listes as liste}
+          {#if liste.type === "jeu vidéo"}
+            <a href="/listes/{liste.slug}">{liste.name}</a>
+          {/if}
+        {/each}
+      </div>
   </div>
   {/key}
 
 </div>
 
 <style lang="scss">
+  h1 {
+    position: relative;
+    z-index: 2;
+    &::after {
+      z-index: -1;
+      display: inline-block;
+      content: "";
+      background-color: #C3BDD9;
+      width: 70px;
+      height: 20px;
+      position: absolute;
+      bottom: 0;
+      left: 60px;
+    }
+  }
   #container {
     height: 100%;
     margin-bottom: 50px;
