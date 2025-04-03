@@ -9,6 +9,8 @@ export const actions = {
     const form = await request.formData()
     const newName = form.get( "new_list" )
     const newDescription = form.get( "new_description" )
+    const newType = form.get( "new_type" )
+    const newTheme = form.get( "new_theme")
     const newSlug = await slugify(newName)
 
     if ( !session ) {
@@ -22,10 +24,15 @@ export const actions = {
           {
             slug: newSlug,
             name: newName,
-            description: newDescription
+            description: newDescription,
+            type: newType,
+            theme: newTheme
           }
         ])
         .select()
+        if (error) {
+          throw error
+        }
         const supabaseResponse = await newForm
         return { newForm, supabaseResponse }
     } catch( error ) {

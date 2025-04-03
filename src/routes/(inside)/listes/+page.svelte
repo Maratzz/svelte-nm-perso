@@ -6,7 +6,8 @@
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import FormData from "$lib/components/FormData.svelte"
   import full_image from "$lib/assets/homepage/full_image.webp"
-  import CollectionFilter from '$lib/components/CollectionFilter.svelte'
+  import CollectionFilter from "$lib/components/CollectionFilter.svelte"
+  import FormDatalist from "$lib/components/FormDatalist.svelte"
 
   export let data
 
@@ -40,14 +41,16 @@
 
   <h1>Listes</h1>
 
-  <p>L'algorithme de découverte Netflix ou Steam vous renvoie toujours les mêmes oeuvres et ça vous lasse ? Plutôt que de piocher dans un top 10 quelconque vous aimeriez découvrir selon des thèmes originaux, loufoques ou peu explorés ? Ça tombe bien, j'adore faire des listes pour tout et n'importe quoi. Dedans, 5 titres au maximum, sans classement, et la garantie d'une sélection à la main, sans algorithme ni publicité mensongère. Et si vous avez des idées de listes sympas, <a href="/contact">n'hésitez pas à me les soumettre.</a></p>
+  <p>J'adore faire des listes pour tout et n'importe quoi, avec des critères de sélection qui sortent des sentiers battus. Faire un top des jeux comme Zelda, c'est classique, mais faire un top des jeux Nouveau Roman, c'est tout de suite plus curieux. J'avais l'habitude de faire ça sur Sens Critique, surtout pour les jeux, et j'ai continué depuis.</p>
+  <p>Pour chaque liste, 5 titres au maximum, sans classement, et la garantie d'une sélection à la main, sans algorithme ni publicité mensongère. Et si vous avez des idées de listes sympas, <a href="/contact">n'hésitez pas à me les soumettre.</a></p>
 
   {#if session}
   <form method="POST" action="?/insert" use:enhance>
 
-    <FormData query="new_list" query_name="Nouvelle liste" placeholder="Comment s'appelle-t-elle ?"/>
-
-    <FormData query="new_description" query_name="Description" placeholder="une liste pour quoi ?"/>
+    <FormData query="new_list" query_name="Nouvelle liste"/>
+    <FormData query="new_description" query_name="Description"/>
+    <FormData query="new_type" query_name="Type"/>
+    <FormDatalist query="new_theme" query_name="Sujet" items={listesThemes}/>
 
     <button type="submit">Créer la liste</button>
   </form>
@@ -62,7 +65,7 @@
         <CollectionFilter categories={listesThemes} bind:selectedCategories={selectedThemes}/>
       </div>
     </div>
-    
+
   </div>
 
   {#key currentPage, paginatedItems}
@@ -117,11 +120,11 @@
       display: block;
       height: max-content;
       background-color: #fff;
-      width: 40%;
+      width: 100%;
       padding: 15px 15px;
+      text-align: center;
     }
   }
-
   .collapsible label {
     font-style: italic;
     text-align: left;
@@ -132,5 +135,14 @@
   #icon:after {
     content: "⤵️";
     margin-left: 10px;
+  }
+
+  @media (min-width: 900px) {
+    .flex-lists {
+      justify-content: space-evenly;
+      a {
+        width: 40%;
+      }
+    }
   }
 </style>

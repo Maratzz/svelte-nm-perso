@@ -76,7 +76,12 @@
 
 <div>
   <h1>Collection</h1>
-
+  <p>
+    Au début, une obsession personnelle de vouloir tout cataloguer, lister, catégoriser de mes expériences, qu'elles soient culturelles, personnelles, professionnelles. Volonté de contrôle qui ne dit pas son nom, peut-être. Méfiance vis-à-vis de ma propre mémoire et du temps qui efface tout, aussi. Mais en bout de réflexion, il y a le plaisir de garder une trace qui peut servir de départs pour d'autres chemins, pour de nouvelles conversations autour d'oeuvres.
+  </p>
+  <p>
+    Sur cette page il y a donc tout ce que j'ai pu lire, voir, jouer au fil de mes pérégrinations culturelles. J'ai fait appel à ma mémoire et à tous les supports accumulés au fil des ans pour reconstituer une collection qui se veut la plus complète possible. Continuellement changeante, assidûment ajustée, ponctuellement paraphée, la collection est le reflet d'une vie passée devant les pages, devant les écrans, seul ou bien accompagné. Il n'est de culture que ce qui se partage.
+  </p>
   {#if session}
   <div class="collapsible">
 
