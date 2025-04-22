@@ -13,42 +13,42 @@ type: default
 
 <script>
   import AlerteContexte from '$lib/components/AlerteContexte.svelte'
+  import FormattedParagraph from '$lib/components/FormattedParagraph.svelte'
 </script>
 
 <AlerteContexte
 content="En 2018, Bouletcorp avait créé une liste alternative à la liste officielle de l'Inktober. Le thème du premier jour était « The Creation of All Things ». Voici ce que ça m'a inspiré."
 />
 
-de la Fin. 
-
-car voilà qu'arrive le mot,  
-le cruel, l'ivre,  
-et trois lettres referment à jamais  
-cette histoire qui avait pourtant si bien commencé  
-et à travers elles résonnent  
-la fonte des larmes de temps, sucres blancs dilués  
-dans un verre cosmique au liquide devenu froid depuis  
-pour expliquer cette douceur  
-disent-ils  
-il faut bien qu'il y ait un buveur  
-devin démiurge  
-creusant les sillons de l'univers  
-de ses doigts d'argent  
-semant des étoiles  
-distribuant la foudre, éclair  
-en les cieux  
-mais où est-il, ce Lui sublime  
-nous posons la question  
-et devant le silence assourdissant  
-les langues se délient  
-pour peupler l'espace  
-laissé vacant  
-commencer les conversations aux initiales  
-et pour quiconque cherche à  
-retrouver l'origine pour recommencer cette histoire  
-sachez qu'il faut seulement rembobiner  
-depuis le Début  
-
-et vivre infiniment sur la courbe de l'univers.
+<FormattedParagraph content="de la Fin."/>
+<FormattedParagraph content="car voilà qu'arrive le mot,"/>
+<FormattedParagraph content="le cruel, l'ivre,"/>
+<FormattedParagraph content="et trois lettres referment à jamais"/>
+<FormattedParagraph content="cette histoire qui avait pourtant si bien commencé"/>
+<FormattedParagraph content="et à travers elles résonnent"/>
+<FormattedParagraph content="la fonte des larmes de temps, sucres blancs dilués"/>
+<FormattedParagraph content="dans un verre cosmique au liquide devenu froid depuis"/>
+<FormattedParagraph content="pour expliquer cette douceur"/>
+<FormattedParagraph content="disent-ils"/>
+<FormattedParagraph content="il faut bien qu'il y ait un buveur"/>
+<FormattedParagraph content="devin démiurge"/>
+<FormattedParagraph content="creusant les sillons de l'univers"/>
+<FormattedParagraph content="de ses doigts d'argent"/>
+<FormattedParagraph content="semant des étoiles"/>
+<FormattedParagraph content="distribuant la foudre, éclair"/>
+<FormattedParagraph content="en les cieux"/>
+<FormattedParagraph content="mais où est-il, ce Lui sublime"/>
+<FormattedParagraph content="nous posons la question"/>
+<FormattedParagraph content="et devant le silence assourdissant"/>
+<FormattedParagraph content="les langues se délient"/>
+<FormattedParagraph content="pour peupler l'espace"/>
+<FormattedParagraph content="laissé vacant"/>
+<FormattedParagraph content="commencer les conversations aux initiales"/>
+<FormattedParagraph content="et pour quiconque cherche à"/>
+<FormattedParagraph content="retrouver l'origine pour recommencer"/>
+<FormattedParagraph content="cette histoire"/>
+<FormattedParagraph content="sachez qu'il faut seulement rembobiner"/>
+<FormattedParagraph content="depuis le Début"/>
+<FormattedParagraph content="et vivre infiniment sur la courbe de l'univers."/>
 
 _Photo de couverture: [Felix Mittermeier](https://www.pexels.com/photo/photo-of-constellation-2832084/)_
