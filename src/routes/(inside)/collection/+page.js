@@ -1,3 +1,5 @@
+import { removeDuplicates } from "$lib/utils"
+
 export async function load({ parent }) {
   const { supabase, session, currentRoute } =  await parent()
 
@@ -22,9 +24,12 @@ export async function load({ parent }) {
     .order("id", { ascending: true })
 
   let { data : tags } = await supabase
-    .from("tags")
-    .select("*")
-    .order("name", { ascending: true})
+    .from("collection")
+    .select("tags")
+  let allTags = tags
+    .filter(item => item.tags !== null)
+    .flatMap(item => item.tags)
+  let uniqueTags = [...new Set(allTags)]
 
   let { data: gamePlatforms } = await supabase
     .from("game_platforms")
@@ -36,7 +41,7 @@ export async function load({ parent }) {
     categories : categories ?? [],
     status: status ?? [],
     types: types ?? [],
-    tags: tags ?? [],
+    tags: uniqueTags ?? [],
     gamePlatforms: gamePlatforms ?? [],
     supabase,
     session,

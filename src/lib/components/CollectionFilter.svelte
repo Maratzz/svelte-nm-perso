@@ -7,8 +7,8 @@
 
   {#if categories.length}
     {#each categories as category}
-    <input type="checkbox" name={category.name} id={category.name} value={category.name} bind:group={selectedCategories}>
-    <label for={category.name} class="filter__button">{category.name}</label>
+    <input type="checkbox" name={category.name ?? category} id={category.name ?? category} value={category.name ?? category} bind:group={selectedCategories}>
+    <label for={category.name ?? category } class="filter__button">{category.name ?? category}</label>
     {/each}
   {/if}
 

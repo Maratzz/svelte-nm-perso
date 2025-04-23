@@ -138,6 +138,10 @@
 
   </div>
 
+  <div>
+    <FormData type="text" query="item_tags" query_name="Tags" value="" size="15"/>
+  </div>
+
   <div class="form-inside-notes">
     <label for="item_notes">Notes</label>
     <textarea name="item_notes" id="item_notes" placeholder="Something to say?"></textarea>

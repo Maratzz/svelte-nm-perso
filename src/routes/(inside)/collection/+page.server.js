@@ -25,6 +25,8 @@ export const actions = {
     let newOriginalName = form.get( "item_original_name" )
     const newAuthor = form.get( "item_author" )
     const newNotes = form.get( "item_notes" )
+    const newTags = form.get( "item_tags" )
+    let tags = newTags.split( "," )
 
     if ( !session ) {
       redirect(303, "/")
@@ -68,7 +70,8 @@ export const actions = {
             author: newAuthor,
             notes: newNotes,
             item_type: newItemType,
-            original_name: newOriginalName
+            original_name: newOriginalName,
+            tags: tags
           }
         ])
         .select()

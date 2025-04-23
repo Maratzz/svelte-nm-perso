@@ -1,5 +1,4 @@
 <script>
-    import { enhance } from "$app/forms"
     import FormData from "$lib/components/FormData.svelte"
     import FormDataDate from "$lib/components/FormDataDate.svelte"
 
@@ -22,6 +21,8 @@
 
   <label for="item_notes">Notes</label>
   <textarea name="item_notes" id="item_notes" value={item.notes ?? null}></textarea>
+
+  <FormData query="item_tags" query_name="Tags" value={item.tags ?? null}/>
 
   <button type="submit">Mettre à jour</button>
 
