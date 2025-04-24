@@ -1,5 +1,6 @@
 <script>
   import feather_icon from "$lib/assets/icons/feather_icon.png"
+  import parchemin from "$lib/assets/icons/parchemin_icon.png"
   import kofi from "$lib/assets/icons/kofi.webp"
   import paypal from "$lib/assets/icons/paypal_logo.png"
 </script>
@@ -15,8 +16,10 @@
 <p>Merci d'avoir lu mon texte. Si vous l'avez apprécié et que vous aimeriez me soutenir, vous pouvez me donner un peu d'argent sur la plateforme de votre choix:</p>
 
 <div class="donation">
-  <button class="donation-button"><img src={kofi} alt="logo de Kofia" class="no-border"><a href="https://ko-fi.com/maratz">Donner sur Ko-fi</a></button>
-  <button class="donation-button"><img src={paypal} alt="logo de Paypal" class="no-border"><a href="https://www.paypal.com/donate/?hosted_button_id=TAFRMWTK8MULL">Donner sur Paypal</a></button>
+  <img src={kofi} alt="logo de Kofia" class="no-border"><a href="https://ko-fi.com/maratz">Ko-fi</a>
+</div>
+<div class="donation">
+  <img src={paypal} alt="logo de Paypal" class="no-border"><a href="https://www.paypal.com/donate/?hosted_button_id=TAFRMWTK8MULL">Paypal</a>
 </div>
 
 
@@ -25,37 +28,30 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
+    align-items: center;
     margin: 30px 0;
     img {
       height: 35px;
     }
+    img:nth-child(even) {
+      transform: rotate(120deg);
+    }
   }
-  img:nth-child(even) {
-    transform: rotate(120deg);
+
+  div + .donation {
+    margin-top: 15px;
   }
 
   .donation {
     display: flex;
-    flex-direction: column;
-    gap: 30px;
-    &-button {
-      background-color: #D5C6DA;
-      display: flex;
-      flex-flow: row nowrap;
-      gap: 10px;
-      margin-left: 0;
-      a {
-        color: black;
-      }
-      img {
-        height: 25px;
-      }
-    }
-  }
-
-  @media (min-width: 600px) {
-    .donation {
-      flex-direction: row;
+    flex-flow: row nowrap;
+    gap: 15px;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 30px;
+      height: 30px;
     }
   }
 </style>

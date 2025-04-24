@@ -24,7 +24,7 @@
   <p>Si la visite du site et la lecture de mes textes vous ont plu et que vous aimeriez me remercier et/ou me soutenir financièrement pour que je puisse continuer à écrire, voici quelques moyens:</p>
 
   <div class="donation-wrap">
-    <img src={logo_kofi} alt="Logo de Kofi" srcset="" class="no-border icon">
+    <img src={logo_kofi} alt="Logo de Kofi" class="no-border icon">
     <a href="https://ko-fi.com/maratz">Faites un don ponctuel ou mensuel sur Ko-Fi</a>
   </div>
 
