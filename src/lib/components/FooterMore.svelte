@@ -1,5 +1,6 @@
 <script>
   import feather_icon from "$lib/assets/icons/feather_icon.png"
+  import coffee from "$lib/assets/icons/coffee.svg"
   import parchemin from "$lib/assets/icons/parchemin_icon.png"
   import kofi from "$lib/assets/icons/kofi.webp"
   import paypal from "$lib/assets/icons/paypal_logo.png"
@@ -17,6 +18,9 @@
 
 <div class="donation">
   <img src={kofi} alt="logo de Kofia" class="no-border"><a href="https://ko-fi.com/maratz">Ko-fi</a>
+</div>
+<div class="donation">
+  <img src={coffee} alt="logo de Buy Me a Coffee" class="no-border"><a href="https://buymeacoffee.com/maratz">Buy Me a Coffee</a>
 </div>
 <div class="donation">
   <img src={paypal} alt="logo de Paypal" class="no-border"><a href="https://www.paypal.com/donate/?hosted_button_id=TAFRMWTK8MULL">Paypal</a>
