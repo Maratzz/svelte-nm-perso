@@ -41,6 +41,22 @@
 </div>
 
 <style lang="scss">
+  h1 {
+    z-index: 2;
+    position: relative;
+    &::after {
+      z-index: -1;
+      display: inline-block;
+      content: "";
+      background-color: #C3BDD9;
+      width: 90px;
+      height: 20px;
+      position: absolute;
+      bottom: 0;
+      left: 50px;
+    }
+  }
+
   .donation-wrap {
     display: flex;
     flex-flow: row nowrap;

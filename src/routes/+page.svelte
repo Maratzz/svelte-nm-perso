@@ -60,8 +60,8 @@
           <li><a href="/collection">Collection</a></li>
           <li><a href="/listes">Listes</a></li>
           <li><a href="/blog">Blog</a></li>
+          <li><a href="/maintenant">Maintenant</a></li>
           <li><a href="/info">À propos</a></li>
-          <li><a href="/connexion">Connexion</a></li>
         </ul>
       </div>
     </div>

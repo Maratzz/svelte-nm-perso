@@ -53,6 +53,9 @@
     width: fit-content;
     justify-content: center;
     align-items: center;
+    &:last-child {
+      margin-bottom: 50px;
+    }
     img {
       width: 30px;
       height: 30px;

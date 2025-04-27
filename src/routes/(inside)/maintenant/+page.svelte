@@ -121,6 +121,22 @@
 
 <style lang="scss">
 
+h1 {
+  z-index: 2;
+  position: relative;
+  &::after {
+    z-index: -1;
+    display: inline-block;
+    content: "";
+    background-color: #C3BDD9;
+    width: 140px;
+    height: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 70px;
+  }
+}
+
   .whitespace {
     font-size: 0.8em;
   }
