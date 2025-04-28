@@ -48,7 +48,7 @@
       <h1>{item.name}</h1>
       <p class="info-small">{#if item.item_type === "BD" | item.item_type === "série"}Une{:else}Un{/if} {item.item_type} de {item.author}, {#if item.item_type === "BD" | item.item_type === "série"}sortie{:else}sorti{/if} le {formatDate( item.date_released )}</p>
       <p class="info-small"><b>Status:</b> <CultureItemStatus {item} {formatDate}/></p>
-      {#if item.tags[0] !== "" }
+      {#if item.tags}
       <div>
         {#each item.tags as tag}
           <span>{tag}</span>

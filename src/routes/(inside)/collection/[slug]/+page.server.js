@@ -42,7 +42,7 @@ export const actions = {
     let updatedStatus = form.get( "item_status" )
     let updatedNotes = form.get( "item_notes" )
     let updatedTags = form.get( "item_tags" )
-    let formatedTags = updatedTags.split( "," )
+    let tags
 
     let dateNow = Date.now()
     let ISOdateNow = new Date(dateNow).toISOString()
@@ -59,6 +59,11 @@ export const actions = {
     if ( !updatedDateAcquired ) {
       updatedDateAcquired = null
     }
+    if ( !updatedTags ) {
+      tags = null
+    } else {
+      tags = updatedTags.split( "," )
+    }
 
     try {
       const { newForm, error } = await supabase
@@ -71,7 +76,7 @@ export const actions = {
             status: updatedStatus,
             notes: updatedNotes,
             date_updated: ISOdateNow,
-            tags: formatedTags
+            tags: tags
           }
         ])
         .eq("slug", itemSlug)

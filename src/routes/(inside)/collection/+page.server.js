@@ -26,7 +26,7 @@ export const actions = {
     const newAuthor = form.get( "item_author" )
     const newNotes = form.get( "item_notes" )
     const newTags = form.get( "item_tags" )
-    let tags = newTags.split( "," )
+    let tags
 
     if ( !session ) {
       redirect(303, "/")
@@ -50,6 +50,11 @@ export const actions = {
       }
       if ( !newOriginalName ) {
         newOriginalName = null
+      }
+      if (!newTags) {
+        tags = null
+      } else {
+        tags = newTags.split( "," )
       }
       try {
         const newForm = await supabase
