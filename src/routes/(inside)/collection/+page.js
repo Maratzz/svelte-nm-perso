@@ -1,5 +1,3 @@
-import { removeDuplicates } from "$lib/utils"
-
 export async function load({ parent }) {
   const { supabase, session, currentRoute } =  await parent()
 
