@@ -96,3 +96,28 @@ export const randomNumber = (min, max) => {
   const maxFloored = Math.floor(max)
   return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled)
 }
+
+export const generateYears = (startYear, endYear, interval) => {
+  let years = []
+  for (let i = startYear; i <= endYear; i += interval){
+    years.push(i)
+  }
+  return years
+}
+
+export const generateDataByYear = (elements, yearsGenerated) => {
+  let data = []
+  for (let index = 0; index < yearsGenerated.length; index++) {
+    data.push(elements.filter(element => element.date_released >= `${yearsGenerated[index]}-01-01` && element.date_released <= `${yearsGenerated[index]}-12-31`).length)
+  }
+  return data
+}
+
+export const generateDataByStatus = (elements, status) => {
+  let data = []
+  let statusArray = status.map(a => a.name)
+  for (let index = 0; index < status.length; index++) {
+    data.push(elements.filter(element => element.status === statusArray[index]).length)
+  }
+  return data
+}
