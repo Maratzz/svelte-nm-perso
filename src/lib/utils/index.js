@@ -105,10 +105,10 @@ export const generateYears = (startYear, endYear, interval) => {
   return years
 }
 
-export const generateDataByYear = (elements, yearsGenerated) => {
+export const generateDataByYear = (elements, yearsGenerated, option) => {
   let data = []
   for (let index = 0; index < yearsGenerated.length; index++) {
-    data.push(elements.filter(element => element.date_released >= `${yearsGenerated[index]}-01-01` && element.date_released <= `${yearsGenerated[index]}-12-31`).length)
+    data.push(elements.filter(element => element.date_released >= `${yearsGenerated[index]}-01-01` && element.date_released <= `${option ? yearsGenerated[index] + option : yearsGenerated[index]}-12-31`).length)
   }
   return data
 }

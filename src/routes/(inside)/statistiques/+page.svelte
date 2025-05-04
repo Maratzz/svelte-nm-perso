@@ -46,7 +46,7 @@
 
   <CultureItemStats
     barName="finishedGamesByYear"
-    barLabels={generateYears(1987, currentYear, 1)} labelName="Répartition des jeux terminés"
+    barLabels={generateYears(1987, currentYear, 1)} labelName="Répartition des jeux terminés (par année"
     barData={generateDataByYear(games.filter(game => game.status === 'finished'), generateYears(1987, currentYear, 1))}
     donutName="gamesByStatus"
     donutData={generateDataByStatus(games, status)}
@@ -54,8 +54,8 @@
 
   <CultureItemStats
     barName="finishedFilmsByYear"
-    barLabels={generateYears(1910, currentYear, 1)} labelName="Répartition des films vus"
-    barData={generateDataByYear(films.filter(film => film.status === 'finished'), generateYears(1910, currentYear, 1))}
+    barLabels={generateYears(1910, currentYear, 10)} labelName="Répartition des films vus (par décennie)"
+    barData={generateDataByYear(films.filter(film => film.status === 'finished'), generateYears(1910, currentYear, 10), 9)}
     donutName="filmsByStatus"
     donutData={generateDataByStatus(films, status)} donutLabels={status.map(a => a.converted)}
   />

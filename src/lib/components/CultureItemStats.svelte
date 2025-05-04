@@ -18,6 +18,13 @@
           data: barData,
           borderWidth: 1
         }]
+      },
+      options: {
+        elements: {
+          bar: {
+            backgroundColor: 'rgb(134, 130, 155)'
+          }
+        }
       }
     })
 
@@ -29,13 +36,20 @@
           data: donutData,
           backgroundColor: [
             'rgb(255, 99, 132)',
-            'rgb(70, 99, 86)',
-            'rgb(135, 99, 132)',
-            'rgb(25, 140, 210)',
-            'rgb(200, 99, 89)'
+            'rgb(53, 69, 143)',
+            'rgb(167, 125, 201)',
+            'rgb(134, 130, 155)',
+            'rgb(224, 13, 13)'
           ],
           hoverOffset: 4
         }]
+      },
+      options: {
+        plugins: {
+          legend: {
+            position:'right'
+          }
+        }
       }
     })
   })
@@ -50,11 +64,13 @@
 </div>
 
 <style>
-  .bar {
+  .bar, .donut {
     width: 100%;
   }
 
-  .donut {
-    width: 40%;
+  @media (min-width: 650px) {
+    .donut {
+      width: 60%;
+    }
   }
 </style>
