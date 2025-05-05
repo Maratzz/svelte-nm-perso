@@ -113,6 +113,14 @@ export const generateDataByYear = (elements, yearsGenerated, option) => {
   return data
 }
 
+export const generateDataByYearFirstReleased = (elements, yearsGenerated, option) => {
+  let data = []
+  for (let index = 0; index < yearsGenerated.length; index++) {
+    data.push(elements.filter(element => element.first_date_released >= yearsGenerated[index] && element.first_date_released <= (option ? yearsGenerated[index] + option : yearsGenerated[index])).length)
+  }
+  return data
+}
+
 export const generateDataByStatus = (elements, status) => {
   let data = []
   let statusArray = status.map(a => a.name)

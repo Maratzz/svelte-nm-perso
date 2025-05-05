@@ -2,7 +2,7 @@
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import full_image from "$lib/assets/homepage/full_image.webp"
   import CultureItemStats from "$lib/components/CultureItemStats.svelte"
-  import { generateYears, generateDataByYear, generateDataByStatus } from "$lib/utils/index.js"
+  import { generateYears, generateDataByYear, generateDataByStatus, generateDataByYearFirstReleased } from "$lib/utils/index.js"
 
   export let data
   let { collection, status } = data
@@ -13,6 +13,7 @@
 
   let films = collection.filter(item => item.item_type === "film")
   let games = collection.filter(item => item.item_type === "jeu vidéo")
+  let books = collection.filter(item => item.item_type === "livre")
 
   let filmSoFar = collection.filter(item => item.item_type === "film" && item.date_started >= DateStart)
   let gameSoFar = collection.filter(item => item.item_type === "jeu vidéo" && item.date_started >= DateStart)
@@ -44,20 +45,40 @@
   <p>j'ai lu {bdSoFar.length} {bdSoFar.length === 0 || bdSoFar.length === 1 ? 'bande dessinée' : 'bandes dessinées'}</p>
   <p>j'ai lu {mangaSoFar.length} {mangaSoFar.length === 1 ? 'manga' : 'mangas'}</p>
 
+  <h2>Jeux vidéo</h2>
+
   <CultureItemStats
     barName="finishedGamesByYear"
-    barLabels={generateYears(1987, currentYear, 1)} labelName="Répartition des jeux terminés (par année"
+    barLabels={generateYears(1987, currentYear, 1)}
+    labelName="Répartition des jeux terminés (par année)"
     barData={generateDataByYear(games.filter(game => game.status === 'finished'), generateYears(1987, currentYear, 1))}
     donutName="gamesByStatus"
     donutData={generateDataByStatus(games, status)}
-    donutLabels={status.map(a => a.converted)} />
+    donutLabels={status.map(a => a.converted)}
+  />
+
+  <h2>Films</h2>
 
   <CultureItemStats
     barName="finishedFilmsByYear"
-    barLabels={generateYears(1910, currentYear, 10)} labelName="Répartition des films vus (par décennie)"
+    barLabels={generateYears(1910, currentYear, 10)}
+    labelName="Répartition des films vus (par décennie)"
     barData={generateDataByYear(films.filter(film => film.status === 'finished'), generateYears(1910, currentYear, 10), 9)}
     donutName="filmsByStatus"
-    donutData={generateDataByStatus(films, status)} donutLabels={status.map(a => a.converted)}
+    donutData={generateDataByStatus(films, status)}
+    donutLabels={status.map(a => a.converted)}
+  />
+
+  <h2>Livres</h2>
+
+  <CultureItemStats
+    barName="finishedBooksByYear"
+    barLabels={generateYears(1600, currentYear, 10)}
+    labelName="Répartition des livres lus (par décennie, depuis 1600)"
+    barData={generateDataByYearFirstReleased(books.filter(book => book.status === 'finished'), generateYears(1600, currentYear, 10), 9)}
+    donutName="BooksByStatus"
+    donutData={generateDataByStatus(books, status)}
+    donutLabels={status.map(a => a.converted)}
   />
 
 </div>

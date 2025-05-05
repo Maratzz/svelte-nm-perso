@@ -19,6 +19,7 @@ export const actions = {
     const newItemType = form.get( "item_type" )
     const newCover = form.get( "item_cover" )
     const newDateReleased = form.get( "item_date_released" )
+    const newFirstDateReleased = form.get( "item_first_date_released" )
     let newDateStarted = form.get( "item_date_started" )
     let newDateFinished = form.get( "item_date_finished" )
     let newDateAcquired = form.get( "item_date_acquired" )
@@ -67,6 +68,7 @@ export const actions = {
             platform: newPlatform,
             game_platform: newGamePlatform,
             date_released: newDateReleased,
+            first_date_released: newFirstDateReleased,
             date_acquired: newDateAcquired,
             cover: newCover,
             date_started: newDateStarted,

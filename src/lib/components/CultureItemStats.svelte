@@ -1,6 +1,7 @@
 <script>
   import Chart from 'chart.js/auto'
   import { onMount } from 'svelte'
+
   export let barName, donutName
   export let barData, donutData
   export let barLabels, labelName, donutLabels
