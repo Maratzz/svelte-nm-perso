@@ -161,7 +161,7 @@
 
     <FormData type="date" query="item_date_released" query_name="Date de sortie" value={form?.data?.newDateReleased ?? ""}/>
 
-    <FormData type="date" query="item_first_date_released" query_name="Date de sortie initiale" value=""/>
+    <FormData type="text" query="item_first_date_released" query_name="Date de sortie initiale" value=""/>
   </div>
 
   <button type="submit" id="button-submit">Créer la fiche</button>

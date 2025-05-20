@@ -5,7 +5,7 @@ export async function load({ fetch, parent }) {
   .from("collection")
   .select("name, author, cover, slug")
   .eq("status", "currently playing")
-  .order("date_created", { ascending: false })
+  .order("date_updated", { ascending: false })
   .limit(4)
 
   let { data: collectionLastFinished } = await supabase

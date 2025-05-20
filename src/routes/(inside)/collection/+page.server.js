@@ -19,7 +19,7 @@ export const actions = {
     const newItemType = form.get( "item_type" )
     const newCover = form.get( "item_cover" )
     const newDateReleased = form.get( "item_date_released" )
-    const newFirstDateReleased = form.get( "item_first_date_released" )
+    let newFirstDateReleased = form.get( "item_first_date_released" )
     let newDateStarted = form.get( "item_date_started" )
     let newDateFinished = form.get( "item_date_finished" )
     let newDateAcquired = form.get( "item_date_acquired" )
@@ -51,6 +51,9 @@ export const actions = {
       }
       if ( !newOriginalName ) {
         newOriginalName = null
+      }
+      if ( !newFirstDateReleased ) {
+        newFirstDateReleased = null
       }
       if (!newTags) {
         tags = null
