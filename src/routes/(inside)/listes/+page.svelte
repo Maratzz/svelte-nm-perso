@@ -42,7 +42,7 @@
   <h1>Listes</h1>
 
   <p>J'adore faire des listes pour tout et n'importe quoi, avec des critères de sélection qui sortent des sentiers battus. Faire un top des jeux comme Zelda, c'est classique, mais faire un top des jeux Nouveau Roman, c'est tout de suite plus curieux. J'avais l'habitude de faire ça sur Sens Critique, surtout pour les jeux, et j'ai continué depuis.</p>
-  <p>Pour chaque liste, 5 titres au maximum, sans classement, et la garantie d'une sélection à la main, sans algorithme ni publicité mensongère. Et si vous avez des idées de listes sympas, <a href="/contact">n'hésitez pas à me les soumettre.</a></p>
+  <p>Pour chaque liste, 10 titres au maximum, sans classement, et la garantie d'une sélection à la main, sans algorithme ni publicité mensongère. Et si vous avez des idées de listes sympas, <a href="/contact">n'hésitez pas à me les soumettre.</a></p>
 
   {#if session}
   <form method="POST" action="?/insert" use:enhance>

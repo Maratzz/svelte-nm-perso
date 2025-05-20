@@ -8,3 +8,7 @@ Sometimes PaperCSS or another CSS framework inject weird opinionated choices tha
     content: "";
   }
 }
+
+.collapsible > input[id^="collapsible"]:checked ~ div.collapsible-body {
+    max-height: fit-content;
+}
