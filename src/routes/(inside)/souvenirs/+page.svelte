@@ -2,6 +2,9 @@
   import HeadSEO from "$lib/components/HeadSEO.svelte"
 	import LeafletMap from '$lib/components/LeafletMap.svelte'
   import full_image from "$lib/assets/homepage/full_image.webp"
+
+  export let data
+  let { souvenirs } = data
 </script>
 
 <HeadSEO 
@@ -27,7 +30,7 @@
     dans le tunnel du temps.
   </p>
   <div class="map">
-    <LeafletMap/>
+    <LeafletMap {souvenirs}/>
   </div>
 </div>
 
@@ -47,11 +50,10 @@
       left: 70px;
     }
   }
-  
+
   .map {
-    border: 2px solid red;
     width: 100%;
-    height: 40vh;
+    height: 50vh;
   }
 </style>
 

@@ -1,22 +1,28 @@
 <script>
   import { onMount, onDestroy } from 'svelte'
 
+  export let souvenirs
+
   let mapElement
   let map
+  let markers
 
   onMount(async () => {
-      const leaflet = await import('leaflet')
+    const leaflet = await import('leaflet')
 
-      map = leaflet.map(mapElement).setView([46.9, 2.8], 6)
+    map = leaflet.map(mapElement).setView([46.9, 2.8], 6)
 
-      leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      }).addTo(map)
+    leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© contributeurs et contributrices <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map)
 
-      //TODO ideally duplicate this with each markers as marker from page.js data and we put it in a map component initialized.
-      leaflet.marker([46.9, 2.8]).addTo(map)
-          .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-          .openPopup()
+    markers = souvenirs
+    markers.forEach( marker => {
+      leaflet.marker([marker.latitude, marker.longitude])
+        .addTo(map)
+        .bindPopup(`<b>${marker.name}</b><br/>${marker.notes}`)
+    })
+    //TODO create a method that exposes the data so that upon clicking it gets displayed in a div next to the map component
   });
 
   onDestroy(async () => {
