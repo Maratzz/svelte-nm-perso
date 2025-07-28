@@ -75,7 +75,7 @@
   {/if}
 
   {#if item.notes}
-  <p>{item.notes}</p>
+    <p class="notes">{item.notes}</p>
   {/if}
 
   {#key innerList}
@@ -143,6 +143,11 @@
     z-index: 10;
     background-color: white;
     transition: all .3s ease-in-out;
+  }
+
+  // handle break lines in supabase to avoid big chunk of text
+  .notes {
+    white-space: pre-wrap;
   }
 
   @media (min-width: 900px) {

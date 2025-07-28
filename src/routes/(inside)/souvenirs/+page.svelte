@@ -18,20 +18,24 @@
 />
 
 <div>
+
   <h1>Souvenirs</h1>
+
   <p>
-    Dans un coffre en bois massif,<br>
-    relégué au fond d'un grenier<br>
-    des jouets, des peluches,<br>
-    des jeux, des pelotes,<br>
-    et une vieille carte au trésor au papier jauni<br>
-    chaque marque dessus, un souvenir,<br>
-    chaque annotation, un passage<br>
+    Dans un coffre en bois massif,<br/>
+    relégué au fond d'un grenier<br/>
+    des jouets, des peluches,<br/>
+    des jeux, des pelotes,<br/>
+    et une vieille carte au trésor au papier jauni<br/>
+    chaque marque dessus, un souvenir,<br/>
+    chaque annotation, un passage<br/>
     dans le tunnel du temps.
   </p>
+
   <div class="map">
     <LeafletMap {souvenirs}/>
   </div>
+
 </div>
 
 <style lang="scss">

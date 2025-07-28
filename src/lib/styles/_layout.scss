@@ -12,6 +12,10 @@ main > div {
   background-color: #eee;
 }
 
+main > div:last-child {
+  padding-bottom: 45px;
+}
+
 main, footer {
   background-color: #eee;
 }

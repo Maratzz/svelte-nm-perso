@@ -1,5 +1,6 @@
 <script>
   import { onMount, onDestroy } from 'svelte'
+  import { formatDate } from "$lib/utils/index.js"
 
   export let souvenirs
 
@@ -20,19 +21,26 @@
     markers.forEach( marker => {
       leaflet.marker([marker.latitude, marker.longitude])
         .addTo(map)
-        .bindPopup(`<b>${marker.name}</b><br/>${marker.notes}<br/>`)
-        .on('click', () => {
+        .bindPopup(`
+          <b>${marker.name}</b><br/>
+          ${marker.notes}<br/>
+          <br/>
+          <i>type:</i> ${marker.type}<br/>
+          <i>date de visite:</i> ${formatDate(marker.date)}<br/>
+          ${marker.people !== (null || []) ? `avec ${marker.people}` : "Solo"}
+        `)
+        /* .on('click', () => {
           displayData(marker)
-        })
+        }) */
     })
 
     //TODO create a method that exposes the data so that upon clicking it gets displayed in a div next to the map component
     //it's bound to marker.onclick above, now we just need to design and style the div. maybe do it directly on the map as a modal?
     // but it would become too big if I add too much information. Add a scrolling bar in the modal?
-    const displayData = ( element ) => {
+    /* const displayData = ( element ) => {
       document.getElementById('marker_name').textContent = `${element.name}, ${element.notes}`
       console.log(element.name)
-    }
+    } */
   });
 
   onDestroy(async () => {
@@ -45,7 +53,7 @@
 
 <div bind:this={mapElement} id="map"></div>
 
-<div id="marker_name"></div>
+<!-- <div id="marker_name"></div> -->
 
 <style>
     @import 'leaflet/dist/leaflet.css';
@@ -59,7 +67,9 @@
       }
     }
 
-    #marker_name {
+    /* #marker_name {
+      margin-top: 20px;
+      padding-bottom: 200px;
       border: 1px solid red;
-    }
+    } */
 </style>

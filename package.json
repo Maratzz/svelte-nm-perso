@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite dev",
+    "dev": "vite dev --host",
     "build": "vite build",
     "preview": "vite preview"
   },
@@ -16,6 +16,7 @@
     "chart.js": "^4.5.0",
     "cheerio": "^1.0.0",
     "gsap": "^3.13.0",
+    "leaflet": "^1.9.4",
     "mdsvex": "^0.12.6",
     "papercss": "^1.9.2",
     "sass": "^1.89.0",
@@ -24,8 +25,5 @@
     "svelte-paginate": "^0.1.0",
     "svelte-preprocess": "^6.0.3",
     "vite": "^5.4.19"
-  },
-  "devDependencies": {
-    "leaflet": "^1.9.4"
   }
 }
