@@ -1,75 +1,32 @@
 <script>
+
   import { onMount, onDestroy } from 'svelte'
   import { formatDate } from "$lib/utils/index.js"
+  import { Map, TileLayer, Marker, Popup } from 'sveaflet'
 
-  export let souvenirs
-
-  let mapElement
-  let map
-  let markers
-
-  onMount(async () => {
-    const leaflet = await import('leaflet')
-
-    map = leaflet.map(mapElement).setView([46.9, 2.8], 6)
-
-    leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© contributeurs et contributrices <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map)
-
-    markers = souvenirs
-    markers.forEach( marker => {
-      leaflet.marker([marker.latitude, marker.longitude])
-        .addTo(map)
-        .bindPopup(`
-          <b>${marker.name}</b><br/>
-          ${marker.notes}<br/>
-          <br/>
-          <i>type:</i> ${marker.type}<br/>
-          <i>date de visite:</i> ${formatDate(marker.date)}<br/>
-          ${marker.people !== (null || []) ? `avec ${marker.people}` : "Solo"}
-        `)
-        /* .on('click', () => {
-          displayData(marker)
-        }) */
-    })
-
-    //TODO create a method that exposes the data so that upon clicking it gets displayed in a div next to the map component
-    //it's bound to marker.onclick above, now we just need to design and style the div. maybe do it directly on the map as a modal?
-    // but it would become too big if I add too much information. Add a scrolling bar in the modal?
-    /* const displayData = ( element ) => {
-      document.getElementById('marker_name').textContent = `${element.name}, ${element.notes}`
-      console.log(element.name)
-    } */
-  });
-
-  onDestroy(async () => {
-      if(map) {
-          console.log('Unloading Leaflet map.')
-          map.remove()
-      }
-  });
 </script>
 
-<div bind:this={mapElement} id="map"></div>
+<div id="map">
+  <Map
+      options={{
+        center: [51.505, -0.09],
+        zoom: 13
+      }}
+    >
+      <TileLayer url={'https://tile.openstreetmap.org/{z}/{x}/{y}.png'}  class="no-border"/>
+      <Marker latLng={[51.505, -0.09]} />
+    </Map>
+</div>
 
-<!-- <div id="marker_name"></div> -->
+<style lang="scss">
+  #map {
+    width: 100%;
+    height: 50vh;
+    z-index: 1;
+  }
 
-<style>
-    @import 'leaflet/dist/leaflet.css';
-    #map {
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      & img {
-        border: none;
-        border-radius: 0;
-      }
-    }
-
-    /* #marker_name {
-      margin-top: 20px;
-      padding-bottom: 200px;
-      border: 1px solid red;
-    } */
+  :global(#map img) {
+    border: none;
+    border-radius: 0;
+  }
 </style>

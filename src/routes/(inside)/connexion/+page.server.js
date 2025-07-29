@@ -25,6 +25,6 @@ export const actions = {
     if ( data.url ) {
       redirect(303, data.url) // use the redirect API for your server framework
     }
-    
+
   }
 }
