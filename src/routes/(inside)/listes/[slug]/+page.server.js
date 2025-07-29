@@ -26,6 +26,9 @@ export const actions = {
           }
         ])
         .select()
+        if (error) {
+          throw new Error(error)
+        }
         const supabaseResponse = await newForm
         return { newForm, supabaseResponse }
     } catch( error ) {

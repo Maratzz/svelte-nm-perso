@@ -1,5 +1,5 @@
 import { getHumanDate } from "$lib/utils/index.js"
-import * as config from "$lib/config.js"
+import * as config from "$lib/config.ts"
 import *  as cheerio from "cheerio"
 
 export const getTwitchToken = async ( twitchClientId, twitchClientSecret ) => {

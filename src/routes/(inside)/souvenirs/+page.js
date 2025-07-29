@@ -11,3 +11,5 @@ export async function load({ parent }) {
     currentRoute
   }
 }
+
+export const ssr = false

@@ -32,7 +32,7 @@
     }
   }
 
-  let handleClick = (post) => {
+  let handleClick = ( post ) => {
     const link = post.path
     goto(link)
   }

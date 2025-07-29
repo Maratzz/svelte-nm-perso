@@ -66,7 +66,7 @@ export const uploadImageAndgetPublicURL = async (supabase, slug, name, type, cov
     console.log(error)
   }
 
-  const { data, error } = await supabase.storage.from("collection").getPublicUrl(slug)
+  const { data } = await supabase.storage.from("collection").getPublicUrl(slug)
 
   return {
     newItemName: name,
