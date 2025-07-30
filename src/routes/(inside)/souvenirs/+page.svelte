@@ -46,7 +46,7 @@
         }}
       />
       {#each souvenirs as souvenir}
-      <Marker latLng={[souvenir.latitude, souvenir.longitude]} >
+      <Marker latLng={souvenir.latLng} >
         <Popup>
           <div class="popup">
             <div class="popup-image">
