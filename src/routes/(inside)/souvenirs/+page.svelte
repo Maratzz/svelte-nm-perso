@@ -1,11 +1,15 @@
 <script>
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import full_image from "$lib/assets/homepage/full_image.webp"
+  import icone_medaille from "$lib/assets/icons/icone_medaille_60x60.png"
+  import icone_penny from "$lib/assets/icons/icone_penny_60x60.png"
 
-  import { Map, TileLayer, Marker, Popup } from 'sveaflet'
+  import { Map, TileLayer, Marker, Popup, Icon } from 'sveaflet'
 
   export let data
   let { souvenirs } = data
+
+  let flipped = false
 </script>
 
 <HeadSEO 
@@ -47,15 +51,44 @@
       />
       {#each souvenirs as souvenir}
       <Marker latLng={souvenir.latLng} >
+        {#if souvenir.type === "médaille"}
+          <Icon options={{
+                  iconUrl: icone_medaille,
+                  popupAnchor: [15, 5] }}
+          />
+        {:else if souvenir.type === "penny"}
+          <Icon options={{
+                  iconUrl: icone_penny,
+                  iconSize: [40, 40],
+                  popupAnchor: [0, -5] }}
+          />
+        {/if}
         <Popup>
-          <div class="popup">
-            <div class="popup-image">
-              <img src={souvenir.image_recto} alt="une médaille">
+          <div class="popup" class:flipped on:click="{() => flipped = !flipped}">
+
+            <div class="popup-image" id="image-{souvenir.id}" >
+
+                <div class="popup-image-inner">
+
+                  <div class="popup-image-front">
+                    <img src={souvenir.image_recto} alt="face">
+                  </div>
+
+                  <div class="popup-image-back">
+                    <img src={souvenir.image_verso} alt="revers">
+                  </div>
+
+                </div>
+
             </div>
+
             <div class="popup-content">
-              <h4>{souvenir.name}</h4>
+              <h2>{souvenir.name}</h2>
               <p><i>{souvenir.type}</i></p>
-              <p>{souvenir.notes}</p>
+              {#if souvenir.tagline !== (null || "")}
+                <p>{souvenir.tagline}</p>
+              {/if}
+              <p class="long">{souvenir.notes}</p>
             </div>
           </div>
         </Popup>
@@ -96,31 +129,63 @@
 
   .popup {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     align-items: center;
     gap: 15px;
     width: fit-content;
-    h4 {
-      font-size: 1.5em;
+    h2 {
+      font-size: 1.3em;
       margin: 0 0;
     }
     p {
       margin: 0;
     }
     &-image {
+      background-color: transparent;
+      perspective: 1000px;
+      width: 140px;
+      height: 140px;
       display: flex;
       flex-flow: row nowrap;
-      width: 100%;
-      height: 100%;
-      border: 1px solid red;
-      img {
-        height: 100%;
-        width: 100%;
-      }
+      position: relative;
+      outline: 1px solid red;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      cursor: pointer;
     }
     &-content {
       display: flex;
       flex-flow: column wrap;
+      p:last-child {
+        margin-top: 10px;
+      }
     }
+  }
+
+  .flipped .popup-image {
+    transform: rotateY(180deg);
+  }
+
+  .popup-image-front,
+  .popup-image-back {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .popup-image-back {
+    transform: rotateY(180deg);
+  }
+
+  .long {
+    max-height: 100px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+  }
+
+  :global(.leaflet-popup) {
+    width: 250px;
   }
 </style>
