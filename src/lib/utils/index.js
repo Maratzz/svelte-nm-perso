@@ -129,3 +129,8 @@ export const generateDataByStatus = (elements, status) => {
   }
   return data
 }
+
+export const formatArray = (array) => {
+  let arrayFormatted = array.join(', ')
+  return arrayFormatted
+}
