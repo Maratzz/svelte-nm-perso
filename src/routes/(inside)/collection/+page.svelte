@@ -1,11 +1,12 @@
 <script>
   import { fade } from "svelte/transition"
+  import { paginate, LightPaginationNav } from "svelte-paginate"
+
   import CollectionFilter from "$lib/components/CollectionFilter.svelte"
   import CultureItemPreview from "$lib/components/CultureItemPreview.svelte"
   import Slider from "$lib/components/Slider.svelte"
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import Form from "$lib/components/Form.svelte"
-  import { paginate, LightPaginationNav } from "svelte-paginate"
   import full_image from "$lib/assets/homepage/full_image.webp"
 
   export let data

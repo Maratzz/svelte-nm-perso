@@ -21,7 +21,7 @@
   })
 </script>
 
-<HeadSEO 
+<HeadSEO
   title="Nico Moisson | Maintenant"
   description="Un instantané de l'être multicellulaire qu'on appelle Maratz sur les Internets"
   author="Nico 'Maratz' Moisson"

@@ -3,7 +3,7 @@
   import full_image from "$lib/assets/homepage/full_image.webp"
 </script>
 
-<HeadSEO 
+<HeadSEO
   title="Nico Moisson | À propos"
   description="Où êtes-vous ? Qui suis-je ? Que faisons-nous là ?"
   author="Nico 'Maratz' Moisson"
