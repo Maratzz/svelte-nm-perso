@@ -17,11 +17,11 @@
 </script>
 
 <HeadSEO
-  title="Nico Moisson | Souvenirsssss"
+  title="Nico Moisson | Souvenirs"
   description="À la poursuite de Nico, sans Diego"
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
-  imageURL="{full_image}"
+  imageURL={full_image}
   twitter
   openGraph
 />

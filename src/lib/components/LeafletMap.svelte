@@ -6,6 +6,8 @@
   import icone_food from "$lib/assets/icons/food.svg"
   import icone_bar from "$lib/assets/icons/beer.svg"
   import icone_boutique from "$lib/assets/icons/shopping.svg"
+  import icone_culture from "$lib/assets/icons/culture.svg"
+  import icone_star from "$lib/assets/icons/star.svg"
 
   let { souvenirs } = $props()
   let flipped = $state(false)
@@ -57,6 +59,18 @@
                   iconSize: [25, 25],
                   popupAnchor: [0, -5] }}
           />
+        {:else if (souvenir.type === "culture" || souvenir.type === "attraction" || souvenir.type === "musée")}
+          <Icon options={{
+                  iconUrl: icone_culture,
+                  iconSize: [30, 30],
+                  popupAnchor: [0, -5] }}
+          />
+        {:else if souvenir.type === "parcours de vie"}
+          <Icon options={{
+                  iconUrl: icone_star,
+                  iconSize: [30, 30],
+                  popupAnchor: [0, -5] }}
+          />
         {/if}
         <Popup>
           <div class="popup" >
@@ -64,8 +78,8 @@
               <div
                 class="popup-image"
                 id="image-{souvenir.id}"
-                class:flipped on:click="{() => flipped = !flipped}"
-                on:keypress={() => flipped = !flipped}
+                class:flipped onclick="{() => flipped = !flipped}"
+                onkeypress={() => flipped = !flipped}
                 role="img"
                 aria-labelledby="image-face-{souvenir.id}">
 
