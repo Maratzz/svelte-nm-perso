@@ -1,7 +1,7 @@
 <script>
   import { enhance } from "$app/forms"
   import { onMount } from "svelte"
-  import { formatDate } from "$lib/utils/index.js"
+  import { formatDate, slugify } from "$lib/utils/index.js"
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import CultureItemStatus from "$lib/components/CultureItemStatus.svelte"
   import FormDatalist from "$lib/components/FormDatalist.svelte"
@@ -46,7 +46,7 @@
 
     <div id="item-info__data">
       <h1>{item.name}</h1>
-      <p class="info-small">{#if item.item_type === "BD" | item.item_type === "série"}Une{:else}Un{/if} {item.item_type} de {item.author}, {#if item.item_type === "BD" | item.item_type === "série"}sortie{:else}sorti{/if} le {formatDate( item.date_released )}</p>
+      <p class="info-small">{#if item.item_type === "BD" | item.item_type === "série"}Une{:else}Un{/if} {item.item_type} de <a href="artiste/{slugify(item.author)}">{item.author}</a>, {#if item.item_type === "BD" | item.item_type === "série"}sortie{:else}sorti{/if} le {formatDate( item.date_released )}</p>
       <p class="info-small"><b>Status:</b> <CultureItemStatus {item} {formatDate}/></p>
       {#if item.tags}
       <div>
