@@ -28,6 +28,7 @@ export const actions = {
     const newNotes = form.get( "item_notes" )
     const newTags = form.get( "item_tags" )
     let tags
+    let authors
 
     if ( !session ) {
       redirect(303, "/")
@@ -60,6 +61,11 @@ export const actions = {
       } else {
         tags = newTags.split( "," )
       }
+      if (!newAuthor) {
+        authors = "Anonyme"
+      } else {
+        authors = newAuthor.split( "," )
+      }
       try {
         const newForm = await supabase
         .from("collection")
@@ -77,7 +83,7 @@ export const actions = {
             date_started: newDateStarted,
             date_finished: newDateFinished,
             status: newStatus,
-            author: newAuthor,
+            author: authors,
             notes: newNotes,
             item_type: newItemType,
             original_name: newOriginalName,
@@ -103,13 +109,14 @@ export const actions = {
       let apiResults
       try {
         switch ( newRadio ) {
-        case "jeu vidéo":
+        case "jeu vidéo": {
           const token = await getTwitchToken( PUBLIC_TWITCH_CLIENT, PRIVATE_TWITCH_SECRET )
           //IGDB requires unix-based timestamp for filtering
           const newDate = Date.parse(`${yearForFilter.length === 0 ? `1970` : yearForFilter}-01-01`) / 1000
           const gameString = newItemName.toString()
           apiResults = await getGames( PUBLIC_TWITCH_CLIENT, token, gameString, newDate)
           break
+        }
         case "film":
         case "série":
           apiResults = await getTMDBDetails(PRIVATE_TMDB_BEARER, newItemName, yearForFilter, newRadio)
