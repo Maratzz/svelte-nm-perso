@@ -6,6 +6,7 @@
   import CultureItemStatus from "$lib/components/CultureItemStatus.svelte"
   import FormDatalist from "$lib/components/FormDatalist.svelte"
   import FormItemUpdate from "$lib/components/FormItemUpdate.svelte"
+  import TextPreview from "$lib/components/TextPreview.svelte"
 
   export let data
 
@@ -40,14 +41,20 @@
   <div id="item-info">
 
     <div id="item-info__image">
-      <img src={item.cover} alt="Affiche du {item.item_type} {item.name}">
+      <img src={item.cover} alt="Affiche {item.item_type === "BD" || item.item_type === "série" ? 'de la' : 'du'} {item.item_type} {item.name}">
     </div>
 
     <div id="item-info__data">
       <h1>{item.name}</h1>
-      <p class="info-small">{#if item.item_type === "BD" | item.item_type === "série"}Une{:else}Un{/if} {item.item_type} de {#each item.author as author}
-        <a href="artiste/{slugify(author)}" on:click={() => localStorage.setItem("authorName", author)} >{author}</a>
-      {/each}, {#if item.item_type === "BD" | item.item_type === "série"}sortie{:else}sorti{/if} le {formatDate( item.date_released )}</p>
+      <p class="info-small">
+        {#if item.item_type === "BD" | item.item_type === "série"}
+          Une{:else}Un{/if} {item.item_type} de
+          {#each item.author as author, index}
+            <a href="artiste/{slugify(author)}" on:click={() => localStorage.setItem("authorName", author)}>{author}</a>{#if index < item.author.length - 1}{', '}{/if}
+          {/each},
+        {#if item.item_type === "BD" | item.item_type === "série"}
+          sortie{:else}sorti{/if} le {formatDate( item.date_released )}
+      </p>
       <p class="info-small"><b>Status:</b> <CultureItemStatus {item} {formatDate}/></p>
       {#if item.tags}
       <div>
@@ -73,6 +80,10 @@
     <FormDatalist query="new_list" query_name="Nouvelle liste" items={allLists}/>
     <button type="submit">Ajouter à une liste</button>
   </form>
+  {/if}
+
+  {#if item.has_text}
+    <TextPreview itemName={item.name}/>
   {/if}
 
   {#if item.notes}

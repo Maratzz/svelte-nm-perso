@@ -7,6 +7,8 @@ categories:
   - critique
   - jv
 draft: published
+mentions:
+  - Blasphemous
 ---
 
 _Un jeu de The Game Kitchen, publié par Team17, sorti en septembre 2019._  

@@ -16,6 +16,7 @@
         .from("collection")
         .select("*")
         .contains("author", [author])
+        .order("date_released", {ascending: true})
       results = data
     }
   })
