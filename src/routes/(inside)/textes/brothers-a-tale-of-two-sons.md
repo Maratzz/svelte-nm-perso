@@ -7,6 +7,8 @@ categories:
   - critique
   - jv
 draft: published
+mentions:
+  - "Brothers: A Tale of Two Sons"
 ---
 
 <script>

@@ -7,6 +7,8 @@ categories:
   - critique
   - jv
 draft: published
+mentions:
+  - "Alundra"
 ---
 
 *Un jeu développé par Matrix Software, édité par Psygnosis, sorti sur PS1 en 1997.*

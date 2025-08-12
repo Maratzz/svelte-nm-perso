@@ -82,9 +82,7 @@
   </form>
   {/if}
 
-  {#if item.has_text}
-    <TextPreview itemName={item.name}/>
-  {/if}
+  <TextPreview itemName={item.name}/>
 
   {#if item.notes}
     <p class="notes">{item.notes}</p>

@@ -7,6 +7,8 @@ categories:
   - critique
   - jv
 draft: published
+mentions:
+  - "Dust: An Elysian Tail"
 ---
 
 <script>

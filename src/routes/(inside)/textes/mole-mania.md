@@ -7,6 +7,11 @@ categories:
   - critique
   - jv
 draft: published
+mentions:
+  - "Mole Mania"
+  - "Goof Troop"
+  - "Kickle Cubicle"
+  - "Adventures of Lolo"
 ---
 
 <script>

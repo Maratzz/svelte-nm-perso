@@ -8,6 +8,12 @@ categories:
   - jv
 draft: published
 image: textes/papo-y-yo.jpg
+mentions:
+  - "Papo & Yo"
+  - "Bit.Trip Flux"
+  - "Portal"
+  - "BioShock"
+  - "The Cat Lady"
 ---
 
 <script>

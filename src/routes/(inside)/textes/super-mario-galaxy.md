@@ -7,6 +7,9 @@ categories:
   - critique
   - jv
 draft: published
+mentions:
+  - "Super Mario Galaxy"
+  - "L'Étrange Histoire de Benjamin Button"
 ---
 
 *Un jeu développé et édité par Nintendo, sorti en 2007.*

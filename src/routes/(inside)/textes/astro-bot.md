@@ -8,6 +8,8 @@ categories:
   - critique
   - jv
 draft: published
+mentions:
+  - "Astro Bot"
 ---
 
 _Un jeu de Team Asobi, édité par Sony Computer Entertainment. Sorti en septembre 2024._

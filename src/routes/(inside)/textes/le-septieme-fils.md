@@ -9,6 +9,9 @@ categories:
 image: textes/seventh_son.jpg
 draft: published
 slug: le-septieme-fils
+mentions:
+  - "Le Septième Fils"
+  - "L'apprenti-épouvanteur"
 ---
 
 <script>

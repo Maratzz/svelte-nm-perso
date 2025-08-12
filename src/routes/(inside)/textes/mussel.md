@@ -9,6 +9,8 @@ categories:
 image: textes/mussel.jpg
 draft: published
 slug: mussel
+mentions:
+  - "Mussel"
 ---
 
 <script>

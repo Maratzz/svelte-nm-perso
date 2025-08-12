@@ -7,6 +7,9 @@ categories:
   - critique
   - jv
 draft: published
+mentions:
+  - "Alan Wake"
+  - "Year Walk"
 ---
 
 <script>
