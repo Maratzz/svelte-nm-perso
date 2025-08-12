@@ -8,7 +8,7 @@
   description="Où êtes-vous ? Qui suis-je ? Que faisons-nous là ?"
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
-  imageURL="{full_image}"
+  imageURL={full_image}
   twitter
   openGraph
 />

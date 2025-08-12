@@ -35,7 +35,7 @@
   description="{targetList.description}"
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
-  imageURL="{full_image}"
+  imageURL={full_image}
 />
 
 <div>

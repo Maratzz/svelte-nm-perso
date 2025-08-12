@@ -31,7 +31,7 @@
   description="Un blog où on parle de tout et de rien, mais surtout un peu de tout quand même"
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
-  imageURL="{full_image}"
+  imageURL={full_image}
   twitter
   openGraph
 />

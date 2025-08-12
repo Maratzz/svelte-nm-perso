@@ -4,6 +4,7 @@
   import "$lib/styles/styles.scss"
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import full_image from "$lib/assets/homepage/full_image.webp"
+  import image_404 from "$lib/assets/inside-pages/404.webp"
   import Header from "$lib/components/Header.svelte"
   import Footer from "$lib/components/Footer.svelte"
 </script>
@@ -13,7 +14,7 @@
   description="Erreur quatre sans quatre, ça fait zéro, comme l'absence de résultat qui vous a fait atterrir ici"
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
-  imageURL="{full_image}"
+  imageURL={full_image}
   twitter
   openGraph
 />
@@ -23,6 +24,8 @@
 <main>
   <div>
     <h1>Cette page n'existe pas</h1>
+
+    <img src={image_404} alt="carte de Magic the Gathering intitulé Complètement perdue" class="no-border">
 
     <p>ou peut-être qu'elle a été déplacée à une autre adresse.</p>
     <p>si vous pensez qu'il s'agit d'une erreur, <a href="mailto:nicolas.moisson@protonmail.com">contactez-moi !</a></p>
@@ -52,6 +55,11 @@
       bottom: 0px;
       left: 290px;
     }
+  }
+
+  img {
+    width: 60%;
+    height: auto;
   }
 
   @media (min-width: 900px) {

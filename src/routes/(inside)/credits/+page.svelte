@@ -8,7 +8,7 @@
   description="Une liste des ressources et inspirations utilisées pour créer ce site"
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
-  imageURL="{full_image}"
+  imageURL={full_image}
   twitter
   openGraph
 />

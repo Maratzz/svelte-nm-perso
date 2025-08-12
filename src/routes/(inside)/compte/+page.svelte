@@ -36,7 +36,7 @@
   description="Page de connexion pour du contenu supplémentaire"
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
-  imageURL="{full_image}"
+  imageURL={full_image}
   index = false
 />
 

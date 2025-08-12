@@ -28,7 +28,7 @@
   description="J'espère que quand on meurt on a un récapitulatif statistiques sur toute notre vie, et un leaderboard mondial"
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
-  imageURL="{full_image}"
+  imageURL={full_image}
   twitter
   openGraph
 />

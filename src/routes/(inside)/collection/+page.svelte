@@ -70,7 +70,7 @@
   description="Des oeuvres à n'en plus finir, des listes à n'en plus vouloir"
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
-  imageURL="{full_image}"
+  imageURL={full_image}
   twitter
   openGraph
 />

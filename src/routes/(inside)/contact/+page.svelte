@@ -8,7 +8,7 @@
   description="Comment me contacter à travers les Internets ?"
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
-  imageURL="{full_image}"
+  imageURL={full_image}
   twitter
   openGraph
 />

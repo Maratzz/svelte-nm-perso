@@ -10,7 +10,7 @@
   description="Vous appréciez le contenu de ce site ? (merci !) Vous souhaitez me soutenir financièrement ? (mille mercis !)"
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
-  imageURL="{full_image}"
+  imageURL={full_image}
   twitter
   openGraph
 />

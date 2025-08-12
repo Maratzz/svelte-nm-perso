@@ -18,7 +18,7 @@
   description="Quelques extraits d'un recueil de textes en cours de production'"
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
-  imageURL="{full_image}"
+  imageURL={full_image}
   twitter
   openGraph
 />

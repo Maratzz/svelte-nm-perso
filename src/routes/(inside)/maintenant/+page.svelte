@@ -26,7 +26,7 @@
   description="Un instantané de l'être multicellulaire qu'on appelle Maratz sur les Internets"
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
-  imageURL="{full_image}"
+  imageURL={full_image}
   twitter
   openGraph
 />

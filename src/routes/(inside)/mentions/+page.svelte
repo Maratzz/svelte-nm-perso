@@ -8,7 +8,7 @@
   description="Personne ne les lit, d'ailleurs j'en profite pour dire que DK est sous-côté dans Melee"
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
-  imageURL="{full_image}"
+  imageURL={full_image}
   twitter
   openGraph
 />
