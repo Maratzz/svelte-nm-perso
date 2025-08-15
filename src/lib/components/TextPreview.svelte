@@ -4,6 +4,7 @@
   import blockquote_icon from "$lib/assets/icons/blockquote.svg"
   import parchemin from "$lib/assets/inside-pages/parchemin_full.png"
   export let itemName
+  export let handleClick = () => {}
 
   let texts = []
 
@@ -16,39 +17,50 @@
 </script>
 
 {#if texts.length}
+  <p>J'ai écrit sur cette oeuvre {texts.length} fois:</p>
   {#each texts as text}
-  <div class="text">
+  <div class="text" onclick={() => {handleClick(text)}} onkeypress={() => {handleClick(text)}} role="link" tabindex="0">
     <img src={parchemin} alt="Dessin d'un parchemin" class="no-border">
-    <p>{text.meta.headline}</p>
+    <div class="text-content">
+      <p>{text.meta.headline}</p>
+      <a href={text.path}>En lire plus</a>
+    </div>
   </div>
   {/each}
 {/if}
 
 
 <style lang="scss">
-  $height: 90px;
   .text {
     display: flex;
     flex-flow: row nowrap;
-    height: fit-content;
-    outline: solid 1px red;
+    gap: 10px;
+    width: 100%;
     align-items: center;
-    position: relative;
-    img {
-      height: $height;
-      width: auto;
-      transform: rotate(-110deg);
-    }
-    p {
-      height: $height;
+
+    &-content {
       font-size: 0.8em;
-      padding-top: 15px;
-      background-color: hsl(270, 23%, 76%);
+      position: relative;
+      background-color: rgb(255, 255, 255);
+      padding: 10px 15px;
+      border-radius: 15px;
+      &:hover {
+        cursor: pointer;
+        box-shadow: 6px 6px 2px 1px #C3BDD9;
+        transition: all .1s ease-in-out;
+      }
+      p {
+        padding-bottom: 10px;
+      }
+      a {
+        position: absolute;
+        bottom: 5px;
+        right: 15px;
+      }
     }
-  }
-  @media (width < 400px) {
-    .text {
-      padding: 10px 0px;
+    img {
+      height: 80px;
+      width: auto;
     }
   }
 </style>

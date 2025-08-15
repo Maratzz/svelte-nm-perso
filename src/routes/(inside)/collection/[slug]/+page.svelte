@@ -1,6 +1,7 @@
 <script>
   import { enhance } from "$app/forms"
   import { onMount } from "svelte"
+  import { goto } from "$app/navigation"
   import { formatDate, slugify } from "$lib/utils/index.js"
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import CultureItemStatus from "$lib/components/CultureItemStatus.svelte"
@@ -16,6 +17,10 @@
   $: itemLists.forEach(list => 
     innerList.push( list )
   )
+
+  let handleClick = ( item ) => {
+    goto(item.path)
+  }
 
   onMount(() => {
     if ( session ) {
@@ -82,7 +87,7 @@
   </form>
   {/if}
 
-  <TextPreview itemName={item.name}/>
+  <TextPreview itemName={item.name} {handleClick}/>
 
   {#if item.notes}
     <p class="notes">{item.notes}</p>
@@ -90,12 +95,14 @@
 
   {#key innerList}
   {#if innerList.length}
-    <p>Dans {innerList.length <= 1 ? 'la liste suivante' : 'les listes suivantes'}:</p>
+    <div class="liste">
+      <p>Dans {innerList.length <= 1 ? 'la liste suivante' : 'les listes suivantes'}:</p>
       <ul>
         {#each innerList as list (list.name)}
         <li><a href="/listes/{list.slug}">{list.name}</a></li>
         {/each}
       </ul>
+    </div>
   {/if}
   {/key}
 
@@ -158,6 +165,10 @@
   // handle break lines in supabase to avoid big chunk of text
   .notes {
     white-space: pre-wrap;
+  }
+
+  .liste {
+    margin-top: 50px;
   }
 
   @media (min-width: 900px) {
