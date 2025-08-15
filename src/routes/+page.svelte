@@ -2,6 +2,7 @@
   import MediaQuery from "$lib/components/MediaQuery.svelte"
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import Footer from "$lib/components/Footer.svelte"
+  import { writable } from "svelte/store"
 
   import full_image from "$lib/assets/homepage/full_image.webp"
   import full_image_webp from "$lib/assets/homepage/full_image.webp"
@@ -30,6 +31,21 @@
   import tournesol_left from "$lib/assets/homepage/tournesol_left.webp"
   import tournesol_middle from "$lib/assets/homepage/tournesol_middle.webp"
   import tournesol_right from "$lib/assets/homepage/tournesol_right.webp"
+
+  $: linkMap = {
+    'homepage-bourses': { url: '/soutien', text: 'Soutien'},
+    'homepage-chest': { url: '/collection', text: 'Collection'},
+    'homepage-feather': { url: '/blog', text: 'Blog'},
+    'homepage-flag': { url: '/souvenirs', text: 'Souvenirs'},
+    'homepage-nico-head': { url: '/info', text: 'À propos'},
+    'homepage-parchemin': { url: '/textes', text: 'Textes'},
+    'homepage-tournesol-middle': { url: '/#', text: 'TBD'},
+    'homepage-tournesol-right': { url: '/#', text: 'TBD'}
+  }
+
+  $: activeLink = null
+  $: console.log('le lien actif est:', activeLink)
+
 </script>
 
 <HeadSEO 
@@ -79,26 +95,26 @@
         <img src={bag} alt="Dessin d'un gros sac à dos" class="no-border" id="homepage-bag">
         <img src={bao_out} alt="Dessin d'un petit pain vapeur asiatique" class="no-border hover" id="homepage-bao-out">
         <img src={baos} alt="Dessin de plusieurs petits pains vapeur asiatiques dans un panier en bois" class="no-border" id="homepage-baos">
-        <img src={bourses} alt="Dessin d'une bourse de monnaie" class="no-border hover" id="homepage-bourses">
-        <img src={chest} alt="Dessin d'un coffre en bois" class="no-border hover" id="homepage-chest">
+        <img src={bourses} alt="Dessin d'une bourse de monnaie" class="no-border hover" id="homepage-bourses" onmouseenter={() => activeLink = linkMap['homepage-bourses']} onmouseleave={() => activeLink = null}>
+        <img src={chest} alt="Dessin d'un coffre en bois" class="no-border hover" id="homepage-chest" onmouseenter={() => activeLink = linkMap['homepage-chest']} onmouseleave={() => activeLink = null}>
         <img src={coin_1} alt="Dessin d'une pièce de monnaie en l'air" class="no-border hover" id="homepage-coin-1">
         <img src={coin_2} alt="Dessin d'une pièce de monnaie en l'air" class="no-border hover" id="homepage-coin-2">
         <img src={coin_3} alt="Dessin d'une pièce de monnaie en l'air" class="no-border hover" id="homepage-coin-3">
         <img src={couvercle_bao} alt="Dessin d'un couvercle en osier d'un panier vapeur" class="no-border" id="homepage-couvercle-bao">
-        <img src={feather} alt="Dessin d'une plume" class="no-border hover" id="homepage-feather">
-        <img src={flag} alt="Dessin d'un drapeau flottant au vent" class="no-border hover" id="homepage-flag">
+        <img src={feather} alt="Dessin d'une plume" class="no-border hover" id="homepage-feather" onmouseenter={() => activeLink = linkMap['homepage-feather']} onmouseleave={() => activeLink = null}>
+        <img src={flag} alt="Dessin d'un drapeau flottant au vent" class="no-border hover" id="homepage-flag" onmouseenter={() => activeLink = linkMap['homepage-flag']} onmouseleave={() => activeLink = null}>
         <img src={lanterne_left} alt="Dessin d'une lanterne" class="no-border hover" id="homepage-lanterne-left">
         <img src={lanterne_right} alt="Dessin d'une lanterne" class="no-border hover" id="homepage-lanterne-right">
         <img src={nico_body} alt="Dessin du corps du personnage" class="no-border" id="homepage-nico-body">
-        <img src={nico_head} alt="Dessin de la tête du personnage" class="no-border hover" id="homepage-nico-head">
-        <img src={parchemin} alt="Dessin d'un parchemin enroulé avec une ficelle" class="no-border hover" id="homepage-parchemin">
+        <img src={nico_head} alt="Dessin de la tête du personnage" class="no-border hover" id="homepage-nico-head" onmouseenter={() => activeLink = linkMap['homepage-nico-head']} onmouseleave={() => activeLink = null}>
+        <img src={parchemin} alt="Dessin d'un parchemin enroulé avec une ficelle" class="no-border hover" id="homepage-parchemin" onmouseenter={() => activeLink = linkMap['homepage-parchemin']} onmouseleave={() => activeLink = null}>
         <img src={poele} alt="Dessin d'une poêle de camping" class="no-border hover" id="homepage-poele">
         <img src={pot_tournesol} alt="Dessin d'un pot en terre cuite" class="no-border" id="homepage-pot-tournesol">
         <img src={potion} alt="Dessin d'une petite potion" class="no-border hover" id="homepage-potion">
         <img src={tournesol_bouture} alt="Dessin d'une bouture de tournesol dans un pot" class="no-border" id="homepage-tournesol-bouture">
         <img src={tournesol_left} alt="Dessin d'un tournesol dans un pot, tourné vers la gauche" class="no-border" id="homepage-tournesol-left">
-        <img src={tournesol_middle} alt="Dessin d'un tournesol dans un pot, tourné vers l'avant" class="no-border" id="homepage-tournesol-middle">
-        <img src={tournesol_right} alt="Dessin d'un tournesol dans un pot, tourné vers la droite" class="no-border" id="homepage-tournesol-right">
+        <img src={tournesol_middle} alt="Dessin d'un tournesol dans un pot, tourné vers l'avant" class="no-border" id="homepage-tournesol-middle" onmouseenter={() => activeLink = linkMap['homepage-tournesol-middle']} onmouseleave={() => activeLink = null}>
+        <img src={tournesol_right} alt="Dessin d'un tournesol dans un pot, tourné vers la droite" class="no-border" id="homepage-tournesol-right" onmouseenter={() => activeLink = linkMap['homepage-tournesol-right']} onmouseleave={() => activeLink = null}>
       </div>
       {:else}
       <div id="landing-image">

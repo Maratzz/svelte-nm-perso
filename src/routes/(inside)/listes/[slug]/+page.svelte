@@ -30,7 +30,7 @@
   }
 </script>
 
-<HeadSEO 
+<HeadSEO
   title="Nico Moisson | {targetList.name}"
   description="{targetList.description}"
   author="Nico 'Maratz' Moisson"
@@ -55,8 +55,8 @@
     </datalist>
     <button type="submit">Ajouter à la liste</button>
   </form>
-  
-  {#if itemsInCollection.length >= 5}
+
+  {#if itemsInCollection.length >= 10}
   <AlerteContexte content="La liste est pleine, swap les oeuvres"/>
   {/if}
 
