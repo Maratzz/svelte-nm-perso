@@ -2,7 +2,8 @@
   import MediaQuery from "$lib/components/MediaQuery.svelte"
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import Footer from "$lib/components/Footer.svelte"
-  import { writable } from "svelte/store"
+  import { goto } from "$app/navigation"
+  import { fade } from "svelte/transition"
 
   import full_image from "$lib/assets/homepage/full_image.webp"
   import full_image_webp from "$lib/assets/homepage/full_image.webp"
@@ -32,20 +33,52 @@
   import tournesol_middle from "$lib/assets/homepage/tournesol_middle.webp"
   import tournesol_right from "$lib/assets/homepage/tournesol_right.webp"
 
-  $: linkMap = {
-    'homepage-bourses': { url: '/soutien', text: 'Soutien'},
-    'homepage-chest': { url: '/collection', text: 'Collection'},
-    'homepage-feather': { url: '/blog', text: 'Blog'},
-    'homepage-flag': { url: '/souvenirs', text: 'Souvenirs'},
-    'homepage-nico-head': { url: '/info', text: 'À propos'},
-    'homepage-parchemin': { url: '/textes', text: 'Textes'},
-    'homepage-tournesol-middle': { url: '/#', text: 'TBD'},
-    'homepage-tournesol-right': { url: '/#', text: 'TBD'}
+  $: hoverArea = null
+  $: mouseX = 0
+  $: mouseY = 0
+
+  $: handleMouseMove = (e) => {
+    mouseX = e.clientX
+    mouseY = e.clientY
   }
 
-  $: activeLink = null
-  $: console.log('le lien actif est:', activeLink)
+  $: handleAreaMouseEnter = (e) => {
+    hoverArea = e.target.dataset.name
+  }
 
+  $: handleAreaMouseLeave = () => {
+    hoverArea = null
+  }
+
+  //Svelte can enhance href in <a> elements but not for <area> elements.
+  //To make currentRoute transitions work, we need to bypass default nav with this function
+  const handleAreaClick = (e) => {
+    e.preventDefault();
+    const href = e.target.getAttribute('href');
+    goto(href);
+  }
+
+  //<map> and <areas> are not responsive if the corresponding <img> changes size.
+  //This function recalculates them so that all the <area> elements still match the modified <img> dimensions.
+  const resizeImageMap = () => {
+    let img = document.getElementsByClassName("mobile")[0]
+    if (!img) return
+    let width = img.clientWidth
+    let height = img.clientHeight
+
+    let areas = document.getElementsByClassName("area")
+    for (let i = 0; i < areas.length; i++) {
+      let coords = areas[i].getAttribute("coords").split(",")
+      for (let j = 0; j < coords.length; j++) {
+        if (j % 2 === 0) {
+          coords[j] = Math.round(( coords[j] / img.naturalWidth) * width )
+        } else {
+          coords[j] = Math.round(( coords[j] / img.naturalHeight) * height )
+        }
+      }
+      areas[i].setAttribute("coords", coords.join(","))
+    }
+  }
 </script>
 
 <HeadSEO 
@@ -76,6 +109,7 @@
           <li><a href="/collection">Collection</a></li>
           <li><a href="/listes">Listes</a></li>
           <li><a href="/blog">Blog</a></li>
+          <li><a href="/souvenirs">Souvenirs</a></li>
           <li><a href="/maintenant">Maintenant</a></li>
           <li><a href="/info">À propos</a></li>
         </ul>
@@ -93,40 +127,92 @@
       <div id="landing-image">
         <img src={background} alt="Fond de couleur pour l'illustration d'accueil" class="no-border" id="homepage-background">
         <img src={bag} alt="Dessin d'un gros sac à dos" class="no-border" id="homepage-bag">
-        <img src={bao_out} alt="Dessin d'un petit pain vapeur asiatique" class="no-border hover" id="homepage-bao-out">
-        <img src={baos} alt="Dessin de plusieurs petits pains vapeur asiatiques dans un panier en bois" class="no-border" id="homepage-baos">
-        <img src={bourses} alt="Dessin d'une bourse de monnaie" class="no-border hover" id="homepage-bourses" onmouseenter={() => activeLink = linkMap['homepage-bourses']} onmouseleave={() => activeLink = null}>
-        <img src={chest} alt="Dessin d'un coffre en bois" class="no-border hover" id="homepage-chest" onmouseenter={() => activeLink = linkMap['homepage-chest']} onmouseleave={() => activeLink = null}>
+        <img src={bao_out} alt="Dessin d'un petit pain vapeur asiatique" class="no-border hover" id="homepage-bao-out" usemap="#baos">
+        <img src={baos} alt="Dessin de plusieurs petits pains vapeur asiatiques dans un panier en bois" class="no-border" id="homepage-baos" usemap="#baos">
+        <map name="baos">
+          <area shape="poly" coords="16,0,40,12,39,31,19,38,1,28,0,12" href="/listes" alt="Listes" data-name="listes" onmouseenter={handleAreaMouseEnter} onmouseleave={handleAreaMouseLeave} onmousemove={handleMouseMove} onclick={handleAreaClick}>
+          <area shape="poly" coords="-1,3,10,1,27,4,31,16,48,19,71,32,70,72,41,83,4,81,9,43" href="/listes" alt="Listes" data-name="listes" onmouseenter={handleAreaMouseEnter} onmouseleave={handleAreaMouseLeave} onmousemove={handleMouseMove} onclick={handleAreaClick}>
+        </map>
+        <img src={bourses} alt="Dessin d'une bourse de monnaie" class="no-border hover" id="homepage-bourses" usemap="#bourses">
+        <map name="bourses">
+          <area shape="poly" coords="51,27,66,23,93,34,83,52,96,59,89,75,76,66,77,112,71,127,41,131,17,126,7,103,0,88,2,64,12,49,38,41,50,42" href="/soutien" alt="Soutien" data-name="soutien" onmouseenter={handleAreaMouseEnter} onmouseleave={handleAreaMouseLeave} onmousemove={handleMouseMove} onclick={handleAreaClick}>
+        </map>
+        <img src={chest} alt="Dessin d'un coffre en bois" class="no-border hover" id="homepage-chest" usemap="#chest">
+        <map name="chest">
+          <area shape="poly" coords="51,43,67,53,93,57,109,52,128,59,139,77,133,111,131,145,89,160,23,140,10,108,1,76,14,51,33,43" href="/collection" alt="Collection" data-name="collection" onmouseenter={handleAreaMouseEnter} onmouseleave={handleAreaMouseLeave} onmousemove={handleMouseMove} onclick={handleAreaClick}>
+        </map>
         <img src={coin_1} alt="Dessin d'une pièce de monnaie en l'air" class="no-border hover" id="homepage-coin-1">
         <img src={coin_2} alt="Dessin d'une pièce de monnaie en l'air" class="no-border hover" id="homepage-coin-2">
         <img src={coin_3} alt="Dessin d'une pièce de monnaie en l'air" class="no-border hover" id="homepage-coin-3">
         <img src={couvercle_bao} alt="Dessin d'un couvercle en osier d'un panier vapeur" class="no-border" id="homepage-couvercle-bao">
-        <img src={feather} alt="Dessin d'une plume" class="no-border hover" id="homepage-feather" onmouseenter={() => activeLink = linkMap['homepage-feather']} onmouseleave={() => activeLink = null}>
-        <img src={flag} alt="Dessin d'un drapeau flottant au vent" class="no-border hover" id="homepage-flag" onmouseenter={() => activeLink = linkMap['homepage-flag']} onmouseleave={() => activeLink = null}>
+        <img src={feather} alt="Dessin d'une plume" class="no-border hover" id="homepage-feather" usemap="#feather">
+        <map name="feather">
+          <area shape="poly" coords="3,3,57,48,87,55,53,56,18,43,5,21" href="/blog" alt="Blog" data-name="blog" onmouseenter={handleAreaMouseEnter} onmouseleave={handleAreaMouseLeave} onmousemove={handleMouseMove} onclick={handleAreaClick}>
+        </map>
+        <img src={flag} alt="Dessin d'un drapeau flottant au vent" class="no-border hover" id="homepage-flag" usemap="#flag">
+        <map name="flag">
+          <area shape="poly" coords="149,6,75,183,64,174,106,78,89,80,21,110,0,40,73,1,104,7,132,6,134,0" href="/souvenirs" alt="Souvenirs" data-name="souvenirs" onmouseenter={handleAreaMouseEnter} onmouseleave={handleAreaMouseLeave} onmousemove={handleMouseMove} onclick={handleAreaClick}>
+        </map>
         <img src={lanterne_left} alt="Dessin d'une lanterne" class="no-border hover" id="homepage-lanterne-left">
         <img src={lanterne_right} alt="Dessin d'une lanterne" class="no-border hover" id="homepage-lanterne-right">
-        <img src={nico_body} alt="Dessin du corps du personnage" class="no-border" id="homepage-nico-body">
-        <img src={nico_head} alt="Dessin de la tête du personnage" class="no-border hover" id="homepage-nico-head" onmouseenter={() => activeLink = linkMap['homepage-nico-head']} onmouseleave={() => activeLink = null}>
-        <img src={parchemin} alt="Dessin d'un parchemin enroulé avec une ficelle" class="no-border hover" id="homepage-parchemin" onmouseenter={() => activeLink = linkMap['homepage-parchemin']} onmouseleave={() => activeLink = null}>
+        <img src={nico_body} alt="Dessin du corps du personnage" class="no-border" id="homepage-nico-body" usemap="#nico-body">
+        <map name="nico-body">
+          <area shape="poly" coords="198,154,205,136,231,136,232,158,200,169" href="/maintenant" alt="Maintenant" data-name="maintenant" onmouseenter={handleAreaMouseEnter} onmouseleave={handleAreaMouseLeave} onmousemove={handleMouseMove} onclick={handleAreaClick}>
+          <area shape="poly" coords="265,137,279,135,295,147,296,161,269,162" href="/maintenant" alt="Maintenant" data-name="maintenant" onmouseenter={handleAreaMouseEnter} onmouseleave={handleAreaMouseLeave} onmousemove={handleMouseMove} onclick={handleAreaClick}>
+        </map>
+        <img src={nico_head} alt="Dessin de la tête du personnage" class="no-border hover" id="homepage-nico-head" usemap="#nico-head">
+        <map name="nico-head">
+          <area shape="poly" coords="14,12,38,7,62,0,90,4,105,19,115,37,118,66,95,91,56,88,23,88,1,57,7,29" href="/info" alt="À propos" data-name="info" onmouseenter={handleAreaMouseEnter} onmouseleave={handleAreaMouseLeave} onmousemove={handleMouseMove} onclick={handleAreaClick}>
+        </map>
+        <img src={parchemin} alt="Dessin d'un parchemin enroulé avec une ficelle" class="no-border hover" id="homepage-parchemin" usemap="#parchemin">
+        <map name="parchemin">
+          <area shape="poly" coords="3,12,22,1,33,5,38,23,58,31,58,53,74,67,52,82" href="/textes" alt="Textes" data-name="textes" onmouseenter={handleAreaMouseEnter} onmouseleave={handleAreaMouseLeave} onmousemove={handleMouseMove} onclick={handleAreaClick}>
+        </map>
         <img src={poele} alt="Dessin d'une poêle de camping" class="no-border hover" id="homepage-poele">
         <img src={pot_tournesol} alt="Dessin d'un pot en terre cuite" class="no-border" id="homepage-pot-tournesol">
         <img src={potion} alt="Dessin d'une petite potion" class="no-border hover" id="homepage-potion">
         <img src={tournesol_bouture} alt="Dessin d'une bouture de tournesol dans un pot" class="no-border" id="homepage-tournesol-bouture">
         <img src={tournesol_left} alt="Dessin d'un tournesol dans un pot, tourné vers la gauche" class="no-border" id="homepage-tournesol-left">
-        <img src={tournesol_middle} alt="Dessin d'un tournesol dans un pot, tourné vers l'avant" class="no-border" id="homepage-tournesol-middle" onmouseenter={() => activeLink = linkMap['homepage-tournesol-middle']} onmouseleave={() => activeLink = null}>
-        <img src={tournesol_right} alt="Dessin d'un tournesol dans un pot, tourné vers la droite" class="no-border" id="homepage-tournesol-right" onmouseenter={() => activeLink = linkMap['homepage-tournesol-right']} onmouseleave={() => activeLink = null}>
+        <img src={tournesol_middle} alt="Dessin d'un tournesol dans un pot, tourné vers l'avant" class="no-border" id="homepage-tournesol-middle" usemap="#tournesol-middle">
+        <map name="tournesol-middle">
+          <area shape="poly" coords="13,11,34,2,68,14,84,37,110,51,92,56,79,75,87,73,99,67,129,57,138,66,129,86,113,82,114,125,153,172,143,176,110,138,94,129,65,154,85,114,77,89,35,95,37,83,19,80,3,60,3,27" href="/statistiques" alt="Statistiques" data-name="statistiques" onmouseenter={handleAreaMouseEnter} onmouseleave={handleAreaMouseLeave} onmousemove={handleMouseMove} onclick={handleAreaClick}>
+        </map>
+        <img src={tournesol_right} alt="Dessin d'un tournesol dans un pot, tourné vers la droite" class="no-border" id="homepage-tournesol-right">
       </div>
+
+      {#if hoverArea}
+      <div class="hover-tooltip" style="left: {mouseX + 25}px; top: {mouseY + 15}px" transition:fade={{ duration: 300}}>
+        {hoverArea === "info" ? "À propos"
+        : hoverArea === "collection" ? "Collection"
+        : hoverArea === "textes" ? "Textes"
+        : hoverArea === "souvenirs" ? "Souvenirs"
+        : hoverArea === "blog" ? "Blog"
+        : hoverArea === "soutien" ? "Soutien"
+        : hoverArea === "maintenant" ? "Maintenant"
+        : hoverArea === "listes" ? "Listes"
+        : hoverArea === "statistiques" ? "Statistiques"
+        : ''}
+      </div>
+      {/if}
       {:else}
       <div id="landing-image">
-        <picture>
-          <source srcset={full_image_webp} type="image/webp">
-          <img src={full_image} alt="Dessin de la page d'accueil" class="no-border" width="888" height="800">
-        </picture>
+        <img src={full_image} alt="Dessin de la page d'accueil" class="no-border mobile" width="888" height="800" usemap="#mobile-landing-image" onload={resizeImageMap}>
+        <map name="mobile-landing-image">
+          <area target="" alt="Collection" title="Collection" href="/collection" coords="314,444,295,377,319,350,354,351,383,363,429,364,431,405,423,452,386,466" shape="poly" class="area">
+          <area target="" alt="Textes" title="Textes" href="/textes" coords="123,273,143,259,153,264,165,301,193,326,174,342,143,307" shape="poly" class="area">
+          <area target="" alt="Blog" title="Blog" href="/blog" coords="67,190,101,224,149,246,119,250,88,241,68,216" shape="poly" class="area">
+          <area target="" alt="Souvenirs" title="Souvenirs" href="/souvenirs" coords="514,133,603,97,649,105,656,97,671,105,594,284,583,273,624,177,607,177,535,210" shape="poly" class="area">
+          <area target="" alt="Soutien" title="Soutien" href="/soutien" coords="244,401,267,401,283,414,269,442,266,501,222,512,203,498,198,478,189,448,206,424,232,417,245,420" shape="poly" class="area">
+          <area target="" alt="Maintenant" title="Maintenant" href="/maintenant" coords="522,499,534,479,560,481,560,503,529,515" shape="poly" class="area">
+          <area target="" alt="Maintenant" title="Maintenant" href="/maintenant" coords="593,482,612,481,623,492,627,510,595,507" shape="poly" class="area">
+          <area target="" alt="À propos" title="À propos" href="/info" coords="506,373,515,355,544,351,585,348,610,376,614,417,580,439,550,432,519,432,503,412,494,390" shape="poly" class="area">
+          <area target="" alt="Listes" title="Listes" href="/listes" coords="622,325,648,326,656,299,674,286,695,299,696,318,676,325,655,335,693,356,692,398,669,409,628,408,631,362" shape="poly" class="area">
+          <area target="" alt="Statistiques" title="Statistiques" href="/statistiques" coords="153,100,158,66,186,51,219,62,232,86,258,99,228,110,250,114,283,106,279,128,261,148,267,157,295,155,267,172,305,223,296,227,245,180,227,190,236,160,223,135,187,140,176,127" shape="poly" class="area">
+        </map>
       </div>
       {/if}
 
     </MediaQuery>
-
 
     <div id="landing-presentation">
       <p class="first-offset">Bonjour, je suis <span class="highlight">Nico</span> aka <span class="highlight">Maratz</span></p>
@@ -272,6 +358,17 @@
       }
     }
 
+    .hover-tooltip {
+      position: fixed;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 5px 15px;
+      border-radius: 15px;
+      pointer-events: none;
+      z-index: 100;
+      transition: opacity 0.6s;
+  }
+
     #homepage {
       &-bag {
         top: 26%;
@@ -288,6 +385,7 @@
       &-baos {
         top: 39.5%;
         left: 71.1%;
+        z-index: 1;
       }
       &-bourses {
         top: 47%;
@@ -317,10 +415,12 @@
       &-feather {
         top: 24%;
         left: 7%;
+        z-index: 1;
       }
       &-flag {
         top: 11%;
         left: 59%;
+        z-index: 1;
       }
       &-lanterne-left {
         top: 62%;
@@ -342,6 +442,7 @@
       &-potion {
         top: 30%;
         left: 19%;
+        z-index: 1;
       }
       &-nico-body {
         top: 43%;
@@ -350,6 +451,7 @@
       &-nico-head {
         top: 43%;
         left: 56.5%;
+        z-index: 1;
       }
       &-poele {
         top: 65%;
