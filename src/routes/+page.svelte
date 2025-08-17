@@ -11,43 +11,55 @@
   import background from "$lib/assets/homepage/background.webp"
   import bag from "$lib/assets/homepage/bag.webp"
   import bao_out from "$lib/assets/homepage/bao_out.webp"
+  import bao_out_select from "$lib/assets/homepage/bao_out_select.webp"
   import baos from "$lib/assets/homepage/baos.webp"
+  import baos_select from "$lib/assets/homepage/baos_select.webp"
   import bourses from "$lib/assets/homepage/bourses.webp"
+  import bourses_select from "$lib/assets/homepage/bourses_select.webp"
   import chest from "$lib/assets/homepage/chest.webp"
+  import chest_select from "$lib/assets/homepage/chest_select.webp"
   import coin_1 from "$lib/assets/homepage/coin_1.webp"
   import coin_2 from "$lib/assets/homepage/coin_2.webp"
   import coin_3 from "$lib/assets/homepage/coin_3.webp"
   import couvercle_bao from "$lib/assets/homepage/couvercle_bao.webp"
   import feather from "$lib/assets/homepage/feather.webp"
+  import feather_select from "$lib/assets/homepage/feather_select.webp"
   import flag from "$lib/assets/homepage/flag.webp"
+  import flag_select from "$lib/assets/homepage/flag_select.webp"
   import lanterne_left from "$lib/assets/homepage/lanterne_left.webp"
   import lanterne_right from "$lib/assets/homepage/lanterne_right.webp"
   import nico_body from "$lib/assets/homepage/nico_body.webp"
   import nico_head from "$lib/assets/homepage/nico_head.webp"
+  import nico_head_select from "$lib/assets/homepage/nico_head_select.webp"
   import parchemin from "$lib/assets/homepage/parchemin.webp"
+  import parchemin_select from "$lib/assets/homepage/parchemin_select.webp"
   import poele from "$lib/assets/homepage/poele.webp"
   import pot_tournesol from "$lib/assets/homepage/pot_tournesol.webp"
   import potion from "$lib/assets/homepage/potion.webp"
   import tournesol_bouture from "$lib/assets/homepage/tournesol_bouture.webp"
   import tournesol_left from "$lib/assets/homepage/tournesol_left.webp"
   import tournesol_middle from "$lib/assets/homepage/tournesol_middle.webp"
+  import tournesol_middle_select from "$lib/assets/homepage/tournesol_middle_select.webp"
   import tournesol_right from "$lib/assets/homepage/tournesol_right.webp"
 
-  $: hoverArea = null
-  $: mouseX = 0
-  $: mouseY = 0
+  let hoverArea = null
+  let mouseX = 0
+  let mouseY = 0
+  let isHovered = false
 
-  $: handleMouseMove = (e) => {
+  const handleMouseMove = (e) => {
     mouseX = e.clientX
     mouseY = e.clientY
   }
 
-  $: handleAreaMouseEnter = (e) => {
+  const handleAreaMouseEnter = (e, id) => {
     hoverArea = e.target.dataset.name
+    isHovered = id
   }
 
-  $: handleAreaMouseLeave = () => {
+  const handleAreaMouseLeave = () => {
     hoverArea = null
+    isHovered = false
   }
 
   //Svelte can enhance href in <a> elements but not for <area> elements.
@@ -126,58 +138,176 @@
       {#if matches}
       <div id="landing-image">
         <img src={background} alt="Fond de couleur pour l'illustration d'accueil" class="no-border" id="homepage-background">
+
         <img src={bag} alt="Dessin d'un gros sac à dos" class="no-border" id="homepage-bag">
-        <img src={bao_out} alt="Dessin d'un petit pain vapeur asiatique" class="no-border hover" id="homepage-bao-out" usemap="#baos">
-        <img src={baos} alt="Dessin de plusieurs petits pains vapeur asiatiques dans un panier en bois" class="no-border" id="homepage-baos" usemap="#baos">
+
+        <div class="img_wrap" id="homepage-bao-out">
+          <img src={bao_out} alt="Dessin d'un petit pain vapeur asiatique" class="no-border hover" usemap="#baos">
+          <img src={bao_out_select} alt="Overlay de sélection" class="no-border select" class:visible={isHovered === "baos"}>
+        </div>
+
+        <div class="img_wrap" id="homepage-baos">
+            <img src={baos} alt="Dessin de plusieurs petits pains vapeur asiatiques dans un panier en bois" class="no-border hover" usemap="#baos">
+            <img src={baos_select} alt="Overlay de sélection" class="no-border select" class:visible={isHovered === "baos"}>
+        </div>
         <map name="baos">
-          <area shape="poly" coords="16,0,40,12,39,31,19,38,1,28,0,12" href="/listes" alt="Listes" data-name="listes" onmouseenter={handleAreaMouseEnter} onmouseleave={handleAreaMouseLeave} onmousemove={handleMouseMove} onclick={handleAreaClick}>
-          <area shape="poly" coords="-1,3,10,1,27,4,31,16,48,19,71,32,70,72,41,83,4,81,9,43" href="/listes" alt="Listes" data-name="listes" onmouseenter={handleAreaMouseEnter} onmouseleave={handleAreaMouseLeave} onmousemove={handleMouseMove} onclick={handleAreaClick}>
+          <area
+            shape="poly"
+            coords="16,0,40,12,39,31,19,38,1,28,0,12"
+            href="/listes" alt="Listes" data-name="listes"
+            onmouseenter={(e) => {handleAreaMouseEnter(e, "baos")}}
+            onmouseleave={handleAreaMouseLeave}
+            onmousemove={handleMouseMove}
+            onclick={handleAreaClick}>
+          <area
+            shape="poly"
+            coords="-1,3,10,1,27,4,31,16,48,19,71,32,70,72,41,83,4,81,9,43"
+            href="/listes" alt="Listes" data-name="listes"
+            onmouseenter={(e) => {handleAreaMouseEnter(e, "baos")}}
+            onmouseleave={handleAreaMouseLeave}
+            onmousemove={handleMouseMove}
+            onclick={handleAreaClick}>
         </map>
-        <img src={bourses} alt="Dessin d'une bourse de monnaie" class="no-border hover" id="homepage-bourses" usemap="#bourses">
+
+        <div class="img_wrap" id="homepage-bourses">
+          <img src={bourses} alt="Dessin d'une bourse de monnaie" class="no-border hover" usemap="#bourses">
+          <img src={bourses_select} alt="Overlay de sélection" class="no-border select" class:visible={isHovered === "bourses"}>
+        </div>
         <map name="bourses">
-          <area shape="poly" coords="51,27,66,23,93,34,83,52,96,59,89,75,76,66,77,112,71,127,41,131,17,126,7,103,0,88,2,64,12,49,38,41,50,42" href="/soutien" alt="Soutien" data-name="soutien" onmouseenter={handleAreaMouseEnter} onmouseleave={handleAreaMouseLeave} onmousemove={handleMouseMove} onclick={handleAreaClick}>
+          <area
+            shape="poly"
+            coords="51,27,66,23,93,34,83,52,96,59,89,75,76,66,77,112,71,127,41,131,17,126,7,103,0,88,2,64,12,49,38,41,50,42"
+            href="/soutien" alt="Soutien" data-name="soutien" onmouseenter={(e) => {handleAreaMouseEnter(e, "bourses")}}
+            onmouseleave={handleAreaMouseLeave}
+            onmousemove={handleMouseMove}
+            onclick={handleAreaClick}>
         </map>
-        <img src={chest} alt="Dessin d'un coffre en bois" class="no-border hover" id="homepage-chest" usemap="#chest">
+
+        <div class="img_wrap" id="homepage-chest">
+          <img src={chest} alt="Dessin d'un coffre en bois" class="no-border hover" usemap="#chest">
+          <img src={chest_select} alt="Overlay de sélection" class="no-border select" class:visible={isHovered === "chest"}>
+        </div>
         <map name="chest">
-          <area shape="poly" coords="51,43,67,53,93,57,109,52,128,59,139,77,133,111,131,145,89,160,23,140,10,108,1,76,14,51,33,43" href="/collection" alt="Collection" data-name="collection" onmouseenter={handleAreaMouseEnter} onmouseleave={handleAreaMouseLeave} onmousemove={handleMouseMove} onclick={handleAreaClick}>
+          <area
+            shape="poly"
+            coords="51,43,67,53,93,57,109,52,128,59,139,77,133,111,131,145,89,160,23,140,10,108,1,76,14,51,33,43"
+            href="/collection" alt="Collection" data-name="collection" onmouseenter={(e) => {handleAreaMouseEnter(e, "chest")}} onmouseleave={handleAreaMouseLeave}
+            onmousemove={handleMouseMove}
+            onclick={handleAreaClick}>
         </map>
+
         <img src={coin_1} alt="Dessin d'une pièce de monnaie en l'air" class="no-border hover" id="homepage-coin-1">
         <img src={coin_2} alt="Dessin d'une pièce de monnaie en l'air" class="no-border hover" id="homepage-coin-2">
         <img src={coin_3} alt="Dessin d'une pièce de monnaie en l'air" class="no-border hover" id="homepage-coin-3">
         <img src={couvercle_bao} alt="Dessin d'un couvercle en osier d'un panier vapeur" class="no-border" id="homepage-couvercle-bao">
-        <img src={feather} alt="Dessin d'une plume" class="no-border hover" id="homepage-feather" usemap="#feather">
+
+        <div class="img_wrap" id="homepage-feather">
+          <img src={feather} alt="Dessin d'une plume" class="no-border hover" usemap="#feather">
+          <img src={feather_select} alt="Overlay de sélection" class="no-border select" class:visible={isHovered === "feather"}>
+        </div>
         <map name="feather">
-          <area shape="poly" coords="3,3,57,48,87,55,53,56,18,43,5,21" href="/blog" alt="Blog" data-name="blog" onmouseenter={handleAreaMouseEnter} onmouseleave={handleAreaMouseLeave} onmousemove={handleMouseMove} onclick={handleAreaClick}>
+          <area
+            shape="poly"
+            coords="3,3,57,48,87,55,53,56,18,43,5,21"
+            href="/blog" alt="Blog" data-name="blog"
+            onmouseenter={(e) => {handleAreaMouseEnter(e, "feather")}}
+            onmouseleave={handleAreaMouseLeave}
+            onmousemove={handleMouseMove}
+            onclick={handleAreaClick}>
         </map>
-        <img src={flag} alt="Dessin d'un drapeau flottant au vent" class="no-border hover" id="homepage-flag" usemap="#flag">
+
+        <div class="img_wrap" id="homepage-flag">
+          <img src={flag} alt="Dessin d'un drapeau flottant au vent" class="no-border hover" usemap="#flag">
+          <img src={flag_select} alt="Overlay de sélection" class="no-border select" class:visible={isHovered === "flag"}>
+        </div>
         <map name="flag">
-          <area shape="poly" coords="149,6,75,183,64,174,106,78,89,80,21,110,0,40,73,1,104,7,132,6,134,0" href="/souvenirs" alt="Souvenirs" data-name="souvenirs" onmouseenter={handleAreaMouseEnter} onmouseleave={handleAreaMouseLeave} onmousemove={handleMouseMove} onclick={handleAreaClick}>
+          <area
+          shape="poly"
+          coords="149,6,75,183,64,174,106,78,89,80,21,110,0,40,73,1,104,7,132,6,134,0"
+          href="/souvenirs" alt="Souvenirs" data-name="souvenirs" onmouseenter={(e) => {handleAreaMouseEnter(e, "flag")}}
+          onmouseleave={handleAreaMouseLeave}
+          onmousemove={handleMouseMove}
+          onclick={handleAreaClick}>
         </map>
+
         <img src={lanterne_left} alt="Dessin d'une lanterne" class="no-border hover" id="homepage-lanterne-left">
         <img src={lanterne_right} alt="Dessin d'une lanterne" class="no-border hover" id="homepage-lanterne-right">
+
         <img src={nico_body} alt="Dessin du corps du personnage" class="no-border" id="homepage-nico-body" usemap="#nico-body">
         <map name="nico-body">
-          <area shape="poly" coords="198,154,205,136,231,136,232,158,200,169" href="/maintenant" alt="Maintenant" data-name="maintenant" onmouseenter={handleAreaMouseEnter} onmouseleave={handleAreaMouseLeave} onmousemove={handleMouseMove} onclick={handleAreaClick}>
+          <area
+            shape="poly"
+            coords="198,154,205,136,231,136,232,158,200,169"
+            href="/maintenant" alt="Maintenant" data-name="maintenant" onmouseenter={handleAreaMouseEnter}
+            onmouseleave={handleAreaMouseLeave}
+            onmousemove={handleMouseMove}
+            onclick={handleAreaClick}>
           <area shape="poly" coords="265,137,279,135,295,147,296,161,269,162" href="/maintenant" alt="Maintenant" data-name="maintenant" onmouseenter={handleAreaMouseEnter} onmouseleave={handleAreaMouseLeave} onmousemove={handleMouseMove} onclick={handleAreaClick}>
         </map>
-        <img src={nico_head} alt="Dessin de la tête du personnage" class="no-border hover" id="homepage-nico-head" usemap="#nico-head">
+
+        <div class="img_wrap" id="homepage-nico-head">
+          <img src={nico_head} alt="Dessin de la tête du personnage" class="no-border hover" usemap="#nico-head">
+          <img src={nico_head_select} alt="Overlay de sélection" class="no-border select" class:visible={isHovered === "nico-head"}>
+        </div>
         <map name="nico-head">
-          <area shape="poly" coords="14,12,38,7,62,0,90,4,105,19,115,37,118,66,95,91,56,88,23,88,1,57,7,29" href="/info" alt="À propos" data-name="info" onmouseenter={handleAreaMouseEnter} onmouseleave={handleAreaMouseLeave} onmousemove={handleMouseMove} onclick={handleAreaClick}>
+          <area
+            shape="poly"
+            coords="14,12,38,7,62,0,90,4,105,19,115,37,118,66,95,91,56,88,23,88,1,57,7,29"
+            href="/info"
+            alt="À propos"
+            data-name="info"
+            onmouseenter={(e) => {handleAreaMouseEnter(e, "nico-head")}}
+            onmouseleave={handleAreaMouseLeave}
+            onmousemove={handleMouseMove}
+            onclick={handleAreaClick}>
         </map>
-        <img src={parchemin} alt="Dessin d'un parchemin enroulé avec une ficelle" class="no-border hover" id="homepage-parchemin" usemap="#parchemin">
+
+        <div class="img_wrap" id="homepage-parchemin">
+          <img src={parchemin} alt="Dessin d'un parchemin enroulé avec une ficelle" class="no-border hover" usemap="#parchemin">
+          <img src={parchemin_select} alt="Overlay de sélection" class="no-border select" class:visible={isHovered === "parchemin"} transition:fade={{ duration: 500}}>
+        </div>
         <map name="parchemin">
-          <area shape="poly" coords="3,12,22,1,33,5,38,23,58,31,58,53,74,67,52,82" href="/textes" alt="Textes" data-name="textes" onmouseenter={handleAreaMouseEnter} onmouseleave={handleAreaMouseLeave} onmousemove={handleMouseMove} onclick={handleAreaClick}>
+          <area
+            shape="poly"
+            coords="3,12,22,1,33,5,38,23,58,31,58,53,74,67,52,82"
+            href="/textes"
+            alt="Textes"
+            data-name="textes"
+            onmouseenter={(e) => {handleAreaMouseEnter(e, "parchemin")}}
+            onmouseleave={handleAreaMouseLeave}
+            onmousemove={handleMouseMove}
+            onclick={handleAreaClick}>
         </map>
+
         <img src={poele} alt="Dessin d'une poêle de camping" class="no-border hover" id="homepage-poele">
+
         <img src={pot_tournesol} alt="Dessin d'un pot en terre cuite" class="no-border" id="homepage-pot-tournesol">
+
         <img src={potion} alt="Dessin d'une petite potion" class="no-border hover" id="homepage-potion">
+
         <img src={tournesol_bouture} alt="Dessin d'une bouture de tournesol dans un pot" class="no-border" id="homepage-tournesol-bouture">
+
         <img src={tournesol_left} alt="Dessin d'un tournesol dans un pot, tourné vers la gauche" class="no-border" id="homepage-tournesol-left">
-        <img src={tournesol_middle} alt="Dessin d'un tournesol dans un pot, tourné vers l'avant" class="no-border" id="homepage-tournesol-middle" usemap="#tournesol-middle">
+
+        <div class="img_wrap" id="homepage-tournesol-middle">
+          <img src={tournesol_middle} alt="Dessin d'un tournesol dans un pot, tourné vers l'avant" class="no-border hover" usemap="#tournesol-middle">
+          <img src={tournesol_middle_select} alt="Overlay de sélection" class="no-border select" class:visible={isHovered === "tournesol-middle"}>
+        </div>
         <map name="tournesol-middle">
-          <area shape="poly" coords="13,11,34,2,68,14,84,37,110,51,92,56,79,75,87,73,99,67,129,57,138,66,129,86,113,82,114,125,153,172,143,176,110,138,94,129,65,154,85,114,77,89,35,95,37,83,19,80,3,60,3,27" href="/statistiques" alt="Statistiques" data-name="statistiques" onmouseenter={handleAreaMouseEnter} onmouseleave={handleAreaMouseLeave} onmousemove={handleMouseMove} onclick={handleAreaClick}>
+          <area
+            shape="poly"
+            coords="13,11,34,2,68,14,84,37,110,51,92,56,79,75,87,73,99,67,129,57,138,66,129,86,113,82,114,125,153,172,143,176,110,138,94,129,65,154,85,114,77,89,35,95,37,83,19,80,3,60,3,27"
+            href="/statistiques"
+            alt="Statistiques"
+            data-name="statistiques"
+            onmouseenter={(e) => {handleAreaMouseEnter(e, "tournesol-middle")}}
+            onmouseleave={handleAreaMouseLeave}
+            onmousemove={handleMouseMove}
+            onclick={handleAreaClick}>
         </map>
+
         <img src={tournesol_right} alt="Dessin d'un tournesol dans un pot, tourné vers la droite" class="no-border" id="homepage-tournesol-right">
+
       </div>
 
       {#if hoverArea}
@@ -198,16 +328,16 @@
       <div id="landing-image">
         <img src={full_image} alt="Dessin de la page d'accueil" class="no-border mobile" width="888" height="800" usemap="#mobile-landing-image" onload={resizeImageMap}>
         <map name="mobile-landing-image">
-          <area target="" alt="Collection" title="Collection" href="/collection" coords="314,444,295,377,319,350,354,351,383,363,429,364,431,405,423,452,386,466" shape="poly" class="area">
-          <area target="" alt="Textes" title="Textes" href="/textes" coords="123,273,143,259,153,264,165,301,193,326,174,342,143,307" shape="poly" class="area">
-          <area target="" alt="Blog" title="Blog" href="/blog" coords="67,190,101,224,149,246,119,250,88,241,68,216" shape="poly" class="area">
-          <area target="" alt="Souvenirs" title="Souvenirs" href="/souvenirs" coords="514,133,603,97,649,105,656,97,671,105,594,284,583,273,624,177,607,177,535,210" shape="poly" class="area">
-          <area target="" alt="Soutien" title="Soutien" href="/soutien" coords="244,401,267,401,283,414,269,442,266,501,222,512,203,498,198,478,189,448,206,424,232,417,245,420" shape="poly" class="area">
-          <area target="" alt="Maintenant" title="Maintenant" href="/maintenant" coords="522,499,534,479,560,481,560,503,529,515" shape="poly" class="area">
-          <area target="" alt="Maintenant" title="Maintenant" href="/maintenant" coords="593,482,612,481,623,492,627,510,595,507" shape="poly" class="area">
-          <area target="" alt="À propos" title="À propos" href="/info" coords="506,373,515,355,544,351,585,348,610,376,614,417,580,439,550,432,519,432,503,412,494,390" shape="poly" class="area">
-          <area target="" alt="Listes" title="Listes" href="/listes" coords="622,325,648,326,656,299,674,286,695,299,696,318,676,325,655,335,693,356,692,398,669,409,628,408,631,362" shape="poly" class="area">
-          <area target="" alt="Statistiques" title="Statistiques" href="/statistiques" coords="153,100,158,66,186,51,219,62,232,86,258,99,228,110,250,114,283,106,279,128,261,148,267,157,295,155,267,172,305,223,296,227,245,180,227,190,236,160,223,135,187,140,176,127" shape="poly" class="area">
+          <area target="" alt="Collection" title="Collection" href="/collection" coords="314,444,295,377,319,350,354,351,383,363,429,364,431,405,423,452,386,466" shape="poly" class="area" onclick={handleAreaClick}>
+          <area target="" alt="Textes" title="Textes" href="/textes" coords="123,273,143,259,153,264,165,301,193,326,174,342,143,307" shape="poly" class="area" onclick={handleAreaClick}>
+          <area target="" alt="Blog" title="Blog" href="/blog" coords="67,190,101,224,149,246,119,250,88,241,68,216" shape="poly" class="area" onclick={handleAreaClick}>
+          <area target="" alt="Souvenirs" title="Souvenirs" href="/souvenirs" coords="514,133,603,97,649,105,656,97,671,105,594,284,583,273,624,177,607,177,535,210" shape="poly" class="area" onclick={handleAreaClick}>
+          <area target="" alt="Soutien" title="Soutien" href="/soutien" coords="244,401,267,401,283,414,269,442,266,501,222,512,203,498,198,478,189,448,206,424,232,417,245,420" shape="poly" class="area" onclick={handleAreaClick}>
+          <area target="" alt="Maintenant" title="Maintenant" href="/maintenant" coords="522,499,534,479,560,481,560,503,529,515" shape="poly" class="area" onclick={handleAreaClick}>
+          <area target="" alt="Maintenant" title="Maintenant" href="/maintenant" coords="593,482,612,481,623,492,627,510,595,507" shape="poly" class="area" onclick={handleAreaClick}>
+          <area target="" alt="À propos" title="À propos" href="/info" coords="506,373,515,355,544,351,585,348,610,376,614,417,580,439,550,432,519,432,503,412,494,390" shape="poly" class="area" onclick={handleAreaClick}>
+          <area target="" alt="Listes" title="Listes" href="/listes" coords="622,325,648,326,656,299,674,286,695,299,696,318,676,325,655,335,693,356,692,398,669,409,628,408,631,362" shape="poly" class="area" onclick={handleAreaClick}>
+          <area target="" alt="Statistiques" title="Statistiques" href="/statistiques" coords="153,100,158,66,186,51,219,62,232,86,258,99,228,110,250,114,283,106,279,128,261,148,267,157,295,155,267,172,305,223,296,227,245,180,227,190,236,160,223,135,187,140,176,127" shape="poly" class="area" onclick={handleAreaClick}>
         </map>
       </div>
       {/if}
@@ -231,7 +361,7 @@
     <img src={background} alt="décor" class="no-border" id="second">
     <h4>Qu'est-ce qu'il y a dans ce sac&nbsp;?</h4>
     <p>Vous trouverez donc ici des <a href="/textes">textes critiques, des poèmes, des nouvelles</a>. Avec des phrases courtes et un certain sens de la musique des mots, parce que j'aime Marguerite Duras plus que de raison. Avec beaucoup de jeux vidéo dedans, parce que c'est le medium que je préfère, après la littérature.</p>
-    <p>Et puis il y a tout le reste. Des billets de <a href="/blog">blog</a>, une <a href="/collection">collection</a> d'objets culturels, des listes par <strike>dizaines</strike> centaines, des bricolages de dev web, des surprises comme Internet sait en faire.</p>
+    <p>Et puis il y a tout le reste. Des billets de <a href="/blog">blog</a>, une <a href="/collection">collection</a> d'objets culturels, des <a href="/listes">listes</a> par <strike>dizaines</strike> centaines, des bricolages de dev web, des surprises comme Internet sait en faire.</p>
 
     <p>Ce site est à <a href="/info">mon image</a>, changeant, vivant. Il se remplira progressivement de secrets, de pages cachées, et de surprises dans le code.</p>
     <p>Je prône la curiosité et le ré-enchantement en vertus cardinales pour être heureux·se, en vrai comme en faux, dans la vie comme sur le web. Explorez, fouillez, flânez.</p>
@@ -300,14 +430,15 @@
     h4 {
       margin: 0 auto;
     }
-    #first {
+    #first, #second {
       position: absolute;
+    }
+    #first {
       top: 0;
       left: -140px;
       z-index: 1;
     }
     #second {
-      position: absolute;
       bottom: 35px;
       right: 0;
       z-index: 1;
@@ -385,7 +516,6 @@
       &-baos {
         top: 39.5%;
         left: 71.1%;
-        z-index: 1;
       }
       &-bourses {
         top: 47%;
@@ -394,7 +524,7 @@
       &-chest {
         top: 37%;
         left: 33%;
-        z-index: 10;
+        z-index: 5;
       }
       &-coin-1 {
         top: 55%;
@@ -415,12 +545,10 @@
       &-feather {
         top: 24%;
         left: 7%;
-        z-index: 1;
       }
       &-flag {
         top: 11%;
         left: 59%;
-        z-index: 1;
       }
       &-lanterne-left {
         top: 62%;
@@ -429,7 +557,6 @@
       &-lanterne-right {
         top: 64.2%;
         left: 41.8%;
-        z-index: 10;
       }
       &-parchemin {
         top: 33%;
@@ -442,7 +569,6 @@
       &-potion {
         top: 30%;
         left: 19%;
-        z-index: 1;
       }
       &-nico-body {
         top: 43%;
@@ -451,7 +577,6 @@
       &-nico-head {
         top: 43%;
         left: 56.5%;
-        z-index: 1;
       }
       &-poele {
         top: 65%;
@@ -488,6 +613,26 @@
       #second {
         width: 250px;
       }
+    }
+
+    .img_wrap {
+      position: relative;
+      .select {
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        opacity: 0;
+      }
+      .select.visible {
+        opacity: 1;
+      }
+      .select, .select.visible {
+        transition: opacity .3s ease-in-out;
+      }
+    }
+
+    .hover {
+      z-index: 2;
     }
   }
 
