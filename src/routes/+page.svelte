@@ -33,6 +33,8 @@
   import nico_head_select from "$lib/assets/homepage/nico_head_select.webp"
   import parchemin from "$lib/assets/homepage/parchemin.webp"
   import parchemin_select from "$lib/assets/homepage/parchemin_select.webp"
+  import patch from "$lib/assets/homepage/patch.webp"
+  import patch_select from "$lib/assets/homepage/patch_select.webp"
   import poele from "$lib/assets/homepage/poele.webp"
   import pot_tournesol from "$lib/assets/homepage/pot_tournesol.webp"
   import potion from "$lib/assets/homepage/potion.webp"
@@ -264,7 +266,7 @@
 
         <div class="img_wrap" id="homepage-parchemin">
           <img src={parchemin} alt="Dessin d'un parchemin enroulé avec une ficelle" class="no-border hover" usemap="#parchemin">
-          <img src={parchemin_select} alt="Overlay de sélection" class="no-border select" class:visible={isHovered === "parchemin"} transition:fade={{ duration: 500}}>
+          <img src={parchemin_select} alt="Overlay de sélection" class="no-border select" class:visible={isHovered === "parchemin"}>
         </div>
         <map name="parchemin">
           <area
@@ -278,6 +280,23 @@
             onmousemove={handleMouseMove}
             onclick={handleAreaClick}>
         </map>
+
+        <div class="img_wrap" id="homepage-patch">
+          <img src={patch} alt="Dessin de morceaux de tissus cousus sur le sac" class="no-border hover" usemap="#patch">
+          <img src={patch_select} alt="Overlay de sélection" class="no-border select" class:visible={isHovered === "patch"}>
+          <map name="patch">
+            <area
+              shape="poly"
+              coords="2,11,22,0,53,17,50,21,55,33,12,36,6,25,17,21"
+              href="/patch"
+              alt="Patch"
+              data-name="patch"
+              onmouseenter={(e) => {handleAreaMouseEnter(e, "patch")}}
+              onmouseleave={handleAreaMouseLeave}
+              onmousemove={handleMouseMove}
+              onclick={handleAreaClick}>
+          </map>
+        </div>
 
         <img src={poele} alt="Dessin d'une poêle de camping" class="no-border hover" id="homepage-poele">
 
@@ -321,6 +340,7 @@
         : hoverArea === "maintenant" ? "Maintenant"
         : hoverArea === "listes" ? "Listes"
         : hoverArea === "statistiques" ? "Statistiques"
+        : hoverArea === "patch" ? "Mises à jour"
         : ''}
       </div>
       {/if}
@@ -561,6 +581,10 @@
       &-parchemin {
         top: 33%;
         left: 14%;
+      }
+      &-patch {
+        top: 31.2%;
+        left: 53%;
       }
       &-pot-tournesol {
         top: 25.1%;
