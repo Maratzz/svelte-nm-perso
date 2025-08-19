@@ -8,7 +8,7 @@
 <input list={query} name={query} >
 <datalist id={query}>
   {#each items as item}
-  <option value={item.slug}>{item.name}</option>
+  <option value={item.slug ?? item.name}>{item.name}</option>
   {/each}
 </datalist>
 

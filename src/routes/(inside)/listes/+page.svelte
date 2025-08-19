@@ -11,7 +11,7 @@
 
   export let data
 
-  $: ({ listes, listesThemes, session } = data)
+  $: ({ listes, listesThemes, itemTypes, session } = data)
   $: selectedThemes = []
   $: filteredLists = filterLists(selectedThemes, listes)
   $: filterLists = ( themes, listes ) => listes.filter(list => {
@@ -49,7 +49,7 @@
 
     <FormData query="new_list" query_name="Nouvelle liste"/>
     <FormData query="new_description" query_name="Description"/>
-    <FormData query="new_type" query_name="Type"/>
+    <FormDatalist query="new_type" query_name="Type" items={itemTypes}/>
     <FormDatalist query="new_theme" query_name="Sujet" items={listesThemes}/>
 
     <button type="submit">Créer la liste</button>

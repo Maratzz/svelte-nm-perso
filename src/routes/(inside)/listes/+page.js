@@ -11,9 +11,15 @@ export async function load({ parent }) {
   .select("*")
   .order("name")
 
+  let { data: item_type } = await supabase
+  .from("item_type")
+  .select("*")
+  .order("name")
+
   return {
     listes: listes ?? [],
     listesThemes: listes_themes ?? [],
+    itemTypes: item_type ?? [],
     currentRoute,
     session
   }

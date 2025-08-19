@@ -1,7 +1,7 @@
 <script>
-  import footer_tournesol_middle from "$lib/assets/inside-pages/footer_tournesol_middle.png"
-  import footer_tournesol_right from "$lib/assets/inside-pages/footer_tournesol_right.png"
-  import footer_tournesol_left from "$lib/assets/inside-pages/footer_tournesol_left.png"
+  import footer_tournesol_middle from "$lib/assets/inside-pages/footer_tournesol_middle.webp"
+  import footer_tournesol_right from "$lib/assets/inside-pages/footer_tournesol_right.webp"
+  import footer_tournesol_left from "$lib/assets/inside-pages/footer_tournesol_left.webp"
 </script>
 
 <footer>
