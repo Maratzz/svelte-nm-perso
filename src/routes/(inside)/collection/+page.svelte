@@ -13,7 +13,7 @@
   export let form
 
   $: ({ collection, categories, status, session, types, gamePlatforms, tags, supabase } = data)
-  $: filteredCollection = noNotesChecked === true ? filterDataNoNotes(noNotesChecked) : filteredData(searchInput, selectedCategories, selectedStatus, selectedPlatforms, selectedGamePlatforms, selectedTags, notesChecked, collection)
+  $: filteredCollection = noNotesChecked === true ? filterDataNoNotes(noNotesChecked) : filteredData(searchInput, selectedCategories, selectedStatus, selectedPlatforms, selectedGamePlatforms, selectedTags, hasNotes, collection, hasTexts)
   $: filteredPlatforms = selectedCategories.length ? supabaseFilter(supabase, selectedCategories).then((data) => filteredPlatforms = data.array) : []
 
   //whenever these variables change, we update the filteredCollection
@@ -23,8 +23,9 @@
   $: selectedPlatforms = []
   $: selectedGamePlatforms = []
   $: selectedTags = []
-  $: notesChecked = false
+  $: hasNotes = false
   $: noNotesChecked = false
+  $: hasTexts = false
 
   // controls the page and items-per-page components
   let currentPage = 1
@@ -47,10 +48,17 @@
     return { array }
   }
 
-  $: filteredData = (search, categories, status, platforms, gamePlatforms, tags, checked, collection) => collection.filter(item => {
-      if ( search.length || categories.length || status.length ||platforms.length || gamePlatforms.length || tags.length || checked === true ) {
+  $: filteredData = (search, categories, status, platforms, gamePlatforms, tags, notesChecked, collection, textsChecked) => collection.filter(item => {
+      if ( search.length || categories.length || status.length ||platforms.length || gamePlatforms.length || tags.length || notesChecked === true || textsChecked === true) {
         currentPage = 1
-        return (search.length ? item.name.toLowerCase().includes( search.toLowerCase()) : true) && (categories.length ? categories.includes(item.item_type) : true) && (status.length ? status.includes(item.status) : true) && (platforms.length ? platforms.includes(item.platform) : true) && (gamePlatforms.length ? gamePlatforms.includes(item.game_platform) : true) && (tags.length ? tags.every(tag => item.tags?.includes(tag)) : true) && (checked === true ? item.notes !== (null || "") : true)
+        return (search.length ? item.name.toLowerCase().includes( search.toLowerCase()) : true)
+          && (categories.length ? categories.includes(item.item_type) : true)
+          && (status.length ? status.includes(item.status) : true)
+          && (platforms.length ? platforms.includes(item.platform) : true)
+          && (gamePlatforms.length ? gamePlatforms.includes(item.game_platform) : true)
+          && (tags.length ? tags.every(tag => item.tags?.includes(tag)) : true)
+          && (notesChecked === true ? item.notes !== (null || "") : true)
+          && (textsChecked === true ? item.has_text === (true) : true)
       } else {
         return collection
       }
@@ -121,8 +129,11 @@
     <label for="collapsible-filter" id="icon">...et d'autres filtres encore</label>
     <div class="collapsible-body">
 
+      <p>...avec un texte ?</p>
+      <Slider switchName="hasText" --color-checked="hsl(253,52%, 65%)" bind:checked={hasTexts}/>
+
       <p>...avec un commentaire ?</p>
-      <Slider switchName='notes' --color-checked="hsl(253, 52%, 65%)" bind:checked={notesChecked}/>
+      <Slider switchName='notes' --color-checked="hsl(253, 52%, 65%)" bind:checked={hasNotes}/>
 
       {#if session}
         <p>...sans commentaire ?</p>
