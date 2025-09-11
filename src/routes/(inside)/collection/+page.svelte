@@ -1,4 +1,5 @@
 <script>
+  import { goto } from "$app/navigation"
   import { fade } from "svelte/transition"
   import { paginate, LightPaginationNav } from "svelte-paginate"
 
@@ -71,6 +72,18 @@
       return (checked === true ? item.notes === (null || ""): true)
     }
   })
+
+  const randomCollectionItem = () => {
+    const annotedItems = collection.filter(item => item.notes !== "")
+    console.log("items annoted:", annotedItems)
+    const maxNumber = Math.max(annotedItems.length)
+    console.log("max number:", maxNumber)
+    const randomNumber = Math.floor(Math.random() * maxNumber) + 1
+    console.log("random number is:", randomNumber)
+    const selectedAnnotatedItem = annotedItems[randomNumber]
+    console.log("item:", selectedAnnotatedItem)
+    goto(`/collection/${selectedAnnotatedItem.slug}`)
+  }
 </script>
 
 <HeadSEO
@@ -91,6 +104,8 @@
   <p>
     Sur cette page il y a donc tout ce que j'ai pu lire, voir, jouer au fil de mes pérégrinations culturelles. J'ai fait appel à ma mémoire et à tous les supports accumulés au fil des ans pour reconstituer une collection qui se veut la plus complète possible. Continuellement changeante, assidûment ajustée, ponctuellement paraphée, la collection est le reflet d'une vie passée devant les pages, devant les écrans, seul ou bien accompagné. Il n'est de culture que ce qui se partage.
   </p>
+
+  <button on:click={randomCollectionItem}>Une œuvre commentée au hasard !</button>
   {#if session}
   <div class="collapsible">
 

@@ -1,5 +1,6 @@
 <script>
   import { enhance } from '$app/forms'
+  import { goto } from '$app/navigation'
   import { fade } from "svelte/transition"
   import { paginate, LightPaginationNav } from "svelte-paginate"
   import { randomNumber } from "$lib/utils/index.js"
@@ -13,11 +14,12 @@
 
   $: ({ listes, listesThemes, itemTypes, session } = data)
   $: selectedThemes = []
-  $: filteredLists = filterLists(selectedThemes, listes)
-  $: filterLists = ( themes, listes ) => listes.filter(list => {
-    if ( themes.length ) {
+  $: selectedTypes = []
+  $: filteredLists = filterLists(selectedThemes, selectedTypes, listes)
+  $: filterLists = ( themes, types, listes ) => listes.filter(list => {
+    if ( themes.length || types.length ) {
       currentPage = 1
-      return ( themes.length ? themes.includes(list.theme) : true )
+      return ( themes.length ? themes.includes(list.theme) : true ) && ( types.length ? types.includes(list.type) : true )
     } else {
       return listes
     }
@@ -27,6 +29,14 @@
   let currentPage = 1
   let pageSize = 12
   $: paginatedItems = paginate({ items: filteredLists, pageSize, currentPage })
+
+  //find a random ID number and return the associated list
+  const randomList = () => {
+    const maxID = Math.max(...listes.map(list => list.id))
+    const randomID = Math.floor(Math.random() * maxID) + 1
+    const selectedList = listes.find(list => list.id === randomID)
+    goto(`/listes/${selectedList.slug}`)
+  }
 </script>
 
 <HeadSEO 
@@ -44,6 +54,8 @@
   <p>J'adore faire des listes pour tout et n'importe quoi, avec des critères de sélection qui sortent des sentiers battus. Faire un top des jeux comme Zelda, c'est classique, mais faire un top des jeux Nouveau Roman, c'est tout de suite plus curieux. J'avais l'habitude de faire ça sur Sens Critique, surtout pour les jeux, et j'ai continué depuis.</p>
   <p>Pour chaque liste, 10 titres au maximum, sans classement, et la garantie d'une sélection à la main, sans algorithme ni publicité mensongère. Et si vous avez des idées de listes sympas, <a href="/contact">n'hésitez pas à me les soumettre.</a></p>
 
+  <button on:click={randomList}>Une liste au hasard !</button>
+
   {#if session}
   <form method="POST" action="?/insert" use:enhance>
 
@@ -57,6 +69,14 @@
   {/if}
 
   <div id="container">
+
+    <div class="collapsible">
+      <input id="collapsible2" type="checkbox" name="collapsible2">
+      <label for="collapsible2" id="icon">Filtrer par type d'oeuvre</label>
+      <div class="collapsible-body">
+        <CollectionFilter categories={itemTypes} bind:selectedCategories={selectedTypes}/>
+      </div>
+    </div>
 
     <div class="collapsible">
       <input id="collapsible" type="checkbox" name="collapsible">
