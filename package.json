@@ -30,6 +30,7 @@
 		"vite": "^7.0.4"
 	},
 	"dependencies": {
+		"@rodrigodagostino/svelte-sortable-list": "^2.1.9",
 		"@supabase/ssr": "^0.6.1",
 		"@supabase/supabase-js": "^2.53.0",
 		"chart.js": "^4.5.0",
