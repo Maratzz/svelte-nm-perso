@@ -1,63 +1,41 @@
-<script>
-  import { SortableList, sortItems } from "@rodrigodagostino/svelte-sortable-list"
+<script lang="ts">
+  import Tier from "./Tier.svelte"
 
-  //we want basic sections everytime by default, with name and colors
-  let tiers = [{
-    name: "Top",
-    color: "64, 255, 64",
-    content: []
-  },
-  { name: "Dope",
-    color: "207, 255, 64",
-    content: []
-  },
-  { name: "Bof",
-    color: "255, 188, 64",
-    content: []
-  },
-  {
-    name: "Nope",
-    color: "255, 77, 64",
-    content: []
-  }]
+  let tiers = $state([
+    { id: 1, label: "Top", color: "#00FF00"},
+    { id: 2, label: "Yop", color: "#AAFF00"},
+    { id: 3, label: "Bof", color: "#FFAA00"},
+    { id: 4, label: "Nope", color: "#F55C3D"}
+  ])
 
-  //we want to be able to add sections manually if needed
-  const addTier = (newName, newColor) => {
-    let newTier = { name: newName, color: newColor}
+  let newLabel: string = $state("")
+  let newColor: string = $state("")
+  $inspect(newColor)
+
+  const addNewTier = () => {
+    let newTier = { id: tiers. length + 1, label: newLabel, color: newColor}
     tiers.push(newTier)
-    return newTier
   }
 </script>
 
-<section>
-  {#each tiers as tier}
-    <div class="tier">
-      <div class="tier-label" style="background-color: rgb({tier.color});">{tier.name}</div>
-      {#if tier.content.length}
-        <ul class="tier-content">{tier.content}</ul>
-      {:else}
-        <ul class="tier-content">Drop content here</ul>
-      {/if}
-    </div>
-  {/each}
+<section id="tierlist">
+{#each tiers as tier}
+  <Tier tierName={tier.label} tierID={tier.id} --color={tier.color}/>
+{/each}
+
+<fieldset class="addTier">
+   <input type="text" id="newLabel" placeholder="new tier" bind:value={newLabel}>
+  <input type="color" id="newColor" placeholder="new color" bind:value={newColor}>
+  <button onclick={() => addNewTier()}>Add Tier</button>
+</fieldset>
+
 </section>
 
-<SortableList.Root>
-  
-</SortableList.Root>
-
 <style>
-  .tier {
-    border: 1px solid black;
-    width: 100%;
-    height: 100px;
+  .addTier {
     display: flex;
-    flex-flow: row nowrap;
-  }
-
-  .tier-label {
-    flex-basis: 25%;
-    align-content: center;
-    text-align: center;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
   }
 </style>

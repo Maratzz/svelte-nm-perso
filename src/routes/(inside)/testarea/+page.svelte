@@ -1,30 +1,39 @@
 <script lang="ts">
-  import { SortableList, sortItems, scaleFly } from '@rodrigodagostino/svelte-sortable-list'
+  import { dndzone } from "svelte-dnd-action"
+  import { flip } from "svelte/animate"
   import TierList from "$lib/components/TierList.svelte"
-  import ItemPool from '$lib/components/ItemPool.svelte'
 
-  export let data
+  let { data } = $props()
   let collection = data.collection
-  let collectionFiltered = collection.filter(item => item.date_released >= "2025-01-01" && item.item_type === "film" && item.status === "finished")
+  let collectionFiltered = $derived(collection.filter(item => item.date_released >= "2025-01-01" && item.item_type === "film" && item.status === "finished"))
 
-  function handleDragEnd(e: SortableList.RootEvents['ondragend']) {
-		const { draggedItemIndex, targetItemIndex, isCanceled } = e;
-		if (!isCanceled && typeof targetItemIndex === 'number' && draggedItemIndex !== targetItemIndex)
-			collectionFiltered = sortItems(collectionFiltered, draggedItemIndex, targetItemIndex);
-	}
+  const flipDurationMs = 300;
+
+  function handleDndConsider(e: any) {
+    collectionFiltered = e.detail.items;
+  }
+  function handleDndFinalize(e: any) {
+    collectionFiltered = e.detail.items;
+  }
 
 </script>
 
 <div>
   <h1>Tier List</h1>
-  <TierList/>
+  <div use:dndzone="{{items: []}}" onconsider="{handleDndConsider}" onfinalize="{handleDndFinalize}">
+    <TierList />
+  </div>
 
-  <!-- <div class="itemPool">
-    {#each collectionFiltered as item}
-      <img src={item.cover} alt="" class="item">
+  <div class="pool" id="pool" use:dndzone="{{items: collectionFiltered}}" onconsider="{handleDndConsider}" onfinalize="{handleDndFinalize}">
+    {#each collectionFiltered as item(item.id)}
+      <img src={item.cover} alt="" style="width: 120px;" animate:flip="{{duration: flipDurationMs}}">
     {/each}
-  </div> -->
-
-  <ItemPool itemPool={collectionFiltered}/>
+  </div>
 </div>
 
+<style>
+  .pool {
+    display: flex;
+    flex-flow: row wrap;
+  }
+</style>
