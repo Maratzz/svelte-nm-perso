@@ -1,14 +1,19 @@
 <script lang="ts">
+  import ItemTier from "./ItemTier.svelte";
+  let { tierName, tierItems } : { tierName: string, tierItems: any[] } = $props()
 
-  let { tierName, tierID } : { tierName: string, tierID: number} = $props()
-
-  const flipDurationMs = 200
+  let itemsDropped: any[] = tierItems ?? []
+  console.log("items présents dans la tier :", itemsDropped)
 
 </script>
 
-<div class="tier" id="tier-{tierID}">
+<div class="tier">
   <div class="tier-label">{tierName}</div>
-  <div class="tier-content"></div>
+  <div class="tier-content">
+    {#each tierItems as item}
+    <ItemTier {item} />
+    {/each}
+  </div>
 </div>
 
 <style lang="scss">
@@ -28,8 +33,12 @@
       font-size: 1.2em;
     }
     &-content {
+      padding: 10px;
       flex-basis: 80%;
       background-color: #FFFFFF;
+      display: flex;
+      flex-flow: row wrap;
+      gap: 10px;
     }
   }
 </style>

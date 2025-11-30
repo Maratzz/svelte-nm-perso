@@ -25,6 +25,8 @@
     }
   })
 
+  $: is_tierlist = false
+
   // controls the page and items-per-page components
   let currentPage = 1
   let pageSize = 12
@@ -63,6 +65,15 @@
     <FormData query="new_description" query_name="Description"/>
     <FormDatalist query="new_type" query_name="Type" items={itemTypes}/>
     <FormDatalist query="new_theme" query_name="Sujet" items={listesThemes}/>
+    <fieldset class="form-group">
+      <label for="is_tierlist" class="paper-switch-label">
+        Tierlist ?
+      </label>
+      <label class="paper-switch">
+        <input id="is_tierlist" name="is_tierlist" type="checkbox" bind:checked={is_tierlist}/>
+        <span class="paper-switch-slider round"></span>
+      </label>
+  </fieldset>
 
     <button type="submit">Créer la liste</button>
   </form>

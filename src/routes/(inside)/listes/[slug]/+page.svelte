@@ -5,12 +5,13 @@
   import full_image from "$lib/assets/homepage/full_image.webp"
   import AlerteContexte from "$lib/components/AlerteContexte.svelte"
   import { invalidateAll } from "$app/navigation"
+  import TierList from "$lib/components/TierList.svelte"
 
   export let data
 
   $: ({ liste, session, collection, supabase } = data)
-  $: targetList = liste[0]
-  $: itemsInCollection = liste[0].collection
+  //$: targetList = liste[0]
+  //$: itemsInCollection = liste[0].collection
 
   $: deleteItem = async ( element, liste ) => {
     let listeSlug = await liste.slug
@@ -31,39 +32,42 @@
 </script>
 
 <HeadSEO
-  title="Nico Moisson | {targetList.name}"
-  description="{targetList.description}"
+  title="Nico Moisson | {liste.name}"
+  description="{liste.description}"
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
   imageURL={full_image}
 />
 
 <div>
-  <h1>{targetList.name}</h1>
-  <p>{targetList.description}</p>
-  <p class="info-small"><a href="/listes">Revenir à toutes les listes</a></p>
+  <h1>{liste.name}</h1>
+  <p>{liste.description}</p>
+  <p class="info-small">
+    <a href="/listes">Revenir à toutes les listes</a>
+  </p>
 
-  {#if session}
+  <TierList tierSection={liste.tiers}/>
 
-  <form method="POST" action="?/insert" use:enhance>
-    <label for="item_to_add">Ajouter une oeuvre</label>
-    <input list="item_to_add" name="item_to_add" required>
-    <datalist id="item_to_add">
-      {#each collection as item}
-      <option value={item.slug}></option>
-      {/each}
-    </datalist>
-    <button type="submit">Ajouter à la liste</button>
-  </form>
+<!--   {#if session}
+    <form method="POST" action="?/insert" use:enhance>
+      <label for="item_to_add">Ajouter une oeuvre</label>
+      <input list="item_to_add" name="item_to_add" required>
+      <datalist id="item_to_add">
+        {#each collection as item}
+        <option value={item.slug}></option>
+        {/each}
+      </datalist>
+      <button type="submit">Ajouter à la liste</button>
+    </form>
 
-  {#if itemsInCollection.length >= 10}
-  <AlerteContexte content="La liste est pleine, swap les oeuvres"/>
-  {/if}
+    {#if itemsInCollection.length >= 10}
+    <AlerteContexte content="La liste est pleine, swap les oeuvres"/>
+    {/if}
 
-  {/if}
+  {/if} -->
 </div>
 
-<div class="container">
+<!-- <div class="container">
   {#key itemsInCollection}
   {#each itemsInCollection as item}
   <div class="item">
@@ -74,10 +78,10 @@
   </div>
   {/each}
   {/key}
-</div>
+</div> -->
 
 <style lang="scss">
-  .container {
+  /* .container {
     display: flex;
     position: relative;
     flex-flow: row wrap;
@@ -100,5 +104,5 @@
       justify-content: center;
       align-items: center;
     }
-  }
+  } */
 </style>

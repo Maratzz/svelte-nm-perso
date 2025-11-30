@@ -12,6 +12,7 @@ export const actions = {
     const newType = form.get( "new_type" )
     const newTheme = form.get( "new_theme")
     const newSlug = await slugify(newName)
+    const isTierlist = await form.get("is_tierlist")
 
     if ( !session ) {
       redirect(303, "/")
@@ -26,7 +27,8 @@ export const actions = {
             name: newName,
             description: newDescription,
             type: newType,
-            theme: newTheme
+            theme: newTheme,
+            is_tierlist: isTierlist
           }
         ])
         .select()

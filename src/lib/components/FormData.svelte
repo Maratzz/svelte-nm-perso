@@ -7,7 +7,7 @@
 </script>
 
 <label for={query}>{query_name}</label>
-<input 
+<input
   {type}
   name={query}
   id={query}

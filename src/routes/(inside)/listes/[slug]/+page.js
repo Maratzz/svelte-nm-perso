@@ -4,11 +4,20 @@ export async function load({ params, parent }) {
   let slug = params.slug
 
   let { data: liste } = await supabase
-    .from("lists")
-    .select(`*,
-      collection ( id, name, slug, cover, item_type )
-      `)
+    .from("tier_lists")
+    .select(`
+      *,
+      tiers:tiers (
+        *,
+        tier_items:tier_items (
+          *,
+          collection:collection (slug, cover, name, id, item_type)
+        )
+      )
+    `)
     .eq("slug", slug)
+    .single()
+  console.log("liste: ", liste)
 
   let { data: collection } = await supabase
     .from("collection")
