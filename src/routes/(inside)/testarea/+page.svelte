@@ -6,10 +6,9 @@
   let { data } = $props()
   let tierlist = $state(data.tierlist[0])
   console.log(tierlist)
-
 </script>
 
 <div>
   <h1>Tier List</h1>
-  <TierList tierlistName={tierlist.name} tierSection={tierlist.tiers}/>
+  <TierList tierlistName={tierlist.name} tierSection={tierlist.tiers} tierlistID={tierlist.id}/>
 </div>

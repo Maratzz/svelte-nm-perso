@@ -10,9 +10,8 @@
   export let data
 
   $: ({ liste, session, collection, supabase } = data)
-  //$: targetList = liste[0]
-  //$: itemsInCollection = liste[0].collection
 
+  //TODO: rework this func to delete items in the tiers
   $: deleteItem = async ( element, liste ) => {
     let listeSlug = await liste.slug
     try {
@@ -46,63 +45,15 @@
     <a href="/listes">Revenir à toutes les listes</a>
   </p>
 
-  <TierList tierSection={liste.tiers}/>
+  <TierList tierSection={liste.tiers} tierlistID={liste.id}/>
 
-<!--   {#if session}
-    <form method="POST" action="?/insert" use:enhance>
-      <label for="item_to_add">Ajouter une oeuvre</label>
-      <input list="item_to_add" name="item_to_add" required>
-      <datalist id="item_to_add">
-        {#each collection as item}
-        <option value={item.slug}></option>
-        {/each}
-      </datalist>
-      <button type="submit">Ajouter à la liste</button>
-    </form>
-
-    {#if itemsInCollection.length >= 10}
-    <AlerteContexte content="La liste est pleine, swap les oeuvres"/>
-    {/if}
-
-  {/if} -->
+  {#if session}
+  <form action="?/insertNewTier" method="POST" use:enhance>
+    <input type="text" name="tier_to_add" required placeholder="ajouter un label">
+    <input type="color" name="color_for_new_tier" required>
+    <input type="number" name="tier_order" required>
+    <input type="number" name="tierlist" value={liste.id}>
+    <button type="submit">Ajouter le tier</button>
+  </form>
+  {/if}
 </div>
-
-<!-- <div class="container">
-  {#key itemsInCollection}
-  {#each itemsInCollection as item}
-  <div class="item">
-    <CultureItemPreview {item} />
-    {#if session}
-      <button on:click={() => deleteItem( item, targetList )} class="btn-danger">X</button>
-    {/if}
-  </div>
-  {/each}
-  {/key}
-</div> -->
-
-<style lang="scss">
-  /* .container {
-    display: flex;
-    position: relative;
-    flex-flow: row wrap;
-    gap: 30px;
-    justify-content: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
-  }
-
-  .item {
-    position: relative;
-    button {
-      position: absolute;
-      top: -10px;
-      right: -10px;
-      width: 15px;
-      height: 15px;
-      border-radius: 25px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  } */
-</style>

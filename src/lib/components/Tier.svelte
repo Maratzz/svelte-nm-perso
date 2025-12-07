@@ -1,15 +1,12 @@
 <script lang="ts">
-  import ItemTier from "./ItemTier.svelte";
-  let { tierName, tierItems } : { tierName: string, tierItems: any[] } = $props()
+  import ItemTier from "./ItemTier.svelte"
 
-  let itemsDropped: any[] = tierItems ?? []
-  console.log("items présents dans la tier :", itemsDropped)
-
+  let { tierName, tierItems, tierID } : { tierName: string, tierItems: any[], tierID: number } = $props()
 </script>
 
 <div class="tier">
   <div class="tier-label">{tierName}</div>
-  <div class="tier-content">
+  <div class="tier-content" data-tier-id={tierID}>
     {#each tierItems as item}
     <ItemTier {item} />
     {/each}

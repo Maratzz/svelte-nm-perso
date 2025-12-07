@@ -16,17 +16,19 @@ export async function load({ params, parent }) {
       )
     `)
     .eq("slug", slug)
+    //syntax from Supabase JS API to order items nested in a referenced table
+    .order("order", { referencedTable: "tiers", ascending: true })
     .single()
-  console.log("liste: ", liste)
 
+  //TODO: check if this is still used
   let { data: collection } = await supabase
     .from("collection")
     .select("name, slug")
 
-    return {
-      liste: liste ?? [],
-      collection: collection ?? [],
-      supabase,
-      session
-    }
+  return {
+    liste: liste ?? [],
+    collection: collection ?? [],
+    supabase,
+    session
+  }
 }
