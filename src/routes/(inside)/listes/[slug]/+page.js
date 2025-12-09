@@ -11,7 +11,7 @@ export async function load({ params, parent }) {
         *,
         tier_items:tier_items (
           *,
-          collection:collection (slug, cover, name, id, item_type)
+          collection:item_id (slug, cover, name, id, item_type)
         )
       )
     `)
@@ -20,14 +20,8 @@ export async function load({ params, parent }) {
     .order("order", { referencedTable: "tiers", ascending: true })
     .single()
 
-  //TODO: check if this is still used
-  let { data: collection } = await supabase
-    .from("collection")
-    .select("name, slug")
-
   return {
     liste: liste ?? [],
-    collection: collection ?? [],
     supabase,
     session
   }

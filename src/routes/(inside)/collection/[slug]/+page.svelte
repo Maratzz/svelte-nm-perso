@@ -11,12 +11,7 @@
 
   export let data
 
-  $: ({ item, lists, allLists, session } = data)
-  $: itemLists = lists[0].lists
-  $: innerList = []
-  $: itemLists.forEach(list => 
-    innerList.push( list )
-  )
+  $: ({ item, tierlists, session } = data)
 
   let handleClick = ( item ) => {
     goto(item.path)
@@ -80,31 +75,22 @@
   </div>
   {/if}
 
-  {#if session}
-  <form method="POST" action="?/addToList" use:enhance>
-    <FormDatalist query="new_list" query_name="Nouvelle liste" items={allLists}/>
-    <button type="submit">Ajouter à une liste</button>
-  </form>
-  {/if}
-
   <TextPreview itemName={item.name} {handleClick}/>
 
   {#if item.notes}
     <p class="notes">{item.notes}</p>
   {/if}
 
-  {#key innerList}
-  {#if innerList.length}
+  {#if tierlists.length}
     <div class="liste">
-      <p>Dans {innerList.length <= 1 ? 'la liste suivante' : 'les listes suivantes'}:</p>
+      <p>Dans {tierlists.length <= 1 ? 'la liste suivante' : 'les listes suivantes'}:</p>
       <ul>
-        {#each innerList as list (list.name)}
+        {#each tierlists as list (list.name)}
         <li><a href="/listes/{list.slug}">{list.name}</a></li>
         {/each}
       </ul>
     </div>
   {/if}
-  {/key}
 
 </div>
 

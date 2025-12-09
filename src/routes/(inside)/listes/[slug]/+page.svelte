@@ -45,7 +45,7 @@
     <a href="/listes">Revenir à toutes les listes</a>
   </p>
 
-  <TierList tierSection={liste.tiers} tierlistID={liste.id}/>
+  <TierList tierSection={liste.tiers} tierlistID={liste.id} {supabase} {session}/>
 
   {#if session}
   <form action="?/insertNewTier" method="POST" use:enhance>

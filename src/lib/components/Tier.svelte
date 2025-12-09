@@ -1,14 +1,14 @@
 <script lang="ts">
   import ItemTier from "./ItemTier.svelte"
 
-  let { tierName, tierItems, tierID } : { tierName: string, tierItems: any[], tierID: number } = $props()
+  let { tierName, tierItems, tierID, supabase, session } : { tierName: string, tierItems: any[], tierID: number, supabase: any, session: any } = $props()
 </script>
 
 <div class="tier">
   <div class="tier-label">{tierName}</div>
   <div class="tier-content" data-tier-id={tierID}>
     {#each tierItems as item}
-    <ItemTier {item} />
+    <ItemTier {item} {supabase} {session}/>
     {/each}
   </div>
 </div>
