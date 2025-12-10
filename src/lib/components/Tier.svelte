@@ -1,15 +1,38 @@
-<script lang="ts">
-  import ItemTier from "./ItemTier.svelte"
+<script>
+  import {flip} from "svelte/animate"
+  import {dndzone} from "svelte-dnd-action"
 
-  let { tierName, tierItems, tierID, supabase, session } : { tierName: string, tierItems: any[], tierID: number, supabase: any, session: any } = $props()
+  let { tier, items } = $props()
+  $inspect(tier)
+
+  const flipDurationMs = 300
+  function handleDndConsider(e) {
+    items = e.detail.items
+  }
+  function handleDndFinalize(e) {
+    items = e.detail.items
+  }
 </script>
 
 <div class="tier">
-  <div class="tier-label">{tierName}</div>
-  <div class="tier-content" data-tier-id={tierID}>
-    {#each tierItems as item}
-    <ItemTier {item} {supabase} {session}/>
+  <div class="tier-label">{tier.name}</div>
+  <div
+    id={tier.id}
+    class="tier-content"
+    use:dndzone="{{items, flipDurationMs}}"
+    onconsider={handleDndConsider}
+    onfinalize={handleDndFinalize}>
+    {#each items as item(item.id)}
+      <div
+        id={item.collection.id}
+        class="tier-item"
+        animate:flip="{{duration: flipDurationMs}}">
+        <a href="/collection/{item.collection.slug}">
+          <img src={item.collection.cover} alt="Affiche du {item.collection.item_type} {item.collection.name}" >
+        </a>
+      </div>
     {/each}
+
   </div>
 </div>
 
@@ -36,6 +59,12 @@
       display: flex;
       flex-flow: row wrap;
       gap: 10px;
+    }
+    &-item img{
+      width: 90px;
+     aspect-ratio: 3/4;
+     position: relative;
+     object-fit: cover;
     }
   }
 </style>

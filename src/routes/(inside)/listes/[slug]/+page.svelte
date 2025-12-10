@@ -1,51 +1,39 @@
 <script>
   import { enhance } from "$app/forms"
-  import HeadSEO from "$lib/components/HeadSEO.svelte"
-  import CultureItemPreview from "$lib/components/CultureItemPreview.svelte"
-  import full_image from "$lib/assets/homepage/full_image.webp"
-  import AlerteContexte from "$lib/components/AlerteContexte.svelte"
   import { invalidateAll } from "$app/navigation"
+  import Tier from "$lib/components/Tier.svelte"
+
+  import HeadSEO from "$lib/components/HeadSEO.svelte"
+  import full_image from "$lib/assets/homepage/full_image.webp"
   import TierList from "$lib/components/TierList.svelte"
 
-  export let data
-
-  $: ({ liste, session, collection, supabase } = data)
-
-  //TODO: rework this func to delete items in the tiers
-  $: deleteItem = async ( element, liste ) => {
-    let listeSlug = await liste.slug
-    try {
-      const { data, error } = await supabase
-        .from("collection_lists_m2m")
-        .delete()
-        .match({ collection_slug: element.slug, list_slug: listeSlug })
-      if ( error ) {
-        throw error
-      }
-    } catch ( error ) {
-      console.warn( error | error.message )
-    } finally {
-      invalidateAll()
-    }
-  }
+  let { data } = $props()
+  let { liste, session, supabase } = $state(data)
+  let temporaryList = $state(liste)
 </script>
 
 <HeadSEO
-  title="Nico Moisson | {liste.name}"
-  description="{liste.description}"
+  title="Nico Moisson | {temporaryList.name}"
+  description={temporaryList.description}
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
   imageURL={full_image}
 />
 
 <div>
-  <h1>{liste.name}</h1>
-  <p>{liste.description}</p>
+  <h1>{temporaryList.name}</h1>
+  <p>{temporaryList.description}</p>
   <p class="info-small">
     <a href="/listes">Revenir à toutes les listes</a>
   </p>
 
-  <TierList tierSection={liste.tiers} tierlistID={liste.id} {supabase} {session}/>
+  <section class="tierlist">
+    <!-- all the tiers -->
+    {#each temporaryList.tiers as tier (tier.id) }
+      <!-- svelte-dnd needs items to be isolated so I use a component to hold them -->
+      <Tier {tier} items={tier.tier_items} --color={tier.color}/>
+    {/each}
+  </section>
 
   {#if session}
   <form action="?/insertNewTier" method="POST" use:enhance>

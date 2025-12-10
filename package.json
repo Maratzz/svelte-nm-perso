@@ -30,7 +30,6 @@
 		"vite": "^7.0.4"
 	},
 	"dependencies": {
-		"@rodrigodagostino/svelte-sortable-list": "^2.1.9",
 		"@supabase/ssr": "^0.6.1",
 		"@supabase/supabase-js": "^2.53.0",
 		"chart.js": "^4.5.0",
@@ -38,6 +37,7 @@
 		"gsap": "^3.13.0",
 		"papercss": "^1.9.2",
 		"sveaflet": "^0.1.4",
+		"svelte-dnd-action": "^0.9.68",
 		"svelte-french-toast": "^2.0.0-alpha.0",
 		"svelte-paginate": "^0.1.0"
 	}
