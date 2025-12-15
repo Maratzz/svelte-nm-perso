@@ -5,7 +5,6 @@
 
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import full_image from "$lib/assets/homepage/full_image.webp"
-  import TierList from "$lib/components/TierList.svelte"
 
   let { data } = $props()
   let { liste, session, supabase } = $state(data)
