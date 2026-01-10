@@ -4,7 +4,7 @@
 
   export let data;
 
-  let { date, title, content, headline, categories, image } = data
+  let { date, title, content, headline, categories, image, items } = data
 </script>
 
 <HeadSEO 
@@ -21,6 +21,7 @@
   <h1>{title}</h1>
   <p>Publié le {formatDate( date )} dans {categories.length === 1 ? "la catégorie" : "les catégories"}{#each categories as category}<span class="category">{category}</span>{/each}</p>
   <svelte:component this={content} />
+  <svelte:component this={items} />
 </article>
 
 

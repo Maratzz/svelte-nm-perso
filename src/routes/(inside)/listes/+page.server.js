@@ -20,7 +20,7 @@ export const actions = {
 
     try {
       const {newForm, error } = await supabase
-        .from("lists")
+        .from("tier_lists")
         .insert([
           {
             slug: newSlug,

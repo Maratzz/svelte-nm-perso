@@ -2,15 +2,16 @@
   import {flip} from "svelte/animate"
   import {dndzone} from "svelte-dnd-action"
 
-  let { tier, items } = $props()
-  $inspect(tier)
+  let { tier, items, onUpdateItems } = $props()
 
   const flipDurationMs = 300
+
   function handleDndConsider(e) {
     items = e.detail.items
   }
   function handleDndFinalize(e) {
     items = e.detail.items
+    onUpdateItems(items)
   }
 </script>
 
@@ -60,11 +61,11 @@
       flex-flow: row wrap;
       gap: 10px;
     }
-    &-item img{
+    &-item img {
       width: 90px;
-     aspect-ratio: 3/4;
-     position: relative;
-     object-fit: cover;
+      aspect-ratio: 3/4;
+      position: relative;
+      object-fit: cover;
     }
   }
 </style>
