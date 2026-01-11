@@ -38,27 +38,28 @@
 </div>
 
 <style lang="scss">
+  .tier, .tier-content {
+    display: flex;
+  }
+
   .tier {
     width: 100%;
     min-height: 120px;
     height: fit-content;
     border: 1px solid black;
-    display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
     margin-bottom: 10px;
     &-label {
-      flex-basis: 20%;
       background-color: var(--color);
-      align-content: center;
+      padding: 15px 0;
       text-align: center;
       font-size: 1.2em;
     }
     &-content {
-      padding: 10px;
-      flex-basis: 80%;
+      padding: 20px 10px;
       background-color: #FFFFFF;
-      display: flex;
       flex-flow: row wrap;
+      justify-content: center;
       gap: 10px;
     }
     &-item img {
