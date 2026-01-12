@@ -13,8 +13,10 @@
   let itemsToSort = $state([])
   let itemType = $state("")
   let itemTag = $state("")
-  let dateStarted = $state("")
-  let dateFinished = $state("")
+  let itemName = $state("")
+  let yearReleased = $state("")
+  let dateFinishedStart = $state("")
+  let dateFinishedEnd = $state("")
 
   let flipDurationMs = 300
 
@@ -42,8 +44,11 @@
 
     if (itemType) { query = query.eq("item_type", itemType) }
     if (itemTag) { query = query.contains("tags", [itemTag])}
-    if (dateStarted) { query = query.gte("date_started", dateStarted) }
-    if (dateFinished) { query = query.lte("date_finished", dateFinished) }
+    if (dateFinishedStart) { query = query.gte("date_finished", dateFinishedStart) }
+    if (dateFinishedEnd) { query = query.lte("date_finished", dateFinishedEnd) }
+    if (itemName) { query = query.ilike("name", `%${itemName}%`)}
+    if (yearReleased) { query = query.gte("date_released", `${yearReleased}-01-01`)}
+    if (yearReleased) { query = query.lte("date_released", `${yearReleased}-12-31`)}
     const { data, error } = await query
 
     if (error) {
@@ -62,7 +67,6 @@
   async function saveTierList() {
     const updates = temporaryList.tiers.flatMap(tier =>
       tier.tier_items.map(item => ({
-        id: item.id,
         tier_id: tier.id,
         item_id: item.collection.id,
       }))
@@ -118,11 +122,18 @@
     <form method="GET" onsubmit={fetchItems} id="fetchItemsforTriage">
       <p>Items to sort</p>
       <div>
-        <input type="date" bind:value={dateStarted} placeholder="date_started"/>
-        <input type="date" bind:value={dateFinished} placeholder="date_finished"/>
+        <label>date_finished début
+          <input type="date" bind:value={dateFinishedStart} placeholder="date_finished_start"/>
+        </label>
+        <label>date_finished fin
+          <input type="date" bind:value={dateFinishedEnd} placeholder="date_finished"/>
+        </label>
       </div>
-      <label for="">
+      <label>
         <input list="type" bind:value={itemType} placeholder="item_type" size="15"/>
+      </label>
+      <label>
+        <input list="type" bind:value={yearReleased} placeholder="year_released" size="15"/>
       </label>
       <datalist id="type">
         <option value="film"></option>
@@ -133,9 +144,8 @@
         <option value="BD"></option>
         <option value="série"></option>
       </datalist>
-      <label for="">
-        <input type="text" bind:value={itemTag}>
-      </label>
+      <input type="text" bind:value={itemTag} placeholder="tags">
+      <input type="text" bind:value={itemName} placeholder="name">
       <button type="submit">Chercher des objets</button>
     </form>
 
@@ -161,7 +171,7 @@
     <input type="text" name="tier_to_add" required placeholder="ajouter un label">
     <input type="color" name="color_for_new_tier" required>
     <input type="number" name="tier_order" required>
-    <input type="number" name="tierlist" value={liste.id}>
+    <input type="hidden" name="tierlist" value={liste.id}>
     <button type="submit">Ajouter le tier</button>
   </form>
   {/if}
@@ -175,10 +185,20 @@
     margin-top: 15px;
     gap: 10px;
     border: 1px solid black;
+    position: relative;
     &-items img {
       width: 100px;
       aspect-ratio: 3/4;
       object-fit: cover;
+    }
+  }
+
+  @media (min-width: 900px) {
+    .sorting-container {
+      position: fixed;
+      top: 150px;
+      right: 30px;
+      width: 450px;
     }
   }
 

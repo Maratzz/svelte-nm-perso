@@ -91,7 +91,7 @@
     #footer-tournesol-right, #footer-tournesol-left {
       display: none;
     }
-    
+
     #footer-tournesol {
       &-middle {
         left: 0;

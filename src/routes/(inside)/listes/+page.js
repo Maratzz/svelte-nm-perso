@@ -4,7 +4,7 @@ export async function load({ parent }) {
   let { data: listes } = await supabase
   .from("tier_lists")
   .select("*")
-  .order("name")
+  .order("year", { ascending: false})
 
   let { data : listes_themes } = await supabase
   .from("lists_theme")

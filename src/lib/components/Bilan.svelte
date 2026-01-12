@@ -10,7 +10,7 @@
       .from("collection")
       .select("*")
       .eq("item_type", type)
-      .gte("date_started", `${year}-01-01`)
+      .gte("date_finished", `${year}-01-01`)
       .lte("date_finished", `${year}-12-31`)
       .order("date_started", { ascending: true })
     items = data || []
@@ -26,12 +26,10 @@
         <img src={approved} alt="Tampon qui approuve l'oeuvre" class="stamp border no-border">
       {:else if item.is_approved === (false)}
         <img src={rejected} alt="Tampon qui désapprouve l'oeuvre" class="stamp border no-border">
-      {:else}
-         <!-- else content here -->
       {/if}
       <a href="/collection/{item.slug}"><img src={item.cover} alt="Illustration pour l'oeuvre {item.name}" class="image"></a>
       <div>
-        <p style="font-size: 25px;">{item.name} ({item.date_released.slice(0,4)})</p>
+        <h2>{item.name} ({item.date_released.slice(0,4)})</h2>
         <p>par {item.author}</p>
       </div>
     </div>
@@ -49,37 +47,46 @@
   .container, .container-info {
     display: flex;
   }
+
   .container {
     flex-direction: column;
     margin-bottom: 35px;
     background-color: #fffffff6;
     border-radius: 25px;
     padding: 10px 15px;
+    width: 100%;
     &-info {
       flex-direction: row;
-      gap: 25px;
+      gap: 10px;
       position: relative;
+      h2 {
+        margin: 0;
+      }
       .stamp {
         position: absolute;
-        right: -40px;
+        right: -25px;
         top: 10px;
-        height: 130px;
+        height: 80px;
         transform: rotate(15deg);
       }
       div {
         flex-basis: 80%;
       }
       .image {
-        height: 150px;
+        width: 150px;
         aspect-ratio: 3/4;
         object-fit: cover;
-        //flex-basis: 15%;
       }
-      
     }
   }
 
   .notes {
     white-space: pre-wrap;
+  }
+
+  @media (min-width: 900px) {
+    .container-info .stamp {
+      height: 100px;
+    }
   }
 </style>

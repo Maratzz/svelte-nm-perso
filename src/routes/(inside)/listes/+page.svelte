@@ -54,7 +54,8 @@
   <h1>Listes</h1>
 
   <p>J'adore faire des listes pour tout et n'importe quoi, avec des critères de sélection qui sortent des sentiers battus. Faire un top des jeux comme Zelda, c'est classique, mais faire un top des jeux Nouveau Roman, c'est tout de suite plus curieux. J'avais l'habitude de faire ça sur Sens Critique, surtout pour les jeux, et j'ai continué depuis.</p>
-  <p>Pour chaque liste, 10 titres au maximum, sans classement, et la garantie d'une sélection à la main, sans algorithme ni publicité mensongère. Et si vous avez des idées de listes sympas, <a href="/contact">n'hésitez pas à me les soumettre.</a></p>
+  <p>À côté des listes thématiques de 10 éléments sans classement (📝), il y a aussi des tierlists (🗃️), qui sont ordonnées dans un ordre purement arbitraire et subjectif, est-ce nécessaire de le rappeler.</p>
+  <p>Si vous avez des idées de listes sympas, <a href="/contact">n'hésitez pas à me les soumettre.</a></p>
 
   <button on:click={randomList}>Une liste au hasard !</button>
 
@@ -65,6 +66,7 @@
     <FormData query="new_description" query_name="Description"/>
     <FormDatalist query="new_type" query_name="Type" items={itemTypes}/>
     <FormDatalist query="new_theme" query_name="Sujet" items={listesThemes}/>
+    <FormData query="new_year" query_name="Année"/>
     <fieldset class="form-group">
       <label for="is_tierlist" class="paper-switch-label">
         Tierlist ?
@@ -101,9 +103,14 @@
 
   {#key currentPage, paginatedItems}
   <div class="flex-lists" in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
-    {#each paginatedItems as liste ( liste.id )}
-    <a href="/listes/{liste.slug}" class="border border-{randomNumber(1, 5)}">{liste.name}</a>
-    {/each}
+    {#if paginatedItems.length}
+      {#each paginatedItems as liste ( liste.id )}
+      <a href="/listes/{liste.slug}" class="border border-{randomNumber(1, 5)}">{liste.is_tierlist === (true) ? "🗃️" : "📝"} {liste.name}</a>
+      {/each}
+    {:else}
+      <p>Aucune liste ne correspond à ces critères. Essaie avec d'autres options !</p>
+    {/if}
+
   </div>
   {/key}
 
