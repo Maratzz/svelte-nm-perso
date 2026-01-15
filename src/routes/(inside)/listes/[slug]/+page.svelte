@@ -17,6 +17,8 @@
   let yearReleased = $state("")
   let dateFinishedStart = $state("")
   let dateFinishedEnd = $state("")
+  let itemAuthor = $state("")
+  let hiddenTags = $state("")
 
   let flipDurationMs = 300
 
@@ -43,12 +45,14 @@
       .select("*")
 
     if (itemType) { query = query.eq("item_type", itemType) }
-    if (itemTag) { query = query.contains("tags", [itemTag])}
+    if (itemTag) { query = query.contains("tags", [itemTag]) }
     if (dateFinishedStart) { query = query.gte("date_finished", dateFinishedStart) }
     if (dateFinishedEnd) { query = query.lte("date_finished", dateFinishedEnd) }
-    if (itemName) { query = query.ilike("name", `%${itemName}%`)}
-    if (yearReleased) { query = query.gte("date_released", `${yearReleased}-01-01`)}
-    if (yearReleased) { query = query.lte("date_released", `${yearReleased}-12-31`)}
+    if (itemName) { query = query.ilike("name", `%${itemName}%`) }
+    if (yearReleased) { query = query.gte("date_released", `${yearReleased}-01-01`) }
+    if (yearReleased) { query = query.lte("date_released", `${yearReleased}-12-31`) }
+    if (itemAuthor) { query = query.contains("author", [author]) }
+    if (hiddenTags) { query = query.contains("hidden_tags", [hiddenTags])}
     const { data, error } = await query
 
     if (error) {
@@ -145,7 +149,9 @@
         <option value="série"></option>
       </datalist>
       <input type="text" bind:value={itemTag} placeholder="tags">
+      <input type="text" bind:value={hiddenTags} placeholder="hidden tags">
       <input type="text" bind:value={itemName} placeholder="name">
+      <input type="text" bind:value={itemAuthor} placeholder="author">
       <button type="submit">Chercher des objets</button>
     </form>
 
