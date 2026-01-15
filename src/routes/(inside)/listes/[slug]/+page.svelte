@@ -51,7 +51,7 @@
     if (itemName) { query = query.ilike("name", `%${itemName}%`) }
     if (yearReleased) { query = query.gte("date_released", `${yearReleased}-01-01`) }
     if (yearReleased) { query = query.lte("date_released", `${yearReleased}-12-31`) }
-    if (itemAuthor) { query = query.contains("author", [author]) }
+    if (itemAuthor) { query = query.contains("author", [itemAuthor]) }
     if (hiddenTags) { query = query.contains("hidden_tags", [hiddenTags])}
     const { data, error } = await query
 
