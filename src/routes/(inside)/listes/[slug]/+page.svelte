@@ -10,6 +10,7 @@
   let { data } = $props()
   let { liste, session, supabase } = $derived(data)
   let temporaryList = $derived(liste)
+  $inspect(temporaryList)
   let itemsToSort = $state([])
   let itemType = $state("")
   let itemTag = $state("")
@@ -71,10 +72,13 @@
   async function saveTierList() {
     const updates = temporaryList.tiers.flatMap(tier =>
       tier.tier_items.map(item => ({
+        id: item.id,
         tier_id: tier.id,
-        item_id: item.collection.id,
+        item_id: item.item_id ?? item.collection.id,
       }))
     )
+
+    console.log("updates:", updates)
 
     for (const update of updates) {
       const { error } = await supabase
