@@ -13,10 +13,14 @@ export const actions = {
     const newTheme = form.get( "new_theme")
     const newSlug = await slugify(newName)
     const isTierlist = await form.get("is_tierlist")
-    const newYear = await form.get("new_year")
+    let newYear = await form.get("new_year")
 
     if ( !session ) {
       redirect(303, "/")
+    }
+
+    if ( !newYear ) {
+      newYear = null
     }
 
     try {
@@ -30,7 +34,7 @@ export const actions = {
             type: newType,
             theme: newTheme,
             is_tierlist: isTierlist,
-            year: newYear ?? null
+            year: newYear
           }
         ])
         .select()

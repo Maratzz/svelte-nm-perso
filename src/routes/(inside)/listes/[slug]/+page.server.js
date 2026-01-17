@@ -72,5 +72,34 @@ export const actions = {
       console.log( error || error.message)
       return error
     }
+  },
+
+    insertDefaultTiers: async ({ request, locals: { supabase, safeGetSession }}) => {
+    const session = await safeGetSession()
+    const form = await request.formData()
+
+    const tierlistID = form.get("tierlist")
+
+    const defaultTiers = [
+      { tier_list_id: tierlistID, order: "10", color: "#8FF0A4", name: "top" },
+      { tier_list_id: tierlistID, order: "20", color: "#F9F06B", name: "okay" },
+      { tier_list_id: tierlistID, order: "30", color: "#FFBE6F", name: "bof" },
+      { tier_list_id: tierlistID, order: "40", color: "#F66151", name: "caca" }
+    ]
+
+    if ( !session ) {
+      redirect(303, "/connexion")
+    }
+
+    for ( const tier of defaultTiers ) {
+      const { error } = await supabase
+        .from("tiers")
+        .insert(tier)
+
+      if ( error ) {
+        console.error("erreur dans la création des tiers par défaut:", error)
+        alert("erreur:", error)
+      }
+    }
   }
 }

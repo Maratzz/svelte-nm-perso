@@ -1,16 +1,15 @@
 <script>
   import { enhance } from "$app/forms"
   import { invalidateAll } from "$app/navigation"
-  import Tier from "$lib/components/Tier.svelte"
+  import { dndzone } from "svelte-dnd-action"
 
+  import Tier from "$lib/components/Tier.svelte"
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import full_image from "$lib/assets/homepage/full_image.webp"
-    import { dndzone } from "svelte-dnd-action";
 
   let { data } = $props()
   let { liste, session, supabase } = $derived(data)
   let temporaryList = $derived(liste)
-  $inspect(temporaryList)
   let itemsToSort = $state([])
   let itemType = $state("")
   let itemTag = $state("")
@@ -70,28 +69,38 @@
 
   //we send to supabase the updated tierlist
   async function saveTierList() {
-    const updates = temporaryList.tiers.flatMap(tier =>
-      tier.tier_items.map(item => ({
-        id: item.id,
-        tier_id: tier.id,
-        item_id: item.item_id ?? item.collection.id,
-      }))
-    )
+    const existingUpdates = []
+    const newUpdates = []
+    temporaryList.tiers.forEach(tier => {
+      tier.tier_items.forEach(item => {
+        if (item.item_id) {
+          existingUpdates.push({
+            id: item.id,
+            tier_id: tier.id,
+            item_id: item.item_id
+          })
+        } else {
+          newUpdates.push({
+            //no id so supabase generates new ones
+            tier_id: tier.id,
+            item_id: item.collection.id
+          })
+        }
+      })
+    })
 
-    console.log("updates:", updates)
-
-    for (const update of updates) {
+    //upsert existing items
+    for (const update of existingUpdates) {
       const { error } = await supabase
-        .from('tier_items')
-        .upsert({
-          id: update.id,
-          tier_id: update.tier_id,
-          item_id: update.item_id,
-        });
+        .from("tier_items")
+        .upsert(update)
+    }
 
-      if (error) {
-        console.error('Error updating item:', error);
-      }
+    //insert new items
+    for (const update of newUpdates) {
+      const { error } = await supabase
+        .from("tier_items")
+        .insert(update)
     }
 
     alert('Tier list saved successfully!');
@@ -151,6 +160,7 @@
         <option value="anime"></option>
         <option value="BD"></option>
         <option value="série"></option>
+        <option value="série d'animation"></option>
       </datalist>
       <input type="text" bind:value={itemTag} placeholder="tags">
       <input type="text" bind:value={hiddenTags} placeholder="hidden tags">
@@ -178,11 +188,12 @@
   </div>
 
   <form action="?/insertNewTier" method="POST" use:enhance>
-    <input type="text" name="tier_to_add" required placeholder="ajouter un label">
-    <input type="color" name="color_for_new_tier" required>
-    <input type="number" name="tier_order" required>
+    <input type="text" name="tier_to_add" placeholder="ajouter un label">
+    <input type="color" name="color_for_new_tier">
+    <input type="number" name="tier_order">
     <input type="hidden" name="tierlist" value={liste.id}>
     <button type="submit">Ajouter le tier</button>
+    <button formaction="?/insertDefaultTiers">Ajouter les tiers par défaut</button>
   </form>
   {/if}
 </div>
@@ -206,9 +217,12 @@
   @media (min-width: 900px) {
     .sorting-container {
       position: fixed;
-      top: 150px;
+      top: 100px;
       right: 30px;
       width: 450px;
+      max-height: 80vh;
+      overflow-y: auto;
+      z-index: 100;
     }
   }
 
