@@ -41,18 +41,18 @@
   <div id="item-info">
 
     <div id="item-info__image">
-      <img src={item.cover} alt="Affiche {item.item_type === "BD" || item.item_type === "série" ? 'de la' : 'du'} {item.item_type} {item.name}">
+      <img src={item.cover} alt="Affiche {item.item_type === "BD" || item.item_type === "série" || item.item_type === "série d'animation" ? 'de la' : 'du'} {item.item_type} {item.name}">
     </div>
 
     <div id="item-info__data">
       <h1>{item.name}</h1>
       <p class="info-small">
-        {#if item.item_type === "BD" | item.item_type === "série"}
+        {#if item.item_type === "BD" || item.item_type === "série" || item.item_type === "série d'animation"}
           Une{:else}Un{/if} {item.item_type} de
           {#each item.author as author, index}
             <a href="artiste/{slugify(author)}" on:click={() => localStorage.setItem("authorName", author)}>{author}</a>{#if index < item.author.length - 1}{', '}{/if}
           {/each},
-        {#if item.item_type === "BD" | item.item_type === "série"}
+        {#if item.item_type === "BD" || item.item_type === "série" || item.item_type === "série d'animation"}
           sortie{:else}sorti{/if} le {formatDate( item.date_released )}
       </p>
       <p class="info-small"><b>Status:</b> <CultureItemStatus {item} {formatDate}/></p>
