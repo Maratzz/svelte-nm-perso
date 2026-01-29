@@ -12,7 +12,7 @@ export const actions = {
     const newType = form.get( "new_type" )
     const newTheme = form.get( "new_theme")
     const newSlug = await slugify(newName)
-    const isTierlist = await form.get("is_tierlist")
+    const isTierlist = await form.get("is_tierlist") !== null
     let newYear = await form.get("new_year")
 
     if ( !session ) {
