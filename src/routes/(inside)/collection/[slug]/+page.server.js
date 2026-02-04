@@ -42,7 +42,9 @@ export const actions = {
     let updatedStatus = form.get( "item_status" )
     let updatedNotes = form.get( "item_notes" )
     let updatedTags = form.get( "item_tags" )
+    let updatedAuthors = form.get( "item_author" )
     let tags
+    let authors = updatedAuthors.split( "," )
 
     let dateNow = Date.now()
     let ISOdateNow = new Date(dateNow).toISOString()
@@ -76,7 +78,8 @@ export const actions = {
             status: updatedStatus,
             notes: updatedNotes,
             date_updated: ISOdateNow,
-            tags: tags
+            tags: tags,
+            author: authors
           }
         ])
         .eq("slug", itemSlug)

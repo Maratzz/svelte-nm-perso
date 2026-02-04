@@ -127,7 +127,7 @@
     {#key temporaryList}
     {#each temporaryList.tiers as tier (tier.id) }
       <!-- svelte-dnd needs items to be isolated so I use a component to hold them -->
-      <Tier {tier} items={tier.tier_items} --color={tier.color} onUpdateItems={(newItems) => updateTierItems(tier.id, newItems)}/>
+      <Tier {tier} items={tier.tier_items} --color={tier.color} isTierlist={temporaryList.is_tierlist} onUpdateItems={(newItems) => updateTierItems(tier.id, newItems)}/>
     {/each}
     {/key}
   </section>
@@ -200,13 +200,18 @@
 
 <style lang="scss">
   .sorting-container {
+    position: fixed;
+    bottom: 0;
     display: flex;
     flex-flow: row wrap;
-    min-height: 120px;
-    margin-top: 15px;
+    justify-content: space-evenly;
     gap: 10px;
+    max-height: 340px;
+    max-width: 90vw;
+    overflow: auto;
+    z-index: 5;
+    background-color: rgb(213, 187, 238);
     border: 1px solid black;
-    position: relative;
     &-items img {
       width: 100px;
       aspect-ratio: 3/4;
@@ -219,10 +224,8 @@
       position: fixed;
       top: 100px;
       right: 30px;
-      width: 450px;
+      max-width: 350px;
       max-height: 80vh;
-      overflow-y: auto;
-      z-index: 100;
     }
   }
 

@@ -32,7 +32,7 @@ draft: published
 - Un contrat salarié dans le cinéma du quartier, qui continue en 2026. C'est une activité qui me plaît, qui mélange essentiellement tout ce que j'aime: l'implication dans le tissu social et culturel local, une grande autonomie dans le travail au sein d'une équipe très sympathique et des horaires souples qui me laissent du temps à côté pour poursuivre mes autres activités.
 
 
-- Des escapades à Londres, en Ecosse, à Saint-Nazaire: ma petite soeur qui s'épanouit, Edimburgh qui nous sourit, les munros qui nous accueillent avec le soleil et puis la pluie, et des sous-marins et des chantiers qui passent d'une échelle à une autre. Et toujours Oriane, partenaire de jeu, de marche, d'enjeux, de charme, avec qui les kilomètres se partagent autant dans les pieds que dans les pensées tricotées ensemble.
+- Des escapades à Londres, en Ecosse, au mont Saint-Michel, à Saint-Nazaire: ma petite soeur qui s'épanouit, Edimburgh qui nous sourit, les munros qui nous accueillent avec le soleil et puis la pluie, les marées, les bancs de sables, et des sous-marins et des chantiers qui passent d'une échelle à une autre. Et toujours Oriane, partenaire de jeu, de marche, d'enjeux, de charme, avec qui les kilomètres se partagent autant dans les pieds que dans les pensées tricotées ensemble.
 
 ![Une photo d'Oriane qui prend une photo elle aussi, sur le sommet du Meall nan Tarmachan (1043m)](/blog/ecosse.webp)
 

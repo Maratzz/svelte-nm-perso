@@ -24,6 +24,8 @@
 
   <FormData query="item_tags" query_name="Tags" value={item.tags ?? null}/>
 
+  <FormData query="item_author" query_name="Author(s)" value={item.author ?? null}/>
+
   <button type="submit">Mettre à jour</button>
 
 </form>

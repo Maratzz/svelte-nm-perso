@@ -16,16 +16,6 @@
   let handleClick = ( item ) => {
     goto(item.path)
   }
-
-  onMount(() => {
-    if ( session ) {
-      const modalEdit = document.getElementById("modalEdit")
-      const modalOpenButton = document.getElementById("openModal")
-      modalOpenButton.addEventListener("click", () => {
-        modalEdit.style.visibility = "visible"
-      })
-    }
-  })
 </script>
 
 <HeadSEO 
@@ -57,22 +47,23 @@
       </p>
       <p class="info-small"><b>Status:</b> <CultureItemStatus {item} {formatDate}/></p>
       {#if item.tags}
-      <div>
-        {#each item.tags as tag}
-          <span>{tag}</span>
-        {/each}
-      </div>
-      {/if}
-      {#if session}
-      <button id="openModal">Editer</button>
+        <div>
+          {#each item.tags as tag}
+            <span>{tag}</span>
+          {/each}
+        </div>
       {/if}
     </div>
   </div>
 
   {#if session}
-  <div id="modalEdit" class="border border-1">
-    <FormItemUpdate {item} />
-  </div>
+    <div class="collapsible">
+      <input type="checkbox" id="collapsible3" name="collapsible3">
+      <label for="collapsible3">Editing</label>
+      <div class="collapsible-body">
+        <FormItemUpdate {item} />
+      </div>
+    </div>
   {/if}
 
   <TextPreview itemName={item.name} {handleClick}/>
@@ -135,17 +126,6 @@
 
   .info-small {
     margin-top: 0;
-  }
-
-  #modalEdit {
-    visibility: hidden;
-    position: absolute;
-    top: 100px;
-    left: 10px;
-    padding: 15px 45px;
-    z-index: 10;
-    background-color: white;
-    transition: all .3s ease-in-out;
   }
 
   // handle break lines in supabase to avoid big chunk of text

@@ -13,6 +13,7 @@
   ✅
   {#if item.item_type === "film"}Vu
   {:else if item.item_type === "série" || item.item_type === "série d'animation"}Regardée
+  {:else if item.item_type === "anime"}Regardé
   {:else if item.item_type === "livre" || item.item_type === "manga"}Lu
   {:else if item.item_type === "BD"}Lue
   {:else}Joué{/if} 
