@@ -3,13 +3,13 @@ export async function load({ parent }) {
 
   let { data : collection } = await supabase
     .from("collection")
-    .select("*")
-    .order("date_created", { ascending: true })
-  
-    let { data : status } = await supabase
-      .from("culture_item_status")
-      .select("name,converted")
-      .order("id", {ascending: true})
+    .select("item_type,date_released,date_finished,status")
+    .order("date_created", { ascending: false })
+
+  let { data : status } = await supabase
+    .from("culture_item_status")
+    .select("name,converted")
+    .order("id", {ascending: true})
 
   return {
     collection: collection ?? [],
