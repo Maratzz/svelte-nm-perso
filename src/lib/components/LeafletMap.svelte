@@ -8,6 +8,7 @@
   import icone_boutique from "$lib/assets/icons/shopping.svg"
   import icone_culture from "$lib/assets/icons/culture.svg"
   import icone_star from "$lib/assets/icons/star.svg"
+  import icone_cemetery from "$lib/assets/icons/cemetery.svg"
 
   let { souvenirs } = $props()
   let flipped = $state(false)
@@ -26,14 +27,13 @@
           attribution: `© contributeur·rice·s <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>`
         }}
       />
-      {#each souvenirs as souvenir}
+      {#each souvenirs as souvenir (souvenir.id)}
       <Marker latLng={souvenir.latLng} >
         {#if souvenir.type === "médaille"}
           <Icon options={{
                   iconUrl: icone_medaille,
                   popupAnchor: [15, 5],
-                  iconSize: [25, 25],
-                  popupAnchor: [0, -5] }}
+                  iconSize: [25, 25] }}
           />
         {:else if souvenir.type === "penny"}
           <Icon options={{
@@ -71,7 +71,14 @@
                   iconSize: [30, 30],
                   popupAnchor: [0, -5] }}
           />
+        {:else if souvenir.type === "cimetiere"}
+          <Icon options={{
+                  iconUrl: icone_cemetery,
+                  iconSize: [30, 30],
+                  popupAnchor: [0, -5] }}
+          />
         {/if}
+
         <Popup>
           <div class="popup" >
             {#if souvenir.image_recto !== null}
@@ -106,7 +113,7 @@
               {#if souvenir.people !== null}
                 <p><i>avec {formatArray(souvenir.people)}</i></p>
               {/if}
-              {#if souvenir.tagline !== (null || "")}
+              {#if souvenir.tagline !== "" || souvenir.tagline !== null}
                 <p>{souvenir.tagline}</p>
               {/if}
               <p class="long">{souvenir.notes}</p>
