@@ -106,7 +106,7 @@
   <div class="flex-lists" in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
     {#if paginatedItems.length}
       {#each paginatedItems as liste ( liste.id )}
-      <a href={resolve("/listes/{liste.slug}")} class="border border-{randomNumber(1, 5)}">{liste.is_tierlist === (true) ? "🗃️" : "📝"} {liste.name}</a>
+      <a href={resolve(`/listes/${liste.slug}`)} class="border border-{randomNumber(1, 5)}">{liste.is_tierlist === (true) ? "🗃️" : "📝"} {liste.name}</a>
       {/each}
     {:else}
       <p>Aucune liste ne correspond à ces critères. Essaie avec d'autres options !</p>
