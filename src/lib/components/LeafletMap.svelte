@@ -9,6 +9,7 @@
   import icone_culture from "$lib/assets/icons/culture.svg"
   import icone_star from "$lib/assets/icons/star.svg"
   import icone_cemetery from "$lib/assets/icons/cemetery.svg"
+  import icone_boulangerie from "$lib/assets/icons/croissant.svg"
 
   let { souvenirs } = $props()
   let flipped = $state(false)
@@ -32,7 +33,7 @@
         {#if souvenir.type === "médaille"}
           <Icon options={{
                   iconUrl: icone_medaille,
-                  popupAnchor: [15, 5],
+                  popupAnchor: [0, -5],
                   iconSize: [25, 25] }}
           />
         {:else if souvenir.type === "penny"}
@@ -74,6 +75,12 @@
         {:else if souvenir.type === "cimetiere"}
           <Icon options={{
                   iconUrl: icone_cemetery,
+                  iconSize: [30, 30],
+                  popupAnchor: [0, -5] }}
+          />
+        {:else if souvenir.type === "boulangerie"}
+          <Icon options={{
+                  iconUrl: icone_boulangerie,
                   iconSize: [30, 30],
                   popupAnchor: [0, -5] }}
           />

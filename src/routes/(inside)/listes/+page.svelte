@@ -1,6 +1,7 @@
 <script>
   import { enhance } from '$app/forms'
   import { goto } from '$app/navigation'
+  import { resolve } from '$app/paths'
   import { fade } from "svelte/transition"
   import { paginate, LightPaginationNav } from "svelte-paginate"
   import { randomNumber } from "$lib/utils/index.js"
@@ -37,7 +38,7 @@
     const maxID = Math.max(...listes.map(list => list.id))
     const randomID = Math.floor(Math.random() * maxID) + 1
     const selectedList = listes.find(list => list.id === randomID)
-    goto(`/listes/${selectedList.slug}`)
+    goto(resolve(`/listes/${selectedList.slug}`))
   }
 </script>
 
@@ -55,7 +56,7 @@
 
   <p>J'adore faire des listes pour tout et n'importe quoi, avec des critères de sélection qui sortent des sentiers battus. Faire un top des jeux comme Zelda, c'est classique, mais faire un top des jeux Nouveau Roman, c'est tout de suite plus curieux. J'avais l'habitude de faire ça sur Sens Critique, surtout pour les jeux, et j'ai continué depuis.</p>
   <p>À côté des listes thématiques de 10 éléments sans classement (📝), il y a aussi des tierlists (🗃️), qui sont ordonnées dans un ordre purement arbitraire et subjectif, est-ce nécessaire de le rappeler.</p>
-  <p>Si vous avez des idées de listes sympas, <a href="/contact">n'hésitez pas à me les soumettre.</a></p>
+  <p>Si vous avez des idées de listes sympas, <a href={resolve("/contact")}>n'hésitez pas à me les soumettre.</a></p>
 
   <button on:click={randomList}>Une liste au hasard !</button>
 
@@ -105,7 +106,7 @@
   <div class="flex-lists" in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
     {#if paginatedItems.length}
       {#each paginatedItems as liste ( liste.id )}
-      <a href="/listes/{liste.slug}" class="border border-{randomNumber(1, 5)}">{liste.is_tierlist === (true) ? "🗃️" : "📝"} {liste.name}</a>
+      <a href={resolve("/listes/{liste.slug}")} class="border border-{randomNumber(1, 5)}">{liste.is_tierlist === (true) ? "🗃️" : "📝"} {liste.name}</a>
       {/each}
     {:else}
       <p>Aucune liste ne correspond à ces critères. Essaie avec d'autres options !</p>
