@@ -100,7 +100,7 @@
       <label for="item_type">Type</label>
       <input list="item_type" name="item_type" size="13" value={form?.data?.newItemType ?? ""}>
       <datalist id="item_type">
-        {#each types as type}
+        {#each types as type (type.id)}
         <option value={type.name}></option>
         {/each}
       </datalist>
@@ -110,7 +110,7 @@
       <label for="item_platform">Plateforme</label>
       <input list="item_platform" name="item_platform" size="13">
       <datalist id="item_platform">
-        {#each categories as category}
+        {#each categories as category (category.id)}
         <option value={category.name}></option>
         {/each}
       </datalist>
@@ -120,7 +120,7 @@
       <label for="item_game_platform">Périphérique</label>
       <input list="item_game_platform" name="item_game_platform" size="13">
       <datalist id="item_game_platform">
-        {#each gamePlatforms as gamePlatform}
+        {#each gamePlatforms as gamePlatform (gamePlatform.id)}
         <option value={gamePlatform.name}></option>
         {/each}
       </datalist>
@@ -130,7 +130,7 @@
       <label for="item_status">Status</label>
       <input list="item_status" name="item_status" size="13">
       <datalist id="item_status">
-        {#each status as state}
+        {#each status as state (state.id)}
           <option value={state.name}></option>
         {/each}
       </datalist>
@@ -140,6 +140,14 @@
 
   <div>
     <FormData type="text" query="item_tags" query_name="Tags" value="" size="15"/>
+  </div>
+
+  <div id="is_approved">
+    <label for="is_approved">Approuvé ?</label>
+    <input type="radio" name="is_approved" id="is_approved_true" value="TRUE" />
+    <label for="is_approved_true">✅</label>
+    <input type="radio" name="is_approved" id="is_approved_false" value="FALSE" />
+    <label for="is_approved_false">❌</label>
   </div>
 
   <div class="form-inside-notes">
@@ -212,5 +220,12 @@
   #api_selection {
     gap: 10px;
     margin: 0 auto;
+  }
+
+  #is_approved {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 15px;
   }
 </style>

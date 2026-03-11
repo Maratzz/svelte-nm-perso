@@ -1,20 +1,20 @@
 <script>
-  import { enhance } from "$app/forms"
-  import { onMount } from "svelte"
   import { goto } from "$app/navigation"
+  import { resolve } from "$app/paths"
   import { formatDate, slugify } from "$lib/utils/index.js"
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import CultureItemStatus from "$lib/components/CultureItemStatus.svelte"
-  import FormDatalist from "$lib/components/FormDatalist.svelte"
   import FormItemUpdate from "$lib/components/FormItemUpdate.svelte"
   import TextPreview from "$lib/components/TextPreview.svelte"
+  import approved from "$lib/assets/icons/approved.png"
+  import rejected from "$lib/assets/icons/rejected.png"
 
   export let data
 
   $: ({ item, tierlists, session } = data)
 
   let handleClick = ( item ) => {
-    goto(item.path)
+    goto(resolve(item.path))
   }
 </script>
 
@@ -40,7 +40,7 @@
         {#if item.item_type === "BD" || item.item_type === "série" || item.item_type === "série d'animation"}
           Une{:else}Un{/if} {item.item_type} de
           {#each item.author as author, index}
-            <a href="artiste/{slugify(author)}" on:click={() => localStorage.setItem("authorName", author)}>{author}</a>{#if index < item.author.length - 1}{', '}{/if}
+            <a href={resolve(`/collection/artiste/${slugify(author)}`)} on:click={() => localStorage.setItem("authorName", author)}>{author}</a>{#if index < item.author.length - 1}{', '}{/if}
           {/each},
         {#if item.item_type === "BD" || item.item_type === "série" || item.item_type === "série d'animation"}
           sortie{:else}sorti{/if} le {formatDate( item.date_released )}
@@ -72,12 +72,20 @@
     <p class="notes">{item.notes}</p>
   {/if}
 
+  {#if item.is_approved !== null}
+    {#if item.is_approved}
+      <img src={approved} alt="Tampon approuvé sur l'oeuvre" class="stamp border no-border">
+    {:else}
+      <img src={rejected} alt="Tampon rejeté sur l'oeuvre" class="stamp border no-border">
+    {/if}
+  {/if}
+
   {#if tierlists.length}
     <div class="liste">
       <p>Dans {tierlists.length <= 1 ? 'la liste suivante' : 'les listes suivantes'}:</p>
       <ul>
         {#each tierlists as list (list.name)}
-        <li><a href="/listes/{list.slug}">{list.name}</a></li>
+        <li><a href={resolve(`/listes/${list.slug}`)}>{list.name}</a></li>
         {/each}
       </ul>
     </div>
@@ -116,6 +124,12 @@
       background-color: $color;
       font-size: 0.8em;
     }
+  }
+
+  .stamp {
+    width: 80px;
+    height: auto;
+    transform: rotate(25deg);
   }
 
   h1 {

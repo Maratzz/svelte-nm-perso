@@ -43,6 +43,7 @@ export const actions = {
     let updatedNotes = form.get( "item_notes" )
     let updatedTags = form.get( "item_tags" )
     let updatedAuthors = form.get( "item_author" )
+    let isApproved = form.get("is_approved") ?? null
     let tags
     let authors = updatedAuthors.split( "," )
 
@@ -79,7 +80,8 @@ export const actions = {
             notes: updatedNotes,
             date_updated: ISOdateNow,
             tags: tags,
-            author: authors
+            author: authors,
+            is_approved: isApproved
           }
         ])
         .eq("slug", itemSlug)

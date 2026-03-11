@@ -27,6 +27,7 @@ export const actions = {
     const newAuthor = form.get( "item_author" )
     const newNotes = form.get( "item_notes" )
     const newTags = form.get( "item_tags" )
+    let isApproved = form.get("is_approved") ?? null
     let tags
     let authors
 
@@ -87,7 +88,8 @@ export const actions = {
             notes: newNotes,
             item_type: newItemType,
             original_name: newOriginalName,
-            tags: tags
+            tags: tags,
+            is_approved: isApproved
           }
         ])
         .select()
