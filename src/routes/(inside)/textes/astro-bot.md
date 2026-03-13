@@ -93,7 +93,7 @@ Et de se rabattre finalement sur la technique,
 
 Il y a dans l’exécution et la construction du jeu quelque chose qui relève de la dystopie. Les niveaux sont tous méticuleux et sans friction, les cachettes sont exactement là où on les imagine, et les boss doivent être touchés très exactement trois fois avant de disparaître dans une grande fanfare. À peine le temps de s’approprier une idée que la suivante la remplace, car il faut aller vite, vite, vite. Tout avance à mille à l’heure, tout le monde danse et chante. Tous les thèmes sont là : il y a le niveau de neige, puis celui de feu, puis le casino, et puis même les parcs d’attraction qui empruntent au Japon, à l’Égypte ou aux civilisations mésoaméricaines, à peine des décors, tout juste du tourisme visuel et musical. Dans tous les cas, une gêne certaine et un orientalisme qui fait tâche. Mais c’est déjà oublié, car il faut passer à la suite.
 
-Plus de trois cent robots à récupérer, et des pièces de puzzle en veux-tu en voilà, et les mêmes quinze situations qui se répètent en boucle, tels des briques élémentaires qu’on recycle.  
+Plus de trois cent robots à récupérer, et des pièces de puzzle en veux-tu en voilà, et les mêmes quinze situations qui se répètent en boucle, telles des briques élémentaires qu’on recycle.  
 D’abord une zone d’arrivée,  
 &nbsp;&nbsp;et puis le pouvoir du niveau en cours,  
 &nbsp;&nbsp;&nbsp;&nbsp;et puis une falaise à escalader,  
