@@ -32,6 +32,8 @@
 
   <FormData query="item_tags" query_name="Tags" value={item.tags ?? null}/>
 
+  <FormData query="item_hidden_tags" query_name="Hidden tags" value={item.hidden_tags ?? null}/>
+
   <FormData query="item_author" query_name="Author(s)" value={item.author ?? null}/>
 
   <button type="submit">Mettre à jour</button>

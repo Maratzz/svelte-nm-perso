@@ -142,6 +142,10 @@
     <FormData type="text" query="item_tags" query_name="Tags" value="" size="15"/>
   </div>
 
+  <div>
+    <FormData type="text" query="item_hidden_tags" query_name="Hidden Tags" value="" size="15"/>
+  </div>
+
   <div id="is_approved">
     <label for="is_approved">Approuvé ?</label>
     <input type="radio" name="is_approved" id="is_approved_true" value="TRUE" />

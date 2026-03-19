@@ -42,9 +42,11 @@ export const actions = {
     let updatedStatus = form.get( "item_status" )
     let updatedNotes = form.get( "item_notes" )
     let updatedTags = form.get( "item_tags" )
+    let updatedHiddenTags = form.get( "item_hidden_tags" )
     let updatedAuthors = form.get( "item_author" )
     let isApproved = form.get("is_approved") ?? null
     let tags
+    let hidden_tags
     let authors = updatedAuthors.split( "," )
 
     let dateNow = Date.now()
@@ -67,6 +69,11 @@ export const actions = {
     } else {
       tags = updatedTags.split( "," )
     }
+    if ( !updatedHiddenTags) {
+      hidden_tags = null
+    } else {
+      hidden_tags = updatedHiddenTags.split( "," )
+    }
 
     try {
       const { newForm, error } = await supabase
@@ -80,6 +87,7 @@ export const actions = {
             notes: updatedNotes,
             date_updated: ISOdateNow,
             tags: tags,
+            hidden_tags: hidden_tags,
             author: authors,
             is_approved: isApproved
           }
