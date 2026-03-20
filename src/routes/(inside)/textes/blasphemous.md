@@ -109,11 +109,11 @@ Stop, ou encore ? Combien d’exemples encore de la culture chrétienne, montré
 
 Continuons, continuons. Jocinero, le chérubin qui nous demande de trouver ses frères disséminés dans la région de Cvstodia, apparaît dans le revers onirique d’un immense tableau qui prend à lui tout seul une salle entière d’une zone muséale, rempli de statues, tableaux et autres objets d’art. Côté pile, une toile composée d’un taureau qui nous regarde de face, avec la pleine lune derrière lui. L’animal est entouré de chérubins. On comprend, à un niveau ludique, qu’il s’agit du lieu, et peut-être du personnage, associé à la quête des petits anges trouvés ici et là.
 
-![Portrait du Pape Innocent X, Diego Valazquez (1650)](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Retrato_del_Papa_Inocencio_X._Roma,_by_Diego_Vel%C3%A1zquez.jpg/800px-Retrato_del_Papa_Inocencio_X._Roma,_by_Diego_Vel%C3%A1zquez.jpg)
+![Portrait du Pape Innocent X, Diego Velazquez (1650)](https://uploads5.wikiart.org/00142/images/diego-velazquez/portrait-of-pope-innocent-x.jpg!Large.jpg)
 
 Il y a un deuxième niveau cependant, celui qui renvoie encore et toujours à la critique de la religion. Pour cela, il faut entrer dans le tableau. Là, en lieu et place du taureau, se tient Jocinero, le corps ensanglanté. Il vient d’émerger de la carcasse de la bête, qui est coupée en deux, de part et d’autre du personnage. Les morceaux sont disposés de telle façon qu’on les méprendrait pour les ailes sanguinolentes de l’ange.
 
-![Figure with Meat (Francis Bacon, 1954)](https://www.artic.edu/iiif/2/024d361d-31d1-e53b-cca0-ee14f822347f/full/843,/0/default.jpg)
+![Figure with Meat (Francis Bacon, 1954)](https://uploads0.wikiart.org/images/francis-bacon/figure-with-meat-1954(1).jpg!Large.jpg)
 
 La disposition n’est pas anodine. Elle renvoie au tableau _Figure with Meat_ de Francis Bacon, et ce simple renvoi enclenche la machine à remonter le temps et l’art. _Blasphemous_ reprend le tableau du peintre anglais, tout comme Bacon avait fait en 1954 en reprenant le tableau de Velásquez, le _Portrait d’Innocent X_, peint en 1650.
 
