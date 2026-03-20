@@ -9,6 +9,8 @@
   🎒 dans le sac depuis le {formatDate(item.date_acquired)}
 {:else if item.status === "currently playing"}
   🔁 en cours depuis le {formatDate(item.date_started)}
+{:else if item.status === "paused"}
+  ⏸️ en pause, commencé le {formatDate(item.date_started)}
 {:else if item.status === "finished"}
   ✅
   {#if item.item_type === "film"}Vu
