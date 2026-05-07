@@ -108,7 +108,7 @@
 </script>
 
 <HeadSEO
-  title="{temporaryList.name}| Nico Moisson"
+  title="{temporaryList.name} | Nico Moisson"
   description={temporaryList.description === "" ? "Une liste d'œuvres triées avec le plus grand soin": temporaryList.description}
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
