@@ -7,8 +7,6 @@ date: 2018-10-15
 categories:
   - poésie
   - textes
-draft: draft
-type: default
 ---
 
 <script>
