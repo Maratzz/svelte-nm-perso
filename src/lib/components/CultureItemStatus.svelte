@@ -9,10 +9,13 @@
   🎒 dans le sac depuis le {formatDate(item.date_acquired)}
 {:else if item.status === "currently playing"}
   🔁 en cours depuis le {formatDate(item.date_started)}
+{:else if item.status === "paused"}
+  ⏸️ en pause, commencé le {formatDate(item.date_started)}
 {:else if item.status === "finished"}
   ✅
   {#if item.item_type === "film"}Vu
-  {:else if item.item_type === "série"}Vue
+  {:else if item.item_type === "série" || item.item_type === "série d'animation"}Regardée
+  {:else if item.item_type === "anime"}Regardé
   {:else if item.item_type === "livre" || item.item_type === "manga"}Lu
   {:else if item.item_type === "BD"}Lue
   {:else}Joué{/if} 
@@ -38,5 +41,5 @@
   {/if}
 
 {:else if item.status === "flushed"}
-  💩 {#if item.item_type === "BD" || item.item_type === "série"}abandonnée{:else}abandonné{/if} {item.date_finished ? `le ${formatDate(item.date_finished)}` : "il y a un certain temps"}
+  💩 {#if item.item_type === "BD" || item.item_type === "série" || item.item_type === "série d'animation"}abandonnée{:else}abandonné{/if} {item.date_finished ? `le ${formatDate(item.date_finished)}` : "il y a un certain temps"}
 {/if}

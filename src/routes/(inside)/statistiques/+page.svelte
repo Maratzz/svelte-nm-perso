@@ -2,24 +2,29 @@
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import full_image from "$lib/assets/homepage/full_image.webp"
   import CultureItemStats from "$lib/components/CultureItemStats.svelte"
+  import MonthlyCultureStats from "$lib/components/MonthlyCultureStats.svelte"
   import { generateYears, generateDataByYear, generateDataByStatus, generateDataByYearFirstReleased } from "$lib/utils/index.js"
 
   export let data
   let { collection, status } = data
+  //TODO: maybe I can improve the data loading by filtering in page.js the collection for current year instead of doing it in the component
 
   let currentDate = new Date(Date.now())
   let currentYear = currentDate.getFullYear()
-  let DateStart = `${currentYear}-01-01`
+  //nasty hack because .getMonth returns single digit month (1) for February etc and I need double digits for the date (01) wtf
+  let currentMonth = currentDate.toLocaleString("fr-FR").slice(3,5)
+  let dateStart = `${currentYear}-01-01`
+
+  let props = {
+    collection: collection,
+    currentYear: currentYear,
+    dateStart: dateStart,
+    currentMonth: currentMonth
+  }
 
   let films = collection.filter(item => item.item_type === "film")
   let games = collection.filter(item => item.item_type === "jeu vidéo")
   let books = collection.filter(item => item.item_type === "livre")
-
-  let filmSoFar = collection.filter(item => item.item_type === "film" && item.date_started >= DateStart)
-  let gameSoFar = collection.filter(item => item.item_type === "jeu vidéo" && item.date_started >= DateStart)
-  let bookSoFar = collection.filter(item => item.item_type === "livre" && item.date_started >= DateStart)
-  let bdSoFar = collection.filter(item => item.item_type === "BD" && item.date_started >= DateStart)
-  let mangaSoFar = collection.filter(item => item.item_type === "manga" && item.date_started >= DateStart)
 
 </script>
 
@@ -38,13 +43,16 @@
 
   <p>Pour l'année {currentYear} en cours</p>
   <div class="currentYear">
-    <p>🎞️ j'ai vu {filmSoFar.length} {filmSoFar.length === (0 || 1) ? 'film' : 'films'}</p>
-    <p>🎮 j'ai joué à {gameSoFar.length} {gameSoFar.length === (0 || 1) ? 'jeu vidéo' : 'jeux vidéo'}</p>
-    <p>📚 j'ai lu {bookSoFar.length} {bookSoFar.length === (0 || 1) ? 'livre' : 'livres'}</p>
-    <p>📘 j'ai lu {bdSoFar.length} {bdSoFar.length === (0 || 1) ? 'BD' : 'BDs'}</p>
-    <p>📕 j'ai lu {mangaSoFar.length} {mangaSoFar.length === (0 || 1) ? 'manga' : 'mangas'}</p>
-  </div>
 
+    <div class="stats">
+
+      <MonthlyCultureStats {...props} itemType="film" chartName="filmParMois"/>
+      <MonthlyCultureStats {...props} itemType="jeu vidéo" chartName="jeuxParMois"/>
+      <MonthlyCultureStats {...props} itemType="livre" chartName="livresParMois"/>
+      <MonthlyCultureStats {...props} itemType="manga" chartName="mangaParMois"/>
+      <MonthlyCultureStats {...props} itemType="BD" chartName="BDParMois"/>
+    </div>
+  </div>
 
   <div class="collapsible">
     <input type="checkbox" name="collapsible-games" id="collapsible-games">
@@ -116,9 +124,9 @@
     }
   }
 
-  .currentYear {
-    p {
-      line-height: 1;
-    }
+  .stats {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
   }
 </style>

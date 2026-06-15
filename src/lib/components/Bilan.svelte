@@ -5,8 +5,8 @@
 
   let { year, type } = $props()
   let items = $state([])
-  const fetchItems = async (params) => {
-    const { data, error } = await supabase
+  const fetchItems = async () => {
+    const { data } = await supabase
       .from("collection")
       .select("*")
       .eq("item_type", type)
@@ -19,7 +19,7 @@
 </script>
 
 <div>
-  {#each items as item}
+  {#each items as item (item.id)}
   <div class="container">
     <div class="container-info">
       {#if item.is_approved === (true)}

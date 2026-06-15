@@ -11,7 +11,8 @@ export async function load({ fetch, parent }) {
   let { data: collectionLastFinished } = await supabase
   .from("collection")
   .select("name, author, cover, slug")
-  .eq("status", "finished")
+  // postgres syntax to match both filters on status column using OR
+  .or("status.eq.finished,status.eq.flushed")
   .gte("date_finished", "1970-01-01")
   .order("date_finished", { ascending: false })
   .limit(4)

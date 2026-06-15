@@ -58,7 +58,7 @@ export const uploadImageAndgetPublicURL = async (supabase, slug, name, type, cov
 
   try {
     const blob = await fetch(cover).then( res => res.blob())
-    const { data, error } = await supabase.storage.from("collection").upload(slug, blob)
+    const { error } = await supabase.storage.from("collection").upload(slug, blob)
     if ( error ) {
       throw error
     }

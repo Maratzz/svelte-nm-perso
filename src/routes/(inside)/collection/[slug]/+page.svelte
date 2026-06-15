@@ -1,31 +1,21 @@
 <script>
-  import { enhance } from "$app/forms"
-  import { onMount } from "svelte"
   import { goto } from "$app/navigation"
+  import { resolve } from "$app/paths"
   import { formatDate, slugify } from "$lib/utils/index.js"
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import CultureItemStatus from "$lib/components/CultureItemStatus.svelte"
-  import FormDatalist from "$lib/components/FormDatalist.svelte"
   import FormItemUpdate from "$lib/components/FormItemUpdate.svelte"
   import TextPreview from "$lib/components/TextPreview.svelte"
+  import approved from "$lib/assets/icons/approved.png"
+  import rejected from "$lib/assets/icons/rejected.png"
 
   export let data
 
   $: ({ item, tierlists, session } = data)
 
   let handleClick = ( item ) => {
-    goto(item.path)
+    goto(resolve(item.path))
   }
-
-  onMount(() => {
-    if ( session ) {
-      const modalEdit = document.getElementById("modalEdit")
-      const modalOpenButton = document.getElementById("openModal")
-      modalOpenButton.addEventListener("click", () => {
-        modalEdit.style.visibility = "visible"
-      })
-    }
-  })
 </script>
 
 <HeadSEO 
@@ -41,38 +31,39 @@
   <div id="item-info">
 
     <div id="item-info__image">
-      <img src={item.cover} alt="Affiche {item.item_type === "BD" || item.item_type === "série" ? 'de la' : 'du'} {item.item_type} {item.name}">
+      <img src={item.cover} alt="Affiche {item.item_type === "BD" || item.item_type === "série" || item.item_type === "série d'animation" ? 'de la' : 'du'} {item.item_type} {item.name}">
     </div>
 
     <div id="item-info__data">
       <h1>{item.name}</h1>
       <p class="info-small">
-        {#if item.item_type === "BD" | item.item_type === "série"}
+        {#if item.item_type === "BD" || item.item_type === "série" || item.item_type === "série d'animation"}
           Une{:else}Un{/if} {item.item_type} de
           {#each item.author as author, index}
-            <a href="artiste/{slugify(author)}" on:click={() => localStorage.setItem("authorName", author)}>{author}</a>{#if index < item.author.length - 1}{', '}{/if}
+            <a href={resolve(`/collection/artiste/${slugify(author)}`)} on:click={() => localStorage.setItem("authorName", author)}>{author}</a>{#if index < item.author.length - 1}{', '}{/if}
           {/each},
-        {#if item.item_type === "BD" | item.item_type === "série"}
+        {#if item.item_type === "BD" || item.item_type === "série" || item.item_type === "série d'animation"}
           sortie{:else}sorti{/if} le {formatDate( item.date_released )}
       </p>
       <p class="info-small"><b>Status:</b> <CultureItemStatus {item} {formatDate}/></p>
       {#if item.tags}
-      <div>
-        {#each item.tags as tag}
-          <span>{tag}</span>
-        {/each}
-      </div>
-      {/if}
-      {#if session}
-      <button id="openModal">Editer</button>
+        <div>
+          {#each item.tags as tag}
+            <span>{tag}</span>
+          {/each}
+        </div>
       {/if}
     </div>
   </div>
 
   {#if session}
-  <div id="modalEdit" class="border border-1">
-    <FormItemUpdate {item} />
-  </div>
+    <div class="collapsible">
+      <input type="checkbox" id="collapsible3" name="collapsible3">
+      <label for="collapsible3">Editing</label>
+      <div class="collapsible-body">
+        <FormItemUpdate {item} />
+      </div>
+    </div>
   {/if}
 
   <TextPreview itemName={item.name} {handleClick}/>
@@ -81,12 +72,20 @@
     <p class="notes">{item.notes}</p>
   {/if}
 
+  {#if item.is_approved !== null}
+    {#if item.is_approved}
+      <img src={approved} alt="Tampon approuvé sur l'oeuvre" class="stamp border no-border">
+    {:else}
+      <img src={rejected} alt="Tampon rejeté sur l'oeuvre" class="stamp border no-border">
+    {/if}
+  {/if}
+
   {#if tierlists.length}
     <div class="liste">
       <p>Dans {tierlists.length <= 1 ? 'la liste suivante' : 'les listes suivantes'}:</p>
       <ul>
         {#each tierlists as list (list.name)}
-        <li><a href="/listes/{list.slug}">{list.name}</a></li>
+        <li><a href={resolve(`/listes/${list.slug}`)}>{list.name}</a></li>
         {/each}
       </ul>
     </div>
@@ -127,6 +126,12 @@
     }
   }
 
+  .stamp {
+    width: 80px;
+    height: auto;
+    transform: rotate(25deg);
+  }
+
   h1 {
     font-size: 1.2em;
     margin-bottom: 10px;
@@ -135,17 +140,6 @@
 
   .info-small {
     margin-top: 0;
-  }
-
-  #modalEdit {
-    visibility: hidden;
-    position: absolute;
-    top: 100px;
-    left: 10px;
-    padding: 15px 45px;
-    z-index: 10;
-    background-color: white;
-    transition: all .3s ease-in-out;
   }
 
   // handle break lines in supabase to avoid big chunk of text

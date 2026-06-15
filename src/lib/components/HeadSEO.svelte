@@ -1,6 +1,6 @@
 <script>
   import { page } from "$app/stores";
-  
+
   export let title = "";
   export let description = "";
   export let keywords = "";
@@ -51,12 +51,12 @@
   {#if author !== ""}
       <meta name="author" content="{author}" />
   {/if}
-  
+
   <!-- Open Graph Meta Tags -->
   {#if openGraph}
       {#if siteName !== ""}
           <meta property="og:site_name" content="{siteName}">
-      {/if}        
+      {/if}
       {#if title !== ""}
           <meta property="og:url" content="{$page.url}">
           <meta property="og:type" content="website">
@@ -90,4 +90,5 @@
   {#if schemaOrg || socials != [] || logo !== "" || name !== ""}
       {@html jsonLdScript}
   {/if}
+  <meta name="fediverse:creator" content="@maratz_@mastodon.social">
 </svelte:head>

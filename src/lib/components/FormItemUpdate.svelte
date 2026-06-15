@@ -20,9 +20,21 @@
   <FormData query="item_status" query_name="Status" value={item.status}/>
 
   <label for="item_notes">Notes</label>
+
   <textarea name="item_notes" id="item_notes" value={item.notes ?? null}></textarea>
 
+  <div id="is_approved">
+    <input type="radio" name="is_approved" id="is_approved_true" value="TRUE" />
+    <label for="is_approved_true">✅</label>
+    <input type="radio" name="is_approved" id="is_approved_false" value="FALSE" />
+    <label for="is_approved_false">❌</label>
+  </div>
+
   <FormData query="item_tags" query_name="Tags" value={item.tags ?? null}/>
+
+  <FormData query="item_hidden_tags" query_name="Hidden tags" value={item.hidden_tags ?? null}/>
+
+  <FormData query="item_author" query_name="Author(s)" value={item.author ?? null}/>
 
   <button type="submit">Mettre à jour</button>
 
@@ -38,5 +50,10 @@
     font-style: italic;
     display: inline-block;
     margin-top: 10px
+  }
+
+  #is_approved {
+    display: flex;
+    flex-direction: row;
   }
 </style>

@@ -27,6 +27,8 @@
   $: hasNotes = false
   $: noNotesChecked = false
   $: hasTexts = false
+  $: isApproved = false
+  $: isRejected = false
 
   // controls the page and items-per-page components
   let currentPage = 1
@@ -50,7 +52,7 @@
   }
 
   $: filteredData = (search, categories, status, platforms, gamePlatforms, tags, notesChecked, collection, textsChecked) => collection.filter(item => {
-      if ( search.length || categories.length || status.length ||platforms.length || gamePlatforms.length || tags.length || notesChecked === true || textsChecked === true) {
+      if ( search.length || categories.length || status.length ||platforms.length || gamePlatforms.length || tags.length || notesChecked === true || textsChecked === true || isApproved === true || isRejected === true) {
         currentPage = 1
         return (search.length ? item.name.toLowerCase().includes( search.toLowerCase()) : true)
           && (categories.length ? categories.includes(item.item_type) : true)
@@ -60,6 +62,8 @@
           && (tags.length ? tags.every(tag => item.tags?.includes(tag)) : true)
           && (notesChecked === true ? item.notes !== (null || "") : true)
           && (textsChecked === true ? item.has_text === (true) : true)
+          && (isApproved === true ? item.is_approved === (true) : true)
+          && (isRejected === true ? item.is_approved === (false) : true)
       } else {
         return collection
       }
@@ -75,13 +79,9 @@
 
   const randomCollectionItem = () => {
     const annotedItems = collection.filter(item => item.notes !== "")
-    console.log("items annoted:", annotedItems)
     const maxNumber = Math.max(annotedItems.length)
-    console.log("max number:", maxNumber)
     const randomNumber = Math.floor(Math.random() * maxNumber) + 1
-    console.log("random number is:", randomNumber)
     const selectedAnnotatedItem = annotedItems[randomNumber]
-    console.log("item:", selectedAnnotatedItem)
     goto(`/collection/${selectedAnnotatedItem.slug}`)
   }
 </script>
@@ -149,6 +149,17 @@
 
       <p>...avec un commentaire ?</p>
       <Slider switchName='notes' --color-checked="hsl(253, 52%, 65%)" bind:checked={hasNotes}/>
+
+      <div class="filter-flex-container">
+        <div>
+          <p>...recommandé ?</p>
+          <Slider switchName='approuvé' --color-checked="hsl(253, 52%, 65%)" bind:checked={isApproved}/>
+        </div>
+        <div>
+          <p>...ou rejeté ?</p>
+          <Slider switchName='rejeté' --color-checked="hsl(253, 52%, 65%)" bind:checked={isRejected}/>
+        </div>
+      </div>
 
       {#if session}
         <p>...sans commentaire ?</p>
@@ -224,6 +235,11 @@ on:setPage="{(e) => {
       font-size: 0.8em;
       font-style: italic;
     }
+  }
+
+  .filter-flex-container {
+    display: flex;
+    flex-flow: row nowrap;
   }
 
   .container {

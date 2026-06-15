@@ -4,9 +4,9 @@
 
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import full_image from "$lib/assets/homepage/full_image.webp"
-  
+
   let { data } = $props()
-  let { souvenirs } = data
+  let { souvenirs } = $derived(data)
 
   let MapComponentClientSide = $state.raw<Component>()
 

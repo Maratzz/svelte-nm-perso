@@ -2,7 +2,7 @@
   import {flip} from "svelte/animate"
   import {dndzone} from "svelte-dnd-action"
 
-  let { tier, items, onUpdateItems } = $props()
+  let { tier, items, onUpdateItems, isTierlist } = $props()
 
   const flipDurationMs = 300
 
@@ -16,7 +16,9 @@
 </script>
 
 <div class="tier">
-  <div class="tier-label">{tier.name}</div>
+  {#if isTierlist === true }
+    <div class="tier-label">{tier.name}</div>
+  {/if}
   <div
     id={tier.id}
     class="tier-content"

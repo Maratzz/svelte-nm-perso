@@ -386,6 +386,7 @@
     <p>Ce site est à <a href="/info">mon image</a>, changeant, vivant. Il se remplira progressivement de secrets, de pages cachées, et de surprises dans le code.</p>
     <p>Je prône la curiosité et le ré-enchantement en vertus cardinales pour être heureux·se, en vrai comme en faux, dans la vie comme sur le web. Explorez, fouillez, flânez.</p>
     <p>C'est mon espace, et donc le vôtre également.</p>
+    <a rel="me" href="https://mastodon.social/@maratz_" id="mastodon">Mastodon</a>
   </div>
 
 </main>
@@ -480,6 +481,10 @@
   .underline {
     width: 50vw;
     margin: 0 auto;
+  }
+
+  #mastodon {
+    display: none;
   }
 
   @media (min-width: 900px) {
