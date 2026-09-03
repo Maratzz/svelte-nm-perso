@@ -11,7 +11,8 @@
 
   export let data
 
-  $: ({ item, tierlists, session } = data)
+  $: ({ item, tierlists, date, session } = data)
+  $: console.log("dates de l'item:", date)
 
   let handleClick = ( item ) => {
     goto(resolve(item.path))
@@ -45,7 +46,7 @@
         {#if item.item_type === "BD" || item.item_type === "série" || item.item_type === "série d'animation"}
           sortie{:else}sorti{/if} le {formatDate( item.date_released )}
       </p>
-      <p class="info-small"><b>Status:</b> <CultureItemStatus {item} {formatDate}/></p>
+      <p class="info-small"><b>Status:</b> <CultureItemStatus {item} {date} {formatDate}/></p>
       {#if item.tags}
         <div>
           {#each item.tags as tag}

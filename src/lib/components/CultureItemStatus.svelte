@@ -1,5 +1,6 @@
 <script>
   export let item
+  export let date
   export let formatDate = () => {}
 </script>
 
@@ -18,28 +19,33 @@
   {:else if item.item_type === "anime"}Regardé
   {:else if item.item_type === "livre" || item.item_type === "manga"}Lu
   {:else if item.item_type === "BD"}Lue
-  {:else}Joué{/if} 
+  {:else}Joué{/if}
 
-  {#if item.date_finished === null}
-    il y a un certain temps
-  {:else}
-    {#if item.item_type === "film" || item.date_started === item.date_finished}
-      le {formatDate(item.date_finished)}
+  {#each date as IntermediaryDate, index}
+
+    {#if (IntermediaryDate !== date[0]) && (index + 1 === date.length)}{" et"}{/if}
+    {#if IntermediaryDate.date_finished === null}
+      il y a un certain temps
     {:else}
-      entre le
-      {#if new Date(item.date_started).getFullYear() === new Date(item.date_finished).getFullYear()}
-        {#if new Date(item.date_started).getMonth() === new Date(item.date_finished).getMonth()}
-          {new Date(item.date_started).toLocaleDateString("fr", { day: "numeric" })}
-        {:else}
-          {new Date(item.date_started).toLocaleDateString("fr", { day: "numeric", month: "long"})}
-        {/if}
+      {#if item.item_type === "film" || IntermediaryDate.date_started === IntermediaryDate.date_finished}
+        le {formatDate(IntermediaryDate.date_finished)}
       {:else}
-        {formatDate(item.date_started)}
+        entre le
+        {#if new Date(IntermediaryDate.date_started).getFullYear() === new Date(IntermediaryDate.date_finished).getFullYear()}
+          {#if new Date(IntermediaryDate.date_started).getMonth() === new Date(IntermediaryDate.date_finished).getMonth()}
+            {new Date(IntermediaryDate.date_started).toLocaleDateString("fr", { day: "numeric" })}
+          {:else}
+            {new Date(IntermediaryDate.date_started).toLocaleDateString("fr", { day: "numeric", month: "long"})}
+          {/if}
+        {:else}
+          {formatDate(IntermediaryDate.date_started)}
+        {/if}
+        et le {formatDate(IntermediaryDate.date_finished)}
       {/if}
-      et le {formatDate(item.date_finished)}
-    {/if}
-  {/if}
+    {/if}{#if index + 1 < date.length}{", "}{/if}
+
+  {/each}
 
 {:else if item.status === "flushed"}
-  💩 {#if item.item_type === "BD" || item.item_type === "série" || item.item_type === "série d'animation"}abandonnée{:else}abandonné{/if} {item.date_finished ? `le ${formatDate(item.date_finished)}` : "il y a un certain temps"}
+  💩 {#if item.item_type === "BD" || item.item_type === "série" || item.item_type === "série d'animation"}abandonnée{:else}abandonné{/if} {date[0].date_finished ? `le ${formatDate(date[0].date_finished)}` : "il y a un certain temps"}
 {/if}

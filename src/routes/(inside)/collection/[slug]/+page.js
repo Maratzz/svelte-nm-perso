@@ -29,10 +29,16 @@ export async function load({ params, parent }) {
     .select("*")
     .in("id", tiers)
 
+  let { data: date } = await supabase
+    .from("collection_date_joined")
+    .select("*")
+    .eq("oeuvre_id", item.id)
+
   return {
     item: item ?? [],
     tierlists: tierlists ?? [],
     supabase,
+    date: date ?? [],
     currentRoute,
     session
    }
