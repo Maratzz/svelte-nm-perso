@@ -82,18 +82,6 @@
     <FormData type="date" query="item_date_acquired" query_name="Acquis le:" value={form?.newDateAcquired ?? ""}/>
   </div>
 
-  <div class="form-inside-calendar">
-
-    <div>
-      <FormData type="date" query="item_date_started" query_name="Démarré le:" value={form?.newDateStarted ?? ""}/>
-    </div>
-
-    <div>
-      <FormData type="date" query="item_date_finished" query_name="Fini le:" value={form?.newDateFinished ?? ""}/>
-    </div>
-
-  </div>
-
   <div class="form-inside-input">
 
     <div>
@@ -195,12 +183,12 @@
     }
   }
 
-  .form-inside-calendar, .form-inside-input, #api_selection {
+  .form-inside-input, #api_selection {
     display: flex;
     flex-flow: row wrap;
   }
 
-  .form-inside-calendar, .form-inside-input, .form-inside-notes, .form-inside-acquired {
+  .form-inside-input, .form-inside-notes, .form-inside-acquired {
     padding-top: 10px;
   }
 
@@ -208,7 +196,7 @@
     margin-left: 5px;
   }
 
-  .form-inside-calendar, .form-inside-input {
+  .form-inside-input {
     margin-top: 15px;
     gap: 10px;
   }

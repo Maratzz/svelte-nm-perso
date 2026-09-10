@@ -13,12 +13,6 @@
 
   <FormDataDate value={item.date_acquired ?? null} query="item_date_acquired" query_name="Acquis le:"/>
 
-  <FormDataDate value={item.date_started ?? null} query="item_date_started" query_name="Commencé le:"/>
-
-  <FormDataDate value={item.date_finished ?? null} query="item_date_finished" query_name="Terminé le:"/>
-
-  <FormData query="item_status" query_name="Status" value={item.status}/>
-
   <label for="item_notes">Notes</label>
 
   <textarea name="item_notes" id="item_notes" value={item.notes ?? null}></textarea>

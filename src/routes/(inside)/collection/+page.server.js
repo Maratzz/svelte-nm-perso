@@ -15,13 +15,10 @@ export const actions = {
     let slugName = await slugify(newItem)
     let newPlatform = form.get( "item_platform" )
     let newGamePlatform = form.get( "item_game_platform" )
-    const newStatus = form.get( "item_status" )
     const newItemType = form.get( "item_type" )
     const newCover = form.get( "item_cover" )
     const newDateReleased = form.get( "item_date_released" )
     let newFirstDateReleased = form.get( "item_first_date_released" )
-    let newDateStarted = form.get( "item_date_started" )
-    let newDateFinished = form.get( "item_date_finished" )
     let newDateAcquired = form.get( "item_date_acquired" )
     let newOriginalName = form.get( "item_original_name" )
     const newAuthor = form.get( "item_author" )
@@ -38,12 +35,6 @@ export const actions = {
     }
 
     if ( session ) {
-      if ( !newDateStarted ) {
-        newDateStarted = null
-      }
-      if ( !newDateFinished ) {
-        newDateFinished = null
-      }
       if ( !newDateAcquired ) {
         newDateAcquired = null
       }
@@ -88,9 +79,6 @@ export const actions = {
             first_date_released: newFirstDateReleased,
             date_acquired: newDateAcquired,
             cover: newCover,
-            date_started: newDateStarted,
-            date_finished: newDateFinished,
-            status: newStatus,
             author: authors,
             notes: newNotes,
             item_type: newItemType,

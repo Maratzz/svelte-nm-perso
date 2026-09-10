@@ -5,9 +5,12 @@
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import CultureItemStatus from "$lib/components/CultureItemStatus.svelte"
   import FormItemUpdate from "$lib/components/FormItemUpdate.svelte"
+  import FormDataDate from "$lib/components/FormDataDate.svelte"
+  import FormData from "$lib/components/FormData.svelte"
   import TextPreview from "$lib/components/TextPreview.svelte"
   import approved from "$lib/assets/icons/approved.png"
   import rejected from "$lib/assets/icons/rejected.png"
+
 
   export let data
 
@@ -63,6 +66,20 @@
       <label for="collapsible3">Editing</label>
       <div class="collapsible-body">
         <FormItemUpdate {item} />
+      </div>
+    </div>
+
+    <div class="collapsible">
+      <input type="checkbox" id="collapsible4" name="collapsible4">
+      <label for="collapsible4">Nouvelle date</label>
+      <div class="collapsible-body">
+        <form action="?/add_dates" method="post" id="form_add_dates">
+          <FormData query="item_ID" query_name="ID" value={item.id}/>
+          <FormDataDate query="newDateStarted" query_name="date début" value={ date[date.length - 1]?.date_started ?? null }/>
+          <FormDataDate query="newDateFinished" query_name="date fin" value={ date[date.length - 1]?.date_finished ?? null }/>
+          <FormData query="newStatus" query_name="status" required/>
+          <button type="submit">Ajouter une date</button>
+        </form>
       </div>
     </div>
   {/if}

@@ -37,9 +37,6 @@ export const actions = {
     let itemSlug = params.slug
     let form = await request.formData()
     let updatedDateAcquired = form.get( "item_date_acquired" )
-    let updatedDateStarted = form.get( "item_date_started" )
-    let updatedDateFinished = form.get( "item_date_finished" )
-    let updatedStatus = form.get( "item_status" )
     let updatedNotes = form.get( "item_notes" )
     let updatedTags = form.get( "item_tags" )
     let updatedHiddenTags = form.get( "item_hidden_tags" )
@@ -58,12 +55,6 @@ export const actions = {
     if ( !updatedDateStarted ) {
       updatedDateStarted = null
     }
-    if ( !updatedDateFinished) {
-      updatedDateFinished = null
-    }
-    if ( !updatedDateAcquired ) {
-      updatedDateAcquired = null
-    }
     if ( !updatedTags ) {
       tags = null
     } else {
@@ -81,9 +72,6 @@ export const actions = {
         .update([
           {
             date_acquired: updatedDateAcquired,
-            date_started: updatedDateStarted,
-            date_finished: updatedDateFinished,
-            status: updatedStatus,
             notes: updatedNotes,
             date_updated: ISOdateNow,
             tags: tags,
@@ -102,6 +90,45 @@ export const actions = {
     } catch( error ) {
       console.log( error | error.message )
       return error
+    }
+  },
+
+  add_dates: async ({params, request, locals: { supabase, safeGetSession}}) => {
+
+    const session = await safeGetSession()
+
+    let form = await request.formData()
+    let itemID = form.get( "item_ID" )
+    let newDateStarted = form.get( "newDateStarted" )
+    let newDateFinished = form.get( "newDateFinished" )
+    let newStatus = form.get( "newStatus" )
+
+    if ( !session ) {
+      redirect(303, "/connexion")
+    }
+
+    console.log("item id:" + itemID)
+    console.log("new date started: " + newDateStarted)
+    console.log("new date finished: " + newDateFinished)
+    console.log("status: " + newStatus)
+
+    const allTheDates = await supabase
+      .from("collection_date_joined")
+      .select("*")
+      .eq("oeuvre_id", itemID)
+    console.log("toutes les dates:", allTheDates)
+    let lastDateStart
+    let lastDate
+    if (allTheDates !== []) {
+      lastDate = allTheDates.data[allTheDates.data.length - 1]
+      lastDateStart = lastDate.date_started
+    }
+    console.log("dernière date:", lastDateStart)
+
+    if (lastDateStart == newDateStarted) {
+      console.log("même date")
+    } else {
+      console.log("pas la même, il en faut une nouvelle")
     }
   }
 }
