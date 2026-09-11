@@ -3,23 +3,52 @@
   import approved from "$lib/assets/icons/approved.png"
   import rejected  from "$lib/assets/icons/rejected.png"
 
-  let { year, type } = $props()
-  let items = $state([])
-  const fetchItems = async () => {
+  export let type
+  export let year
+  let items = []
+  let filteredItems = []
+
+  const fetchDates = async () => {
     const { data } = await supabase
-      .from("collection")
-      .select("*")
-      .eq("item_type", type)
+      .from("collection_dates")
+      .select(`
+        oeuvre_id:collection(id, name, cover, notes, slug, is_approved, item_type, date_released, author),
+        date_started, date_finished
+        )`
+      )
       .gte("date_finished", `${year}-01-01`)
-      .lte("date_finished", `${year}-12-31`)
-      .order("date_started", { ascending: true })
-    items = data || []
+      .lte("date_started", `${year}-12-31`)
+      .order("date_finished", { ascending: true })
+
+    const uniqueItemMap = new Map()
+    items = data
+      .map((item) => ({
+        id: item.oeuvre_id.id,
+        name: item.oeuvre_id.name,
+        item_type: item.oeuvre_id.item_type,
+        notes: item.oeuvre_id.notes,
+        slug: item.oeuvre_id.slug,
+        cover: item.oeuvre_id.cover,
+        is_approved: item.oeuvre_id.is_approved,
+        author: item.oeuvre_id.author,
+        date_released: item.oeuvre_id.date_released
+      }))
+      //items should only appear once in the recap regardless of number of counts in collection_dates
+      .filter((item) => {
+        if (!uniqueItemMap.has(item.id)) {
+          uniqueItemMap.set(item.id, true)
+          return true
+        }
+        return false
+      })
+    filteredItems = items.filter((item) => item.item_type === type)
+    console.log("filtered:", filteredItems)
   }
-  fetchItems()
+  fetchDates()
 </script>
 
 <div>
-  {#each items as item (item.id)}
+  {#each filteredItems as item (item.id)}
   <div class="container">
     <div class="container-info">
       {#if item.is_approved === (true)}
