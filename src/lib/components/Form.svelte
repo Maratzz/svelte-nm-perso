@@ -5,7 +5,6 @@
 
   export let form
   export let categories
-  export let status
   export let types
   export let gamePlatforms
 </script>
@@ -110,16 +109,6 @@
       <datalist id="item_game_platform">
         {#each gamePlatforms as gamePlatform (gamePlatform.id)}
         <option value={gamePlatform.name}></option>
-        {/each}
-      </datalist>
-    </div>
-
-    <div>
-      <label for="item_status">Status</label>
-      <input list="item_status" name="item_status" size="13">
-      <datalist id="item_status">
-        {#each status as state (state.id)}
-          <option value={state.name}></option>
         {/each}
       </datalist>
     </div>

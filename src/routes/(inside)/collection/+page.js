@@ -11,11 +11,6 @@ export async function load({ parent }) {
     .select("*")
     .order("name", { ascending: true })
 
-  let { data : status } = await supabase
-    .from("culture_item_status")
-    .select("*")
-    .order("id", { ascending: true })
-
   let { data : types } = await supabase
     .from("item_type")
     .select("*")
@@ -37,7 +32,6 @@ export async function load({ parent }) {
   return {
     collection: collection ?? [],
     categories : categories ?? [],
-    status: status ?? [],
     types: types ?? [],
     tags: uniqueTags ?? [],
     gamePlatforms: gamePlatforms ?? [],

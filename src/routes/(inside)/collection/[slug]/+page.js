@@ -30,7 +30,7 @@ export async function load({ params, parent }) {
     .in("id", tiers)
 
   let { data: date } = await supabase
-    .from("collection_date_joined")
+    .from("collection_dates")
     .select("*")
     .eq("oeuvre_id", item.id)
 

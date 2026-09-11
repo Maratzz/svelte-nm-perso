@@ -52,9 +52,6 @@ export const actions = {
     if ( !session ) {
       redirect(303, "/connexion")
     }
-    if ( !updatedDateStarted ) {
-      updatedDateStarted = null
-    }
     if ( !updatedTags ) {
       tags = null
     } else {
@@ -93,42 +90,56 @@ export const actions = {
     }
   },
 
-  add_dates: async ({params, request, locals: { supabase, safeGetSession}}) => {
+  add_dates: async ({ request, locals: { supabase, safeGetSession }}) => {
 
     const session = await safeGetSession()
 
+    //on récupère les données du formulaire
     let form = await request.formData()
-    let itemID = form.get( "item_ID" )
+    const itemID = form.get( "item_ID" )
     let newDateStarted = form.get( "newDateStarted" )
+    if (!newDateStarted) { newDateStarted = null }
     let newDateFinished = form.get( "newDateFinished" )
+    if (!newDateFinished) { newDateFinished = null }
     let newStatus = form.get( "newStatus" )
-
     if ( !session ) {
       redirect(303, "/connexion")
     }
 
-    console.log("item id:" + itemID)
-    console.log("new date started: " + newDateStarted)
-    console.log("new date finished: " + newDateFinished)
-    console.log("status: " + newStatus)
-
+    //on regarde si il y a déjà des paires de date associées à l'oeuvre
     const allTheDates = await supabase
-      .from("collection_date_joined")
+      .from("collection_dates")
       .select("*")
       .eq("oeuvre_id", itemID)
-    console.log("toutes les dates:", allTheDates)
-    let lastDateStart
-    let lastDate
-    if (allTheDates !== []) {
-      lastDate = allTheDates.data[allTheDates.data.length - 1]
-      lastDateStart = lastDate.date_started
-    }
-    console.log("dernière date:", lastDateStart)
 
-    if (lastDateStart == newDateStarted) {
-      console.log("même date")
+    let lastDate = allTheDates?.data?.at(-1)
+    let lastDateStart = lastDate?.date_started ?? null
+
+    //on check pour update une ligne déjà existante ou en créer une nouvelle sur la base de la date de début
+    if (allTheDates.data.length && (lastDateStart === newDateStarted || lastDateStart === null)) {
+      const updateLastDatePairing = await supabase
+        .from("collection_dates")
+        .update([
+          {
+            date_started: newDateStarted,
+            date_finished: newDateFinished,
+            status: newStatus
+          }
+        ])
+        .eq('id', lastDate.id)
+        .select()
     } else {
-      console.log("pas la même, il en faut une nouvelle")
+      const createNewDatePairing = await supabase
+        .from("collection_dates")
+        .insert([
+          {
+            oeuvre_id: itemID,
+            date_started: newDateStarted,
+            date_finished: newDateFinished,
+            status: newStatus
+          }
+        ])
+        .select()
     }
   }
 }

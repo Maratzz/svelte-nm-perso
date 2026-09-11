@@ -13,14 +13,13 @@
   export let data
   export let form
 
-  $: ({ collection, categories, status, session, types, gamePlatforms, tags, supabase } = data)
-  $: filteredCollection = noNotesChecked === true ? filterDataNoNotes(noNotesChecked) : filteredData(searchInput, selectedCategories, selectedStatus, selectedPlatforms, selectedGamePlatforms, selectedTags, hasNotes, collection, hasTexts)
+  $: ({ collection, categories, session, types, gamePlatforms, tags, supabase } = data)
+  $: filteredCollection = noNotesChecked === true ? filterDataNoNotes(noNotesChecked) : filteredData(searchInput, selectedCategories, selectedPlatforms, selectedGamePlatforms, selectedTags, hasNotes, collection, hasTexts)
   $: filteredPlatforms = selectedCategories.length ? supabaseFilter(supabase, selectedCategories).then((data) => filteredPlatforms = data.array) : []
 
   //whenever these variables change, we update the filteredCollection
   $: searchInput = ""
   $: selectedCategories = []
-  $: selectedStatus = []
   $: selectedPlatforms = []
   $: selectedGamePlatforms = []
   $: selectedTags = []
@@ -51,12 +50,11 @@
     return { array }
   }
 
-  $: filteredData = (search, categories, status, platforms, gamePlatforms, tags, notesChecked, collection, textsChecked) => collection.filter(item => {
-      if ( search.length || categories.length || status.length ||platforms.length || gamePlatforms.length || tags.length || notesChecked === true || textsChecked === true || isApproved === true || isRejected === true) {
+  $: filteredData = (search, categories, platforms, gamePlatforms, tags, notesChecked, collection, textsChecked) => collection.filter(item => {
+      if ( search.length || categories.length ||platforms.length || gamePlatforms.length || tags.length || notesChecked === true || textsChecked === true || isApproved === true || isRejected === true) {
         currentPage = 1
         return (search.length ? item.name.toLowerCase().includes( search.toLowerCase()) : true)
           && (categories.length ? categories.includes(item.item_type) : true)
-          && (status.length ? status.includes(item.status) : true)
           && (platforms.length ? platforms.includes(item.platform) : true)
           && (gamePlatforms.length ? gamePlatforms.includes(item.game_platform) : true)
           && (tags.length ? tags.every(tag => item.tags?.includes(tag)) : true)
@@ -113,7 +111,7 @@
     <label for="collapsible2">Créer une oeuvre</label>
 
     <div class="collapsible-body">
-      <Form {form} {categories} {status} {types} {gamePlatforms}/>
+      <Form {form} {categories} {types} {gamePlatforms}/>
     </div>
 
   </div>
@@ -129,15 +127,6 @@
   <CollectionFilter categories={types} bind:selectedCategories/>
 </div>
 
-<div class="filter-container">
-  <p>...par statut (OR)</p>
-  <div class="filter">
-    {#each status as status}
-    <input type="checkbox" name={status.name} id={status.name} value={status.name} bind:group={selectedStatus}>
-    <label for={status.name} class="filter__button">{status.converted}</label>
-    {/each}
-  </div>
-</div>
 <div class="filter-container">
   <div class="collapsible">
     <input id="collapsible-filter" type="checkbox" name="collapsible">
@@ -253,7 +242,7 @@ on:setPage="{(e) => {
     position: relative;
   }
 
-  .container, #filter-container {
+  .container {
     display: flex;
   }
 
@@ -275,35 +264,6 @@ on:setPage="{(e) => {
     text-align: left;
     padding-left: 0;
     font-size: 0.8em;
-  }
-
-  .filter {
-    display: flex;
-    flex-flow: row wrap;
-    gap: 15px;
-    justify-content: left;
-    padding-left: 0;
-    &__button {
-      padding: 5px 10px;
-      background-color: $color;
-      border-radius: 15px;
-      &:hover {
-        background-color: color.scale($color, $lightness: 15%);
-        box-shadow: 3px 3px 2px 1px #C3BDD9;
-        cursor: pointer;
-      }
-    }
-  }
-
-  .filter input {
-    display: none;
-  }
-
-  .filter input:checked + label {
-    background-color: $color-checked;
-    &:hover {
-      background-color: $color-checked;
-    }
   }
 
   #icon:after {

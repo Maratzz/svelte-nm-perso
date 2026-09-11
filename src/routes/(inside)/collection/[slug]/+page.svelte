@@ -3,7 +3,7 @@
   import { resolve } from "$app/paths"
   import { formatDate, slugify } from "$lib/utils/index.js"
   import HeadSEO from "$lib/components/HeadSEO.svelte"
-  import CultureItemStatus from "$lib/components/CultureItemStatus.svelte"
+  import CultureItemTimeline from "$lib/components/CultureItemTimeline.svelte"
   import FormItemUpdate from "$lib/components/FormItemUpdate.svelte"
   import FormDataDate from "$lib/components/FormDataDate.svelte"
   import FormData from "$lib/components/FormData.svelte"
@@ -15,7 +15,6 @@
   export let data
 
   $: ({ item, tierlists, date, session } = data)
-  $: console.log("dates de l'item:", date)
 
   let handleClick = ( item ) => {
     goto(resolve(item.path))
@@ -49,7 +48,7 @@
         {#if item.item_type === "BD" || item.item_type === "série" || item.item_type === "série d'animation"}
           sortie{:else}sorti{/if} le {formatDate( item.date_released )}
       </p>
-      <p class="info-small"><b>Status:</b> <CultureItemStatus {item} {date} {formatDate}/></p>
+      <p class="info-small"><b>Status:</b> <CultureItemTimeline {item} {date} {formatDate}/></p>
       {#if item.tags}
         <div>
           {#each item.tags as tag}
@@ -75,9 +74,9 @@
       <div class="collapsible-body">
         <form action="?/add_dates" method="post" id="form_add_dates">
           <FormData query="item_ID" query_name="ID" value={item.id}/>
-          <FormDataDate query="newDateStarted" query_name="date début" value={ date[date.length - 1]?.date_started ?? null }/>
-          <FormDataDate query="newDateFinished" query_name="date fin" value={ date[date.length - 1]?.date_finished ?? null }/>
-          <FormData query="newStatus" query_name="status" required/>
+          <FormDataDate query="newDateStarted" query_name="date début" value={ date.at(-1)?.date_started ?? null }/>
+          <FormDataDate query="newDateFinished" query_name="date fin" value={ date.at(-1)?.date_finished ?? null }/>
+          <FormData query="newStatus" query_name="status" value={ date.at(-1)?.status ?? "" }/>
           <button type="submit">Ajouter une date</button>
         </form>
       </div>
