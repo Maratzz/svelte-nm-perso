@@ -8,7 +8,15 @@
 
   export let data
 
-  let { maintenant, collectionNow, collectionLastFinished, text, session } = data
+  let { maintenant, collection, text, session } = data
+
+  let collectionNow = collection
+    .filter( (item) => item.status === "currently playing" )
+    .slice(0, 4)
+
+  let collectionLastFinished = collection
+    .filter( (item) => (item.status === "finished" || item.status === "flushed") && (item.date_finished >= "1970-01-01") )
+    .slice(0, 4)
 
   onMount(() => {
     if ( session ) {

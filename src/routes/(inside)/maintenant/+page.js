@@ -1,21 +1,24 @@
 export async function load({ fetch, parent }) {
   const { supabase, session } = await parent()
 
-  let { data: collectionNow } = await supabase
-  .from("collection")
-  .select("name, author, cover, slug")
-  .eq("status", "currently playing")
-  .order("date_updated", { ascending: false })
-  .limit(4)
-
-  let { data: collectionLastFinished } = await supabase
-  .from("collection")
-  .select("name, author, cover, slug")
-  // postgres syntax to match both filters on status column using OR
-  .or("status.eq.finished,status.eq.flushed")
-  .gte("date_finished", "1970-01-01")
-  .order("date_finished", { ascending: false })
-  .limit(4)
+  let { data : collection_dates } = await supabase
+    .from("collection_dates")
+    .select(`
+      oeuvre_id:collection(id, cover, slug, name),
+      date_started, date_finished, status
+      )`
+    )
+    .order("date_finished", { ascending: false })
+  
+  let collection = collection_dates
+    .map((item) => ({
+      id: item.oeuvre_id.id,
+      name: item.oeuvre_id.name,
+      cover: item.oeuvre_id.cover,
+      slug: item.oeuvre_id.slug,
+      status: item.status,
+      date_finished: item.date_finished
+    }))
 
   let { data: maintenant } = await supabase
   .from("maintenant")
@@ -27,8 +30,7 @@ export async function load({ fetch, parent }) {
   )
 
   return {
-    collectionNow: collectionNow ?? [],
-    collectionLastFinished: collectionLastFinished ?? [],
+    collection: collection ?? [],
     maintenant: maintenant[0] ?? [],
     text: latestText[0],
     session
