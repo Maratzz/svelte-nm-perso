@@ -82,7 +82,7 @@
       </div>
     </div>
 
-    <AddToTierList  {item} />
+    <AddToTierList {item}/>
   {/if}
 
   <TextPreview itemName={item.name} {handleClick}/>

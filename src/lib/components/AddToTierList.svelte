@@ -1,4 +1,5 @@
 <script>
+  import { invalidateAll } from "$app/navigation"
   import { supabase } from "$lib/utils/supabaseClient"
   import { onMount } from "svelte"
 
@@ -15,6 +16,9 @@
   let selectedTierID // store the tier ID
   let selectedTierName // store the tier name for display
   let itemID = item.id
+  let isSubmitting = false
+  let submitError = null
+  let submitSuccess = false
 
   async function fetchTierlists() {
     const { data, error } = await supabase
@@ -34,6 +38,8 @@
     if (selectedOption) {
       selectedTierlistID = selectedOption.id
       selectedTierlistName = selectedOption.name
+      selectedTierID = null
+      selectedTierName = null
       await fetchTiers(selectedTierlistID)
     }
   }
@@ -49,7 +55,6 @@
       console.log("erreur dans le fetch des tiers:", error)
     } else {
       tiers = data
-      console.log("tiers fetched:", tiers)
     }
   }
 
@@ -59,13 +64,36 @@
       selectedTierID = selectedOption.id
       selectedTierName = selectedOption.name
     }
-    console.log("selectedTierID:", selectedTierID)
-    console.log("selectedTierName:", selectedTierName)
   }
 
   async function handleSubmit() {
-    console.log("tier:", selectedTierID)
-    console.log("item:", itemID)
+    if (!selectedTierID || !selectedTierlistID) {
+      submitError = "il faut choisir une tierlist + un tier d'abord"
+      return
+    }
+    isSubmitting = true
+    submitError = null
+    submitSuccess = false
+
+    const { data, error } = await supabase
+     .from("tier_items")
+     .insert({
+        tier_id: selectedTierID,
+        item_id: itemID
+     })
+     .select()
+     if (error) {
+      if (error.code === "23505") {
+        submitError = "cette oeuvre est déjà dans ce tier"
+        isSubmitting = false
+      } else {
+        submitError = "Erreur lors de l'ajout:" + error.message
+      }
+     } else {
+      isSubmitting = false
+      submitSuccess = true
+      await invalidateAll()
+     }
   }
 </script>
 
@@ -105,5 +133,12 @@
     {/each}
   </datalist>
 
-  <button type="submit" on:click={handleSubmit}>Ajouter à la tierlist</button>
+  <button type="submit" on:click={handleSubmit}>{ isSubmitting ? "Ajout en cours..." : "Valider" }</button>
+
+  {#if submitError}
+    <p>{submitError}</p>
+  {/if}
+  {#if submitSuccess}
+    <p>Oeuvre ajoutée à la tierlist !</p>
+  {/if}
 </div>
