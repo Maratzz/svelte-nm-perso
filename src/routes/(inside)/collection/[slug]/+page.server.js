@@ -2,34 +2,6 @@ import { redirect } from "@sveltejs/kit"
 
 export const actions = {
 
-  addToList: async ({ params, request, locals: { supabase, safeGetSession }}) => {
-    const session = await safeGetSession()
-    const slug = params.slug
-    const form = await request.formData()
-    const newList = form.get( "new_list" )
-
-    if ( !session ) {
-      redirect(303, "/connexion")
-    }
-
-    try {
-      const { newForm, error } = await supabase
-        .from("collection_lists_m2m")
-        .insert([
-          {
-            "collection_slug": slug,
-            "list_slug": newList
-        }])
-      if (error) {
-        throw error
-      }
-      const supabaseResponse = await newForm
-      return { newForm, supabaseResponse }
-    } catch( error ) {
-      console.error( error | error.message )
-    }
-  },
-
   update: async ({ params, request, locals: { supabase, safeGetSession }}) => {
 
     const session = await safeGetSession()
@@ -140,6 +112,30 @@ export const actions = {
           }
         ])
         .select()
+    }
+  },
+
+  add_tierlist: async ({ request, locals: { supabase, safeGetSession }}) => {
+
+    const session = await safeGetSession()
+
+    let form = await request.formData()
+    let newTierID = form.get("tier_id")
+    let newItemID = form.get("item_id")
+
+    if ( !session ) {
+      redirect(303, "/connexion")
+    }
+
+    const { data, error } = await supabase
+      .from("tier_items")
+      .insert({
+        tier_id: newTierID,
+        item_id: newItemID
+      })
+      .select()
+    if ( error ) {
+      console.log("erreur: ", error)
     }
   }
 }

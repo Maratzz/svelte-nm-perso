@@ -1,5 +1,5 @@
 <script>
-  import { invalidateAll } from "$app/navigation"
+  import { enhance } from "$app/forms"
   import { supabase } from "$lib/utils/supabaseClient"
   import { onMount } from "svelte"
 
@@ -14,11 +14,6 @@
   let selectedTierlistID // Store the ID for queries
   let selectedTierlistName // Store the name for display
   let selectedTierID // store the tier ID
-  let selectedTierName // store the tier name for display
-  let itemID = item.id
-  let isSubmitting = false
-  let submitError = null
-  let submitSuccess = false
 
   async function fetchTierlists() {
     const { data, error } = await supabase
@@ -62,83 +57,54 @@
     const selectedOption = tiers.find( (tier) => tier.id == event.target.value )
     if ( selectedOption ) {
       selectedTierID = selectedOption.id
-      selectedTierName = selectedOption.name
     }
-  }
-
-  async function handleSubmit() {
-    if (!selectedTierID || !selectedTierlistID) {
-      submitError = "il faut choisir une tierlist + un tier d'abord"
-      return
-    }
-    isSubmitting = true
-    submitError = null
-    submitSuccess = false
-
-    const { data, error } = await supabase
-     .from("tier_items")
-     .insert({
-        tier_id: selectedTierID,
-        item_id: itemID
-     })
-     .select()
-     if (error) {
-      if (error.code === "23505") {
-        submitError = "cette oeuvre est déjà dans ce tier"
-        isSubmitting = false
-      } else {
-        submitError = "Erreur lors de l'ajout:" + error.message
-      }
-     } else {
-      isSubmitting = false
-      submitSuccess = true
-      await invalidateAll()
-     }
   }
 </script>
 
 <div>
-  <h3>Ajouter à la tierlist</h3>
+  <h4>Ajouter à la tierlist</h4>
 
-  <!-- Tierlist Selection -->
-  <label for="tierlists">Choisis une tierlist</label>
-  <input
-    list="tierlistOptions"
-    id="tierlists"
-    name="tierlists"
-    on:change={handleTierListLoading}
-    placeholder="Tape pour charger les tierlists"
-    value={selectedTierlistName || ""}
-  />
-  <datalist id="tierlistOptions">
-    {#each tierlists as tierlist}
-      <option value={tierlist.id}>{tierlist.name}</option>
-    {/each}
-  </datalist>
+  <form action="?/add_tierlist" method="post" use:enhance>
 
-  <!-- Tier Selection -->
-  <label for="tiers">Choisis un tier</label>
-  <input
-    list="tierOptions"
-    id="tiers"
-    name="tiers"
-    placeholder="Choisis un tier"
-    disabled={!selectedTierlistID}
-    value={selectedTierName || ""}
-    on:change={handleTierLoading}
-  />
-  <datalist id="tierOptions">
-    {#each tiers as tier}
-      <option value={tier.id}>{tier.name}</option>
-    {/each}
-  </datalist>
+    <input
+      type="text"
+      id="item_id"
+      name="item_id"
+      value={item.id}>
 
-  <button type="submit" on:click={handleSubmit}>{ isSubmitting ? "Ajout en cours..." : "Valider" }</button>
+    <!-- Tierlist Selection -->
+    <label for="tierlists">Choisis une tierlist</label>
+    <input
+      list="tierlistOptions"
+      id="tierlists"
+      name="tierlists"
+      on:change={handleTierListLoading}
+      placeholder="Tape pour charger les tierlists"
+      value={selectedTierlistName || ""}
+    />
+    <datalist id="tierlistOptions">
+      {#each tierlists as tierlist}
+        <option value={tierlist.id}>{tierlist.name}</option>
+      {/each}
+    </datalist>
 
-  {#if submitError}
-    <p>{submitError}</p>
-  {/if}
-  {#if submitSuccess}
-    <p>Oeuvre ajoutée à la tierlist !</p>
-  {/if}
+    <!-- Tier Selection -->
+    <label for="tiers">Choisis un tier</label>
+    <input
+      list="tierOptions"
+      id="tier_id"
+      name="tier_id"
+      placeholder="Choisis un tier"
+      disabled={!selectedTierlistID}
+      on:change={handleTierLoading}
+    />
+    <datalist id="tierOptions">
+      {#each tiers as tier}
+        <option value={tier.id}>{tier.name}</option>
+      {/each}
+    </datalist>
+
+    <button type="submit">Ajouter</button>
+
+  </form>
 </div>
