@@ -8,9 +8,9 @@
   import FormDataDate from "$lib/components/FormDataDate.svelte"
   import FormData from "$lib/components/FormData.svelte"
   import TextPreview from "$lib/components/TextPreview.svelte"
+  import AddToTierList from "$lib/components/AddToTierList.svelte"
   import approved from "$lib/assets/icons/approved.png"
   import rejected from "$lib/assets/icons/rejected.png"
-
 
   export let data
 
@@ -81,6 +81,8 @@
         </form>
       </div>
     </div>
+
+    <AddToTierList  {item} />
   {/if}
 
   <TextPreview itemName={item.name} {handleClick}/>
