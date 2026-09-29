@@ -34,7 +34,6 @@
       selectedTierlistID = selectedOption.id
       selectedTierlistName = selectedOption.name
       selectedTierID = null
-      selectedTierName = null
       await fetchTiers(selectedTierlistID)
     }
   }
@@ -62,8 +61,6 @@
 </script>
 
 <div>
-  <h4>Ajouter à la tierlist</h4>
-
   <form action="?/add_tierlist" method="post" use:enhance>
 
     <input

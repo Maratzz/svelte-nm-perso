@@ -82,7 +82,14 @@
       </div>
     </div>
 
-    <AddToTierList {item}/>
+    <div class="collapsible">
+      <input type="checkbox" id="collapsible5" name="collapsible5">
+      <label for="collapsible5">Nouvelle tierlist</label>
+      <div class="collapsible-body">
+        <AddToTierList {item}/>
+      </div>
+    </div>
+
   {/if}
 
   <TextPreview itemName={item.name} {handleClick}/>

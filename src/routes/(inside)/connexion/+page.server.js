@@ -12,11 +12,11 @@ export const load = async ({ url, locals: { safeGetSession } }) => {
 }
 
 export const actions = {
-  login: async ({ request, locals: { supabase }}) => {
+  login: async ({ url, request, locals: { supabase }}) => {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'github',
       options: {
-        redirectTo: '/connexion/callback',
+        redirectTo: `${url.origin}/connexion/callback`,
       },
     })
     if ( error ) {
