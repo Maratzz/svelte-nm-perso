@@ -137,5 +137,9 @@ export const actions = {
     if ( error ) {
       console.log("erreur: ", error)
     }
+
+    return {
+      newItemID
+    }
   }
 }

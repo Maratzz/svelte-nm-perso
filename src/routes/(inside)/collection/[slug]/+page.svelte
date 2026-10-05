@@ -13,6 +13,7 @@
   import rejected from "$lib/assets/icons/rejected.png"
 
   export let data
+  export let form
 
   $: ({ item, tierlists, date, session } = data)
 
@@ -86,7 +87,7 @@
       <input type="checkbox" id="collapsible5" name="collapsible5">
       <label for="collapsible5">Nouvelle tierlist</label>
       <div class="collapsible-body">
-        <AddToTierList {item}/>
+        <AddToTierList {item} {form}/>
       </div>
     </div>
 

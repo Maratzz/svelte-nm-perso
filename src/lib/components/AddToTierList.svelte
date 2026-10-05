@@ -4,6 +4,7 @@
   import { onMount } from "svelte"
 
   export let item
+  export let form
 
   onMount(async () => {
     await fetchTierlists()
@@ -67,7 +68,7 @@
       type="text"
       id="item_id"
       name="item_id"
-      value={item.id}>
+      value={form?.newItemID ?? item.id}>
 
     <!-- Tierlist Selection -->
     <label for="tierlists">Choisis une tierlist</label>
