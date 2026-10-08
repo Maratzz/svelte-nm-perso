@@ -34,6 +34,9 @@ export const actions = {
     } else {
       hidden_tags = updatedHiddenTags.split( "," )
     }
+    if ( !updatedDateAcquired ) {
+      updatedDateAcquired = null
+    }
 
     try {
       const { newForm, error } = await supabase
@@ -54,8 +57,7 @@ export const actions = {
       if ( error ) {
         throw error
       }
-      const supabaseResponse = await newForm
-      return { newForm, supabaseResponse }
+      return { newForm }
     } catch( error ) {
       console.log( error | error.message )
       return error

@@ -49,13 +49,15 @@
         {#if item.item_type === "BD" || item.item_type === "série" || item.item_type === "série d'animation"}
           sortie{:else}sorti{/if} le {formatDate( item.date_released )}
       </p>
-      <p class="info-small"><b>Status:</b> <CultureItemTimeline {item} {date} {formatDate}/></p>
+      <div class="info-small">
+        <b>Status:</b> <CultureItemTimeline {item} {date} {formatDate}/>
+      </div>
       {#if item.tags}
-        <div>
-          {#each item.tags as tag}
-            <span>{tag}</span>
-          {/each}
-        </div>
+      <div>
+        {#each item.tags as tag}
+        <span>{tag}</span>
+        {/each}
+      </div>
       {/if}
     </div>
   </div>
