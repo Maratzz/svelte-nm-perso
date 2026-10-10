@@ -3,10 +3,9 @@
   import { formatDate } from "$lib/utils"
   import blockquote_icon from "$lib/assets/icons/blockquote.svg"
   import parchemin from "$lib/assets/inside-pages/parchemin_full.png"
-  export let itemName
-  export let handleClick = () => {}
 
-  let texts = []
+  let { itemName, handleClick = () => {} } = $props()
+  let texts = $state([])
 
   onMount(async () => {
     const response = await fetch(`/api/every-texts`)

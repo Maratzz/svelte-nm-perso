@@ -1,15 +1,9 @@
 <script>
-  export let posts
-  export let categoryToExclude = ''
-  export let selectedCategories = []
+  let { posts, categoryToExclude = '', selectedCategories = $bindable([]) } = $props()
 
-  let categories = []
-  posts.forEach(post => {
-    post.meta.categories.forEach(category => {
-      categories.push(category)
-    })
-  })
-  let uniqueCategories = [...new Set(categories)]
+  let uniqueCategories = $derived(
+    [...new Set(posts.flatMap((post) => post.meta.categories))]
+  )
 </script>
 
 <div>

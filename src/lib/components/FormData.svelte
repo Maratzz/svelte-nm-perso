@@ -1,9 +1,5 @@
 <script>
-  export let query
-  export let query_name
-  export let value
-  export let size
-  export let type
+  let { query, query_name, value, size, type } = $props()
 </script>
 
 <label for={query}>{query_name}</label>

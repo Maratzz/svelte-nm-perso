@@ -1,9 +1,14 @@
 <script>
   import { fade } from "svelte/transition"
-  export let items, collection
-  export let handleClick = () => {}
-  export let attachCoverImage = () => {}
-  export let formatDate = () => {}
+
+  let {
+    items,
+    collection,
+    handleClick = () => {},
+    attachCoverImage = () => {},
+    formatDate = () => {}
+  } = $props()
+
 </script>
 
 {#key items}
@@ -12,7 +17,7 @@
     {#if items.length}
 
       {#each items as item}
-      <div class="item" on:click={() => {handleClick(item)}} on:keypress={() => {handleClick(item)}} role="link" tabindex="0">
+      <div class="item" onclick={() => {handleClick(item)}} onkeypress={() => {handleClick(item)}} role="link" tabindex="0">
 
         <img src={item.meta.image ?? attachCoverImage( item.meta.title, collection )} alt="Illustration du texte" class="item-img border border-2">
 

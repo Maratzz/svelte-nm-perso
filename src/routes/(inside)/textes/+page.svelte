@@ -7,18 +7,17 @@
   import CategoryList from "$lib/components/CategoryList.svelte"
   import full_image from "$lib/assets/homepage/full_image.webp"
 
-  export let data
+  let { data } = $props()
+  let posts = $derived(data.posts)
+  let collection = $derived(data.collection)
+  let items = $derived(data.items)
 
-  $: ({ posts, items } = data)
-  $: filteredPosts = posts
-  $: selectedCategories = []
-
-  $: if (selectedCategories.length) {
-    filteredPosts = []
-    filteredPosts = multiFilteringText(posts, selectedCategories)
-  } else {
-    filteredPosts = posts
-  }
+  let selectedCategories = $state([])
+  let filteredPosts = $derived(
+    selectedCategories.length
+      ? multiFilteringText(posts, selectedCategories)
+      : posts
+  )
 
   let attachCoverImage = ( target, database ) => {
     let foundRow = database.find( e => e.name === target )

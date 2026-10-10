@@ -1,12 +1,9 @@
 <script>
   import { enhance } from "$app/forms"
   import toast, { Toaster } from "svelte-french-toast"
-  import FormData from "$lib/components/FormData.svelte";
+  import FormData from "$lib/components/FormData.svelte"
 
-  export let form
-  export let categories
-  export let types
-  export let gamePlatforms
+  let { form, categories, types, gamePlatforms } = $props()
 </script>
 
 <Toaster/>
@@ -38,7 +35,6 @@
       toast.success("okay, tout bon !", {
         style: "margin-top: 80px;"
       })
-      console.log(result)
       update()
     }
   }

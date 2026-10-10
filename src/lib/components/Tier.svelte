@@ -1,6 +1,6 @@
 <script>
-  import {flip} from "svelte/animate"
-  import {dndzone} from "svelte-dnd-action"
+  import { flip } from "svelte/animate"
+  import { dndzone } from "svelte-dnd-action"
 
   let { tier, items, onUpdateItems, isTierlist } = $props()
 

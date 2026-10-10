@@ -19,28 +19,14 @@ Nouveauté cette année, j'ai enfin appris comment réutiliser des données de l
 
 Aussi les recommendations habituelles en vert/rouge sont désormais des coups de tampons, qui se veulent être inspirés du meme de Knuckles qui légifère sur tout et n'importe quoi, comme vous pouvez voir en exemple [ici dans cette YTP](https://www.youtube.com/watch?v=wC4nBH6Gb-Y). Dans l'idéal j'aimerais commissionner des tampons personnalisés qui diraient "Approuvé", "Ça je sais pas trop", "Non" et "Illégal", parce qu'ils me font bien rire.
 
-**Pour l'année:** 116 films, 2 séries, 64 jeux, 9 livres, 2 BDs, 8 mangas
-
-## Films
-
 <Bilan year="2025" type="film"/>
-
-## Séries
 
 <Bilan year="2025" type="série"/>
 
-## Jeux vidéo
-
 <Bilan year="2025" type="jeu vidéo"/>
-
-## Livres
 
 <Bilan year="2025" type="livre"/>
 
-## Bandes dessinées
-
 <Bilan year="2025" type="BD"/>
-
-## Manga
 
 <Bilan year="2025" type="manga"/>

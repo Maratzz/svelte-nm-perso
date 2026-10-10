@@ -1,7 +1,5 @@
-<script>
-  export let query
-  export let query_name
-  export let value
+<script lang="ts">
+  let { query, query_name, value } : { query : string, query_name: string, value: string } = $props()
 </script>
 
 <label for={query}>{query_name}</label>

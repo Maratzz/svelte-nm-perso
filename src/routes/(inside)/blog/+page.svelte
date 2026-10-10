@@ -7,18 +7,14 @@
   import CategoryList from "$lib/components/CategoryList.svelte"
   import full_image from "$lib/assets/homepage/full_image.webp"
 
-  export let data
-
-  $: ({ posts } = data)
-  $: filteredPosts = posts
-  $: selectedCategories = []
-
-  $: if (selectedCategories.length) {
-    filteredPosts = []
-    filteredPosts = multiFilteringText(posts, selectedCategories)
-  } else {
-    filteredPosts = posts
-  }
+  let { data } = $props()
+  let posts = $derived(data.posts)
+  let selectedCategories = $state([])
+  let filteredPosts = $derived(
+    selectedCategories.length
+      ? multiFilteringText(posts, selectedCategories)
+      : posts
+  )
 
   let handleClick = (post) => {
     const link = post.path

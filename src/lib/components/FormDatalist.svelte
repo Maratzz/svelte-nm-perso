@@ -1,7 +1,9 @@
-<script>
-  export let query
-  export let query_name
-  export let items
+<script lang="ts">
+  interface Item {
+    slug: string
+    name: string
+  }
+  let { query, query_name, items } : { query : string, query_name: string, items: Item[] } = $props()
 </script>
 
 <label for={query}>{query_name}</label>

@@ -3,10 +3,9 @@
   import approved from "$lib/assets/icons/approved.png"
   import rejected  from "$lib/assets/icons/rejected.png"
 
-  export let type
-  export let year
-  let items = []
-  let filteredItems = []
+  let { type, year } = $props()
+  let items = $state([])
+  let filteredItems = $state([])
 
   const fetchDates = async () => {
     const { data } = await supabase
@@ -42,12 +41,12 @@
         return false
       })
     filteredItems = items.filter((item) => item.item_type === type)
-    console.log("filtered:", filteredItems)
   }
   fetchDates()
 </script>
 
 <div>
+  <h2>{type.toUpperCase()} : {filteredItems.length}</h2>
   {#each filteredItems as item (item.id)}
   <div class="container">
     <div class="container-info">
