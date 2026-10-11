@@ -2,7 +2,7 @@
     import FormData from "$lib/components/FormData.svelte"
     import FormDataDate from "$lib/components/FormDataDate.svelte"
 
-    export let item
+    let { item } = $props()
 </script>
 
 <form action="?/update" method="post" id="form_update">

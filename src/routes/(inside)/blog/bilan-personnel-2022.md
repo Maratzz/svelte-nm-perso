@@ -7,8 +7,6 @@ date: 2023-01-03
 categories:
   - blog
   - bilan
-draft: published
-type: default
 ---
 
 Le salariat est un piège temporel. On ferme les yeux, on les rouvre, on signe un contrat, et on se retrouve 8 mois plus tard, dans un cycle qui nous mènerait jusqu'à la retraite si on n'y fait pas gaffe. Je comprends aisément que beaucoup de gens ne voient pas le temps passer et découvrent un beau matin que ça fait 35 ans de boîte cette année. Juste comme ça. Mais j'y suis allée en étant pleinement conscient, parce que ça débloquait d'autres choses. Un moyen pour une fin. Une fin pour des débuts. Des buts et des passes pour y arriver, dans chaque mi-temps. Le match commence à peine.

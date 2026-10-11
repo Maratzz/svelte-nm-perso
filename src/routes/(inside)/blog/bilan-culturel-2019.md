@@ -7,7 +7,6 @@ categories:
   - bilan
   - sveltekit
 image: blog/suashem_1.jpg
-draft: published
 slug: Bilan culturel 2019
 ---
 

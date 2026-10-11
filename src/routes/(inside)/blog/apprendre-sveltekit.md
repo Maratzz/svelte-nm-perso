@@ -6,7 +6,6 @@ categories:
   - sveltekit
 image: blog/sveltekit_setup_complete.png
 headline: Traduction française d'un article de Josh Collinsworth.
-draft: published
 slug: Apprendre SvelteKit en créant un blog Markdown statique
 ---
 

@@ -12,10 +12,12 @@
   import approved from "$lib/assets/icons/approved.png"
   import rejected from "$lib/assets/icons/rejected.png"
 
-  export let data
-  export let form
+  let { data, form } = $props()
 
-  $: ({ item, tierlists, date, session } = data)
+  let item = $derived(data.item)
+  let tierlists = $derived(data.tierlists)
+  let date = $derived(data.date)
+  let session = $derived(data.session)
 
   let handleClick = ( item ) => {
     goto(resolve(item.path))
@@ -44,7 +46,7 @@
         {#if item.item_type === "BD" || item.item_type === "série" || item.item_type === "série d'animation"}
           Une{:else}Un{/if} {item.item_type} de
           {#each item.author as author, index}
-            <a href={resolve(`/collection/artiste/${slugify(author)}`)} on:click={() => localStorage.setItem("authorName", author)}>{author}</a>{#if index < item.author.length - 1}{', '}{/if}
+            <a href={resolve(`/collection/artiste/${slugify(author)}`)} onclick={() => localStorage.setItem("authorName", author)}>{author}</a>{#if index < item.author.length - 1}{', '}{/if}
           {/each},
         {#if item.item_type === "BD" || item.item_type === "série" || item.item_type === "série d'animation"}
           sortie{:else}sorti{/if} le {formatDate( item.date_released )}

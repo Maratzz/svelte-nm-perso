@@ -1,7 +1,5 @@
 <script>
-  export let item
-  export let date
-  export let formatDate = () => {}
+  let { item, date, formatDate = () => {} } = $props()
 </script>
 
 <ul>

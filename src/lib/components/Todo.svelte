@@ -1,13 +1,14 @@
 <script>
   import { enhance } from '$app/forms'
-  export let todo
+
+  let { todo } = $props()
 </script>
 
   <form method="POST" class="todo form-group" use:enhance>
 
     <div>
       <input type="text" name="todo_id" bind:value={todo.id} readonly class="hidden">
-      <input type="text" size="25" name="todo_task" bind:value={todo.task} on:input={(e) => { todo.task = e.currentTarget.value }}/>
+      <input type="text" size="25" name="todo_task" bind:value={todo.task} oninput={(e) => { todo.task = e.currentTarget.value }}/>
       <button type="submit" formaction="?/update" class="hidden">Mettre à jour</button>
     </div>
 

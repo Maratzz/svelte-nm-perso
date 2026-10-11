@@ -7,7 +7,6 @@ date: 2026-01-17
 categories:
  - bilan
  - blog
-draft: published
 ---
 
 **Ce que j'avais dit que j'essayerais de faire en 2025**

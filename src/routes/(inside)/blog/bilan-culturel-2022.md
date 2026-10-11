@@ -7,7 +7,6 @@ date: 2023-01-04
 categories:
   - bilan
   - blog
-draft: published
 type: default
 ---
 

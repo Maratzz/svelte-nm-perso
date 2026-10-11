@@ -7,7 +7,6 @@ date: 2025-01-03
 categories:
   - bilan
   - blog
-draft: published
 ---
 
 **Ce que je retiendrai de 2024:**

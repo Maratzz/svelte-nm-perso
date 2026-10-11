@@ -1,6 +1,5 @@
 <script>
-  export let categories
-  export let selectedCategories = []
+  let { categories, selectedCategories = $bindable([]) } = $props()
 </script>
 
 <div class="filter" id="filter">

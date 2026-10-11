@@ -6,7 +6,6 @@ categories:
   - blog
   - bilan
 image: blog/les-grands-cerfs.webp
-draft: published
 slug: bilan-culturel-2023
 ---
 

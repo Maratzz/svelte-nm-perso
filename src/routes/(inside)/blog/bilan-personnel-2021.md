@@ -7,8 +7,6 @@ date: 2022-02-04
 categories:
   - bilan
   - blog
-draft: published
-type: default
 ---
 
 Ce fut une année riche, sur beaucoup de points. J'ai eu l'impression d'émerger un peu du marasme de 2020, notamment grâce à une fin d'année productive professionnellement, et des relations approfondies. Pour autant il reste encore des choses à faire.

@@ -4,26 +4,23 @@
   import { removeDuplicates } from "$lib/utils"
   import { fade } from "svelte/transition"
 
-  export let data
+  let { data } = $props()
 
-  $: ({ todos, categories } = data)
-  $: { removeDuplicates( categories )
-      .then( res => uniqueCategories = res.map(({ category }) => category ))}
-  $: filteredTodos = todos
+  let { todos, categories } = $derived(data)
 
-  let uniqueCategories = []
+  $effect(() => {
+    removeDuplicates( categories )
+      .then( res => uniqueCategories = res.map(({ category }) => category ))
+  })
 
-  const filterTodos = async () => {
-    const categorySelected = document.getElementById("todo-category")
-    const selectedValue = categorySelected.value
-    if (selectedValue !== "everything") {
-      filteredTodos = await todos.filter( todo => todo.category === selectedValue )
-      return filteredTodos
-    } else {
-      filteredTodos = todos
-      return filteredTodos
-    }
-  }
+  let uniqueCategories = $state([])
+  let selectedCategory = $state("everything")
+
+  let filteredTodos = $derived(
+    selectedCategory === "everything"
+      ? todos
+      : todos.filter( todo => todo.category === selectedCategory)
+  )
 </script>
 
 <svelte:head>
@@ -38,8 +35,8 @@
   <div id="select-todo">
 
     <label for="todo-category">Afficher</label>
-    <select name="todo-category" id="todo-category" on:change={filterTodos}>
-      <option value="everything" selected>Toutes les catégories</option>
+    <select name="todo-category" id="todo-category" bind:value={selectedCategory}>
+      <option value="everything">Toutes les catégories</option>
       {#key uniqueCategories}
       {#each uniqueCategories as category}
         <option value={category}>{category}</option>

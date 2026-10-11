@@ -23,7 +23,7 @@
     <a href="/contact">Contact</a>  
     <a href="/soutien">Soutien</a>
     <a href="/credits">Crédits</a>
-    <a href="/site-pro">Site pro</a>
+    <a href="/connexion">Connexion</a>
   </div>
 
 </footer>

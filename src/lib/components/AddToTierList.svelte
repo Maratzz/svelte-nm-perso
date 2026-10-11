@@ -3,18 +3,17 @@
   import { supabase } from "$lib/utils/supabaseClient"
   import { onMount } from "svelte"
 
-  export let item
-  export let form
+  let { item, form } = $props()
 
   onMount(async () => {
     await fetchTierlists()
   })
 
-  let tierlists = []
-  let tiers = []
-  let selectedTierlistID // Store the ID for queries
-  let selectedTierlistName // Store the name for display
-  let selectedTierID // store the tier ID
+  let tierlists = $state([])
+  let tiers = $state([])
+  let selectedTierlistID = $state() // Store the ID for queries
+  let selectedTierlistName = $state("") // Store the name for display
+  let selectedTierID = $state() // store the tier ID
 
   async function fetchTierlists() {
     const { data, error } = await supabase
@@ -76,7 +75,7 @@
       list="tierlistOptions"
       id="tierlists"
       name="tierlists"
-      on:change={handleTierListLoading}
+      onchange={handleTierListLoading}
       placeholder="Tape pour charger les tierlists"
       value={selectedTierlistName || ""}
     />
@@ -94,7 +93,7 @@
       name="tier_id"
       placeholder="Choisis un tier"
       disabled={!selectedTierlistID}
-      on:change={handleTierLoading}
+      onchange={handleTierLoading}
     />
     <datalist id="tierOptions">
       {#each tiers as tier}

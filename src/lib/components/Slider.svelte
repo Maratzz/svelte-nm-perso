@@ -1,11 +1,9 @@
 <script>
-  export let switchName
-  export let checked = false
-  export let handleSwitch = () => {}
+  let { switchName, checked = $bindable(false), handleSwitch = () => {} } = $props()
 </script>
 
 <label for={switchName} class="switch">
-  <input type="checkbox" name={switchName} id={switchName} bind:checked on:change={handleSwitch}>
+  <input type="checkbox" name={switchName} id={switchName} bind:checked onchange={handleSwitch}>
   <span class="slider round"></span>
 </label>
 

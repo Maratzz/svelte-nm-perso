@@ -7,7 +7,6 @@ categories:
   - sorties
   - à chaud
 image: blog/gacilly.jpg
-draft: published
 slug: festival-photo-gacilly-2022
 ---
 

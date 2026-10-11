@@ -6,7 +6,6 @@ categories:
   - textes
   - fiction
 image: textes/nouvelle_crous.jpeg
-draft: published
 slug: à-malin,-malin-et-demi
 ---
 

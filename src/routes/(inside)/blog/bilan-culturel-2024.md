@@ -7,7 +7,6 @@ date: 2024-12-31
 categories:
   - blog
   - bilan
-draft: published
 ---
 
 46 films sur 45  

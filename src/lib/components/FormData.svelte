@@ -1,5 +1,5 @@
 <script>
-  let { query, query_name, value, size, type } = $props()
+  let { query, query_name, value, size, type }= $props()
 </script>
 
 <label for={query}>{query_name}</label>

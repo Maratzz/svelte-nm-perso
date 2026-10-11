@@ -7,8 +7,6 @@ date: 2020-01-02
 categories:
   - bilan
   - blog
-draft: published
-type: default
 ---
 
 L'année qui se termine a été particulièrement infructueuse en terme de création personnelle. Ce fut carrément une année blanche dans laquelle j'ai publié très exactement zéro texte. J'en ai écrit dans l'ombre du disque dur local, et ils sont bien au chaud, mais pour ce qui est de franchir le pas et de les publier en ligne, c'est une toute autre histoire.

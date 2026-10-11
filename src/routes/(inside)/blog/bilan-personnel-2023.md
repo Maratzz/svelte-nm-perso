@@ -6,7 +6,6 @@ categories:
   - blog
   - bilan
 image: blog/wtf_suashem.jpg
-draft: published
 slug: bilan-personnel-2023
 ---
 

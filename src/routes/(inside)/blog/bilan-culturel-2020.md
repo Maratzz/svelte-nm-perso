@@ -1,7 +1,6 @@
 ---
 title: Bilan culturel 2020
 date: 2021-01-02
-draft: published
 categories:
   - bilan
   - blog

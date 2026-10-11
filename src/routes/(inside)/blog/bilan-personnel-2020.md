@@ -7,8 +7,6 @@ date: 2021-01-03
 categories:
   - bilan
   - blog
-draft: published
-type: default
 ---
 
 Je n'ai pas grand chose à dire sur cette année. Je pourrais copier/coller ce que j'ai dit l'année dernière, et ce serait à peu de choses près le même constat sur tous les plans. Le confinement ne m'a pas particulièrement affecté; pire, il a exacerbé le fait que j'étais toujours au point mort créatif et professionnel, et les mois ont défilé sans que je puisse rationaliser leur passage. Où sont-ils allés ? Je le sais, vaguement: j'ai pointé devant le code, semaine après semaine, j'ai avalé des centaines d'heures d'apprentissage, d'itération et de réitérations de design, j'ai fait et défait des dizaines de _mockups_ et d'habillages; j'ai ouvert et fermé et ouvert et fermé tour à tour Visual Studio et LibreOffice Writer, nuit après nuit, mois après mois. Et rien n'est sorti. Ou plutôt - rien n'est _dehors_. _Là-bas. Ici._ Quelque part. Rien à montrer, rien pour prouver. Parce qu'il faut prouver. Se prouver à soi-même qu'on est capable. Prouver aux autres qu'on est embauchable. Rien à lire, rien à _donner à lire_. Parce qu'il faut partager. Parce qu'aucune discussion ne démarre et ne se termine en esprit seulement. Aucune qui implique plus que moi-même, en tout cas.

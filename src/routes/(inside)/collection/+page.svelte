@@ -10,75 +10,99 @@
   import Form from "$lib/components/Form.svelte"
   import full_image from "$lib/assets/homepage/full_image.webp"
 
-  export let data
-  export let form
+  let { data, form } = $props()
 
-  $: ({ collection, categories, session, types, gamePlatforms, tags, supabase } = data)
-  $: filteredCollection = noNotesChecked === true ? filterDataNoNotes(noNotesChecked) : filteredData(searchInput, selectedCategories, selectedPlatforms, selectedGamePlatforms, selectedTags, hasNotes, collection, hasTexts)
-  $: filteredPlatforms = selectedCategories.length ? supabaseFilter(supabase, selectedCategories).then((data) => filteredPlatforms = data.array) : []
+  let collection = $derived(data.collection)
+  let categories = $derived(data.categories)
+  let session = $derived(data.session)
+  let types = $derived(data.types)
+  let gamePlatforms = $derived(data.gamePlatforms)
+  let tags = $derived(data.tags)
+  let supabase = $derived(data.supabase)
 
-  //whenever these variables change, we update the filteredCollection
-  $: searchInput = ""
-  $: selectedCategories = []
-  $: selectedPlatforms = []
-  $: selectedGamePlatforms = []
-  $: selectedTags = []
-  $: hasNotes = false
-  $: noNotesChecked = false
-  $: hasTexts = false
-  $: isApproved = false
-  $: isRejected = false
+  // filter inputs, bound to the CollectionFilter / Slider components
+  let searchInput = $state("")
+  let selectedCategories = $state([])
+  let selectedPlatforms = $state([])
+  let selectedGamePlatforms = $state([])
+  let selectedTags = $state([])
+  let hasNotes = $state(false)
+  let noNotesChecked = $state(false)
+  let hasTexts = $state(false)
+  let isApproved = $state(false)
+  let isRejected = $state(false)
 
-  // controls the page and items-per-page components
-  let currentPage = 1
-  let pageSize = 12
-  $: paginatedItems = paginate({ items: filteredCollection, pageSize, currentPage })
+  // reset to first page whenever any filter input changes
+  $effect(() => {
+    [searchInput, selectedCategories, selectedPlatforms, selectedGamePlatforms,
+     selectedTags, hasNotes, noNotesChecked, hasTexts, isApproved, isRejected]
+    currentPage = 1
+  })
 
-  $: supabaseFilter = async (supabase, categories) => {
-    let { data, error } = await supabase
-    .from("platforms")
-    .select("*")
-    .overlaps("type", categories)
+  const filteredData = ( search, categories, platforms, gamePlatforms, tags, notesChecked, collection, textsChecked ) =>
+    collection.filter((item) =>
+      (search.length ? item.name.toLowerCase().includes(search.toLowerCase()) : true)
+      && (categories.length ? categories.includes(item.item_type) : true)
+      && (platforms.length ? platforms.includes(item.platform) : true)
+      && (gamePlatforms.length ? gamePlatforms.includes(item.game_platform) : true)
+      && (tags.length ? tags.every((tag) => item.tags?.includes(tag)) : true)
+      && (notesChecked === true ? item.notes !== null && item.notes !== "" : true)
+      && (textsChecked === true ? item.has_text === true : true)
+      && (isApproved === true ? item.is_approved === true : true)
+      && (isRejected === true ? item.is_approved === false : true)
+    )
+
+  // SELF: I can check items without notes directly on the frontend part.
+  // Not implementing the deep filters as it would be too lengthy for such a small usage.
+  const filterDataNoNotes = ( checked ) =>
+    checked
+      ? collection.filter((item) => item.notes === null || item.notes === "")
+      : collection
+
+  let filteredCollection = $derived(
+    noNotesChecked
+      ? filterDataNoNotes(noNotesChecked)
+      : filteredData(
+          searchInput, selectedCategories, selectedPlatforms,
+          selectedGamePlatforms, selectedTags, hasNotes,
+          collection, hasTexts
+        )
+  )
+
+  let filteredPlatforms = $state([])
+
+  const supabaseFilter = async (supabase, categories) => {
+    const { data, error } = await supabase
+      .from("platforms")
+      .select("*")
+      .overlaps("type", categories)
     if (error) {
       console.error("erreur", error)
     }
-    let array = []
-    data.forEach(element => {
-      array.push(element)
-      return array
-    })
-    return { array }
+    return { array: data ?? [] }
   }
 
-  $: filteredData = (search, categories, platforms, gamePlatforms, tags, notesChecked, collection, textsChecked) => collection.filter(item => {
-      if ( search.length || categories.length ||platforms.length || gamePlatforms.length || tags.length || notesChecked === true || textsChecked === true || isApproved === true || isRejected === true) {
-        currentPage = 1
-        return (search.length ? item.name.toLowerCase().includes( search.toLowerCase()) : true)
-          && (categories.length ? categories.includes(item.item_type) : true)
-          && (platforms.length ? platforms.includes(item.platform) : true)
-          && (gamePlatforms.length ? gamePlatforms.includes(item.game_platform) : true)
-          && (tags.length ? tags.every(tag => item.tags?.includes(tag)) : true)
-          && (notesChecked === true ? item.notes !== (null || "") : true)
-          && (textsChecked === true ? item.has_text === (true) : true)
-          && (isApproved === true ? item.is_approved === (true) : true)
-          && (isRejected === true ? item.is_approved === (false) : true)
-      } else {
-        return collection
-      }
-    })
-
-  // SELF: I can check items without notes directly on the frontend part. Not implementing the deep filters as it would be too lenghty for such a small usage.
-  $: filterDataNoNotes = (checked) => collection.filter(item => {
-    if (checked === true) {
-      currentPage = 1
-      return (checked === true ? item.notes === (null || ""): true)
+  $effect(() => {
+    if (!selectedCategories.length) {
+      filteredPlatforms = []
+      return
     }
+    supabaseFilter(supabase, selectedCategories).then((res) => {
+      filteredPlatforms = res.array
+    })
   })
 
+  // pagination state and derived page slice
+  let currentPage = $state(1)
+  let pageSize = $state(12)
+  let paginatedItems = $derived(
+    paginate({ items: filteredCollection, pageSize, currentPage })
+  )
+
   const randomCollectionItem = () => {
-    const annotedItems = collection.filter(item => item.notes !== "")
-    const maxNumber = Math.max(annotedItems.length)
-    const randomNumber = Math.floor(Math.random() * maxNumber) + 1
+    const annotedItems = collection.filter((item) => item.notes !== null && item.notes !== "")
+    if (!annotedItems.length) return
+    const randomNumber = Math.floor(Math.random() * annotedItems.length)
     const selectedAnnotatedItem = annotedItems[randomNumber]
     goto(`/collection/${selectedAnnotatedItem.slug}`)
   }
@@ -103,7 +127,7 @@
     Sur cette page il y a donc tout ce que j'ai pu lire, voir, jouer au fil de mes pérégrinations culturelles. J'ai fait appel à ma mémoire et à tous les supports accumulés au fil des ans pour reconstituer une collection qui se veut la plus complète possible. Continuellement changeante, assidûment ajustée, ponctuellement paraphée, la collection est le reflet d'une vie passée devant les pages, devant les écrans, seul ou bien accompagné. Il n'est de culture que ce qui se partage.
   </p>
 
-  <button on:click={randomCollectionItem}>Une œuvre commentée au hasard !</button>
+  <button onclick={randomCollectionItem}>Une œuvre commentée au hasard !</button>
   {#if session}
   <div class="collapsible">
 
@@ -187,11 +211,11 @@
 {/key}
 
 <LightPaginationNav
-totalItems="{ filteredCollection.length }"
-pageSize="{ pageSize }"
-currentPage="{ currentPage }"
-limit="{ 1 }"
-showStepOptions="{ true }"
+totalItems={ filteredCollection.length }
+pageSize={ pageSize }
+currentPage={ currentPage }
+limit={ 1 }
+showStepOptions={ true }
 on:setPage="{(e) => {
   currentPage = e.detail.page
   }}"

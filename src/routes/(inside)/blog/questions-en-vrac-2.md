@@ -7,7 +7,6 @@ date: 2026-02-07
 categories:
 - blog
 - questions
-draft: published
 ---
 
 Comme tout être humain deleuzien, je suis une machine à produire des questions, et lorsqu'il y a beaucoup de questions, suffisamment de questions, je les rassemble ici avec les réponses que j'ai pu trouver. Jusqu'à ce qu'un nouveau jour amène son lot, et la machine de repartir pour un tour. Ces billets, ce sont les questions en vrac, et en voici une nouvelle fournée.
