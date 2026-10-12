@@ -7,9 +7,10 @@
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import full_image from "$lib/assets/homepage/full_image.webp"
 
-  let { data } = $props()
+  let { data, form } = $props()
   let { liste, session, supabase } = $derived(data)
-  let temporaryList = $derived(liste)
+  //it's fine for my usecase, no need to recapture, ignore the warning
+  let temporaryList = $state($state.snapshot(liste))
   let itemsToSort = $state([])
   let itemType = $state("")
   let itemTag = $state("")
@@ -103,7 +104,34 @@
         .insert(update)
     }
 
-    alert('Tier list saved successfully!');
+    alert('Tier list saved successfully!')
+  }
+
+  //from the onUpdateTier $props from Tier.svelte
+  const updateTier = async (tierId, newTierData) => {
+    const { error } = await supabase
+      .from("tiers")
+      .update({
+        name: newTierData.name,
+        color: newTierData.color,
+        order: newTierData.order,
+      })
+      .eq("id", tierId)
+    if (error) {
+      console.error("erreur dans l'update du tier", error)
+      return
+    }
+    // reflect changes directly without reloading, through $state.snapshot
+    const tier = temporaryList.tiers.find((t) => t.id === tierId)
+    if (tier) {
+      tier.name = newTierData.name
+      tier.color = newTierData.color
+      tier.order = newTierData.order
+    }
+    // reflect order change if any
+    if (newTierData.order !== undefined) {
+      temporaryList.tiers = [...temporaryList.tiers].sort((a, b) => a.order - b.order)
+    }
   }
 </script>
 
@@ -127,15 +155,21 @@
     {#key temporaryList}
     {#each temporaryList.tiers as tier (tier.id) }
       <!-- svelte-dnd needs items to be isolated so I use a component to hold them -->
-      <Tier {tier} items={tier.tier_items} --color={tier.color} isTierlist={temporaryList.is_tierlist} onUpdateItems={(newItems) => updateTierItems(tier.id, newItems)}/>
+      <Tier
+        {tier}
+        items={tier.tier_items}
+        --color={tier.color}
+        isTierlist={temporaryList.is_tierlist}
+        onUpdateItems={(newItems) => updateTierItems(tier.id, newItems)}
+        onUpdateTier={updateTier}/>
     {/each}
     {/key}
   </section>
 
   {#if session}
   <button onclick={saveTierList}>Save Tier List</button>
-  <div>
 
+  <div>
     <form method="GET" onsubmit={fetchItems} id="fetchItemsforTriage">
       <p>Items to sort</p>
       <div>
@@ -187,14 +221,33 @@
 
   </div>
 
-  <form action="?/insertNewTier" method="POST" use:enhance>
+  <form
+    action="?/insertNewTier"
+    method="POST"
+    use:enhance={() => {
+      return async ({ update }) => {
+        await update()
+        temporaryList = $state.snapshot(liste)
+      }
+    }}>
+
     <input type="text" name="tier_to_add" placeholder="ajouter un label">
     <input type="color" name="color_for_new_tier">
     <input type="number" name="tier_order">
     <input type="hidden" name="tierlist" value={liste.id}>
     <button type="submit">Ajouter le tier</button>
     <button formaction="?/insertDefaultTiers">Ajouter les tiers par défaut</button>
+
   </form>
+
+  {#if form?.error}
+  <p>Erreur : {form.error}</p>
+  {/if}
+
+  {#if form?.newTier}
+  <p>Tier « {form.newTier.name} » créé !</p>
+  {/if}
+
   {/if}
 </div>
 
