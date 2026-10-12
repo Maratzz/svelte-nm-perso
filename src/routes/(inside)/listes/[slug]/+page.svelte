@@ -157,6 +157,7 @@
       <!-- svelte-dnd needs items to be isolated so I use a component to hold them -->
       <Tier
         {tier}
+        {session}
         items={tier.tier_items}
         --color={tier.color}
         isTierlist={temporaryList.is_tierlist}

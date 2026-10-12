@@ -2,7 +2,7 @@
   import { flip } from "svelte/animate"
   import { dndzone } from "svelte-dnd-action"
 
-  let { tier, items, onUpdateItems, isTierlist, onUpdateTier } = $props()
+  let { tier, items, onUpdateItems, isTierlist, onUpdateTier, session } = $props()
 
   const flipDurationMs = 300
 
@@ -55,7 +55,7 @@
     </div>
   {/if}
 
-  {#if isEditing}
+  {#if (session && isEditing)}
   <form class="tier-edit" onsubmit={(e) => { e.preventDefault(); saveEdit() }}>
     <label>
       Nom
@@ -73,6 +73,7 @@
     <button type="button" onclick={cancelEdit}>Annuler</button>
   </form>
   {/if}
+
   <div
     id={tier.id}
     class="tier-content"
