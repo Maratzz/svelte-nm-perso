@@ -1,0 +1,11 @@
+media: static/blog
+content:
+- name: blog
+  label: Blog
+  type: collection
+  path: src/routes/(inside)/blog
+  fields:
+  - name: title
+    type: string
+  - name: body
+    type: rich-text
