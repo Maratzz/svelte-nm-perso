@@ -25,9 +25,12 @@ content:
     type: collection
     path: src/routes/(inside)/blog
     format: yaml-frontmatter
-    delimiters: "---"
     fields:
     - name: title
+      type: string
+    - name: slug
+      type: string
+    - name: headline
       type: string
     - name: body
       type: rich-text
