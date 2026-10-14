@@ -1,20 +1,20 @@
 media:
   - name: Images pour le blog
     input: static/blog
-    output: static/blog
+    output: /static/blog
     commit:
       templates:
         create: "media: ajout de {filename}"
-        rename: "media: renommage de {filename}"
+        rename: "media: renommage de {oldFilename} -> {newFilename}"
         update: "media: update de {filename}"
         delete: "media: suppression de {filename}"
   - name: Images pour les textes
     input: static/textes
-    output: static/textes
+    output: /static/textes
     commit:
       templates:
         create: "media: ajout de {filename}"
-        rename: "media: renommage de {filename}"
+        rename: "media: renommage de {oldFilename} -> {newFilename}"
         update: "media: update de {filename}"
         delete: "media: suppression de {filename}"
 content:
