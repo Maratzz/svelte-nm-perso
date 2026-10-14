@@ -1,5 +1,6 @@
 media:
-  - name: Images pour le blog
+  - name: blog
+    label: Blog
     input: static/blog
     output: /static/blog
     commit:
@@ -8,7 +9,8 @@ media:
         rename: "media: renommage de {oldFilename} -> {newFilename}"
         update: "media: update de {filename}"
         delete: "media: suppression de {filename}"
-  - name: Images pour les textes
+  - name: textes
+    label: Textes
     input: static/textes
     output: /static/textes
     commit:
