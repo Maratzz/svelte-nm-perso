@@ -1,4 +1,22 @@
-media: static/blog
+media:
+- name: Images pour le blog
+  input: static/blog
+  output: static/blog
+  commit:
+    templates:
+      create: "media: ajout de {filename}"
+      rename: "media: renommage de {filename}"
+      update: "media: update de {filename}"
+      delete: "media: suppression de {filename}"
+- name: Images pour les textes
+  input: static/textes
+  output: static/textes
+  commit:
+    templates:
+      create: "media: ajout de {filename}"
+      rename: "media: renommage de {filename}"
+      update: "media: update de {filename}"
+      delete: "media: suppression de {filename}"
 content:
 - name: blog
   label: Blog
