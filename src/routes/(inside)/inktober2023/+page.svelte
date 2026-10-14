@@ -28,8 +28,8 @@
 </script>
 
 <HeadSEO 
-  title="Nico Moisson | Inktober 2023 textes 14 à 20"
-  description="Quelques extraits d'un recueil de textes en cours de production'"
+  title="Nico Moisson | Inktober 2023"
+  description="Un recueil de textes en cours de production'"
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
   imageURL={full_image}
