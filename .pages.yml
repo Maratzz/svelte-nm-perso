@@ -24,6 +24,7 @@ content:
     label: Blog
     type: collection
     path: src/routes/(inside)/blog
+    format: yaml-frontmatter
     delimiters: "---"
     fields:
     - name: title
