@@ -32,5 +32,21 @@ content:
       type: string
     - name: headline
       type: string
+    - name: date
+      type: date
+    - name: categories
+      type: select
+      options:
+        values:
+          - name: blog
+            label: blog
+          - name: bilan
+            label: bilan
+          - name: sveltekit
+            label: sveltekit
+          - name: sorties
+            label: sorties
+          - name: à chaud
+            label: à chaud
     - name: body
       type: rich-text
