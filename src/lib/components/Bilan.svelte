@@ -20,7 +20,7 @@
       .order("date_finished", { ascending: true })
 
     const uniqueItemMap = new Map()
-    items = data
+    items = (data ?? [])
       .map((item) => ({
         id: item.oeuvre_id.id,
         name: item.oeuvre_id.name,
