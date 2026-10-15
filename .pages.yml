@@ -37,16 +37,7 @@ content:
     - name: categories
       type: select
       options:
-        values:
-          - name: blog
-            label: blog
-          - name: bilan
-            label: bilan
-          - name: sveltekit
-            label: sveltekit
-          - name: sorties
-            label: sorties
-          - name: à chaud
-            label: à chaud
+        multiple: true
+        values: [blog, bilan, sveltekit, sorties, à chaud, questions]
     - name: body
       type: rich-text
