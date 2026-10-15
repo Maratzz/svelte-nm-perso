@@ -41,3 +41,6 @@ content:
         values: [blog, bilan, sveltekit, sorties, à chaud, questions]
     - name: body
       type: rich-text
+      options:
+        format: markdown
+        switcher: true
