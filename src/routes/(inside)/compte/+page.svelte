@@ -4,12 +4,12 @@
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import full_image from "$lib/assets/homepage/full_image.webp"
 
-  export let data;
-	export let form;
+  export let data
+	export let form
 
 	let { session, profile } = data
-  let profileForm;
-	let loading = false;
+  let profileForm
+	let loading = false
 	let fullName = profile?.full_name ?? ""
 	let username = profile?.username ?? ""
 	let website = profile?.website ?? ""

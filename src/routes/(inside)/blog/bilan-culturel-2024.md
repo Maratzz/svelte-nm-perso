@@ -27,6 +27,8 @@ categories:
 
 :::Bilan year="2024" type="série"
 
+:::Bilan year="2024" type="série d'animation"
+
 :::Bilan year="2024" type="anime"
 
 ## Albums

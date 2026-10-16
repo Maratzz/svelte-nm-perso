@@ -15,9 +15,12 @@
         date_started, date_finished
         )`
       )
-      .gte("date_finished", `${year}-01-01`)
+      // we also want things that haven't been completed this year
+      // as long as it started during the year it is valid
+      // so no filtering via date_finished which could be NULL, thus excluding the item
+      .gte("date_started", `${year}-01-01`)
       .lte("date_started", `${year}-12-31`)
-      .order("date_finished", { ascending: true })
+      .order("date_started", { ascending: true })
 
     const uniqueItemMap = new Map()
     items = (data ?? [])
@@ -58,7 +61,8 @@
       <a href="/collection/{item.slug}"><img src={item.cover} alt="Illustration pour l'oeuvre {item.name}" class="image"></a>
       <div>
         <h2>{item.name} ({item.date_released.slice(0,4)})</h2>
-        <p>par {item.author}</p>
+        <p>par {#each item.author as author, index}{#if index == item.author.length - 1 && item.author.length !== 1}{' et '}{/if}{author}{#if index < item.author.length - 2}{', '}{/if}
+          {/each}</p>
       </div>
     </div>
     {#if item.notes}

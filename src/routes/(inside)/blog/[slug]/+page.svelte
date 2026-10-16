@@ -2,14 +2,13 @@
   import HeadSEO from "$lib/components/HeadSEO.svelte"
   import { formatDate } from "$lib/utils/index.js"
 
-  export let data;
-
-  let { date, title, content, headline, categories, image, items } = data
+  let { data } = $props()
+  let { date, title, headline, categories, image, PostContent } = $derived(data)
 </script>
 
 <HeadSEO 
   title="Nico Moisson | {title}"
-  description="{headline}"
+  description={headline}
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
   imageURL="/{image}"
@@ -20,8 +19,8 @@
 <article>
   <h1>{title}</h1>
   <p>Publié le {formatDate( date )} dans {categories.length === 1 ? "la catégorie" : "les catégories"}{#each categories as category}<span class="category">{category}</span>{/each}</p>
-  <svelte:component this={content} />
-  <svelte:component this={items} />
+
+  <PostContent/>
 </article>
 
 

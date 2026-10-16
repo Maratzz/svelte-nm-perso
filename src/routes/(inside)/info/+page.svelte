@@ -35,7 +35,7 @@
   
   <h2>Toujours là ? Okay.</h2>
 
-  <p>Mes inspirations littéraires sont Duras, Genette, Barthes, Deleuze. Parmi mes oeuvres vidéoludiques préférées on trouve <i>Superbrothers: Sword and Sworcery EP</i>, <i>Demon's Souls (celui de 2009)</i>, <i>Alundra</i>, <i>Super Hexagon</i>, <i>Slave of God</i>.</p>
+  <p>Mes inspirations littéraires sont Marguerite Duras, Gérard Genette, Roland Barthes, Gilles Deleuze, Patrick Bouvet. Parmi mes oeuvres vidéoludiques préférées on trouve <i>Superbrothers: Sword and Sworcery EP</i>, <i>Demon's Souls (celui de 2009)</i>, <i>Alundra</i>, <i>Super Hexagon</i>, <i>Slave of God</i>.</p>
 </div>
 
 <style lang="scss">

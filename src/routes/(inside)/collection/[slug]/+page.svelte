@@ -29,7 +29,7 @@
   description="Fiche de {item.name}"
   author="Nico 'Maratz' Moisson"
   siteName="Site personnel de Nico Moisson"
-  imageURL="{item.cover}"
+  imageURL={item.cover}
 />
 
 <div>
@@ -46,7 +46,7 @@
         {#if item.item_type === "BD" || item.item_type === "série" || item.item_type === "série d'animation"}
           Une{:else}Un{/if} {item.item_type} de
           {#each item.author as author, index}
-            <a href={resolve(`/collection/artiste/${slugify(author)}`)} onclick={() => localStorage.setItem("authorName", author)}>{author}</a>{#if index < item.author.length - 1}{', '}{/if}
+            {#if index == item.author.length - 1 && item.author.length !== 1}{' et '}{/if}<a href={resolve(`/collection/artiste/${slugify(author)}`)} onclick={() => localStorage.setItem("authorName", author)}>{author}</a>{#if index < item.author.length - 2}{', '}{/if}
           {/each},
         {#if item.item_type === "BD" || item.item_type === "série" || item.item_type === "série d'animation"}
           sortie{:else}sorti{/if} le {formatDate( item.date_released )}

@@ -32,7 +32,7 @@ export function remarkSvelteEmbed(options = {}) {
 
       //weird bug where my double quotes were actually curly double quotes...? messing with the string passed as props for the Bilan component
 			const props = [...rawProps.matchAll(
-				/([\w-]+)\s*=\s*(\{[^}]*\}|["'“‘][^"'“”‘’]*["'”’]|[^\s]+)/g
+				/([\w-]+)\s*=\s*(\{[^}]*\}|"[^"]*"|'[^']*'|“[^”]*”|‘[^’]*’|[^\s]+)/g
 			)]
 				.map(([, key, val]) => {
 					if (val.startsWith('{')) {
@@ -41,11 +41,11 @@ export function remarkSvelteEmbed(options = {}) {
 					// Strip wrapping quotes (straight or curly) and normalize
 					// any curly quotes left inside the value.
 					const inner = val
-						.replace(/^[\"'\u201C\u2018]/, '')
-						.replace(/[\"'\u201D\u2019]$/, '')
-						.replace(/[\u201C\u201D]/g, '"')
-						.replace(/[\u2018\u2019]/g, "'")
-						.trim();
+						.replace(/^["'“‘]/, '')
+						.replace(/["'”’]$/, '')
+						.replace(/[“”]/g, '"')
+						.replace(/[‘’]/g, "'")
+						.trim()
 					return `${key}="${inner}"`
 				})
 				.join(' ')
