@@ -7,7 +7,6 @@ categories:
   - textes
   - critique
   - jv
-draft: published
 mentions:
   - "Astro Bot"
 ---

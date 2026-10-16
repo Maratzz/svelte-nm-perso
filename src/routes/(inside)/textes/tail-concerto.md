@@ -6,7 +6,6 @@ categories:
   - textes
   - critique
   - jv
-draft: published
 slug: tail-concerto
 mentions:
   - "Tail Concerto"

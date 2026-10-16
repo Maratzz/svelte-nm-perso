@@ -7,7 +7,6 @@ categories:
   - critique
   - cinéma
 image: textes/seventh_son.jpg
-draft: published
 slug: le-septieme-fils
 mentions:
   - "Le Septième Fils"

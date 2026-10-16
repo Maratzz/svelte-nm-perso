@@ -7,7 +7,6 @@ categories:
   - critique
   - jv
 image: textes/mussel.jpg
-draft: published
 slug: mussel
 mentions:
   - "Mussel"

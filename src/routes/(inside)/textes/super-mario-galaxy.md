@@ -6,7 +6,6 @@ categories:
   - textes
   - critique
   - jv
-draft: published
 mentions:
   - "Super Mario Galaxy"
   - "L'Étrange Histoire de Benjamin Button"

@@ -7,7 +7,6 @@ categories:
   - critique
   - cinéma
 image: textes/alien_covenant.jpg
-draft: published
 slug: alien-covenant
 mentions:
   - "Alien Covenant"

@@ -6,7 +6,6 @@ categories:
   - textes
   - critique
   - jv
-draft: published
 mentions:
   - "Probability 0"
 ---

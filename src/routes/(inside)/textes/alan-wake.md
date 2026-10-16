@@ -6,7 +6,6 @@ categories:
   - textes
   - critique
   - jv
-draft: published
 mentions:
   - "Alan Wake"
   - "Year Walk"

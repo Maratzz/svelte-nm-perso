@@ -6,7 +6,6 @@ categories:
   - textes
   - critique
   - jv
-draft: published
 image: textes/papo-y-yo.jpg
 mentions:
   - "Papo & Yo"

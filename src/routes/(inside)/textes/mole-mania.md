@@ -6,7 +6,6 @@ categories:
   - textes
   - critique
   - jv
-draft: published
 mentions:
   - "Mole Mania"
   - "Goof Troop"

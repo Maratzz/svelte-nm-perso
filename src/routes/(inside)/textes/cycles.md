@@ -6,7 +6,6 @@ categories:
   - textes
   - fiction
 image: textes/cycles.webp
-draft: published
 slug: cycle(s)
 ---
 

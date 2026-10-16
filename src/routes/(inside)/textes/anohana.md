@@ -7,7 +7,6 @@ categories:
   - critique
   - anime
 image: textes/anohana.jpg
-draft: published
 slug: anohana
 mentions:
   - "Anohana: The Flower We Saw That Day"
