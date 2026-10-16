@@ -3,6 +3,7 @@
   import full_image from "$lib/assets/homepage/full_image.webp"
   import { formatDate } from "$lib/utils"
 
+  //TODO: update to svelte 5 syntax
   export let data
 
   let { patchNotes } = data

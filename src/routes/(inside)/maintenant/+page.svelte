@@ -6,6 +6,7 @@
   import { formatDate } from "$lib/utils/index.js"
   import { url } from "$lib/config.js"
 
+  //TODO: update to svelte 5 syntax
   export let data
 
   let { maintenant, collection, text, session } = data

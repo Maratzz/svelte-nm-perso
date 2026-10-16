@@ -7,6 +7,7 @@
 
   export let data
   let { collection, status } = data
+  //TODO: update to selte 5 syntax
   //TODO: maybe I can improve the data loading by filtering in page.js the collection for current year instead of doing it in the component
 
   let currentDate = new Date(Date.now())

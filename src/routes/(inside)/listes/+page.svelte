@@ -11,6 +11,7 @@
   import CollectionFilter from "$lib/components/CollectionFilter.svelte"
   import FormDatalist from "$lib/components/FormDatalist.svelte"
 
+  //TODO: update to svelte 5 syntax
   export let data
 
   $: ({ listes, listesThemes, itemTypes, session } = data)

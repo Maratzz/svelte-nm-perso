@@ -4,6 +4,7 @@
   import full_image from "$lib/assets/homepage/full_image.webp"
   import { formatDate } from "$lib/utils/index.js"
 
+  //TODO: update to svelte 5 syntax + do the same thing than /blog/[slug] using PostContent component black magic
   export let data
 
   let  { date, title, content, headline, categories, image } = data
