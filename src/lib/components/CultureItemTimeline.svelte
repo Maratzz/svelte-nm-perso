@@ -14,6 +14,9 @@
   {:else if period.status === "currently playing"}
     🔁 en cours depuis le {formatDate(period.date_started)}
 
+  {:else if period.status === "paused"}
+    ⏸️ en pause depuis {period.date_started ? `le ${formatDate(period.date_started)}` : "un certain temps"}
+
   {:else if period.status === "finished"}
     ✅
     {#if item.item_type === "film"}Vu
