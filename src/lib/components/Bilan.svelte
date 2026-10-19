@@ -12,14 +12,15 @@
       .from("collection_dates")
       .select(`
         oeuvre_id:collection(id, name, cover, notes, slug, is_approved, item_type, date_released, author),
-        date_started, date_finished
+        date_started, date_finished,status
         )`
       )
-      // we also want things that haven't been completed this year
-      // as long as it started during the year it is valid
-      // so no filtering via date_finished which could be NULL, thus excluding the item
-      .gte("date_started", `${year}-01-01`)
-      .lte("date_started", `${year}-12-31`)
+      //this targets both things started during the year but unfinished (paused, ongoing)
+      // and things finished during the year but started before
+      .or(
+        `and(date_finished.gte.${year}-01-01,date_finished.lte.${year}-12-31),` +
+        `and(date_started.gte.${year}-01-01,date_started.lte.${year}-12-31)`
+      )
       .order("date_started", { ascending: true })
 
     const uniqueItemMap = new Map()

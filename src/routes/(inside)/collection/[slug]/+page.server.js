@@ -8,6 +8,7 @@ export const actions = {
 
     let itemSlug = params.slug
     let form = await request.formData()
+    let updatedName = form.get( "item_name" )
     let updatedDateAcquired = form.get( "item_date_acquired" )
     let updatedNotes = form.get( "item_notes" )
     let updatedTags = form.get( "item_tags" )
@@ -43,6 +44,7 @@ export const actions = {
         .from("collection")
         .update([
           {
+            name: updatedName,
             date_acquired: updatedDateAcquired,
             notes: updatedNotes,
             date_updated: ISOdateNow,
