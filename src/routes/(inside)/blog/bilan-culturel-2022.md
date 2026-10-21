@@ -5,6 +5,7 @@ headline: Je n'ai pas fait la moitié des objectifs à moitié autant que je le
   voudrais, et j'aime moins de la moitié du reste à moitié autant que ça le
   mérite.
 date: 2023-01-04
+image: blog/toussaint.webp
 categories:
   - bilan
   - blog
