@@ -16,7 +16,10 @@
     .slice(0, 4)
 
   let collectionLastFinished = collection
-    .filter( (item) => (item.status === "finished" || item.status === "flushed") && (item.date_finished >= "1970-01-01") )
+    .filter( (item) =>
+      (item.status === "finished" || item.status === "flushed") &&
+      (item.date_finished >= "1970-01-01") &&
+      (item.date_started >= "1970-01-01"))
     .slice(0, 4)
 
   onMount(() => {

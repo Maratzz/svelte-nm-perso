@@ -8,8 +8,8 @@ export async function load({ fetch, parent }) {
       date_started, date_finished, status
       )`
     )
-    .order("date_finished", { ascending: false })
-  
+    .order("date_started", { ascending: false })
+
   let collection = collection_dates
     .map((item) => ({
       id: item.oeuvre_id.id,
@@ -17,7 +17,8 @@ export async function load({ fetch, parent }) {
       cover: item.oeuvre_id.cover,
       slug: item.oeuvre_id.slug,
       status: item.status,
-      date_finished: item.date_finished
+      date_finished: item.date_finished,
+      date_started: item.date_started
     }))
 
   let { data: maintenant } = await supabase
